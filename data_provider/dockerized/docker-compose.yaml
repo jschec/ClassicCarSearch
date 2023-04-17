@@ -1,0 +1,7 @@
+version: '3'
+
+services:
+  autotempest:
+    build: ./Dockerfile.autotempest
+  # mongodb:
+  #   image: .

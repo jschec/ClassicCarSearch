@@ -1,0 +1,11 @@
+name: ccs-data-provider
+
+channels:
+  - defaults
+  - conda-forge
+
+dependencies:
+  - python=3.9
+  - black
+  - isort
+

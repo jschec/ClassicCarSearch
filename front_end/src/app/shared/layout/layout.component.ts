@@ -1,4 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef, OnDestroy, AfterViewInit } from '@angular/core';
+import { MediaMatcher } from '@angular/cdk/layout';
+import { timer } from 'rxjs';
+import { Subscription } from 'rxjs';
+
+import { AuthService } from 'src/app/core/services/auth.service';
+//import { SpinnerService } from '../../core/services/spinner.service';
+import { AuthGuard } from 'src/app/core/guards/auth.guard';
 
 @Component({
   selector: 'app-layout',
@@ -17,8 +24,8 @@ export class LayoutComponent {
 
   constructor(private changeDetectorRef: ChangeDetectorRef,
       private media: MediaMatcher,
-      public spinnerService: SpinnerService,
-      private authService: AuthenticationService,
+      //public spinnerService: SpinnerService,
+      private authService: AuthService,
       private authGuard: AuthGuard) {
 
       this.mobileQuery = this.media.matchMedia('(max-width: 1000px)');
@@ -36,7 +43,7 @@ export class LayoutComponent {
     // Auto log-out subscription
     const timer$ = timer(2000, 5000);
     this.autoLogoutSubscription = timer$.subscribe(() => {
-        this.authGuard.canActivate();
+      this.authGuard.canActivate();
     });
   }
 

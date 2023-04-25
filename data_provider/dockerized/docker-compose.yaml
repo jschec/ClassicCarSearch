@@ -2,6 +2,28 @@ version: '3'
 
 services:
   autotempest:
-    build: ./Dockerfile.autotempest
-  # mongodb:
-  #   image: .
+    build:
+      context: ../autotempest
+      dockerfile: ../dockerized/Dockerfile.autotempest
+    environment:
+      MONGO_HOST: mongo.pokehome.com
+      MONGO_PORT: 27017
+      MONGO_USER: su5240
+      MONGO_PASS: p9xijd$$fYfde132f
+    # volumes:
+    #   - nfs-data:/appdata
+      # - ../autotempest:/app
+  # filemgr:
+  #   image: filebrowser/filebrowser
+  #   volumes:
+  #     - nfs-data:/srv
+  #   ports:
+  #     - "3000:80"
+
+# volumes:
+#   nfs-data:
+#     driver: local
+#     driver_opts:
+#       type: nfs
+#       o: addr=su5240-nfs.pokehome.com,rw,nfsvers=4
+#       device: ":/"

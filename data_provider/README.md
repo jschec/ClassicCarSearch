@@ -1,16 +1,28 @@
 # Data provider
 
-- autotempest
+## Pre-requirements
 
-## How to setup
+make tools, docker, docker-compose
 
-```shell
-conda env create -f environment.yaml
-conda activate ccs-data-provider
-```
+
 
 ## Run
 
 ```shell
-make autotempest
+make up
 ```
+
+
+
+![image-20230424180422717](docs/image-20230424180422717.png)
+
+The program will query and store 9 pages (1 page 50 records) of information in MongoDB.
+
+
+
+## Cleanup
+
+```shell
+make down
+```
+

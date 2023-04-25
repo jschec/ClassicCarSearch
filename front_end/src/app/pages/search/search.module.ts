@@ -5,11 +5,13 @@ import { SearchRoutingModule } from './search-routing.module';
 import { SearchComponent } from './search/search.component';
 import { DetailComponent } from './detail/detail.component';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { MarketDataComponent } from './market-data/market-data.component';
 
 @NgModule({
   declarations: [
     SearchComponent,
-    DetailComponent
+    DetailComponent,
+    MarketDataComponent
   ],
   imports: [
     CommonModule,

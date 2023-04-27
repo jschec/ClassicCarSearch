@@ -1,19 +1,26 @@
-FROM node:16
+# development stage
+FROM node:14-alpine as base
 
-# Create app directory
 WORKDIR /usr/src/app
 
-# Install app dependencies
-# A wildcard is used to ensure both package.json AND package-lock.json are copied
-# where available (npm@5+)
-COPY package*.json ./
+COPY package.json yarn.lock tsconfig.json ecosystem.config.json ./
 
-RUN npm install
-# If you are building your code for production
-# RUN npm ci --omit=dev
+COPY ./src ./src
 
-# Bundle app source
-COPY . .
+RUN ls -a
 
-EXPOSE 8080
-CMD [ "node", "server.js" ]
+RUN yarn install --pure-lockfile && yarn compile
+
+# production stage
+
+FROM base as production
+
+WORKDIR /usr/prod/app
+
+ENV NODE_ENV=production
+
+COPY package.json yarn.lock ecosystem.config.json ./
+
+RUN yarn install --production --pure-lockfile
+
+COPY --from=base /usr/src/app/dist ./dist

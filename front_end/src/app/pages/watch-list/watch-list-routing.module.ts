@@ -11,7 +11,7 @@ const routes: Routes = [
     component: LayoutComponent,
     children: [
       { path: '', component: WatchListComponent },
-      { path: '/recommendation/:id', component: RecommendationComponent },
+      { path: 'recommendation/:id', component: RecommendationComponent },
     ]
   }
 ];

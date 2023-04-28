@@ -2,6 +2,12 @@
 /* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
 for details on configuring this project to bundle and minify static web assets. */
 
+html { background-color: #6d6060; }
+body {
+    min-height: 100vh;
+    margin: 0 auto;
+}
+
 .searchResult-bg {
     color: #1a0469 !important;
     background-color: #34a0df;

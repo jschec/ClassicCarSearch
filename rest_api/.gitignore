@@ -18,6 +18,8 @@ package-lock.json
 *.log
 *.gz
 
+# Env files
+*.env
 
 # Coveralls
 coverage

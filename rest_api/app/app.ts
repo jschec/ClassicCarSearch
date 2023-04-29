@@ -4,7 +4,6 @@ import cors from 'cors';
 import httpStatus from 'http-status';
 
 import routes from './routes';
-
 import ApiError from './utils/ApiError';
 import { errorConverter, errorHandler } from './utils/errors';
 

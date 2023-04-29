@@ -2,9 +2,11 @@
   "name": "rest_api",
   "version": "1.0.0",
   "description": "",
-  "main": "index.ts",
+  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "clean": "rm -rf ./build",
+    "build": "npx tsc",
+    "dev:start": "npm run clean && npm run build && node ./build/index.js"
   },
   "author": "Joshua Scheck",
   "license": "ISC",

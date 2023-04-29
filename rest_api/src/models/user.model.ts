@@ -39,12 +39,12 @@ const userSchema = new mongoose.Schema<IUserDoc, IUserModel>(
     },
     watchListId: {
       type: Number,
-      required: true,
+      required: false,
       trim: true,
     },
     subscriptionId: {
       type: Number,
-      required: true,
+      required: false,
       trim: true,
     }
   },

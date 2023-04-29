@@ -9,17 +9,17 @@ import { errorConverter, errorHandler } from './utils/errors';
 
 const app: Express = express();
 
-// set security HTTP headers
+// Set security HTTP headers
 app.use(helmet());
 
-// enable cors
+// Enable cors
 app.use(cors());
 app.options('*', cors());
 
-// parse json request body
+// Parse json request body
 app.use(express.json());
 
-// parse urlencoded request body
+// Parse urlencoded request body
 app.use(express.urlencoded({ extended: true }));
 
 // Map application API routes
@@ -30,10 +30,10 @@ app.use((_req, _res, next) => {
   next(new ApiError(httpStatus.NOT_FOUND, 'Not found'));
 });
 
-// convert error to ApiError, if needed
+// Convert error to ApiError, if needed
 app.use(errorConverter);
 
-// handle error
+// Handle errors
 app.use(errorHandler);
 
 export default app;

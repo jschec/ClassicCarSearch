@@ -1,6 +1,7 @@
 import express, { Router } from 'express';
 import listingRoutes from './listing';
 import searchRoutes from './search';
+import subscriptionRoutes from './subscription';
 import userRoutes from './user';
 import watchListRoutes from './watch-list';
 
@@ -20,6 +21,10 @@ const routeCollections: IRoute[] = [
   {
     prefix: "/searches",
     routes: searchRoutes
+  },
+  {
+    prefix: "/subscriptions",
+    routes: subscriptionRoutes
   },
   {
     prefix: "/users",

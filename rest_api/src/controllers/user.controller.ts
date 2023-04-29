@@ -2,6 +2,7 @@ import httpStatus from 'http-status';
 import { Request, Response } from 'express';
 import mongoose from 'mongoose';
 
+import { IUserDoc } from '../interfaces/user.interfaces';
 import * as userService from '../services/user.service';
 import catchAsync from '../utils/catchAsync';
 import ApiError from '../utils/ApiError';

@@ -22,11 +22,11 @@ const routeCollections: IRoute[] = [
   },
   {
     prefix: "/cars",
-    routes: carSellerRoutes
+    routes: carRoutes
   },
   {
     prefix: "/car-sellers",
-    routes: carRoutes
+    routes: carSellerRoutes
   },
   {
     prefix: "/searches",

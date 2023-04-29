@@ -1,5 +1,4 @@
 import mongoose, { Model, Document } from 'mongoose';
-import { QueryResult } from '../utils/paginate';
 
 export interface IUser {
   firstName: string;
@@ -11,9 +10,12 @@ export interface IUser {
   subscriptionId: number;
 }
 
+export type NewUserBody = Omit<IUser, 'watchListId' | 'subscriptionId'>;
+
+export type UpdateUserBody = Partial<IUser>;
+
 export interface IUserDoc extends IUser, Document {}
 
 export interface IUserModel extends Model<IUserDoc> {
   isEmailTaken(email: string, excludeUserId?: mongoose.Types.ObjectId): Promise<boolean>;
-  paginate(filter: Record<string, any>, options: Record<string, any>): Promise<QueryResult>;
 }

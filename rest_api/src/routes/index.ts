@@ -1,5 +1,7 @@
 import express, { Router } from 'express';
-import listingRoutes from './listing';
+import carListingRoutes from './car-listing';
+import carSellerRoutes from './car-seller';
+import carRoutes from './car';
 import searchRoutes from './search';
 import subscriptionRoutes from './subscription';
 import userRoutes from './user';
@@ -15,8 +17,16 @@ interface IRoute {
 // Definition of route collections
 const routeCollections: IRoute[] = [
   {
-    prefix: "/listings",
-    routes: listingRoutes
+    prefix: "/car-listings",
+    routes: carListingRoutes
+  },
+  {
+    prefix: "/cars",
+    routes: carSellerRoutes
+  },
+  {
+    prefix: "/car-sellers",
+    routes: carRoutes
   },
   {
     prefix: "/searches",

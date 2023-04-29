@@ -1,4 +1,4 @@
-import mongoose, { Model, Document } from 'mongoose';
+import { Model, Document } from 'mongoose';
 
 export type CarCondition = 'Excellent' | 'Good' | 'Fair' | 'Bad';
 

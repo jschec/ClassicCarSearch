@@ -4,8 +4,6 @@ export interface ICarSeller {
   firstName: string;
   lastName: string;
   email: string;
-  age: number;
-  carListingIds: Types.ObjectId[];
 }
 
 export type NewCarSellerBody = Omit<ICarSeller, 'carListingIds'>;;

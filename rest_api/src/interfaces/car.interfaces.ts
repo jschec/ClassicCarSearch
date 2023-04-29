@@ -18,6 +18,4 @@ export type UpdateCarBody = Partial<ICar>;
 
 export interface ICarDoc extends ICar, Document {}
 
-export interface ICarModel extends Model<ICarDoc> {
-  isEmailTaken(email: string, excludeCarId?: mongoose.Types.ObjectId): Promise<boolean>;
-}
+export interface ICarModel extends Model<ICarDoc> {}

@@ -14,16 +14,21 @@ if (error) {
   throw new Error(`Configuration validation error: ${error.message}`);
 }
 
-const config = {
+interface MongoConfig {
+  url: string;
+}
+
+interface AppConfig {
+  env: string;
+  port: number;
+  mongo: MongoConfig;
+}
+
+const config: AppConfig = {
   env: envVars.APP_ENV,
   port: envVars.APP_PORT,
   mongo: {
-    url: envVars.MONGODB_URL,
-    options: {
-      useCreateIndex: true,
-      useNewUrlParser: true,
-      useUnifiedTopology: true
-    }
+    url: envVars.MONGODB_URL
   }
 };
 

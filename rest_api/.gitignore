@@ -21,6 +21,9 @@ package-lock.json
 # Env files
 *.env
 
+# Build files
+build
+
 # Coveralls
 coverage
 

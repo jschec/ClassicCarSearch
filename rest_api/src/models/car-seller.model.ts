@@ -28,16 +28,6 @@ const carSellerSchema = new Schema<
           throw new Error('Invalid email');
         }
       },
-    },
-    age: {
-      type: Number,
-      required: true,
-      min: 18,
-      max: 120,
-    },
-    carListingIds: {
-      type: [Schema.Types.ObjectId],
-      required: false,
     }
   },
   {

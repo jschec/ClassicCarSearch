@@ -28,9 +28,9 @@ export const createCarSeller = catchAsync(async (req: Request, res: Response) =>
  * @returns {Promise<ICarSellerDoc>} A promise containing the specified CarSeller record
  */
 export const getCarSeller = catchAsync(async (req: Request, res: Response) => {
-  if (typeof req.params['carId'] === 'string') {
+  if (typeof req.params['carSellerId'] === 'string') {
     const record = await carSellerService.getById(
-      new Types.ObjectId(req.params['carId'])
+      new Types.ObjectId(req.params['carSellerId'])
     );
     
     if (!record) {

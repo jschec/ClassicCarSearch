@@ -8,10 +8,12 @@ export interface ICarSeller {
   carListingIds: Types.ObjectId[];
 }
 
-export type NewCarSellerBody = ICarSeller;
+export type NewCarSellerBody = Omit<ICarSeller, 'carListingIds'>;;
 
-export type UpdateCarBody = Partial<ICarSeller>;
+export type UpdateCarSellerBody = Partial<ICarSeller>;
 
 export interface ICarSellerDoc extends ICarSeller, Document {}
 
-export interface ICarSellerModel extends Model<ICarSellerDoc> {}
+export interface ICarSellerModel extends Model<ICarSellerDoc> {
+  isEmailTaken(email: string, excludeUserId?: Types.ObjectId): Promise<boolean>;
+}

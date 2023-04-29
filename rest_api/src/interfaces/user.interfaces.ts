@@ -6,8 +6,8 @@ export interface IUser {
   pictureUri: string;
   email: string;
   age: number;
-  watchListId: number;
-  subscriptionId: number;
+  watchListId: mongoose.Types.ObjectId;
+  subscriptionId: mongoose.Types.ObjectId;
 }
 
 export type NewUserBody = Omit<IUser, 'watchListId' | 'subscriptionId'>;

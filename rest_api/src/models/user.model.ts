@@ -1,19 +1,17 @@
-import mongoose from 'mongoose';
+import { model, Schema, ObjectId } from 'mongoose';
 import validator from 'validator';
 
 import { IUserDoc, IUserModel } from '../interfaces/user.interfaces';
 
-const userSchema = new mongoose.Schema<IUserDoc, IUserModel>(
+const userSchema = new Schema<IUserDoc, IUserModel>(
   {
     firstName: {
       type: String,
       required: true,
-      trim: true,
     },
     lastName: {
       type: String,
       required: true,
-      trim: true,
     },
     email: {
       type: String,
@@ -35,15 +33,14 @@ const userSchema = new mongoose.Schema<IUserDoc, IUserModel>(
     age: {
       type: Number,
       required: true,
-      trim: true,
     },
     watchListId: {
-      type: Number,
+      type: Schema.Types.ObjectId,
       required: false,
       trim: true,
     },
     subscriptionId: {
-      type: Number,
+      type: Schema.Types.ObjectId,
       required: false,
       trim: true,
     }
@@ -61,11 +58,11 @@ const userSchema = new mongoose.Schema<IUserDoc, IUserModel>(
  * @param {ObjectId} [excludeUserId]  The id of the user to be excluded
  * @returns {Promise<boolean>} Promise indicating if the email is taken or not
  */
-userSchema.static('isEmailTaken', async function (email: string, excludeUserId: mongoose.ObjectId): Promise<boolean> {
+userSchema.static('isEmailTaken', async function (email: string, excludeUserId: ObjectId): Promise<boolean> {
   const user = await this.findOne({ email, _id: { $ne: excludeUserId } });
   return !!user;
 });
 
-const User = mongoose.model<IUserDoc, IUserModel>('User', userSchema);
+const User = model<IUserDoc, IUserModel>('User', userSchema);
 
 export default User;

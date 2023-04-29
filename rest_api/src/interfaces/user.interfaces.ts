@@ -1,4 +1,4 @@
-import mongoose, { Model, Document } from 'mongoose';
+import { Document, Model, Types } from 'mongoose';
 
 export interface IUser {
   firstName: string;
@@ -6,8 +6,8 @@ export interface IUser {
   pictureUri: string;
   email: string;
   age: number;
-  watchListId: mongoose.Types.ObjectId;
-  subscriptionId: mongoose.Types.ObjectId;
+  watchListId: Types.ObjectId;
+  subscriptionId: Types.ObjectId;
 }
 
 export type NewUserBody = Omit<IUser, 'watchListId' | 'subscriptionId'>;
@@ -17,5 +17,5 @@ export type UpdateUserBody = Partial<IUser>;
 export interface IUserDoc extends IUser, Document {}
 
 export interface IUserModel extends Model<IUserDoc> {
-  isEmailTaken(email: string, excludeUserId?: mongoose.Types.ObjectId): Promise<boolean>;
+  isEmailTaken(email: string, excludeUserId?: Types.ObjectId): Promise<boolean>;
 }

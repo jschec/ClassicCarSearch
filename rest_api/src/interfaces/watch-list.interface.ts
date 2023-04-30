@@ -1,7 +1,7 @@
 import { Document, Model, Types } from 'mongoose';
 
 export interface IWatchList {
-  searches: Types.ObjectId[];
+  searchIds: Types.ObjectId[];
 }
 
 export type NewWatchListBody = IWatchList;

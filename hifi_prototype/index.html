@@ -14,6 +14,7 @@
   </head>
   <body>
     <main>
+<!--PAGE HEADER-->
       <!-- Top navigation bar -->
       <nav class="py-2 bg-body-tertiary border-bottom">
         <div class="container d-flex flex-wrap">
@@ -31,169 +32,253 @@
         </div>
       </nav>
 
-      <!-- Sub header -->
-      <header class="py-3 mb-4 border-bottom">
-        <div class="container d-flex flex-wrap justify-content-center">
-          <a href="/" class="d-flex align-items-center mb-3 mb-lg-0 me-lg-auto link-body-emphasis text-decoration-none">
-            <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"/></svg>
-            <span class="fs-4">Double header</span>
-          </a>
-          <form class="col-12 col-lg-auto mb-3 mb-lg-0" role="search">
-            <input type="search" class="form-control" placeholder="Search..." aria-label="Search">
-          </form>
+      <!-- Sub header TODO: Region-->
+      <div class="container">
+        <header class="py-3 mb-4 border-bottom">
+            <div class="row">
+                <div class="container d-flex flex-wrap justify-content-center">
+                    <a href="/" class="d-flex align-items-center mb-3 mb-lg-0 me-lg-auto link-body-emphasis text-decoration-none">
+                      <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"/></svg>
+                      <h1>Classic Car Finder</h1>
+                    </a>            
+            </div>
+             <!--Text Entries-->
+            <div class="row">
+            <div class="col-3">
+                <form class="col-12 col-lg-auto mb-3 mb-lg-0" role="search">
+                    <input type="search" class="form-control" placeholder="Make..." aria-label="Search">
+                  </form>
+            </div>
+            <div class="col-3">
+                <form class="col-12 col-lg-auto mb-3 mb-lg-0" role="search">
+                    <input type="search" class="form-control" placeholder="Model..." aria-label="Search">
+                </form>
+            </div>
+            <div class="col-3">
+                <form class="col-12 col-lg-auto mb-3 mb-lg-0" role="search">
+                    <input type="search" class="form-control" placeholder="Max Mileage..." aria-label="Search">
+                </form> 
+            </div>
+            <div class="col-3">
+                <form class="col-12 col-lg-auto mb-3 mb-lg-0" role="Model">
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                          Search
+                        </button>
+                        <ul class="dropdown-menu">
+                          <li><a class="dropdown-item" href="#">Pin Search</a></li>
+                          <li><a class="dropdown-item" href="#">Submit Search</a></li>                  
+                        </ul>
+                      </div>
+                  </form>
+            </div>
+            
+<!--Condition Check Boxes-->
+        <div class="row">
+            <div class="col-3">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                    <label class="form-check-label" for="flexCheckDefault">
+                    Bad
+                    </label>
+                </div>
+            </div>
+            <div class="col-3">
+                <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                <label class="form-check-label" for="flexCheckChecked">
+                Fair
+                </label>
+            </div>
+            </div>
+            <div class="col-3">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+                <label class="form-check-label" for="flexCheckDefault">
+                Good
+                </label>
+            </div>
+            </div>
+            <div class="col-3">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                    <label class="form-check-label" for="flexCheckChecked">
+                    Excellent
+                    </label>
+                </div>
+            </div>           
+        </div>
+    </header>
+      </div>
+      
+        
+         
+          
+          
+                   
+          
+          
         </div>
       </header>
-
+<!--MAIN PAGE BODY-->
       <!-- The grid layout -->
       <div class="album py-5 bg-body-tertiary">
         <div class="container">
           <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
             
+            <!--Result Card 1: Active Listing-->
             <div class="col">
               <div class="card shadow-sm">
-                <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+              <!--Card Header-->
+                <img src="WC Austin Healey.jpg" class="card-img-top" alt="Listing J5132"/>
+                <!--Card Body-->            
                 <div class="card-body">
-                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                <h5 class="card-title">Austin Healey 5500 <span class="badge rounded-pill text-bg-primary">Active</span></h5>
+                  <p class="card-text">I liked this car, and I expect you will too. One time my kid threw up in my Ford Ranger, thank God I wasn't driving this at the time.</p>
+                  <!--Stats-->
+                  <table class="table">
+                    <tr>
+                        <th scope="row">Mileage</th>
+                        <td>253000</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Condition</th>
+                        <td>Excellent</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Price</th>
+                        <td>$43000</td>
+                    </tr>                    
+                  </table>
+                  <!--Card Footer-->
                   <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
-                      <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                      <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                      <button type="button" class="btn btn-sm btn-primary"><abbr title="View Listing">View</abbr></button>
+                      <button type="button" class="btn btn-sm btn-secondary"><abbr title="Contact Seller">Contact</abbr></button>
                     </div>
-                    <small class="text-body-secondary">9 mins</small>
+                    <span class="badge rounded-pill text-bg-primary">Listed 4/27/2023</span>
                   </div>
                 </div>
               </div>
             </div>
+
+            <!--Result Card 2: Historical Listing-->
+            <div class="col">
+                <div class="card shadow-sm">
+                <!--Card Header-->
+                  <img src="stock bus.jpg" class="card-img-top" alt="Listing J5132"/>
+                  <!--Card Body-->            
+                  <div class="card-body">
+                  <h5 class="card-title">Big Old Bus <span class="badge rounded-pill text-bg-danger">Sold</span></h5>
+                    <p class="card-text">
+                        Perfect for a large family. As seen in the movie "The Bus that Couldn't Slow Down." Stock image courtesy of iStock by Getty Images.
+                    </p>
+                    <!--Stats-->
+                    <table class="table">
+                      <tr>
+                          <th scope="row">Mileage</th>
+                          <td>430000</td>
+                      </tr>
+                      <tr>
+                          <th scope="row">Condition</th>
+                          <td>Fair</td>
+                      </tr>
+                      <tr>
+                          <th scope="row">Price</th>
+                          <td>$25000</td>
+                      </tr>                    
+                    </table>
+                    <!--Card Footer-->
+                    <div class="d-flex justify-content-between align-items-center">
+                      <div class="btn-group">
+                        <button type="button" class="btn btn-sm btn-primary"><abbr title="View Listing">View</abbr></button>
+                        <button type="button" class="btn btn-sm btn-danger" disabled><abbr title="Contact Seller" disabled>Contact</abbr></button>
+                      </div>
+                      <span class="badge rounded-pill text-bg-danger">Sold 4/20/2023</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!--Result Card 3: Dummy Active Listing-->
+            <div class="col">
+                <div class="card shadow-sm">
+                <!--Card Header-->
+                  <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
+                    <title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/>
+                    <text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text>
+                </svg>
+                  <!--Card Body-->            
+                  <div class="card-body">
+                  <h5 class="card-title">Dummy Listing <span class="badge rounded-pill text-bg-primary">Active</span></h5>
+                    <p class="card-text">This is a dummy entry for a car that is still available for sale. You can look at information about the car, and reach out to the seller.</p>
+                    <!--Stats-->
+                    <table class="table">
+                      <tr>
+                          <th scope="row">Mileage</th>
+                          <td>X</td>
+                      </tr>
+                      <tr>
+                          <th scope="row">Condition</th>
+                          <td>Y</td>
+                      </tr>
+                      <tr>
+                          <th scope="row">Price</th>
+                          <td>$Z</td>
+                      </tr>                    
+                    </table>
+                    <!--Card Footer-->
+                    <div class="d-flex justify-content-between align-items-center">
+                      <div class="btn-group">
+                        <button type="button" class="btn btn-sm btn-primary"><abbr title="View Listing">View</abbr></button>
+                        <button type="button" class="btn btn-sm btn-secondary"><abbr title="Contact Seller">Contact</abbr></button>
+                      </div>
+                      <span class="badge rounded-pill text-bg-primary">Listed 4/20/2003</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
             
+            <!--Result Card 4: Dummy Historical Listing-->
             <div class="col">
-              <div class="card shadow-sm">
-                <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-                <div class="card-body">
-                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                  <div class="d-flex justify-content-between align-items-center">
-                    <div class="btn-group">
-                      <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                      <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                <div class="card shadow-sm">
+                <!--Card Header-->
+                  <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
+                    <title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/>
+                    <text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text>
+                </svg>
+                  <!--Card Body-->            
+                  <div class="card-body">
+                  <h5 class="card-title">Dummy Listing <span class="badge rounded-pill text-bg-danger">Sold</span></h5>
+                    <p class="card-text">This is a dummy entry for a car that has been sold already. We're interested in these because it will help predict future prices for similar cars</p>
+                    <!--Stats-->
+                    <table class="table">
+                      <tr>
+                          <th scope="row">Mileage</th>
+                          <td>X</td>
+                      </tr>
+                      <tr>
+                          <th scope="row">Condition</th>
+                          <td>Y</td>
+                      </tr>
+                      <tr>
+                          <th scope="row">Price</th>
+                          <td>$Z</td>
+                      </tr>                    
+                    </table>
+                    <!--Card Footer-->
+                    <div class="d-flex justify-content-between align-items-center">
+                      <div class="btn-group">
+                        <button type="button" class="btn btn-sm btn-primary"><abbr title="View Listing">View</abbr></button>
+                        <button type="button" class="btn btn-sm btn-danger" disabled><abbr title="Contact Seller">Contact</abbr></button>
+                      </div>
+                      <span class="badge rounded-pill text-bg-danger">Sold 4/20/2019</span>
                     </div>
-                    <small class="text-body-secondary">9 mins</small>
                   </div>
                 </div>
               </div>
-            </div>
 
-            <div class="col">
-              <div class="card shadow-sm">
-                <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-                <div class="card-body">
-                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                  <div class="d-flex justify-content-between align-items-center">
-                    <div class="btn-group">
-                      <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                      <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                    </div>
-                    <small class="text-body-secondary">9 mins</small>
-                  </div>
-                </div>
-              </div>
-            </div>
-    
-            <div class="col">
-              <div class="card shadow-sm">
-                <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-                <div class="card-body">
-                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                  <div class="d-flex justify-content-between align-items-center">
-                    <div class="btn-group">
-                      <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                      <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                    </div>
-                    <small class="text-body-secondary">9 mins</small>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="col">
-              <div class="card shadow-sm">
-                <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-                <div class="card-body">
-                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                  <div class="d-flex justify-content-between align-items-center">
-                    <div class="btn-group">
-                      <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                      <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                    </div>
-                    <small class="text-body-secondary">9 mins</small>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="col">
-              <div class="card shadow-sm">
-                <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-                <div class="card-body">
-                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                  <div class="d-flex justify-content-between align-items-center">
-                    <div class="btn-group">
-                      <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                      <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                    </div>
-                    <small class="text-body-secondary">9 mins</small>
-                  </div>
-                </div>
-              </div>
-            </div>
-    
-            <div class="col">
-              <div class="card shadow-sm">
-                <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-                <div class="card-body">
-                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                  <div class="d-flex justify-content-between align-items-center">
-                    <div class="btn-group">
-                      <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                      <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                    </div>
-                    <small class="text-body-secondary">9 mins</small>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="col">
-              <div class="card shadow-sm">
-                <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-                <div class="card-body">
-                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                  <div class="d-flex justify-content-between align-items-center">
-                    <div class="btn-group">
-                      <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                      <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                    </div>
-                    <small class="text-body-secondary">9 mins</small>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="col">
-              <div class="card shadow-sm">
-                <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-                <div class="card-body">
-                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                  <div class="d-flex justify-content-between align-items-center">
-                    <div class="btn-group">
-                      <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                      <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                    </div>
-                    <small class="text-body-secondary">9 mins</small>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-          </div>
+          </div>          
         </div>
       </div>
 
@@ -205,8 +290,12 @@
         <p class="float-end mb-1">
           <a href="#">Back to top</a>
         </p>
-        <p class="mb-1">Album example is &copy; Bootstrap, but please download and customize it for yourself!</p>
-        <p class="mb-0">New to Bootstrap? <a href="/">Visit the homepage</a> or read our <a href="../getting-started/introduction/">getting started guide</a>.</p>
+        <ul class="nav me-auto">
+            <li class="nav-item"><a href="#" class="nav-link link-dark px-2 active" aria-current="page">Contact Us</a></li>
+            <li class="nav-item"><a href="#" class="nav-link link-dark px-2">Privacy</a></li>
+        </ul>        
+        <p class="mb-0">Special thanks to Bootstrap. New to Bootstrap? <a href="/">Visit the homepage</a> or read our <a href="../getting-started/introduction/">getting started guide</a>.</p>
+        
       </div>
     </footer>
     

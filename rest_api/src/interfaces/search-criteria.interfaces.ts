@@ -20,4 +20,4 @@ export type UpdateSearchCriteriaBody = Partial<ISearchCrtieria>;
 
 export interface ISearchCriteriaDoc extends ISearchCrtieria, Document {}
 
-export interface IUserModel extends Model<ISearchCriteriaDoc> {}
+export interface ISearchCriteriaModel extends Model<ISearchCriteriaDoc> {}

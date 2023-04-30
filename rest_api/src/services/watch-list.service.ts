@@ -63,8 +63,6 @@ export const deleteById = async (watchListId: Types.ObjectId): Promise<IWatchLis
     throw new ApiError(httpStatus.NOT_FOUND, 'Watch list not found');
   }
 
-  // TODO - remove all associated records
-
   await record.deleteOne();
   return record;
 };

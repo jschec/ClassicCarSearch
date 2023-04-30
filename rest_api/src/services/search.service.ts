@@ -63,8 +63,6 @@ export const deleteById = async (searchId: Types.ObjectId): Promise<ISearchDoc |
     throw new ApiError(httpStatus.NOT_FOUND, 'Search not found');
   }
 
-  // TODO - remove all associated records
-
   await record.deleteOne();
   return record;
 };

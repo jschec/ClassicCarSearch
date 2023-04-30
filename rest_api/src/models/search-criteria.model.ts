@@ -3,11 +3,16 @@ import { model, Schema } from 'mongoose';
 import { 
   ISearchCriteriaDoc, ISearchCriteriaModel
 } from '../interfaces/search-criteria.interfaces';
+import Search from './search.model';
 
 const searchCriteriaSchema = new Schema<
   ISearchCriteriaDoc, ISearchCriteriaModel
 >(
   {
+    searchId: {
+      type: Schema.Types.ObjectId,
+      required: true,
+    },
     region: {
       type: String,
       required: false,
@@ -53,5 +58,19 @@ const searchCriteriaSchema = new Schema<
 const SearchCriteria = model<ISearchCriteriaDoc, ISearchCriteriaModel>(
   'SearchCriteria', searchCriteriaSchema
 );
+
+/**
+ * A pre-save hook to apply additional validation logic to the CarListing
+ * document before saving it to the database.
+ */
+searchCriteriaSchema.pre('validate', async function(next) {
+  const searchExists = await Search.exists({ _id: this.searchId });
+
+  if (!searchExists) {
+    next(new Error('Search does not exist'));
+  }
+
+  next();
+});
 
 export default SearchCriteria;

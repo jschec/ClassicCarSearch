@@ -1,9 +1,10 @@
-import { Document, Model } from 'mongoose';
+import { Document, Model, Types } from 'mongoose';
 
 import { Condition } from './condition.interfaces';
 import { Region } from './region.interfaces';
 
 export interface ISearchCrtieria {
+  searchId: Types.ObjectId;
   region: Region;
   maxMileage: number;
   maxPrice: number;

@@ -4,6 +4,7 @@ import validator from 'validator';
 import { 
   ICarSellerDoc, ICarSellerModel 
 } from '../interfaces/car-seller.interfaces';
+import CarListing from './car-listing.model';
 
 const carSellerSchema = new Schema<
   ICarSellerDoc, ICarSellerModel
@@ -46,6 +47,18 @@ const carSellerSchema = new Schema<
 carSellerSchema.static('isEmailTaken', async function (email: string, excludeCarSellerId: ObjectId): Promise<boolean> {
   const carSeller = await this.findOne({ email, _id: { $ne: excludeCarSellerId } });
   return !!carSeller;
+});
+
+/**
+ * A pre deleteOne hook to delete all CarListings documents associated with 
+ * the CarSeller document being deleted.
+ */
+carSellerSchema.pre("deleteOne", { document: false, query: true }, async function (next) {
+  const doc = await this.findOne(this.getFilter());
+
+  await CarListing.deleteMany({ sellerId: doc._id });
+
+  next();
 });
 
 const CarSeller = model<ICarSellerDoc, ICarSellerModel>(

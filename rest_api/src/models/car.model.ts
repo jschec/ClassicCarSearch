@@ -1,6 +1,7 @@
 import { Schema, model } from 'mongoose';
 
 import { ICarDoc, ICarModel } from '../interfaces/car.interfaces';
+import CarListing from './car-listing.model';
 
 const carSchema = new Schema<ICarDoc, ICarModel>(
   {
@@ -43,5 +44,17 @@ const carSchema = new Schema<ICarDoc, ICarModel>(
 );
 
 const Car = model<ICarDoc, ICarModel>('Car', carSchema);
+
+/**
+ * A pre deleteOne hook to delete all CarListing documents associated with
+ * the Car document being deleted.
+ */
+carSchema.pre("deleteOne", { document: false, query: true }, async function (next) {
+  const doc = await this.findOne(this.getFilter());
+
+  await CarListing.deleteMany({ carId: doc._id });
+
+  next();
+});
 
 export default Car;

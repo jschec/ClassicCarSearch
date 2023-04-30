@@ -63,8 +63,6 @@ export const deleteById = async (searchForecastId: Types.ObjectId): Promise<ISea
     throw new ApiError(httpStatus.NOT_FOUND, 'Search forecast not found');
   }
 
-  // TODO - remove all associated records
-
   await record.deleteOne();
   return record;
 };

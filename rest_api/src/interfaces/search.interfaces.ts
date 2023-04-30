@@ -1,12 +1,11 @@
 import { Document, Model, Types } from 'mongoose';
 
 export interface ISearch {
-  searchCriteriaId: Types.ObjectId;
+  watchListId: Types.ObjectId;
   resultIds: Types.ObjectId[];
-  forecastIds: Types.ObjectId[];
 }
 
-export type NewSearchBody = Omit<ISearch, 'resultIds' | 'forecastIds'>;
+export type NewSearchBody = Omit<ISearch, 'resultIds'>;
 
 export type UpdateSearchBody = Partial<ISearch>;
 

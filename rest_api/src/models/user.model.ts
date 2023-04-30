@@ -2,6 +2,8 @@ import { model, Schema, ObjectId } from 'mongoose';
 import validator from 'validator';
 
 import { IUserDoc, IUserModel } from '../interfaces/user.interfaces';
+import WatchList from './watch-list.model';
+import Subscription from './subscription.model';
 
 const userSchema = new Schema<IUserDoc, IUserModel>(
   {
@@ -34,15 +36,9 @@ const userSchema = new Schema<IUserDoc, IUserModel>(
       type: Number,
       required: true,
     },
-    watchListId: {
-      type: Schema.Types.ObjectId,
-      required: false,
-      trim: true,
-    },
     subscriptionId: {
       type: Schema.Types.ObjectId,
       required: false,
-      trim: true,
     }
   },
   {
@@ -61,6 +57,34 @@ const userSchema = new Schema<IUserDoc, IUserModel>(
 userSchema.static('isEmailTaken', async function (email: string, excludeUserId: ObjectId): Promise<boolean> {
   const user = await this.findOne({ email, _id: { $ne: excludeUserId } });
   return !!user;
+});
+
+/**
+ * A pre deleteOne hook to delete the WatchList document associated with the
+ * Search document being deleted.
+ */
+userSchema.pre("deleteOne", { document: false, query: true }, async function (next) {
+  const doc = await this.findOne(this.getFilter());
+
+  await WatchList.deleteOne({ _id: doc.userId });
+
+  next();
+});
+
+/**
+ * A pre-save hook to apply additional validation logic to the User
+ * document before saving it to the database.
+ */
+userSchema.pre('validate', async function(next) {
+  if (this.subscriptionId) {
+    const subscriptionExists = await Subscription.exists({ _id: this.subscriptionId });
+    
+    if (!subscriptionExists) {
+      next(new Error('Subscription does not exist'));
+    }
+  }
+
+  next();
 });
 
 const User = model<IUserDoc, IUserModel>('User', userSchema);

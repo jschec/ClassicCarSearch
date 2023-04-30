@@ -18,13 +18,22 @@ export const create = async (reqBody: NewCarBody): Promise<ICarDoc> => {
 };
 
 /**
+ * Retrieves all Car records
+ * 
+ * @returns {Promise<ICarDoc | null>} A promise containing the all Car records
+ */
+export const getAll = async (): Promise<ICarDoc[]> => {
+  return Car.find();
+};
+
+/**
  * Retrieves the specified Car record
  * 
- * @param {Types.ObjectId} id The identifier of the Car to retrieve
+ * @param {Types.ObjectId} carId The identifier of the Car to retrieve
  * @returns {Promise<ICarDoc | null>} A promise containing the specified Car record
  */
-export const getById = async (id: Types.ObjectId): Promise<ICarDoc | null> => {
-  return Car.findById(id);
+export const getById = async (carId: Types.ObjectId): Promise<ICarDoc | null> => {
+  return Car.findById(carId);
 };
 
 /**

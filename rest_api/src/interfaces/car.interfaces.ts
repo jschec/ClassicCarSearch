@@ -1,13 +1,13 @@
 import { Model, Document } from 'mongoose';
 
-export type CarCondition = 'Excellent' | 'Good' | 'Fair' | 'Bad';
+import { Condition } from './condition.interfaces';
 
 export interface ICar {
   make: string;
   model: string;
   year: number;
-  exteriorCondition: CarCondition;
-  mechanicalCondition: CarCondition;
+  exteriorCondition: Condition;
+  mechanicalCondition: Condition;
   mileage: number;
   color: string;
 }

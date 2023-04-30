@@ -6,11 +6,10 @@ export interface IUser {
   pictureUri: string;
   email: string;
   age: number;
-  watchListId: Types.ObjectId;
   subscriptionId: Types.ObjectId;
 }
 
-export type NewUserBody = Omit<IUser, 'watchListId' | 'subscriptionId'>;
+export type NewUserBody = Omit<IUser, 'subscriptionId'>;
 
 export type UpdateUserBody = Partial<IUser>;
 

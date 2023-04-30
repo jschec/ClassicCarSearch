@@ -66,9 +66,9 @@ export const updateSearchCriteria = catchAsync(async (req: Request, res: Respons
  * @returns {Promise<void>} A promise indicating the success of the operation
  */ 
 export const deleteSearchCriteria = catchAsync(async (req: Request, res: Response) => {
-  if (typeof req.params['searchId'] === 'string') {
+  if (typeof req.params['searchCriteriaId'] === 'string') {
     await searchCriteriaService.deleteById(
-      new Types.ObjectId(req.params['searchId'])
+      new Types.ObjectId(req.params['searchCriteriaId'])
     );
 
     res.status(httpStatus.NO_CONTENT).send();

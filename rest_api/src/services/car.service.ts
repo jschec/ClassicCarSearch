@@ -18,6 +18,15 @@ export const create = async (reqBody: NewCarBody): Promise<ICarDoc> => {
 };
 
 /**
+ * Retrieves all Car records
+ * 
+ * @returns {Promise<ICarDoc | null>} A promise containing the all Car records
+ */
+export const getAll = async (): Promise<ICarDoc[]> => {
+  return Car.find();
+};
+
+/**
  * Retrieves the specified Car record
  * 
  * @param {Types.ObjectId} carId The identifier of the Car to retrieve

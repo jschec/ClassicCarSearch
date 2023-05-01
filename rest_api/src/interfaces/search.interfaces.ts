@@ -5,7 +5,7 @@ export interface ISearch {
   resultIds: Types.ObjectId[];
 }
 
-export type NewSearchBody = Omit<ISearch, 'resultIds'>;
+export type NewSearchBody = ISearch;
 
 export type UpdateSearchBody = Partial<ISearch>;
 

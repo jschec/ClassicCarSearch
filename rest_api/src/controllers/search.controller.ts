@@ -3,6 +3,9 @@ import { Request, Response } from 'express';
 import { Types } from 'mongoose';
 
 import { ISearchDoc } from '../interfaces/search.interfaces';
+import { ISearchForecastDoc } from '../interfaces/search-forecast.interfaces';
+import * as carListingService from '../services/car-listing.service';
+import * as searchForecastService from '../services/search-forecast.service';
 import * as searchService from '../services/search.service';
 import catchAsync from '../utils/catchAsync';
 import ApiError from '../utils/ApiError';
@@ -10,12 +13,18 @@ import ApiError from '../utils/ApiError';
 /**
  * Creates a new Search record
  * 
- * @param {Request} req The request supplied by the client
+ * @param {Request<SearchCriteriaRequest>} req The request supplied by the client
  * @param {Response} res The response to be sent to the client
  * @returns {Promise<ISearchDoc>} A promise containing the new Search record
  */
 export const createSearch = catchAsync(async (req: Request, res: Response) => {
-  const record = await searchService.create(req.body);
+  // Apply the search criteria to the CarListing records
+  const matchingListings = await carListingService.applyQuery(req.body);
+  const listingIds = matchingListings.map(listing => listing._id);
+  
+  const record = await searchService.create({
+    ...req.body, resultIds: listingIds
+  });
   
   res.status(httpStatus.CREATED).send(record);
 });
@@ -38,6 +47,23 @@ export const getSearch = catchAsync(async (req: Request, res: Response) => {
     }
     
     res.send(record);
+  }
+});
+
+/**
+ * Retrieves the specified Search record
+ * 
+ * @param {Request} req The request supplied by the client
+ * @param {Response} res The response to be sent to the client
+ * @returns {Promise<ISearchForecastDoc>} A promise containing the specified SearchForecast records
+ */
+export const getSearchForecasts = catchAsync(async (req: Request, res: Response) => {
+  if (typeof req.params['searchId'] === 'string') {
+    const records = await searchForecastService.getBySearchId(
+      new Types.ObjectId(req.params['searchId'])
+    );
+
+    res.send(records);
   }
 });
 

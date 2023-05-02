@@ -14,6 +14,7 @@
   "author": "Joshua Scheck",
   "license": "ISC",
   "dependencies": {
+    "@faker-js/faker": "^7.6.0",
     "cli-progress": "^3.12.0",
     "cors": "^2.8.5",
     "dotenv": "^16.0.3",

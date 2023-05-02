@@ -42,7 +42,7 @@ export const createSearch = catchAsync(async (req: Request, res: Response) => {
  */
 export const getSearch = catchAsync(async (req: Request, res: Response) => {
   if (typeof req.params['searchId'] === 'string') {
-    const record = await searchService.getById(
+    const record = await searchService.getFullDocById(
       new Types.ObjectId(req.params['searchId'])
     );
     

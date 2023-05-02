@@ -2,7 +2,7 @@ import httpStatus from 'http-status';
 import { Request, Response } from 'express';
 import { Types } from 'mongoose';
 
-import { IWatchListDoc } from '../interfaces/watch-list.interface';
+import { IWatchListDoc } from '../interfaces/watch-list.interfaces';
 import * as watchListService from '../services/watch-list.service';
 import catchAsync from '../utils/catchAsync';
 import ApiError from '../utils/ApiError';

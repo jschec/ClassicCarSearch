@@ -44,7 +44,8 @@ express       # Minimalist web framework [link](https://expressjs.com/)
 helmet        # 
 http-status   # Contains HTTP response codes [link] (https://www.npmjs.com/package/http-status)
 mongoose      # Schemas for modeling MongoDB data [link] (https://mongoosejs.com/docs/)
-validator     # 
+validator     #
+faker         # For mocking data in population script
 ```
 
 

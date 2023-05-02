@@ -4,7 +4,7 @@ export interface ICarListing {
   region: string;
   price: number;
   listDate: Date;
-  saleDate: Date;
+  saleDate: Date | null;
   seller: Types.ObjectId;
   car: Types.ObjectId;
 }

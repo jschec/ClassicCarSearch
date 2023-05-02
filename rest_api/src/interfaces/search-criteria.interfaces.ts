@@ -15,7 +15,7 @@ export interface ISearchCrtieria {
   model: string;
 }
 
-export type NewSearchCriteriaBody = ISearchCrtieria;
+export type NewSearchCriteriaBody = Partial<ISearchCrtieria>;
 
 export type UpdateSearchCriteriaBody = Partial<ISearchCrtieria>;
 

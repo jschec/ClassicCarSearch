@@ -54,7 +54,7 @@ carListingSchema.pre('validate', async function(next) {
   let validationMessages = [];
 
   // Section of validation checks
-  if (this.listDate > this.saleDate) {
+  if (this.saleDate && (this.listDate > this.saleDate)) {
     validationMessages.push('Sale date must be greater than listing date');
   }
 

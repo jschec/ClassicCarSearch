@@ -8,7 +8,8 @@
     "clean-windows": "rmdir /s /q build",
     "build": "npx tsc",
     "dev:start": "npm run clean && npm run build && node build/index.js",
-    "dev:start-windows": "npm run clean-windows && npm run build && node build\\index.js"
+    "dev:start-windows": "npm run clean-windows && npm run build && node build\\index.js",
+    "dev:populate": "npm run clean && npm run build && node build/scripts/populateDatabase.js"
   },
   "author": "Joshua Scheck",
   "license": "ISC",

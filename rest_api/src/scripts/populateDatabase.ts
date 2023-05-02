@@ -4,34 +4,33 @@ import path from 'path';
 import { faker } from '@faker-js/faker';
 
 // Import env variables
-dotenv.config({path: path.join(__dirname, '.env')});
+dotenv.config({ debug: true, path: path.join(__dirname, '..', '..', '.env') });
 
-import app from '../src/app';
-import config from '../src/config';
+import config from '../config';
 
-import { Condition } from '../src/interfaces/condition.interfaces';
-import { Region } from '../src/interfaces/region.interfaces';
+import { Condition } from '../interfaces/condition.interfaces';
+import { Region } from '../interfaces/region.interfaces';
 
 
-import { NewCarBody } from '../src/interfaces/car.interfaces';
-import { NewCarListingBody } from '../src/interfaces/car-listing.interfaces';
-import { NewCarSellerBody } from '../src/interfaces/car-seller.interfaces';
-import { SearchCriteriaRequest } from '../src/interfaces/search-criteria.interfaces';
-import { NewSubscriptionBody } from '../src/interfaces/subscription.interfaces';
-import { NewUserBody, UpdateUserBody } from '../src/interfaces/user.interfaces';
-import { NewWatchListBody } from '../src/interfaces/watch-list.interfaces';
+import { NewCarBody } from '../interfaces/car.interfaces';
+import { NewCarListingBody } from '../interfaces/car-listing.interfaces';
+import { NewCarSellerBody } from '../interfaces/car-seller.interfaces';
+import { SearchCriteriaRequest } from '../interfaces/search-criteria.interfaces';
+import { NewSubscriptionBody } from '../interfaces/subscription.interfaces';
+import { NewUserBody, UpdateUserBody } from '../interfaces/user.interfaces';
+import { NewWatchListBody } from '../interfaces/watch-list.interfaces';
 
-import CarListing from '../src/models/car-listing.model';
-import CarSeller from '../src/models/car-seller.model';
-import Car from '../src/models/car.model';
-import Search from '../src/models/search.model';
-import Subscription from '../src/models/subscription.model';
-import User from '../src/models/user.model';
-import WatchList from '../src/models/watch-list.model';
+import CarListing from '../models/car-listing.model';
+import CarSeller from '../models/car-seller.model';
+import Car from '../models/car.model';
+import Search from '../models/search.model';
+import Subscription from '../models/subscription.model';
+import User from '../models/user.model';
+import WatchList from '../models/watch-list.model';
 
-import * as carListingService from '../src/services/car-listing.service';
-import * as searchCriteriaService from '../src/services/search-criteria.service';
-import * as searchService from '../src/services/search.service';
+import * as carListingService from '../services/car-listing.service';
+import * as searchCriteriaService from '../services/search-criteria.service';
+import * as searchService from '../services/search.service';
 
 /**
  * Selects a random Condition enum value
@@ -109,6 +108,7 @@ const populateUsers = async () => {
   );
 
   for (let i = 0; i < 100; i++) {
+    console.log(i);
     const user: NewUserBody = {
       firstName: faker.name.firstName(),
       lastName: faker.name.lastName(),
@@ -116,10 +116,11 @@ const populateUsers = async () => {
       pictureUri: faker.image.avatar(),
       age: faker.datatype.number({min: 18, max: 100}),
     };
+    console.log(user)
     const userRecord = await User.create(user);
 
     const updateData: UpdateUserBody = {
-      subscription: subscriptionLevelIds[faker.datatype.number({min: 0, max: subscriptionLevelIds.length - 1})]
+      subscription: randomArrayElement<Types.ObjectId>(subscriptionLevelIds)
     };
     
     Object.assign(userRecord, updateData);

@@ -20,7 +20,16 @@ export const create = async (reqBody: NewSubscriptionBody): Promise<ISubscriptio
 };
 
 /**
- * Retrieves the specified User record
+ * Retrieves all Subscription records
+ * 
+ * @returns {Promise<ISubscriptionDoc[]>} A promise containing the all Subscription records
+ */
+export const getAll = async (): Promise<ISubscriptionDoc[]> => {
+  return Subscription.find();
+};
+
+/**
+ * Retrieves the specified Subscription record
  * 
  * @param {mongoose.Types.ObjectId} id The identifier of the Subscription to retrieve
  * @returns {Promise<ISubscriptionDoc | null>} A promise containing the specified Subscription record

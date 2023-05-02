@@ -2,6 +2,7 @@ import dotenv from 'dotenv';
 import mongoose, { Types } from 'mongoose';
 import path from 'path';
 import { faker } from '@faker-js/faker';
+import cliProgress from 'cli-progress';
 
 // Import env variables
 dotenv.config({ debug: true, path: path.join(__dirname, '..', '..', '.env') });
@@ -11,11 +12,11 @@ import config from '../config';
 import { Condition } from '../interfaces/condition.interfaces';
 import { Region } from '../interfaces/region.interfaces';
 
-
 import { NewCarBody } from '../interfaces/car.interfaces';
 import { NewCarListingBody } from '../interfaces/car-listing.interfaces';
 import { NewCarSellerBody } from '../interfaces/car-seller.interfaces';
 import { SearchCriteriaRequest } from '../interfaces/search-criteria.interfaces';
+import { NewSearchForecastBody } from '../interfaces/search-forecast.interfaces';
 import { NewSubscriptionBody } from '../interfaces/subscription.interfaces';
 import { NewUserBody, UpdateUserBody } from '../interfaces/user.interfaces';
 import { NewWatchListBody } from '../interfaces/watch-list.interfaces';
@@ -30,7 +31,22 @@ import WatchList from '../models/watch-list.model';
 
 import * as carListingService from '../services/car-listing.service';
 import * as searchCriteriaService from '../services/search-criteria.service';
+import * as searchForecastService from '../services/search-forecast.service';
 import * as searchService from '../services/search.service';
+
+/**
+ * Creates the specified progress bar
+ * 
+ * @param {number} total The size of the progress bar
+ * @returns {SingleBar} The created progress bar
+ */
+const createPBar = (total: number) => {
+  const pbar = new cliProgress.SingleBar({}, cliProgress.Presets.shades_classic);
+
+  pbar.start(total, 0);
+
+  return pbar;
+}
 
 /**
  * Selects a random Condition enum value
@@ -70,6 +86,8 @@ const randomArrayElement = <T=any>(array: T[]) : T => {
  * Populates the Subscription collection with the default subscription levels
  */
 const populateSubscriptions = async () => {
+  console.log("Populating subscriptions...");
+
   const subscriptionLevels: NewSubscriptionBody[] = [
     {
       name: 'Free',
@@ -89,26 +107,30 @@ const populateSubscriptions = async () => {
     },
   ];
 
+  // Create a progress bar to track the progress
+  const pbar = createPBar(subscriptionLevels.length);
+
   // Add each subscription level to the database if it doesn't already exist
-  subscriptionLevels.forEach(async (subscriptionLevel) => {
-    if (!await Subscription.isNameTaken(subscriptionLevel.name)) {
-      await Subscription.create(subscriptionLevel);
+  for (let i = 0; i < subscriptionLevels.length; i++) {
+    if (!await Subscription.isNameTaken(subscriptionLevels[i].name)) {
+      await Subscription.create(subscriptionLevels[i]);
     }
-  });
-  console.log('Subscriptions populated');
+    pbar.update(i + 1);
+  }
 };
 
 /**
  * Populates the User collection with dummy data
  */
 const populateUsers = async () => {
+  console.log("Populating users...");
+
   const subscriptionLevels = await Subscription.find();
-  const subscriptionLevelIds = subscriptionLevels.map(
-    (subscriptionLevel) => subscriptionLevel._id
-  );
+
+  // Create a progress bar to track the progress
+  const pbar = createPBar(100);
 
   for (let i = 0; i < 100; i++) {
-    console.log(i);
     const user: NewUserBody = {
       firstName: faker.name.firstName(),
       lastName: faker.name.lastName(),
@@ -116,25 +138,32 @@ const populateUsers = async () => {
       pictureUri: faker.image.avatar(),
       age: faker.datatype.number({min: 18, max: 100}),
     };
-    console.log(user)
     const userRecord = await User.create(user);
 
     const updateData: UpdateUserBody = {
-      subscription: randomArrayElement<Types.ObjectId>(subscriptionLevelIds)
+      subscription: randomArrayElement(subscriptionLevels)._id
     };
     
     Object.assign(userRecord, updateData);
     await userRecord.save();
+
+    pbar.update(i + 1);
   };
-  console.log('Users populated');
+
+  pbar.stop();
 };
 
 /**
  * Populates the Cars, CarSellers, and CarListings collections with dummy data
  */
 const populateCarListings = async () => {
+  console.log("Populating cars...");
+
   let carIds: Types.ObjectId[] = [];
   let carSellerIds: Types.ObjectId[] = [];
+
+  // Create a progress bar to track the progress
+  const carPbar = createPBar(10000);
 
   // Generate 10,000 random cars
   for (let i = 0; i < 10000; i++) {
@@ -150,8 +179,15 @@ const populateCarListings = async () => {
 
     const carRecord = await Car.create(car);
     carIds.push(carRecord._id);
+    carPbar.update(i + 1);
   };
-  console.log('Cars populated');
+
+  carPbar.stop();
+
+  console.log("Populating car sellers...");
+
+  // Create a progress bar to track the progress
+  const carSellerPbar = createPBar(1000);
 
   // Generate 1,000 random car sellers
   for (let i = 0; i < 1000; i++) {
@@ -163,25 +199,35 @@ const populateCarListings = async () => {
 
     const carSellerRecord = await CarSeller.create(carSeller);
     carSellerIds.push(carSellerRecord._id);
+
+    carSellerPbar.update(i + 1);
   };
-  console.log('CarSellers populated');
+
+  carSellerPbar.stop();
+
+  console.log("Populating car listings...");
+
+  // Create a progress bar to track the progress
+  const carListingPbar = createPBar(10000);
 
   // Assign each car to a listing
-  carIds.forEach(async (carId) => {
+  for (let i = 0; i < carIds.length; i++) {
     const carSellerId = randomArrayElement<Types.ObjectId>(carSellerIds);
 
     const carListing: NewCarListingBody = {
       region: randomRegion(),
       price: faker.datatype.number({min: 1000, max: 100000}),
-      listDate: faker.date.past(),
-      saleDate: faker.date.soon(),
-      car: carId,
+      listDate: faker.date.past(3),
+      saleDate: null,
+      car: carIds[i],
       seller: carSellerId as Types.ObjectId
     };
 
     await CarListing.create(carListing);
-  });
-  console.log('CarListings populated');
+    carListingPbar.update(i + 1);
+  }
+
+  carListingPbar.stop();
 };
 
 /**
@@ -189,11 +235,14 @@ const populateCarListings = async () => {
  * dummy data.
  */
 const populateSearches = async () => {
+  console.log("Populating searches...");
+
+  // Create a progress bar to track the progress
+  const pbar = createPBar(1000);
+
   for (let i = 0; i < 1000; i++) {
     const searchCriteria: SearchCriteriaRequest = {
-      region: randomRegion(),
-      exteriorCondition: randomCondition(),
-      mechanicalCondition: randomCondition()  
+      region: randomRegion()
     };
 
     const matchingListings = await carListingService.applyQuery(
@@ -209,17 +258,38 @@ const populateSearches = async () => {
     await searchCriteriaService.create({
       ...searchCriteria, search: record._id
     });
+
+    // Create 10 SearchForecast records for each Search record
+    for (let j = 0; j < 10; j++) {
+      const searchForecast: NewSearchForecastBody = {
+        search: record._id,
+        avgTimeOnMarket: faker.datatype.number({min: 1, max: 1000}),
+        avgPrice: faker.datatype.number({min: 1000, max: 100000}),
+        averageMileage: faker.datatype.number({min: 0, max: 200000}),
+        ttl: 300,
+      };
+
+      await searchForecastService.create(searchForecast);
+    }
+
+    pbar.update(i + 1);
   };
+
+  pbar.stop();
 };
 
 /**
  * Populates the WatchList collection with dummy data
  */
 const populateWatchLists = async () => {
+  console.log("Populating watch lists...");
+
   const users = await User.find();
   const searches = await Search.find();
 
-  users.forEach(async (user) => {
+  const pbar = createPBar(users.length);
+
+  for (let i = 0; i < users.length; i++) {
     let selectedSearches: Types.ObjectId[] = [];
 
     // Select 10 random searches
@@ -228,12 +298,16 @@ const populateWatchLists = async () => {
     };
 
     const watchList: NewWatchListBody = {
-      user: user._id,
+      user: users[i]._id,
       searches: selectedSearches
     };
 
     await WatchList.create(watchList);
-  });
+    
+    pbar.update(i + 1);
+  }
+
+  pbar.stop();
 }
 
 /**

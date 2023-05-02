@@ -4,6 +4,9 @@ import { Types } from 'mongoose';
 import { 
   NewCarListingBody, UpdateCarListingBody, ICarListingDoc 
 } from '../interfaces/car-listing.interfaces';
+import { 
+  SearchCriteriaRequest 
+} from '../interfaces/search-criteria.interfaces';
 import CarListing from '../models/car-listing.model';
 import ApiError from '../utils/ApiError';
 
@@ -15,6 +18,25 @@ import ApiError from '../utils/ApiError';
  */
 export const create = async (reqBody: NewCarListingBody): Promise<ICarListingDoc> => {
   return CarListing.create(reqBody);
+};
+
+/**
+ * Retrieves all CarListing records
+ * 
+ * @param {NewCarListingBody} reqBody The request body supplied by the client
+ * @returns {Promise<ICarListingDoc | null>} A promise containing the all CarListing records
+ */
+export const applyQuery = async (reqBody: SearchCriteriaRequest): Promise<ICarListingDoc[]> => {
+  return CarListing.find({...reqBody});
+};
+
+/**
+ * Retrieves all CarListing records
+ * 
+ * @returns {Promise<ICarListingDoc | null>} A promise containing the all CarListing records
+ */
+export const getAll = async (): Promise<ICarListingDoc[]> => {
+  return CarListing.find();
 };
 
 /**

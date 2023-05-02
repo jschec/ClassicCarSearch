@@ -25,7 +25,7 @@ export const createCarSeller = catchAsync(async (req: Request, res: Response) =>
  * 
  * @param {Request} req The request supplied by the client
  * @param {Response} res The response to be sent to the client
- * @returns {Promise<ICarSellerDoc>} A promise containing the specified CarSeller record
+ * @returns {Promise<ICarSellerDoc[]>} A promise containing the specified CarSeller record
  */
 export const getCarSeller = catchAsync(async (req: Request, res: Response) => {
   if (typeof req.params['carSellerId'] === 'string') {
@@ -39,6 +39,19 @@ export const getCarSeller = catchAsync(async (req: Request, res: Response) => {
     
     res.send(record);
   }
+});
+
+/**
+ * Retrieves all CarSeller records
+ * 
+ * @param {Request} req The request supplied by the client
+ * @param {Response} res The response to be sent to the client
+ * @returns {Promise<ICarSellerDoc>} A promise containing all CarSeller records
+ */
+export const getCarSellers = catchAsync(async (req: Request, res: Response) => {
+  const records = await carSellerService.getAll();
+  
+  res.send(records);
 });
 
 /**

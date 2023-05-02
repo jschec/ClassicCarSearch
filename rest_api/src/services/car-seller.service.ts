@@ -22,6 +22,15 @@ export const create = async (reqBody: NewCarSellerBody): Promise<ICarSellerDoc> 
 };
 
 /**
+ * Retrieves all CarSeller records
+ * 
+ * @returns {Promise<ICarSellerDoc[]>} A promise containing the all CarSeller records
+ */
+export const getAll = async (): Promise<ICarSellerDoc[]> => {
+  return CarSeller.find();
+};
+
+/**
  * Retrieves the specified CarSeller record
  * 
  * @param {Types.ObjectId} carSellerId The identifier of the CarSeller to retrieve

@@ -1,8 +1,9 @@
 import { Document, Model, Types } from 'mongoose';
+import { ISearchDoc } from './search.interfaces';
 
 export interface IWatchList {
   userId: Types.ObjectId;
-  searchIds: Types.ObjectId[];
+  searches: Types.ObjectId[] | ISearchDoc[];
 }
 
 export type NewWatchListBody = IWatchList;

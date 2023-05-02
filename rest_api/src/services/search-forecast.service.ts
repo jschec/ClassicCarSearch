@@ -28,6 +28,16 @@ export const getById = async (searchForecastId: Types.ObjectId): Promise<ISearch
 };
 
 /**
+ * Retrieves the specified SearchForecast record by searchId
+ * 
+ * @param {Types.ObjectId} searchId The identifier of the Search to retrieve SearchForecast for
+ * @returns {Promise<ISearchForecastDoc | null>} A promise containing the specified SearchForecast record
+ */
+export const getBySearchId = async (searchId: Types.ObjectId): Promise<ISearchForecastDoc[]> => {
+  return SearchForecast.find({ searchId: searchId });
+};
+
+/**
  * Updates the SearchForecast record with the sought identifier.
  * 
  * @param {Types.ObjectId} searchForecastId The identifier of the SearchForecast to update

@@ -4,9 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "clean": "rm -rf ./build",
+    "clean": "rm -rf build",
+    "clean-windows": "rmdir /s /q build",
     "build": "npx tsc",
-    "dev:start": "npm run clean && npm run build && node ./build/index.js"
+    "dev:start": "npm run clean && npm run build && node build/index.js",
+    "dev:start-windows": "npm run clean-windows && npm run build && node build\\index.js"
   },
   "author": "Joshua Scheck",
   "license": "ISC",
@@ -16,6 +18,7 @@
     "express": "^4.18.2",
     "helmet": "^6.1.5",
     "http-status": "^1.6.2",
+    "joi": "^17.9.2",
     "mongoose": "^7.0.4",
     "validator": "^13.9.0"
   },

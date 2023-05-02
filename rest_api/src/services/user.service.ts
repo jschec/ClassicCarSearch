@@ -32,6 +32,37 @@ export const create = async (userBody: NewUserBody): Promise<IUserDoc> => {
 export const getById = async (id: mongoose.Types.ObjectId): Promise<IUserDoc | null> => User.findById(id);
 
 /**
+ * Retrieves the User record with the specified ID and returns it as a promise.
+ *
+ * @param {mongoose.Types.ObjectId} id The identifier of the User to retrieve
+ * @param {String[]} fields - An array of fields to select from the User record
+ * @returns {Promise<IUserDoc | null>} A promise containing the specified User record
+ */
+export const getByIdWithFields = async (id: mongoose.Types.ObjectId, fields: String[]): Promise<IUserDoc | null> => {
+  let user = await User.findById(id);
+  if (!user) {
+    throw new ApiError(httpStatus.NOT_FOUND, 'User not found');
+  }
+
+  for (let i=0; i<fields.length; i++)  {
+    const item = fields[i];
+    if (item === "watchlist") {
+      user = await user.populate({
+        path: 'watchList',
+        select: 'searches -_id'
+      });
+    } else if (item === "subscription") {
+      user = await user.populate({
+        path: 'subscription',
+        select: 'cost -_id'
+      });
+    }
+  }
+
+  return user;
+}
+
+/**
  * Updates the specified User record
  * 
  * @param {mongoose.Types.ObjectId} userId The identifier of the User to update

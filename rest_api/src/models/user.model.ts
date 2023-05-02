@@ -36,9 +36,15 @@ const userSchema = new Schema<IUserDoc, IUserModel>(
       type: Number,
       required: true,
     },
-    subscriptionId: {
+    subscription: {
       type: Schema.Types.ObjectId,
       required: false,
+      ref: 'Subscription',
+    },
+    watchList: {
+      type: Schema.Types.ObjectId,
+      required: false,
+      ref: 'WatchList',
     }
   },
   {
@@ -76,11 +82,21 @@ userSchema.pre("deleteOne", { document: false, query: true }, async function (ne
  * document before saving it to the database.
  */
 userSchema.pre('validate', async function(next) {
-  if (this.subscriptionId) {
-    const subscriptionExists = await Subscription.exists({ _id: this.subscriptionId });
-    
+  if (this.subscription) {
+    const subscriptionId = (this.subscription instanceof Schema.Types.ObjectId) ? this.subscription : this.subscription._id;
+    const subscriptionExists = await Subscription.exists({ _id: subscriptionId });
+
     if (!subscriptionExists) {
       next(new Error('Subscription does not exist'));
+    }
+  }
+
+  if (this.watchList) {
+    const watchListId = (this.watchList instanceof Schema.Types.ObjectId) ? this.watchList : this.subscription._id;
+    const watchListExists = await WatchList.exists({ _id: watchListId });
+
+    if (!watchListExists) {
+      next(new Error('WatchList does not exist'));
     }
   }
 

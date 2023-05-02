@@ -19,6 +19,8 @@ export type NewSearchCriteriaBody = ISearchCrtieria;
 
 export type UpdateSearchCriteriaBody = Partial<ISearchCrtieria>;
 
+export type SearchCriteriaRequest = Partial<Omit<ISearchCrtieria, 'searchId'>>; 
+
 export interface ISearchCriteriaDoc extends ISearchCrtieria, Document {}
 
 export interface ISearchCriteriaModel extends Model<ISearchCriteriaDoc> {}

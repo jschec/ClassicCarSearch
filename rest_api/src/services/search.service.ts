@@ -28,6 +28,39 @@ export const getById = async (searchId: Types.ObjectId): Promise<ISearchDoc | nu
 };
 
 /**
+ * Retrieves the specified search record by its identifier.
+ *
+ * @param {Types.ObjectId} searchId The identifier of the Search to retrieve
+ * @returns {Promise<ISearchDoc | null>} A promise containing the specified Search record
+ */
+export const getFullDocById = async (searchId: Types.ObjectId): Promise<ISearchDoc | null> => {
+  let searchDoc = await Search.findById(searchId);
+  if (searchDoc) {
+    searchDoc = await searchDoc.populate([
+      {
+        path: 'criterias',
+        select: '-createdAt -updatedAt -__v -_id',
+      },
+      {
+        path: 'results',
+        select: '-createdAt -updatedAt -__v -_id',
+        populate: [
+          {
+            path: 'car',
+            select: '-createdAt -updatedAt -__v -_id',
+          },
+          {
+            path: 'seller',
+            select: '-createdAt -updatedAt -__v -_id',
+          },
+        ],
+      },
+    ]);
+  }
+  return searchDoc;
+};
+
+/**
  * Updates the Search record with the sought identifier.
  * 
  * @param {Types.ObjectId} searchId The identifier of the Search to update

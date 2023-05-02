@@ -48,8 +48,8 @@ const carListingSchema = new Schema<
  * document before saving it to the database.
  */
 carListingSchema.pre('validate', async function(next) {
-  const carSellerExists = await CarSeller.exists({ _id: this.seller._id });
-  const carExists = await Car.exists({ _id: this.car._id });
+  const carSellerExists = await CarSeller.exists({ _id: this.seller });
+  const carExists = await Car.exists({ _id: this.car });
 
   let validationMessages = [];
 

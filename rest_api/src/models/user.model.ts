@@ -70,7 +70,7 @@ userSchema.static('isEmailTaken', async function (email: string, excludeUserId: 
  * Search document being deleted.
  */
 userSchema.pre("deleteOne", { document: true, query: false }, async function (next) {
-  await WatchList.deleteOne({ _id: this.watchList._id });
+  await WatchList.deleteOne({ _id: this.watchList });
   next();
 });
 
@@ -89,7 +89,7 @@ userSchema.pre('validate', async function(next) {
   }
 
   if (this.watchList) {
-    const watchListId = (this.watchList instanceof Schema.Types.ObjectId) ? this.watchList : this.subscription._id;
+    const watchListId = (this.watchList instanceof Schema.Types.ObjectId) ? this.watchList : this.watchList._id;
     const watchListExists = await WatchList.exists({ _id: watchListId });
 
     if (!watchListExists) {

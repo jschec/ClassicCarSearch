@@ -70,7 +70,7 @@ const SearchCriteria = model<ISearchCriteriaDoc, ISearchCriteriaModel>(
  * document before saving it to the database.
  */
 searchCriteriaSchema.pre('validate', async function(next) {
-  const searchExists = await Search.exists({ _id: this.search._id });
+  const searchExists = await Search.exists({ _id: this.search });
 
   if (!searchExists) {
     next(new Error('Search does not exist'));

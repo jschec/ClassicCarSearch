@@ -32,7 +32,7 @@ const WatchList = model<IWatchListDoc, IWatchListModel>(
  * document before saving it to the database.
  */
 watchListSchema.pre('validate', async function(next) {
-  const userExists = await User.exists({ _id: this.user._id });
+  const userExists = await User.exists({ _id: this.user });
 
   if (!userExists) {
     next(new Error('User does not exist'));

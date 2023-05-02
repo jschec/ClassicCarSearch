@@ -51,7 +51,7 @@ const SearchForecast = model<ISearchForecastDoc, ISearchForecastModel>(
  * document before saving it to the database.
  */
 searchForecastSchema.pre('validate', async function(next) {
-  const searchExists = await Search.exists({ _id: this.search._id });
+  const searchExists = await Search.exists({ _id: this.search });
 
   if (!searchExists) {
     next(new Error('Search does not exist'));

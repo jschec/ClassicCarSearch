@@ -4,7 +4,12 @@
 
 }
 
-
+@import "../node_modules/bootstrap/scss/functions";
+$primary: rebeccapurple;
+$danger: #00b5dd;
+$success: lime;
+$warning: orange;
+$info: aqua;
 
 .bd-placeholder-img {
     font-size: 1.125rem;

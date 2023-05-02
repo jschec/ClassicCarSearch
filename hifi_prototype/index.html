@@ -9,8 +9,8 @@
     <title>Hifi - Prototype</title>
 
     <!-- Custom styles -->
-    <link href="styles.css" rel="stylesheet">
-
+    <link href="styles.scss" rel="stylesheet">
+    
   </head>
   <body>
     <main>
@@ -41,9 +41,9 @@
         </div>
       </nav>
 
-      <!-- Sub header TODO: Region-->
-      <div class="grid">
-        <div class="row bg-body-tertiary">
+      <!-- Sub header-->
+      <div class="grid py-2">
+        <div class="row bg-body-tertiary row-cols-md-4 row-cols-sm-2">
             <div class="col-3">
               <form role="search">
                 <input type="search" class="form-control" placeholder="Make..." aria-label="Search">
@@ -252,11 +252,14 @@
                   <!--Card Footer-->
                   <div class="card-footer">
                   <div class="d-flex justify-content-between align-items-center">
-                    <div class="btn-group">
-                      <button type="button" class="btn btn-sm btn-primary"><abbr title="View Listing">View</abbr></button>
-                      <button type="button" class="btn btn-sm btn-danger" disabled><abbr title="Contact Seller" disabled>Contact</abbr></button>
-                    </div>
-                    <span class="badge rounded-pill text-bg-danger">Sold 4/18/2023</span>
+                    
+                      <div class="btn-group">
+                        <button type="button" class="btn btn-sm btn-primary"><abbr title="View Listing">View</abbr></button>
+                        <button type="button" class="btn btn-sm btn-danger" disabled><abbr title="Contact Seller" disabled>Contact</abbr></button>
+                      </div>
+                      <span class="badge rounded-pill text-bg-danger">Sold 4/18/2023</span>
+                  
+                    
                   </div>
                 </div>
               </div>

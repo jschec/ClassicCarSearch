@@ -5,8 +5,8 @@ export interface ICarListing {
   price: number;
   listDate: Date;
   saleDate: Date;
-  sellerId: Types.ObjectId;
-  carId: Types.ObjectId;
+  seller: Types.ObjectId;
+  car: Types.ObjectId;
 }
 
 export type NewCarListingBody = ICarListing;

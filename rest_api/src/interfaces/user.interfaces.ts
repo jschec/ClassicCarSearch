@@ -1,6 +1,6 @@
 import { Document, Model, Types } from 'mongoose';
 import { ISubscriptionDoc } from './subscription.interfaces';
-import { IWatchListDoc } from './watch-list.interface';
+import { IWatchListDoc } from './watch-list.interfaces';
 
 export interface IUser {
   firstName: string;
@@ -12,7 +12,7 @@ export interface IUser {
   watchList: Types.ObjectId | IWatchListDoc;
 }
 
-export type NewUserBody = Omit<IUser, 'subscription'>;
+export type NewUserBody = Omit<IUser, 'subscription' | 'watchList'>;
 
 export type UpdateUserBody = Partial<IUser>;
 

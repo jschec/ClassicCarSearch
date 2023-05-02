@@ -23,7 +23,7 @@ export const createSearch = catchAsync(async (req: Request, res: Response) => {
   const listingIds = matchingListings.map(listing => listing._id);
   
   const record = await searchService.create({
-    ...req.body, resultIds: listingIds
+    ...req.body, results: listingIds
   });
   
   res.status(httpStatus.CREATED).send(record);

@@ -8,14 +8,15 @@ import WatchList from './watch-list.model';
 
 const searchSchema = new Schema<ISearchDoc, ISearchModel>(
   {
-    watchListId: {
+    // watchListId: {
+    //   type: Schema.Types.ObjectId,
+    //   required: true,
+    // },
+    results: [{
       type: Schema.Types.ObjectId,
-      required: true,
-    },
-    resultIds: {
-      type: [Schema.Types.ObjectId],
-      required: true,
-    }
+      required: false,
+      ref: 'Search',
+    }]
   },
   {
     timestamps: true,
@@ -29,16 +30,21 @@ const Search = model<ISearchDoc, ISearchModel>('Search', searchSchema);
  * document before saving it to the database.
  */
 searchSchema.pre('validate', async function(next) {
-  const watchListExists = await WatchList.exists({ _id: this.watchListId });
+  // const watchListExists = await WatchList.exists({ _id: this.watchListId });
 
-  // Exit out before countDocuments since it's an expensive operation
-  if (!watchListExists) {
-    next(new Error('WatchList does not exist'));
-  }
+  // // Exit out before countDocuments since it's an expensive operation
+  // if (!watchListExists) {
+  //   next(new Error('WatchList does not exist'));
+  // }
 
-  const resultCount = await CarListing.countDocuments({ id: { $in: this.resultIds } });
+  let resultIds: String[] = [];
+  this.results.forEach(item => {
+    const resultId = (item instanceof Schema.Types.ObjectId) ? item : item._id;
+    resultIds.push(resultId);
+  });
+  const resultCount = await CarListing.countDocuments({ id: { $in: resultIds } });
 
-  if (resultCount !== this.resultIds.length) {
+  if (resultCount !== this.results.length) {
     next(new Error('One or more results do not exist'));
   }
 

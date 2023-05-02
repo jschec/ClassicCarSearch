@@ -1,8 +1,8 @@
 import { Document, Model, Types } from 'mongoose';
 
 export interface ISearch {
-  watchListId: Types.ObjectId;
-  resultIds: Types.ObjectId[];
+  // watchListId: Types.ObjectId;
+  results: Types.ObjectId[] | ISearchDoc[];
 }
 
 export type NewSearchBody = ISearch;

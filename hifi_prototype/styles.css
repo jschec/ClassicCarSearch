@@ -1,3 +1,11 @@
+.title-strip{
+    background-color: #7d1515;
+    color: white;
+
+}
+
+
+
 .bd-placeholder-img {
     font-size: 1.125rem;
     text-anchor: middle;
@@ -11,6 +19,7 @@
         font-size: 3.5rem;
     }
 }
+
 
 .b-example-divider {
     width: 100%;

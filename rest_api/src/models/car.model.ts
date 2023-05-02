@@ -52,11 +52,8 @@ const Car = model<ICarDoc, ICarModel>('Car', carSchema);
  * A pre deleteOne hook to delete all CarListing documents associated with
  * the Car document being deleted.
  */
-carSchema.pre("deleteOne", { document: false, query: true }, async function (next) {
-  const doc = await this.findOne(this.getFilter());
-
-  await CarListing.deleteMany({ carId: doc._id });
-
+carSchema.pre("deleteOne", { document: true, query: false }, async function (next) {
+  await CarListing.deleteMany({ carId: this._id });
   next();
 });
 

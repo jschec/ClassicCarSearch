@@ -65,7 +65,7 @@ const SearchCriteria = model<ISearchCriteriaDoc, ISearchCriteriaModel>(
 );
 
 /**
- * A pre-save hook to apply additional validation logic to the CarListing
+ * A pre-save hook to apply additional validation logic to the SearchCriteria
  * document before saving it to the database.
  */
 searchCriteriaSchema.pre('validate', async function(next) {

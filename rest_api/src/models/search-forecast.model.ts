@@ -46,7 +46,7 @@ const SearchForecast = model<ISearchForecastDoc, ISearchForecastModel>(
 );
 
 /**
- * A pre-save hook to apply additional validation logic to the CarListing
+ * A pre-save hook to apply additional validation logic to the SearchForecast
  * document before saving it to the database.
  */
 searchForecastSchema.pre('validate', async function(next) {

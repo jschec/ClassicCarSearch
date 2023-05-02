@@ -9,9 +9,10 @@ const searchForecastSchema = new Schema<
   ISearchForecastDoc, ISearchForecastModel
 >(
   {
-    searchId: {
+    search: {
       type: Schema.Types.ObjectId,
       required: true,
+      ref: 'Search',
     },
     avgTimeOnMarket: {
       type: Number,
@@ -46,11 +47,11 @@ const SearchForecast = model<ISearchForecastDoc, ISearchForecastModel>(
 );
 
 /**
- * A pre-save hook to apply additional validation logic to the CarListing
+ * A pre-save hook to apply additional validation logic to the SearchForecast
  * document before saving it to the database.
  */
 searchForecastSchema.pre('validate', async function(next) {
-  const searchExists = await Search.exists({ _id: this.searchId });
+  const searchExists = await Search.exists({ _id: this.search });
 
   if (!searchExists) {
     next(new Error('Search does not exist'));

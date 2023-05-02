@@ -7,9 +7,10 @@ import User from './user.model';
 
 const watchListSchema = new Schema<IWatchListDoc, IWatchListModel>(
   {
-    userId: {
+    user: {
       type: Schema.Types.ObjectId,
-      required: true
+      required: true,
+      ref: 'User'
     },
     searches: [{
       type: Schema.Types.ObjectId,
@@ -31,7 +32,7 @@ const WatchList = model<IWatchListDoc, IWatchListModel>(
  * document before saving it to the database.
  */
 watchListSchema.pre('validate', async function(next) {
-  const userExists = await User.exists({ _id: this.userId });
+  const userExists = await User.exists({ _id: this.user });
 
   if (!userExists) {
     next(new Error('User does not exist'));

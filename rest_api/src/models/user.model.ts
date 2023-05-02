@@ -69,11 +69,8 @@ userSchema.static('isEmailTaken', async function (email: string, excludeUserId: 
  * A pre deleteOne hook to delete the WatchList document associated with the
  * Search document being deleted.
  */
-userSchema.pre("deleteOne", { document: false, query: true }, async function (next) {
-  const doc = await this.findOne(this.getFilter());
-
-  await WatchList.deleteOne({ _id: doc.userId });
-
+userSchema.pre("deleteOne", { document: true, query: false }, async function (next) {
+  await WatchList.deleteOne({ _id: this.watchList });
   next();
 });
 
@@ -92,7 +89,7 @@ userSchema.pre('validate', async function(next) {
   }
 
   if (this.watchList) {
-    const watchListId = (this.watchList instanceof Schema.Types.ObjectId) ? this.watchList : this.subscription._id;
+    const watchListId = (this.watchList instanceof Schema.Types.ObjectId) ? this.watchList : this.watchList._id;
     const watchListExists = await WatchList.exists({ _id: watchListId });
 
     if (!watchListExists) {

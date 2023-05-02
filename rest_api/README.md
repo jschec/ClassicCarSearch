@@ -3,6 +3,12 @@
 
 ## Development
 
+### Getting Started
+- Install the required dependencies (see the installing dependencies section)
+- Add an .env file to the root of the `rest_api` directory
+- Make sure the .env file contains the variables outlined in the 'Required Run Time Environmental Variables' section
+- Run the server as instructed by the 'Running The Server'
+
 ### Installing Dependencies
 
 To install dependencies for the Express RESTful API, you will need to execute the `npm install` command in the root of the `rest_api` directory. This will generate a `node_modules` directory with the installed dependencies.
@@ -13,17 +19,17 @@ To run the RESTful API for development, you can execute the command `npm run dev
 
 ### Code Organization
 ```
-app                 # 
+src                 # The source code implementations for the Express RESTful API 
     /config         # Configurations for the encapsulated services
-    /controllers    # 
-    /database       # Configures and initializes database connections
-    /models         # 
+    /controllers    # Orchestrates RESTful endpoint business logic
+    /interfaces     # Typescript types for models
+    /models         # Schemas for MongoDB collections (using Mongoose)
     /routes         # RESTful API routes
     /schemas        # Schemas for MongoDB collections (using Mongoose)
-    /services       #
+    /services       # Low level interactions with specific MongoDB collections     
     /utils          # Utility methods
-    index.ts        #
-    server.ts       # Entry point for the server
+    app.ts          # Configurations for Express RESTful API
+    server.ts       # Entry point for the RESTful API
 Dockerfile          # Specification for virtualized container for running the server
 package.json        # The project's node.js configuration
 README.md           # This readme
@@ -31,19 +37,23 @@ tsconfig.json       # The project's typescript configuration
 ```
 
 ### Dependencies
-- cors          # 
-- dotenv        # 
-- express       # Minimalist web framework [link](https://expressjs.com/)
-- helmet        # 
-- http-status   # Contains HTTP response codes [link] (https://www.npmjs.com/package/http-status)
-- mongoose      # Schemas for modeling MongoDB data [link] (https://mongoosejs.com/docs/)
-- validator     #
+```
+cors          # Enables configuration of Cross-Origin Resource Sharing (CORS) [link](https://www.npmjs.com/package/cors)
+dotenv        # Loads environmental variables from .env files [link](https://www.npmjs.com/package/dotenv)
+express       # Minimalist web framework [link](https://expressjs.com/)
+helmet        # 
+http-status   # Contains HTTP response codes [link] (https://www.npmjs.com/package/http-status)
+mongoose      # Schemas for modeling MongoDB data [link] (https://mongoosejs.com/docs/)
+validator     # 
+```
 
 
 ### Required Run Time Environmental Variables
+```
 APP_ENV         # The staging of the deployment. Allows values include: 'production', 'development', 'test'
 APP_PORT        # The port, in which the RESTful API is served on. Defaults to 3000 if no value is provided.
 MONGODB_URL     # The MongoDB connection string
+```
 
 ### Loading environmental variables
 ```

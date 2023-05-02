@@ -27,13 +27,15 @@ const carListingSchema = new Schema<
       required: false,
       max: new Date(), // Can't be newer than today
     },
-    sellerId: {
+    seller: {
       type: Schema.Types.ObjectId,
       required: true,
+      ref: 'CarSeller',
     },
-    carId: {
+    car: {
       type: Schema.Types.ObjectId,
       required: true,
+      ref: 'Car',
     }
   },
   {
@@ -46,8 +48,8 @@ const carListingSchema = new Schema<
  * document before saving it to the database.
  */
 carListingSchema.pre('validate', async function(next) {
-  const carSellerExists = await CarSeller.exists({ _id: this.sellerId });
-  const carExists = await Car.exists({ _id: this.carId });
+  const carSellerExists = await CarSeller.exists({ _id: this.seller });
+  const carExists = await Car.exists({ _id: this.car });
 
   let validationMessages = [];
 

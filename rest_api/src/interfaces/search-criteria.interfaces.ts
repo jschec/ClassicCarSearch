@@ -4,7 +4,7 @@ import { Condition } from './condition.interfaces';
 import { Region } from './region.interfaces';
 
 export interface ISearchCrtieria {
-  searchId: Types.ObjectId;
+  search: Types.ObjectId;
   region: Region;
   maxMileage: number;
   maxPrice: number;

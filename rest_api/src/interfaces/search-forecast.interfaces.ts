@@ -1,7 +1,7 @@
 import { Document, Model, Types } from 'mongoose';
 
 export interface ISearchForecast {
-  searchId: Types.ObjectId;
+  search: Types.ObjectId;
   avgTimeOnMarket: number;
   avgPrice: number;
   averageMileage: number;

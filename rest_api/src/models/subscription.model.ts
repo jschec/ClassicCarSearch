@@ -12,7 +12,7 @@ const subscriptionSchema = new mongoose.Schema<
     cost: {
       type: Number,
       required: true,
-      trim: true,
+      min: 0,
     }
   },
   {

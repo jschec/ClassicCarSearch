@@ -2,6 +2,7 @@ import express, { Router } from 'express';
 import carListingRoutes from './car-listing';
 import carSellerRoutes from './car-seller';
 import carRoutes from './car';
+import searchForecastRoutes from './search-forecast';
 import searchRoutes from './search';
 import subscriptionRoutes from './subscription';
 import userRoutes from './user';
@@ -27,6 +28,10 @@ const routeCollections: IRoute[] = [
   {
     prefix: "/car-sellers",
     routes: carSellerRoutes
+  },
+  {
+    prefix: "/search-forecasts",
+    routes: searchForecastRoutes
   },
   {
     prefix: "/searches",

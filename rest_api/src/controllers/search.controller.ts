@@ -5,6 +5,7 @@ import { Types } from 'mongoose';
 import { ISearchDoc } from '../interfaces/search.interfaces';
 import { ISearchForecastDoc } from '../interfaces/search-forecast.interfaces';
 import * as carListingService from '../services/car-listing.service';
+import * as searchCriteriaService from '../services/search-criteria.service';
 import * as searchForecastService from '../services/search-forecast.service';
 import * as searchService from '../services/search.service';
 import catchAsync from '../utils/catchAsync';
@@ -25,6 +26,9 @@ export const createSearch = catchAsync(async (req: Request, res: Response) => {
   const record = await searchService.create({
     ...req.body, results: listingIds
   });
+
+  // Create the SearchCriteria record
+  await searchCriteriaService.create({...req.body, search: record._id});
   
   res.status(httpStatus.CREATED).send(record);
 });

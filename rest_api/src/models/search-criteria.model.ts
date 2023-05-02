@@ -11,9 +11,10 @@ const searchCriteriaSchema = new Schema<
   ISearchCriteriaDoc, ISearchCriteriaModel
 >(
   {
-    searchId: {
+    search: {
       type: Schema.Types.ObjectId,
       required: true,
+      ref: 'Search',
     },
     region: {
       type: String,
@@ -65,11 +66,11 @@ const SearchCriteria = model<ISearchCriteriaDoc, ISearchCriteriaModel>(
 );
 
 /**
- * A pre-save hook to apply additional validation logic to the CarListing
+ * A pre-save hook to apply additional validation logic to the SearchCriteria
  * document before saving it to the database.
  */
 searchCriteriaSchema.pre('validate', async function(next) {
-  const searchExists = await Search.exists({ _id: this.searchId });
+  const searchExists = await Search.exists({ _id: this.search });
 
   if (!searchExists) {
     next(new Error('Search does not exist'));

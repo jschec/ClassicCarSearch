@@ -53,10 +53,8 @@ carSellerSchema.static('isEmailTaken', async function (email: string, excludeCar
  * A pre deleteOne hook to delete all CarListings documents associated with 
  * the CarSeller document being deleted.
  */
-carSellerSchema.pre("deleteOne", { document: false, query: true }, async function (next) {
-  const doc = await this.findOne(this.getFilter());
-
-  await CarListing.deleteMany({ sellerId: doc._id });
+carSellerSchema.pre("deleteOne", { document: true, query: false }, async function (next) {
+  await CarListing.deleteMany({ sellerId: this._id });
 
   next();
 });

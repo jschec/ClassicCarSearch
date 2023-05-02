@@ -42,11 +42,11 @@ export const getCar = catchAsync(async (req: Request, res: Response) => {
 });
 
 /**
- * Retrieves the specified Car records
+ * Retrieves all Car records
  * 
  * @param {Request} req The request supplied by the client
  * @param {Response} res The response to be sent to the client
- * @returns {Promise<ICarDoc>} A promise containing the specified Car records
+ * @returns {Promise<ICarDoc>} A promise containing all Car records
  */
 export const getCars = catchAsync(async (req: Request, res: Response) => {
   const records = await carService.getAll();

@@ -1,5 +1,7 @@
 import { model, Schema } from 'mongoose';
 
+import { Condition } from '../interfaces/condition.interfaces';
+import { Region } from '../interfaces/region.interfaces';
 import { 
   ISearchCriteriaDoc, ISearchCriteriaModel
 } from '../interfaces/search-criteria.interfaces';
@@ -16,6 +18,7 @@ const searchCriteriaSchema = new Schema<
     region: {
       type: String,
       required: false,
+      enum: Object.values(Region),
     },
     maxMileage: {
       type: Number,
@@ -32,10 +35,12 @@ const searchCriteriaSchema = new Schema<
     exteriorCondition: {
       type: String,
       required: false,
+      enum: Object.values(Condition),
     },
     mechanicalCondition: {
       type: String,
       required: false,
+      enum: Object.values(Condition),
     },
     color: {
       type: String,

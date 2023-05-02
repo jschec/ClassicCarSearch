@@ -1,1 +1,7 @@
-export type Region = "MidWest" | 'NorthEast' | 'SouthWest' | "SouthEast" | "West";
+export enum Region {
+  MidWest = 'MidWest',
+  NorthEast = 'NorthEast',
+  SouthWest = 'SouthWest',
+  SouthEast = 'SouthEast',
+  West = 'West',
+}

@@ -2,7 +2,7 @@ import { model, Schema } from 'mongoose';
 
 import { 
   IWatchListDoc, IWatchListModel 
-} from '../interfaces/watch-list.interface';
+} from '../interfaces/watch-list.interfaces';
 import User from './user.model';
 
 const watchListSchema = new Schema<IWatchListDoc, IWatchListModel>(

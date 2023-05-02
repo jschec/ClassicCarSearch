@@ -3,7 +3,7 @@ import { Types } from 'mongoose';
 
 import { 
   NewWatchListBody, UpdateWatchListBody, IWatchListDoc 
-} from '../interfaces/watch-list.interface';
+} from '../interfaces/watch-list.interfaces';
 import WatchList from '../models/watch-list.model';
 import ApiError from '../utils/ApiError';
 

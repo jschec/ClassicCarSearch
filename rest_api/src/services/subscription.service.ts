@@ -16,6 +16,10 @@ import ApiError from '../utils/ApiError';
  * @returns {Promise<ISubscriptionDoc>} A promise containing the new Subscription record
  */
 export const create = async (reqBody: NewSubscriptionBody): Promise<ISubscriptionDoc> => {
+  if (await Subscription.isNameTaken(reqBody.name)) {
+    throw new ApiError(httpStatus.BAD_REQUEST, 'Name already taken');
+  }
+  
   return Subscription.create(reqBody);
 };
 
@@ -52,6 +56,10 @@ export const updateById = async (
   
   if (!subscription) {
     throw new ApiError(httpStatus.NOT_FOUND, 'Subscription not found');
+  }
+
+  if (reqBody.name && (await Subscription.isNameTaken(reqBody.name, subscriptionId))) {
+    throw new ApiError(httpStatus.BAD_REQUEST, 'Name already taken');
   }
   
   Object.assign(subscription, reqBody);

@@ -10,13 +10,21 @@ const searchSchema = new Schema<ISearchDoc, ISearchModel>(
     results: [{
       type: Schema.Types.ObjectId,
       required: false,
-      ref: 'Search',
+      ref: 'CarListing',
     }]
   },
   {
     timestamps: true,
+    toJSON: { virtuals: true },
+    toObject: { virtuals: true },
   }
 );
+
+searchSchema.virtual('criterias', {
+  ref: 'SearchCriteria',
+  localField: '_id',
+  foreignField: 'search',
+});
 
 const Search = model<ISearchDoc, ISearchModel>('Search', searchSchema);
 

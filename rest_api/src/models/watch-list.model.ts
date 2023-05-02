@@ -10,7 +10,12 @@ const watchListSchema = new Schema<IWatchListDoc, IWatchListModel>(
     userId: {
       type: Schema.Types.ObjectId,
       required: true
-    }
+    },
+    searches: [{
+      type: Schema.Types.ObjectId,
+      required: false,
+      ref: 'Search'
+    }]
   },
   {
     timestamps: true,

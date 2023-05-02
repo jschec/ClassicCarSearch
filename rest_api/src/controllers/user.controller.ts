@@ -31,10 +31,17 @@ export const createUser = catchAsync(async (req: Request, res: Response) => {
  */
 export const getUser = catchAsync(async (req: Request, res: Response) => {
   if (typeof req.params['userId'] === 'string') {
-    const user = await userService.getById(
-      new mongoose.Types.ObjectId(req.params['userId'])
-    );
-    
+
+    let user: IUserDoc | null;
+    const userId = new mongoose.Types.ObjectId(req.params['userId'])
+
+    if (req.query?.fields) {
+      const fields = String(req.query.fields).split(",");
+      user = await userService.getByIdWithFields(userId, fields);
+    } else {
+      user = await userService.getById(userId);
+    }
+
     if (!user) {
       throw new ApiError(httpStatus.NOT_FOUND, 'User not found');
     }

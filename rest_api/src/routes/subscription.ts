@@ -2,13 +2,15 @@ import { Router } from 'express';
 
 import {
   createSubscription, 
-  getSubscription, 
+  getSubscription,
+  getSubscriptions,
   updateSubscription, 
   deleteSubscription
 } from '../controllers/subscription.controller';
 
 const router = Router();
 
+router.get("/", (req, res, next) => getSubscriptions(req, res, next));
 router.post("/", (req, res, next) => createSubscription(req, res, next));
 router.get(
   "/:subscriptionId", (req, res, next) => getSubscription(req, res, next)

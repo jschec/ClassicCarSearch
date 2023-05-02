@@ -1,5 +1,6 @@
 import { Schema, model } from 'mongoose';
 
+import { Condition } from '../interfaces/condition.interfaces';
 import { ICarDoc, ICarModel } from '../interfaces/car.interfaces';
 import CarListing from './car-listing.model';
 
@@ -21,11 +22,13 @@ const carSchema = new Schema<ICarDoc, ICarModel>(
     },
     exteriorCondition: {
       type: String,
-      required: true
+      required: true,
+      enum: Object.values(Condition)
     },
     mechanicalCondition: {
       type: String,
-      required: true
+      required: true,
+      enum: Object.values(Condition)
     },
     mileage: {
       type: Number,

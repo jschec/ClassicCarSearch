@@ -1,1 +1,6 @@
-export type Condition = 'Excellent' | 'Good' | 'Fair' | 'Bad';
+export enum Condition {
+  Excellent = 'Excellent',
+  Good = 'Good',
+  Fair = 'Fair',
+  Bad = 'Bad',
+}

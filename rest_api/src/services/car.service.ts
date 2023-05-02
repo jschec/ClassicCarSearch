@@ -20,7 +20,7 @@ export const create = async (reqBody: NewCarBody): Promise<ICarDoc> => {
 /**
  * Retrieves all Car records
  * 
- * @returns {Promise<ICarDoc | null>} A promise containing the all Car records
+ * @returns {Promise<ICarDoc[]>} A promise containing the all Car records
  */
 export const getAll = async (): Promise<ICarDoc[]> => {
   return Car.find();

@@ -44,6 +44,20 @@ export const getSubscription = catchAsync(async (req: Request, res: Response) =>
 });
 
 /**
+ * Retrieves all Subscription records
+ * 
+ * @param {Request} req The request supplied by the client
+ * @param {Response} res The response to be sent to the client
+ * 
+ * @returns {Promise<ISubscriptionDoc>} A promise containing all Subscription records
+ */
+export const getSubscriptions = catchAsync(async (req: Request, res: Response) => {
+  const records = await subscriptionService.getAll();
+  
+  res.send(records);
+});
+
+/**
  * Updates the specified Subscription record
  * 
  * @param {Request} req The request supplied by the client

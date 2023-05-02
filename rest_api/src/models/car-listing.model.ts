@@ -3,6 +3,7 @@ import { model, Schema } from 'mongoose';
 import { 
   ICarListingDoc, ICarListingModel 
 } from '../interfaces/car-listing.interfaces';
+import { Region } from '../interfaces/region.interfaces';
 import CarSeller from './car-seller.model';
 import Car from './car.model';
 
@@ -13,6 +14,7 @@ const carListingSchema = new Schema<
     region: {
       type: String,
       required: true,
+      enum: Object.values(Region),
     },
     listDate: {
       type: Date,

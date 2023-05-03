@@ -5,6 +5,7 @@ import { MediaMatcher } from '@angular/cdk/layout';
 
 import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { AuthGuard } from './guards/auth.guard';
+import { SubscriptionService } from './services/subscription.service';
 
 @NgModule({
   declarations: [],
@@ -14,6 +15,7 @@ import { AuthGuard } from './guards/auth.guard';
   ],
   providers: [
     AuthGuard,
+    SubscriptionService,
     MediaMatcher,
     {
       provide: HTTP_INTERCEPTORS,

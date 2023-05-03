@@ -27,7 +27,7 @@ const routes: Routes = [
   {
     path: 'subscription',
     loadChildren: () => import('./pages/subscription/subscription.module').then(m => m.SubscriptionModule),
-    canActivate: [AuthGuard]
+    //canActivate: [AuthGuard]
   },
   {
     path: 'watch-list',

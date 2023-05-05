@@ -15,7 +15,13 @@ To install dependencies for the Express RESTful API, you will need to execute th
 
 ### Running The Server
 
-To run the RESTful API for development, you can execute the command `npm run dev:start`. Please note that the environmental variables listed in the 'Required Run Time Environmental Variables' section of this documentation must be made available.
+To run the RESTful API for development, you can execute the command `npm run dev:start`. Windows users will need to run `npm run dev:start-windows` instead due to OS pathing syntax differences. The windows variant requires you to have a `build` directory and will throw an error if that `build` directory does not exist.
+
+Please note that the environmental variables listed in the 'Required Run Time Environmental Variables' section of this documentation must be made available.
+
+### Running The Population Script
+
+To run the population script, you can execute the command `npm run dev:populate`. Please note that the environmental variables listed in the 'Required Run Time Environmental Variables' section of this documentation must be made available.
 
 ### Code Organization
 ```

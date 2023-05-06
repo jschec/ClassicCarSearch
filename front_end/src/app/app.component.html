@@ -1,0 +1,31 @@
+<div class="navbar-container" [class.example-is-mobile]="mobileQuery.matches">
+
+    <!-- Top navbar -->
+    <mat-toolbar class="navbar" color="primary">
+  
+      <h1>
+        Classical Car Search
+      </h1>
+  
+      <button mat-button [matMenuTriggerFor]="userMenu">
+        <mat-icon>person</mat-icon>
+        <span fxShow fxHide.xs>
+          {{userName}}
+        </span>
+      </button>
+      <mat-menu #userMenu="matMenu" xPosition="before" yPosition="above" [overlapTrigger]="false">
+        <a mat-menu-item [routerLink]="['/account/profile']">
+          <mat-icon>person</mat-icon>
+          <span>Account</span>
+        </a>
+        <a mat-menu-item [routerLink]="['/auth/login']">
+          <mat-icon>exit_to_app</mat-icon>
+          <span>Log out</span>
+        </a>
+      </mat-menu>
+  
+    </mat-toolbar>
+  
+    <router-outlet></router-outlet>
+  
+  </div>

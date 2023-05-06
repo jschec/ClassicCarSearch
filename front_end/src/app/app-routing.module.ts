@@ -1,42 +1,67 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { AuthGuard } from './core/guards/auth.guard';
+import { AboutComponent } from './pages/about/about.component';
+import { CarDetailComponent } from './pages/car-detail/car-detail.component';
+import { ExampleComponent } from './pages/example/example.component';
+import { LandingComponent } from './pages/landing/landing.component';
+import { LoginComponent } from './pages/login/login.component';
+import { MarketDataComponent } from './pages/market-data/market-data.component';
+import { PrivacyComponent } from './pages/privacy/privacy.component';
+import { RecommendationComponent } from './pages/recommendation/recommendation.component';
+import { SearchComponent } from './pages/search/search.component';
+import { SubscriptionComponent } from './pages/subscription/subscription.component';
+import { WatchListComponent } from './pages/watch-list/watch-list.component';
+
+//import { AuthGuard } from './core/guards/auth.guard';
 
 const routes: Routes = [
   {
     path: 'about',
-    loadChildren: () => import('./pages/about/about.module').then(m => m.AboutModule),
+    component: AboutComponent,
   },
   {
-    path: 'auth',
-    loadChildren: () => import('./pages/auth/auth.module').then(m => m.AuthModule),
+    path: 'auth/login',
+    component: LoginComponent,
   },
   {
     path: 'home',
-    loadChildren: () => import('./pages/landing/landing.module').then(m => m.LandingModule),
+    component: LandingComponent,
   },
   {
     path: 'privacy',
-    loadChildren: () => import('./pages/privacy/privacy.module').then(m => m.PrivacyModule),
+    component: PrivacyComponent,
   },
   {
     path: 'search',
-    loadChildren: () => import('./pages/search/search.module').then(m => m.SearchModule),
+    component: SearchComponent,
+  },
+  {
+    path: 'search/:id',
+    component: MarketDataComponent,
+  },
+  {
+    path: 'car/:id',
+    component: CarDetailComponent,
   },
   {
     path: 'example',
-    loadChildren: () => import('./pages/example/example.module').then(m => m.ExampleModule),
+    component: ExampleComponent,
   },
   {
     path: 'subscription',
-    loadChildren: () => import('./pages/subscription/subscription.module').then(m => m.SubscriptionModule),
+    component: SubscriptionComponent,
     //canActivate: [AuthGuard]
   },
   {
     path: 'watch-list',
-    loadChildren: () => import('./pages/watch-list/watch-list.module').then(m => m.WatchListModule),
-    canActivate: [AuthGuard]
+    component: WatchListComponent,
+    //canActivate: [AuthGuard]
+  },
+  {
+    path: 'watch-list/:id',
+    component: RecommendationComponent,
+    //canActivate: [AuthGuard]
   },
   {
     path: '**',

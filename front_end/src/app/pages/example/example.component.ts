@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormControl } from '@angular/forms';
 import { CarsService, ICar } from 'src/app/core/services/cars.service';
 
 @Component({
@@ -8,6 +9,9 @@ import { CarsService, ICar } from 'src/app/core/services/cars.service';
 })
 export class ExampleComponent {
   cars: ICar[] = [];
+
+  toppings = new FormControl('');
+  toppingList: string[] = ['Extra cheese', 'Mushroom', 'Onion', 'Pepperoni', 'Sausage', 'Tomato'];
 
   constructor(private carsService: CarsService) { }
 

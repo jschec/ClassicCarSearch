@@ -1,3 +1,4 @@
+import { randomUUID } from 'crypto';
 import { model, Schema } from 'mongoose';
 
 import { ISearchDoc, ISearchModel } from '../interfaces/search.interfaces';
@@ -7,8 +8,12 @@ import SearchForecast from './search-forecast.model';
 
 const searchSchema = new Schema<ISearchDoc, ISearchModel>(
   {
+    _id: {
+      type: String,
+      default: () => randomUUID(),
+    },
     results: [{
-      type: Schema.Types.ObjectId,
+      type: String,
       required: false,
       ref: 'CarListing',
     }]
@@ -36,8 +41,7 @@ searchSchema.pre('validate', async function(next) {
   let resultIds: String[] = [];
 
   this.results.forEach(item => {
-    const resultId = (item instanceof Schema.Types.ObjectId) ? item : item._id;
-    resultIds.push(resultId);
+    resultIds.push(item as String);
   });
   
   const resultCount = await CarListing.countDocuments({ id: { $in: resultIds } });

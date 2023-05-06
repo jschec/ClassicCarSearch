@@ -1,3 +1,4 @@
+import { randomUUID } from 'crypto';
 import { Schema, model } from 'mongoose';
 
 import { Condition } from '../interfaces/condition.interfaces';
@@ -6,6 +7,10 @@ import CarListing from './car-listing.model';
 
 const carSchema = new Schema<ICarDoc, ICarModel>(
   {
+    _id: {
+      type: String,
+      default: () => randomUUID(),
+    },
     make: {
       type: String,
       required: true

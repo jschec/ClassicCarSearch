@@ -1,3 +1,4 @@
+import { randomUUID } from 'crypto';
 import { model, Schema } from 'mongoose';
 
 import { Condition } from '../interfaces/condition.interfaces';
@@ -11,8 +12,12 @@ const searchCriteriaSchema = new Schema<
   ISearchCriteriaDoc, ISearchCriteriaModel
 >(
   {
+    _id: {
+      type: String,
+      default: () => randomUUID(),
+    },
     search: {
-      type: Schema.Types.ObjectId,
+      type: String,
       required: true,
       ref: 'Search',
     },

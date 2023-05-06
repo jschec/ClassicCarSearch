@@ -1,3 +1,4 @@
+import { randomUUID } from 'crypto';
 import { model, Schema } from 'mongoose';
 
 import { 
@@ -7,13 +8,17 @@ import User from './user.model';
 
 const watchListSchema = new Schema<IWatchListDoc, IWatchListModel>(
   {
+    _id: {
+      type: String,
+      default: () => randomUUID(),
+    },
     user: {
-      type: Schema.Types.ObjectId,
+      type: String,
       required: true,
       ref: 'User'
     },
     searches: [{
-      type: Schema.Types.ObjectId,
+      type: String,
       required: false,
       ref: 'Search'
     }]

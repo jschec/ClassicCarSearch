@@ -1,3 +1,4 @@
+import { randomUUID } from 'crypto';
 import { model, Schema } from 'mongoose';
 
 import { 
@@ -11,6 +12,10 @@ const carListingSchema = new Schema<
   ICarListingDoc, ICarListingModel
 >(
   {
+    _id: {
+      type: String,
+      default: () => randomUUID(),
+    },
     region: {
       type: String,
       required: true,
@@ -28,12 +33,12 @@ const carListingSchema = new Schema<
       max: new Date(), // Can't be newer than today
     },
     seller: {
-      type: Schema.Types.ObjectId,
+      type: String,
       required: true,
       ref: 'CarSeller',
     },
     car: {
-      type: Schema.Types.ObjectId,
+      type: String,
       required: true,
       ref: 'Car',
     }

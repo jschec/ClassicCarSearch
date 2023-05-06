@@ -1,4 +1,5 @@
-import { model, Schema, ObjectId } from 'mongoose';
+import { randomUUID } from 'crypto';
+import { model, Schema } from 'mongoose';
 
 import { 
   ISubscriptionDoc, ISubscriptionModel 
@@ -8,6 +9,10 @@ const subscriptionSchema = new Schema<
   ISubscriptionDoc, ISubscriptionModel
 >(
   {
+    _id: {
+      type: String,
+      default: () => randomUUID(),
+    },
     name: {
       type: String,
       required: true,
@@ -29,10 +34,10 @@ const subscriptionSchema = new Schema<
  * another subscripion
  * 
  * @param {string} name  The name to be checked
- * @param {ObjectId} [excludeRecId]  The id of the subscription to be excluded
+ * @param {string} [excludeRecId]  The id of the subscription to be excluded
  * @returns {Promise<boolean>} Promise indicating if the name is taken or not
  */
-subscriptionSchema.static('isNameTaken', async function (name: string, excludeRecId: ObjectId): Promise<boolean> {
+subscriptionSchema.static('isNameTaken', async function (name: string, excludeRecId: string): Promise<boolean> {
   const record = await this.findOne({ name, _id: { $ne: excludeRecId } });
   return !!record;
 });

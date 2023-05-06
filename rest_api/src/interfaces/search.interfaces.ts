@@ -1,8 +1,8 @@
-import { Document, Model, Types } from 'mongoose';
+import { Document, Model } from 'mongoose';
 import { ISearchCriteriaDoc } from './search-criteria.interfaces';
 
 export interface ISearch {
-  results: Types.ObjectId[] | ISearchDoc[];
+  results: string[] | ISearchDoc[];
 }
 
 export type NewSearchBody = ISearch;

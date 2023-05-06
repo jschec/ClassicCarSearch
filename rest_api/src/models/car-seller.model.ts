@@ -1,3 +1,4 @@
+import { randomUUID } from 'crypto';
 import { model, ObjectId, Schema } from 'mongoose';
 import validator from 'validator';
 
@@ -10,6 +11,10 @@ const carSellerSchema = new Schema<
   ICarSellerDoc, ICarSellerModel
 >(
   {
+    _id: {
+      type: String,
+      default: () => randomUUID(),
+    },
     firstName: {
       type: String,
       required: true,

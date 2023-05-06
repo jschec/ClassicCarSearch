@@ -1,7 +1,7 @@
-import { Document, Model, Types } from 'mongoose';
+import { Document, Model } from 'mongoose';
 
 export interface ISearchForecast {
-  search: Types.ObjectId;
+  search: string;
   avgTimeOnMarket: number;
   avgPrice: number;
   averageMileage: number;

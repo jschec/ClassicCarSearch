@@ -1,12 +1,12 @@
-import { Document, Model, Types } from 'mongoose';
+import { Document, Model } from 'mongoose';
 
 export interface ICarListing {
   region: string;
   price: number;
   listDate: Date;
   saleDate: Date | null;
-  seller: Types.ObjectId;
-  car: Types.ObjectId;
+  seller: string;
+  car: string;
 }
 
 export type NewCarListingBody = ICarListing;

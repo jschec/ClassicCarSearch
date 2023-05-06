@@ -1,3 +1,4 @@
+import { randomUUID } from 'crypto';
 import { model, Schema } from 'mongoose';
 
 import { 
@@ -9,8 +10,12 @@ const searchForecastSchema = new Schema<
   ISearchForecastDoc, ISearchForecastModel
 >(
   {
+    _id: {
+      type: String,
+      default: () => randomUUID(),
+    },
     search: {
-      type: Schema.Types.ObjectId,
+      type: String,
       required: true,
       ref: 'Search',
     },

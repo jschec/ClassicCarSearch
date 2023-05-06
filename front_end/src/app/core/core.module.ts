@@ -5,6 +5,7 @@ import { MediaMatcher } from '@angular/cdk/layout';
 
 import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { AuthGuard } from './guards/auth.guard';
+import { CarsService } from './services/cars.service';
 import { SubscriptionService } from './services/subscription.service';
 
 @NgModule({
@@ -15,6 +16,7 @@ import { SubscriptionService } from './services/subscription.service';
   ],
   providers: [
     AuthGuard,
+    CarsService,
     SubscriptionService,
     MediaMatcher,
     {

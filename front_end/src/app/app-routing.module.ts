@@ -25,6 +25,10 @@ const routes: Routes = [
     loadChildren: () => import('./pages/search/search.module').then(m => m.SearchModule),
   },
   {
+    path: 'example',
+    loadChildren: () => import('./pages/example/example.module').then(m => m.ExampleModule),
+  },
+  {
     path: 'subscription',
     loadChildren: () => import('./pages/subscription/subscription.module').then(m => m.SubscriptionModule),
     //canActivate: [AuthGuard]

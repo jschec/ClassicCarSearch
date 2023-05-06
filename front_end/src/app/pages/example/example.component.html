@@ -1,0 +1,13 @@
+<ul>
+    <div class="example-title">
+        Here are the cars we have:
+    </div>
+
+    <button mat-raised-button>Search!</button>
+
+    <li
+        *ngFor="let record of cars"
+    >
+        {{record.make}} {{record.model}} {{record.year}}
+    </li>
+</ul>

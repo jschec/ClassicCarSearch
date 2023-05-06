@@ -1,0 +1,22 @@
+<div class="flex-container">
+    <mat-grid-list cols="4" rowHeight="100px">
+        <mat-grid-tile
+            [colspan]=4
+            [rowspan]=1
+        >
+            <mat-card-content>
+                Current Plan: Standard
+            </mat-card-content>
+        </mat-grid-tile>
+        
+        <mat-grid-tile
+            *ngFor="let subscription of subscriptions"
+            [colspan]=1
+            [rowspan]=1
+        >
+            <mat-card-content>
+                {{subscription.name}}
+            </mat-card-content>
+        </mat-grid-tile>
+    </mat-grid-list>
+</div>

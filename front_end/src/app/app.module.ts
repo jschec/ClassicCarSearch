@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { 
@@ -8,7 +9,6 @@ import {
 } from '@abacritt/angularx-social-login';
 
 import { CoreModule } from './core/core.module';
-import { SharedModule } from './shared/shared.module';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { MaterialModule } from './material.module';
@@ -43,8 +43,9 @@ import { WatchListComponent } from './pages/watch-list/watch-list.component';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    FormsModule, 
+    ReactiveFormsModule,
     CoreModule,
-    SharedModule,
     SocialLoginModule,
     AppRoutingModule,
     MaterialModule,

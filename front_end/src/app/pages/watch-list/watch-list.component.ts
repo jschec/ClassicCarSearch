@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import { PageEvent } from '@angular/material/paginator';
-import { of, Observable } from 'rxjs';
+import { of, Observable, concat } from 'rxjs';
 import { concatMap, map } from 'rxjs/operators';
 import { AuthService } from 'src/app/core/services/auth.service';
-import { ISearch, IWatchList, WatchListService } from 'src/app/core/services/watchList.service';
+import { IWatchList, WatchListService } from 'src/app/core/services/watchList.service';
+import { ISearch, SearchService } from 'src/app/core/services/search.service';
 
 @Component({
   selector: 'app-watch-list',
@@ -22,18 +23,29 @@ export class WatchListComponent {
   pageSize: number = this.pageSizeList[0];
 
   constructor(private authService: AuthService,
-    private watchListService: WatchListService) {
+    private watchListService: WatchListService,
+    private searchService: SearchService) {
   }
 
   ngOnInit(): void {
     // get login user from auth service.
     let user = this.authService.getCurrentUser();
-    this.updateUIState(user, null);
+    this.updateUIState(user, null, {});
 
     // TODO: get userId from user
     let userId: string = "645152ad99d4ed3965a94438";
-    this.watchListService.getByUserId(userId).subscribe(response => {
-      this.updateUIState(user, response);
+    this.watchListService.getByUserId(userId).pipe(
+      concatMap((res1: IWatchList) => {
+          return this.searchService.getByIds(res1.searches).pipe(
+            map((res2: ISearch[]) => [res1, res2] as [IWatchList, ISearch[]])
+          );
+        })
+      ).subscribe(([watchList, searches]) => {
+        const record = searches.reduce((acc, search) => {
+          acc[search.id] = search;
+          return acc;
+        }, {} as Record<string, ISearch>);
+        this.updateUIState(user, watchList, record);
     });
   }
 
@@ -49,9 +61,11 @@ export class WatchListComponent {
     this.updateUIWatchListByPage(event.pageSize, event.pageIndex);
   }
 
-  private updateUIState(user: any, watchList: IWatchList | null): void {
+  private updateUIState(user: any,
+    watchList: IWatchList | null,
+    searchesRecord: Record<string, any>): void {
     this.updateUIUser(user);
-    this.updateUIWatchList(watchList);
+    this.updateUIWatchList(watchList, searchesRecord);
   }
 
   private updateUIUser(user: any): void {
@@ -59,7 +73,8 @@ export class WatchListComponent {
     this.userName = "Zhihai";
   }
 
-  private updateUIWatchList(watchList: IWatchList | null): void {
+  private updateUIWatchList(watchList: IWatchList | null,
+    searchesRecord: Record<string, any>): void {
     if (!watchList) {
       return;
     }

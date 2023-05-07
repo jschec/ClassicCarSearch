@@ -128,35 +128,40 @@
       </div>
     </header>
 
-<!--MAIN PAGE BODY-->
+<!--************    MAIN PAGE BODY    ************-->
+
       <!-- The grid layout -->
       <div class="album py-2 bg-body-secondary">
         <div class="container">
           <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-            <!--Result Card 1: Active Listing-->
-            <div class="col">
+            
+
+            <!--Result Card Template-->
+            <div class="col" *ngFor="let record of listings">
                 <div class="card shadow-sm h-100 ">
                 <!--Card Header-->
+                <!--TODO: Listing Image URL-->
                   <img src="WC Austin Healey.jpg" class="card-img-top" alt="Listing J5934"/>
-                  <div class="card-header"><h5 class="card-title">Austin Healey 5500 
-                    <span class="badge rounded-pill text-bg-primary">Active</span></h5></div>
+                  <!--TODO: Conditional Formatting for Active / Sold Listings-->
+                  <div class="card-header"><h5 class="card-title">{{record.carId.Make} {{record.carId.Model}}}
+                    <span class="badge rounded-pill text-bg-primary">{{record.isActive}}</span></h5></div>
                   <!--Card Body-->            
                   <div class="card-body">
                   
-                    <p class="card-text">I liked this car, and I expect you will too. One time my kid threw up in my Ford Ranger, thank God I wasn't driving this at the time.</p>
+                    <p class="card-text">{{record.listingDescription}}</p>
                     <!--Stats-->
                     <table class="table">
                       <tr>
                           <th scope="row">Mileage</th>
-                          <td>253000</td>
+                          <td>{{record.carId.Mileage}}</td>
                       </tr>
                       <tr>
                           <th scope="row">Condition</th>
-                          <td>Excellent</td>
+                          <td>{{record.carId.Condition}}</td>
                       </tr>
                       <tr>
                           <th scope="row">Price</th>
-                          <td>$43000</td>
+                          <td>{{record.Price}}</td>
                       </tr>                    
                     </table>
                     </div>
@@ -164,11 +169,12 @@
                     <div class="card-footer width-100">                    
                         <div class="d-flex justify-content-between align-items-center">
                          
-                          <div class="btn-group" aria-label="btn-sm">                         
+                          <div class="btn-group" aria-label="btn-sm">
+                            <!--TODO: Links to listing or seller page-->                         
                               <button type="button" class="btn btn-sm btn-primary width-100"><abbr title="View Listing">View</abbr></button>
                               <button type="button" class="btn btn-sm btn-secondary width-100"><abbr title="Contact Seller">Contact</abbr></button>                          
                           </div>
-                          <span class="badge rounded-pill text-bg-primary">Listed 4/27/2023</span>
+                          <span class="badge rounded-pill text-bg-primary">{{record.listDate}}</span>
                         </div>
                       </div>
                                   

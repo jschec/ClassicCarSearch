@@ -9,7 +9,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { MarketDataComponent } from './pages/market-data/market-data.component';
 import { PrivacyComponent } from './pages/privacy/privacy.component';
 import { RecommendationComponent } from './pages/recommendation/recommendation.component';
-import { SearchComponent } from './pages/search/search.component';
+import { SearchComponent } from './pages/search/listing.component';
 import { SubscriptionComponent } from './pages/subscription/subscription.component';
 import { WatchListComponent } from './pages/watch-list/watch-list.component';
 

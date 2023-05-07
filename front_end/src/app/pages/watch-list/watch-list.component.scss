@@ -1,9 +1,72 @@
-.watch-list-item {
+@mixin border-style {
+    border-radius: 0;
+    border: 1px solid #bebebe;
+    box-shadow: none;
+}
 
-}
-.watch-list-item img {
+.watch-list-parent {
     width: 100%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-color: #efefef;
 }
-.watch-list-item button {
-    margin-bottom: 10px;
+.watch-list-container {
+    max-width: 960px;
+    margin: auto;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.watch-list-header {
+    margin-bottom: 8px;
+}
+
+.watch-list-item {
+    width: 100%;
+    // border: 1px solid #cecece;
+    height: 206px;
+    overflow: hidden;
+    // padding: 1px;
+    // text-overflow: ellipsis;
+}
+
+.mat-card-header {
+    display: flex;
+    align-items: center;
+}
+
+.flex-container {
+    display: flex;
+    flex-direction: row;
+}
+.flex-item {
+    flex: 1;
+}
+
+/* For mobile devices */
+@media only screen and (max-width: 599px) {
+    .watch-list-item img {
+        width: auto;
+        height: calc(20vw);
+        max-height: 150px;
+        object-fit: cover;
+    }
+}
+
+/* For desktop devices */
+@media only screen and (min-width: 600px) {
+    .watch-list-item img {
+        width: auto;
+        height: calc(30vw);
+        max-height: 150px;
+        object-fit: cover;
+    }
+}
+
+.watch-list-footer {
+    margin-top: 8px;
+    @include border-style;
+}
+
+.mat-mdc-card {
+    @include border-style;
 }

@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 import { PageEvent } from '@angular/material/paginator';
+import { of, Observable } from 'rxjs';
+import { concatMap, map } from 'rxjs/operators';
 import { AuthService } from 'src/app/core/services/auth.service';
-import { IWatchList, WatchListService } from 'src/app/core/services/watchList.service';
+import { ISearch, IWatchList, WatchListService } from 'src/app/core/services/watchList.service';
 
 @Component({
   selector: 'app-watch-list',
@@ -9,7 +11,10 @@ import { IWatchList, WatchListService } from 'src/app/core/services/watchList.se
   styleUrls: ['./watch-list.component.scss'],
 })
 export class WatchListComponent {
+  // raw data, fetch from backend
   watchList: IWatchList | null = null;
+  // Objects for UI data binding, because our current WatchList object, the searches record is a complete list in the object, so it is currently unable to provide the back-end page-turning request, and the page-turning implementation is managed on the front-end.
+  userName: string = "";
   totalCount: number = 0;
   pageSearches: string[] = [];
   pageIndex: number = 0;
@@ -21,11 +26,14 @@ export class WatchListComponent {
   }
 
   ngOnInit(): void {
+    // get login user from auth service.
     let user = this.authService.getCurrentUser();
+    this.updateUIState(user, null);
+
     // TODO: get userId from user
     let userId: string = "645152ad99d4ed3965a94438";
     this.watchListService.getByUserId(userId).subscribe(response => {
-      this.updateState(response);
+      this.updateUIState(user, response);
     });
   }
 
@@ -34,24 +42,33 @@ export class WatchListComponent {
   }
 
   ngAfterViewInit(): void {
-    // this.updateState(this.watchList);
+    //
   }
 
   onPageChanged(event: PageEvent): void {
-    this.updateSearchesByPage(event.pageSize, event.pageIndex);
+    this.updateUIWatchListByPage(event.pageSize, event.pageIndex);
   }
 
-  private updateState(watchList: IWatchList | null): void {
-    console.log(watchList);
+  private updateUIState(user: any, watchList: IWatchList | null): void {
+    this.updateUIUser(user);
+    this.updateUIWatchList(watchList);
+  }
+
+  private updateUIUser(user: any): void {
+    // TODO: auth service
+    this.userName = "Zhihai";
+  }
+
+  private updateUIWatchList(watchList: IWatchList | null): void {
     if (!watchList) {
       return;
     }
     this.watchList = watchList;
     this.totalCount = watchList.searches.length;
-    this.updateSearchesByPage(this.pageSize, 0);
+    this.updateUIWatchListByPage(this.pageSize, 0);
   }
 
-  private updateSearchesByPage(pageSize: number, pageIndex: number): void {
+  private updateUIWatchListByPage(pageSize: number, pageIndex: number): void {
     if (!this.watchList) {
       this.pageSearches = [];
       this.pageIndex = 0;
@@ -63,6 +80,5 @@ export class WatchListComponent {
     const start = this.pageIndex * this.pageSize;
     const end = start + this.pageSize;
     this.pageSearches = this.watchList!.searches.slice(start, end);
-    console.log(this.pageSearches);
   }
 }

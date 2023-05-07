@@ -6,16 +6,23 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 
-export interface ISearch {
-  
-
+export interface IListing {
+  id: string;
+  region: string;
+  price: number;
+  listDate: Date;
+  saleDate: Date;
+  sellerId: string;
+  carId: string;
 }
 
 export class SearchService {
-
   constructor(private http: HttpClient) { }
 
- public getRecords(): Observable<ISearch[]> {
+ public getRecords(): Observable<IListing[]> {
     const url = '/api/search';
-    return this.http.get<ISearch[]>(url);
+    return this.http.get<IListing[]>(url);
 }
+}
+
+

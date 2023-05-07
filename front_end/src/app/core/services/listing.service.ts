@@ -14,6 +14,9 @@ export interface IListing {
   saleDate: Date;
   sellerId: string;
   carId: string;
+  isActive: boolean;
+  listingDescription: string;
+  listingTitle: string;
 }
 
 export class SearchService {

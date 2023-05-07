@@ -28,6 +28,16 @@ export const getById = async (watchListId: Types.ObjectId): Promise<IWatchListDo
 };
 
 /**
+ * Retrieves the specified WatchList record
+ *
+ * @param {Types.ObjectId} userId The identifier of the WatchList to retrieve
+ * @returns {Promise<IWatchListDoc | null>} A promise containing the specified WatchList record
+ */
+export const getByUserId = async (userId: Types.ObjectId): Promise<IWatchListDoc | null> => {
+  return WatchList.findOne({ "user": userId });
+};
+
+/**
  * Updates the WatchList record with the sought identifier.
  * 
  * @param {Types.ObjectId} watchListId The identifier of the WatchList to update

@@ -4,7 +4,7 @@
         <mat-card-header>
             <!-- <div mat-card-avatar class="example-header-image"></div> -->
             <mat-card-title>Zhihai's Watch List</mat-card-title>
-            <mat-card-subtitle>45 records</mat-card-subtitle>
+            <mat-card-subtitle>{{totalCount}} records</mat-card-subtitle>
         </mat-card-header>
         <!-- <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
         <mat-card-content>
@@ -20,17 +20,14 @@
         </mat-card-actions>
     </mat-card>
     <mat-grid-list cols="1" rowHeight="216px">
-        <mat-grid-tile *ngFor="let tile of tiles" [colspan]="1" [rowspan]="1">
+        <mat-grid-tile *ngFor="let search of pageSearches" [colspan]="1" [rowspan]="1">
             <div class="watch-list-item">
                 <mat-card >
                     <mat-card-content>
                         <img mat-card-lg-image
                             src="https://platform.cstatic-images.com/xlarge/in/v2/c95d212d-d1df-58bc-8599-864c7791c88f/32cacf95-34da-4266-a910-5583226a89e3/_vpsUaLVHkmdInh_5lDitX8Jv5g.jpg">
                         <div>
-                            <div class="item">Region: west</div>
-                            <div class="item"></div>
-                            <div class="item"></div>
-                            <div class="item"></div>
+                            <div class="item"> Search-ID: {{search}} </div>
                         </div>
                     </mat-card-content>
                 </mat-card>
@@ -38,7 +35,7 @@
         </mat-grid-tile>
     </mat-grid-list>
     <div class="watch-list-footer">
-        <mat-paginator [length]="100" [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page">
+        <mat-paginator [length]="totalCount" [pageIndex]="pageIndex" [pageSize]="pageSize" [pageSizeOptions]="pageSizeList" (page)="onPageChanged($event)" aria-label="Select page" >
         </mat-paginator>
     </div>
 </div>

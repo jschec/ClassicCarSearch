@@ -1,5 +1,9 @@
 .landing-page-container {
     margin: 20px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    grid-auto-rows: minmax(100px, auto);
 }
 
 .landing-page-container .landing-page-title {
@@ -9,9 +13,5 @@
 }
 
 .landing-page-container .landing-logo {
-    min-height: 500px;
-    background-image: url(../../../assets/car-large.png);
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-position: center;
+    min-height: 100px;
 }

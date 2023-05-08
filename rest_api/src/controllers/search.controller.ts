@@ -2,7 +2,7 @@ import httpStatus from 'http-status';
 import { Request, Response } from 'express';
 import { Types } from 'mongoose';
 
-import { ISearchDoc } from '../interfaces/search.interfaces';
+import { ISearchDoc, SearchQueryRequest } from '../interfaces/search.interfaces';
 import { ISearchForecastDoc } from '../interfaces/search-forecast.interfaces';
 import * as carListingService from '../services/car-listing.service';
 import * as searchCriteriaService from '../services/search-criteria.service';
@@ -56,7 +56,21 @@ export const getSearch = catchAsync(async (req: Request, res: Response) => {
 
 /**
  * Retrieves the specified Search record
- * 
+ *
+ * @param {Request<SearchQueryRequest>} req The request supplied by the client
+ * @param {Response} res The response to be sent to the client
+ * @returns {Promise<ISearchDoc[]>} A promise containing the specified Search record
+ */
+export const getSearchByParam = catchAsync(async (req: Request, res: Response) => {
+  const record = await searchService.getFullDocByIds(req.body.ids);
+  res.send(record);
+});
+
+
+
+/**
+ * Retrieves the specified Search record
+ *
  * @param {Request} req The request supplied by the client
  * @param {Response} res The response to be sent to the client
  * @returns {Promise<ISearchForecastDoc>} A promise containing the specified SearchForecast records

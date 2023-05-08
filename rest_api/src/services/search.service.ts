@@ -61,6 +61,36 @@ export const getFullDocById = async (searchId: Types.ObjectId): Promise<ISearchD
 };
 
 /**
+ * Retrieves the specified search record by its identifier.
+ *
+ * @param {Types.ObjectId} searchIds The identifier of the Search to retrieve
+ * @returns {Promise<ISearchDoc[]>} A promise containing the specified Search record
+ */
+export const getFullDocByIds = async (searchIds: Types.ObjectId[]): Promise<ISearchDoc[]> => {
+  const result = await Search.find({ _id: { $in: searchIds } }).populate([
+      {
+        path: 'criterias',
+        select: '-createdAt -updatedAt -__v -_id',
+      },
+      {
+        path: 'results',
+        select: '-createdAt -updatedAt -__v -_id',
+        populate: [
+          {
+            path: 'car',
+            select: '-createdAt -updatedAt -__v -_id',
+          },
+          {
+            path: 'seller',
+            select: '-createdAt -updatedAt -__v -_id',
+          },
+        ],
+      },
+    ]);
+  return result;
+};
+
+/**
  * Updates the Search record with the sought identifier.
  * 
  * @param {Types.ObjectId} searchId The identifier of the Search to update

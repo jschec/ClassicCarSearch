@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { ISearch } from './search.service';
 
 export interface IWatchList {
     user: string;
-    searches: string[]
+    searches: string[] | ISearch[];
 }
 
 @Injectable({

@@ -14,15 +14,21 @@
     <mat-grid-list cols="1" rowHeight="216px">
         <mat-grid-tile *ngFor="let search of pageSearches" [colspan]="1" [rowspan]="1">
             <div class="watch-list-item">
-                <mat-card >
-                    <mat-card-content>
-                        <img mat-card-lg-image
-                            src="https://platform.cstatic-images.com/xlarge/in/v2/c95d212d-d1df-58bc-8599-864c7791c88f/32cacf95-34da-4266-a910-5583226a89e3/_vpsUaLVHkmdInh_5lDitX8Jv5g.jpg">
-                        <div>
-                            <div class="item"> Search-ID: {{search}} </div>
-                        </div>
-                    </mat-card-content>
-                </mat-card>
+            <mat-card>
+                <mat-card-content>
+                    <div style="display: flex;" class="watch-list-item-content">
+                        <div style="flex: 0">
+                                <img mat-card-lg-image
+                                    src="https://platform.cstatic-images.com/xlarge/in/v2/c95d212d-d1df-58bc-8599-864c7791c88f/32cacf95-34da-4266-a910-5583226a89e3/_vpsUaLVHkmdInh_5lDitX8Jv5g.jpg">
+                            </div>
+                            <div style="flex: 1">
+                                <div class="item"> Search-ID: {{search.id}} </div>
+                                <div class="item"> Region: {{search.criterias[0].region}} </div>
+                                <div class="item"> Match Results: {{search.results.length}} </div>
+                            </div>
+                    </div>
+            </mat-card-content>
+            </mat-card>
             </div>
         </mat-grid-tile>
     </mat-grid-list>

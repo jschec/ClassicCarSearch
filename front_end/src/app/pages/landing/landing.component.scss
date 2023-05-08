@@ -1,0 +1,17 @@
+.landing-page-container {
+    margin: 20px;
+}
+
+.landing-page-container .landing-page-title {
+    font-size: 2em;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.landing-page-container .landing-logo {
+    min-height: 500px;
+    background-image: url(../../../assets/car-large.png);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+}

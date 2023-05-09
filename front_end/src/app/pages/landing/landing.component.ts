@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { NavigationExtras, Router } from '@angular/router';
 
 @Component({
   selector: 'app-landing',
@@ -17,7 +18,7 @@ export class LandingComponent {
     "Midwest"
   ]
 
-  constructor() {
+  constructor(private router : Router) {
     const minYear = 1885;
     const maxYear = new Date().getFullYear() + 1;
 
@@ -38,6 +39,12 @@ export class LandingComponent {
   }
 
   onClickSubmit() {
-    console.log(this.filterForm.value);
+    let navigationExtras: NavigationExtras = {
+      queryParams: {
+        searchCriteria: JSON.stringify(this.filterForm.value)
+      }
+    }
+
+    this.router.navigate(['/search'], navigationExtras);
   }
 }

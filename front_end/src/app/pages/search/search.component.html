@@ -1,99 +1,42 @@
 
-
-
-      
-      <!-- Sub header-->
-      <div class="grid py-2">
-        <div class="row bg-body-tertiary row-cols-md-4 row-cols-sm-2">
-            <div class="col-3">
-              <form role="search">
-                <input type="search" class="form-control" placeholder="Make..." aria-label="Search">
-              </form> 
-            </div>                         
-          
-          <div class="col-3">
-            <form role="search">
-              <input type="search" class="form-control" placeholder="Model..." aria-label="Search">
-            </form>
-          </div>              
-          
-          <div class="col-3">
-            <form role="search">
-              <input type="search" class="form-control" placeholder="Max Mileage..." aria-label="Search">
-            </form> 
-          </div>         
-          
-          <div class="col-3">
-            <form role="Model">
-              <div class="dropdown">
-                  <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Search
-                  </button>
-                  <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#">Pin Search</a></li>
-                    <li><a class="dropdown-item" href="#">Submit Search</a></li>                  
-                  </ul>
-                </div>
-            </form>
-          </div>             
-        </div>
-        
-          <!--Condition Check Boxes-->
-        <div class="row bg-body-tertiary width-100 justify-content-left py-2">
-          <div class="col-3 justify-content-left">
-            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Region Select
-            </button>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">Northeast</a></li>
-              <li><a class="dropdown-item" href="#">Southwest</a></li>
-              <li><a class="dropdown-item" href="#">West</a></li> 
-              <li><a class="dropdown-item" href="#">Southeast</a></li>
-              <li><a class="dropdown-item" href="#">Midwest</a></li>                          
-            </ul>
-        </div>  
-          <div class="col-1 justify-content-left">
-              <div class="form-check">
-                  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"/>
-                  <label class="form-check-label" for="flexCheckDefault">
-                  Bad
-                  </label>
-              </div>
-          </div>
-          <div class="col-1 justify-content-left">
-              <div class="form-check">
-              <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked/>
-              <label class="form-check-label" for="flexCheckChecked">
-              Fair
-              </label>
-          </div>
-          </div>
-          <div class="col-1 justify-content-left">
-          <div class="form-check">
-              <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked"/>
-              <label class="form-check-label" for="flexCheckDefault">
-              Good
-              </label>
-          </div>
-          </div>
-          <div class="col-1 justify-content-left">
-              <div class="form-check">
-                  <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked/>
-                  <label class="form-check-label" for="flexCheckChecked">
-                  Excellent
-                  </label>
-              </div>
-          </div>          
-      </div>
-        </div>
-      </div>
-    </header>
-
-<div class="container searchBackground" fxLayout="row" fxLayoutAlign="center center">
 <!--************    SEARCH BAR    ************-->
-<mat-grid-list cols="2" rowHeight="100px">
+<div class="container searchBackground" fxLayout="row" fxLayoutAlign="center center">
 
-</mat-grid-list>
+  <mat-grid-list cols="2" rowHeight="100px">
+    <mat-form-field appearance="fill">
+      <mat-label>Make</mat-label>
+      <input matInput>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Model</mat-label>
+      <input matInput>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Max Mileage</mat-label>
+      <input matInput>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Max Price</mat-label>
+      <input matInput>
+    </mat-form-field>
+
+    <mat-checkbox [(ngModel)]="subtask.completed"
+                        [color]="subtask.color"
+                        (ngModelChange)="updateAllComplete()">
+            {{record.Region}}
+    </mat-checkbox>
+
+    <mat-checkbox [(ngModel)]="subtask.completed"
+                        [color]="subtask.color"
+                        (ngModelChange)="updateAllComplete()">
+            {{record.Condition}}
+    </mat-checkbox>
+
+  </mat-grid-list>
+</div>
 
 <!--************    MAIN PAGE BODY    ************-->
 
@@ -109,6 +52,8 @@
       <img mat-card-image>{{record.imageURL}}</img>
         <mat-card-header>
           {{record.carId.Make}} {{record.carId.Model}}
+          <div matBadge="1" matBadgeSize="large" class="demo-section" *ngIf="isActive">Active</div>
+          <div matBadge="1" matBadgeSize="large" class="demo-section" *ngIf="!isActive">Sold</div>
         </mat-card-header>
         <mat-card-content>
           {{record.listingDescription}}
@@ -124,7 +69,7 @@
           </table>
         </mat-card-content>
         <mat-card-footer>
-          {{record.saleDate}}
+          <div *ngIf="!isActive">Sold {{record.saleDate}}</div>          
     </mat-card-footer>
     <!-- End of Card -->
 
@@ -132,56 +77,3 @@
 </mat-paginator>
 
 </div>
-
-
-            
-      
-
-        
-            <!--Result Card Template-->
-            <div class="col" *ngFor="let record of listings">
-                <div class="card shadow-sm h-100 ">
-                <!--Card Header-->
-                <!--TODO: Listing Image URL-->
-                  <img src="WC Austin Healey.jpg" class="card-img-top" alt="Listing J5934"/>
-                  <!--TODO: Conditional Formatting for Active / Sold Listings-->
-                  <div class="card-header"><h5 class="card-title">{{record.carId.Make} {{record.carId.Model}}}
-                    <span class="badge rounded-pill text-bg-primary">{{record.isActive}}</span></h5></div>
-                  <!--Card Body-->            
-                  <div class="card-body">
-                  
-                    <p class="card-text">{{record.listingDescription}}</p>
-                    <!--Stats-->
-                    <table class="table">
-                      <tr>
-                          <th scope="row">Mileage</th>
-                          <td>{{record.carId.Mileage}}</td>
-                      </tr>
-                      <tr>
-                          <th scope="row">Condition</th>
-                          <td>{{record.carId.Condition}}</td>
-                      </tr>
-                      <tr>
-                          <th scope="row">Price</th>
-                          <td>{{record.Price}}</td>
-                      </tr>                    
-                    </table>
-                    </div>
-                    <!--Card Footer-->
-                    <div class="card-footer width-100">                    
-                        <div class="d-flex justify-content-between align-items-center">
-                         
-                          <div class="btn-group" aria-label="btn-sm">
-                            <!--TODO: Links to listing or seller page-->                         
-                              <button type="button" class="btn btn-sm btn-primary width-100"><abbr title="View Listing">View</abbr></button>
-                              <button type="button" class="btn btn-sm btn-secondary width-100"><abbr title="Contact Seller">Contact</abbr></button>                          
-                          </div>
-                          <span class="badge rounded-pill text-bg-primary">{{record.listDate}}</span>
-                        </div>
-                      </div>
-                                  
-                </div>
-              </div>
-            </div>
-        </div>
-        </div>

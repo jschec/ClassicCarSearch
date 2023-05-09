@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { ListingService, IListing } from 'src/app/core/services/listing.service';
+import { ListingService, IListing } from 'src/app/core/services/search.service';
 
 @Component({
   selector: 'app-listing',
@@ -13,9 +13,9 @@ export class ListingComponent {
 
   ngOnInit(): void {
     this.listingService.getRecords().subscribe((response) => {
-      this.listing = response;
+      this.listings = response;
 
-      console.log(this.listing);
+      console.log(this.listings);
     });
   }
 }

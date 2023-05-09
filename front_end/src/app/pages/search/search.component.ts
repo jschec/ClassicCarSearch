@@ -1,21 +1,22 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef, OnDestroy, AfterViewInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { ListingService, IListing } from 'src/app/core/services/search.service';
+import { SearchService, ISearch } from 'src/app/core/services/search.service';
+
 
 @Component({
-  selector: 'app-listing',
-  templateUrl: './listing.component.html',
-  styleUrls: ['./listing.component.scss']
+  selector: 'app-search',
+  templateUrl: './search.component.html',
+  styleUrls: ['./search.component.scss']
 })
 export class ListingComponent {
-  listings: IListing[] = [];
-  constructor(private listingService: ListingService) {}
+  searchResults: ISearch[] = [];
+  constructor(private listingService: SearchService) {}
 
   ngOnInit(): void {
     this.listingService.getRecords().subscribe((response) => {
-      this.listings = response;
+      this.searchResults = response;
 
-      console.log(this.listings);
+      console.log(this.searchResults);
     });
   }
 }

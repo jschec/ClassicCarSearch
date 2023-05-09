@@ -8,7 +8,7 @@ import { SearchService, ISearch } from 'src/app/core/services/search.service';
   templateUrl: './search.component.html',
   styleUrls: ['./search.component.scss']
 })
-export class ListingComponent {
+export class SearchComponent {
   searchResults: ISearch[] = [];
   constructor(private listingService: SearchService) {}
 

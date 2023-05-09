@@ -52,8 +52,8 @@
       <img mat-card-image>{{record.imageURL}}</img>
         <mat-card-header>
           {{record.carId.Make}} {{record.carId.Model}}
-          <div matBadge="1" matBadgeSize="large" class="demo-section" *ngIf="isActive">Active</div>
-          <div matBadge="1" matBadgeSize="large" class="demo-section" *ngIf="!isActive">Sold</div>
+          <div matBadge="1" matBadgeSize="large" class="active-listing" *ngIf="isActive">Active</div>
+          <div matBadge="1" matBadgeSize="large" class="closed-listing" *ngIf="!isActive">Sold</div>
         </mat-card-header>
         <mat-card-content>
           {{record.listingDescription}}
@@ -68,8 +68,8 @@
             <th mat-header-cell *matHeaderCellDef>{{record.Condition}}</th>
           </table>
         </mat-card-content>
-        <mat-card-footer>
-          <div *ngIf="!isActive">Sold {{record.saleDate}}</div>          
+        <mat-card-footer>          
+          <div matBadge="1" matBadgeSize="large" class="closed-listing" *ngIf="!isActive">Sold {{record.saleDate}}</div>          
     </mat-card-footer>
     <!-- End of Card -->
 

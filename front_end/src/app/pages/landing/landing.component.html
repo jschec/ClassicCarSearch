@@ -1,41 +1,60 @@
 <div class="landing-page-container">
     <div class="search-section">
-        <div>
+        <div class="section-title">
             Cars for sale - Search Around The Nation
         </div>
-        <div>
             <form [formGroup]="filterForm" (ngSubmit)="onClickSubmit()">
-                <mat-form-field appearance="fill">
-                    <mat-label>Model</mat-label>
-                    <input matInput formControlName="model">
-                </mat-form-field>
+                <div class="section-form">
+                <div class="model-input">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Model</mat-label>
+                        <input matInput formControlName="model">
+                    </mat-form-field>
+                </div>
+                
+                <div class="make-input">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Make</mat-label>
+                        <input matInput formControlName="make">
+                    </mat-form-field>
+                </div>
+                
+                <div class="from-input">
+                    <mat-form-field appearance="fill">
+                        <mat-label>From</mat-label>
+                        <input matInput formControlName="startYear" type="number">
+                    </mat-form-field>
+                </div>
 
-                <mat-form-field appearance="fill">
-                    <mat-label>Make</mat-label>
-                    <input matInput formControlName="make">
-                </mat-form-field>
+                <div class="to-input">
+                    <mat-form-field appearance="fill">
+                        <mat-label>To</mat-label>
+                        <input matInput formControlName="endYear" type="number">
+                    </mat-form-field>
+                </div>
 
-                <mat-form-field appearance="fill">
-                    <mat-label>From</mat-label>
-                    <input matInput formControlName="startYear" type="number">
-                </mat-form-field>
-
-                <mat-form-field appearance="fill">
-                    <mat-label>To</mat-label>
-                    <input matInput formControlName="endYear" type="number">
-                </mat-form-field>
-
-                <mat-form-field appearance="fill">
-                    <mat-select formControlName="selectedRegion">
-                        <mat-option *ngFor="let region of regionOptions" [value]="region">
-                            {{region}}
-                        </mat-option>
-                    </mat-select>
-                </mat-form-field>
-
-                <button mat-flat-button type="submit" [disabled]="!filterForm.valid" color="primary">Search</button>
-            </form>
-        </div>
+                <div class="region-input">
+                    <mat-form-field appearance="fill">
+                        <mat-select formControlName="selectedRegion">
+                            <mat-option *ngFor="let region of regionOptions" [value]="region">
+                                {{region}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                
+                <div class="submit-button">
+                    <button 
+                        mat-flat-button 
+                        type="submit" 
+                        [disabled]="!filterForm.valid" 
+                        color="primary"
+                    >
+                        Search
+                    </button>
+                </div>
+            </div>
+        </form>
     </div>
 
     <div>

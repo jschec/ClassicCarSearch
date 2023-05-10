@@ -91,18 +91,37 @@ const populateSubscriptions = async () => {
   const subscriptionLevels: NewSubscriptionBody[] = [
     {
       name: 'Free',
+      features: [
+        "20 searches per day",
+        "Displayed advertisements"
+      ],
       cost: 0
     },
     {
       name: 'Basic',
+      features: [
+        "Unlimited searches",
+        "Ability to save and manage searches",
+        "No advertisements"
+        ],
       cost: 10
     },
     {
       name: 'Premium',
+      features: [
+        "Access to market research functionality",
+        "Access to limited data API",
+        "Limit to 100 API calls per minute"
+      ],
       cost: 20
     },
     {
       name: 'Enterprise',
+      features: [
+        "Access to expanded data API",
+        "Limit to 10,000 API calls per minute",
+        "Technical support"
+      ],
       cost: 100
     },
   ];

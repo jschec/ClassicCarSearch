@@ -16,16 +16,28 @@
             <div class="watch-list-item">
             <mat-card>
                 <mat-card-content>
-                    <div style="display: flex;" class="watch-list-item-content">
-                        <div style="flex: 0">
-                                <img mat-card-lg-image
-                                    src="https://platform.cstatic-images.com/xlarge/in/v2/c95d212d-d1df-58bc-8599-864c7791c88f/32cacf95-34da-4266-a910-5583226a89e3/_vpsUaLVHkmdInh_5lDitX8Jv5g.jpg">
+                    <div class="flex-layout flex-row watch-list-item-content">
+                        <div class="">
+                            <img mat-card-lg-image
+                                src="https://platform.cstatic-images.com/xlarge/in/v2/c95d212d-d1df-58bc-8599-864c7791c88f/32cacf95-34da-4266-a910-5583226a89e3/_vpsUaLVHkmdInh_5lDitX8Jv5g.jpg">
+                        </div>
+                        <div class="flex-grow-1 flex-layout flex-row flex-wrap ">
+                            <div class="flex-layout flex-column flex-wrap">
+                                <div class="watch-list-item-attr"> Search-ID: {{search.id}} </div>
+                                <div class="watch-list-item-attr"> Region: {{search.criterias[0].region}} </div>
+                                <div class="watch-list-item-attr"> Match Results: {{search.results.length}} </div>
                             </div>
-                            <div style="flex: 1">
-                                <div class="item"> Search-ID: {{search.id}} </div>
-                                <div class="item"> Region: {{search.criterias[0].region}} </div>
-                                <div class="item"> Match Results: {{search.results.length}} </div>
+                            <div class="flex-layout flex-column flex-wrap">
+                                <div class="watch-list-item-attr"> Recommendation: BUY </div>
                             </div>
+
+                        </div>
+                        <div class="flex-layout flex-column">
+                            <button class="" mat-raised-button color="primary">Recommemdation</button>
+                            <br />
+                            <button class="" mat-raised-button color="primary">View Search</button>
+                        </div>
+
                     </div>
             </mat-card-content>
             </mat-card>

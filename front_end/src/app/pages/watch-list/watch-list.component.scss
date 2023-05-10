@@ -37,12 +37,12 @@
     align-items: center;
 }
 
-.flex-container {
-    display: flex;
-    flex-direction: row;
+.watch-list-item-attr {
+    padding: 0px 20px 10px 20px;
 }
-.flex-item {
-    flex: 1;
+
+.flex-layout {
+    display: flex;
 }
 
 /* For mobile devices */

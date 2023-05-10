@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FlexLayoutModule } from '@angular/flex-layout';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { 
@@ -43,6 +44,7 @@ import { WatchListComponent } from './pages/watch-list/watch-list.component';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    FlexLayoutModule,
     FormsModule, 
     ReactiveFormsModule,
     CoreModule,

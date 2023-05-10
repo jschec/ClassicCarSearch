@@ -4,14 +4,20 @@
         <mat-card-header>
             <!-- <div mat-card-avatar class="example-header-image"></div> -->
             <mat-card-title>{{userName}}'s Watch List</mat-card-title>
-            <mat-card-subtitle>{{totalCount}} records</mat-card-subtitle>
+            <mat-card-subtitle>
+                <span *ngIf="loading">loading</span>
+                <span *ngIf="!loading">{{totalCount}} records</span>
+            </mat-card-subtitle>
         </mat-card-header>
         <mat-card-actions>
             <button mat-button>EDIT</button>
             <button mat-button>SHARE</button>
         </mat-card-actions>
     </mat-card>
-    <mat-grid-list cols="1" rowHeight="216px">
+
+    <mat-progress-bar *ngIf="loading" mode="query"></mat-progress-bar>
+
+    <mat-grid-list *ngIf="!loading" cols="1" rowHeight="216px">
         <mat-grid-tile *ngFor="let search of pageSearches" [colspan]="1" [rowspan]="1">
             <div class="watch-list-item">
             <mat-card>
@@ -34,7 +40,6 @@
                         </div>
                         <div class="flex-layout flex-column">
                             <button class="" mat-raised-button color="primary">Recommemdation</button>
-                            <br />
                             <button class="" mat-raised-button color="primary">View Search</button>
                         </div>
 
@@ -44,7 +49,8 @@
             </div>
         </mat-grid-tile>
     </mat-grid-list>
-    <div class="watch-list-footer">
+
+    <div *ngIf="!loading" class="watch-list-footer">
         <mat-paginator [length]="totalCount" [pageIndex]="pageIndex" [pageSize]="pageSize" [pageSizeOptions]="pageSizeList" (page)="onPageChanged($event)" aria-label="Select page" >
         </mat-paginator>
     </div>

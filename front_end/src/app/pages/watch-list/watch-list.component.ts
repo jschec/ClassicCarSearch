@@ -21,6 +21,7 @@ export class WatchListComponent {
   pageIndex: number = 0;
   pageSizeList: number[] = [5, 10, 25, 100]
   pageSize: number = this.pageSizeList[0];
+  loading: boolean = true;
 
   constructor(private authService: AuthService,
     private watchListService: WatchListService,
@@ -34,24 +35,7 @@ export class WatchListComponent {
 
     // TODO: get userId from user
     let userId: string = "645152ad99d4ed3965a94438";
-    this.watchListService.getByUserId(userId).pipe(
-      concatMap((res1: IWatchList) => {
-        console.log("len:" + res1.searches.length);
-        return this.searchService.getByIds(res1.searches as string[]).pipe(
-            map((res2: ISearch[]) => {
-              res1.searches = res2;
-              return res1;
-            })
-          );
-        })
-      ).subscribe((watchList: IWatchList) => {
-        console.log(watchList.searches);
-        // const record = searches.reduce((acc, search) => {
-        //   acc[search.id] = search;
-        //   return acc;
-        // }, {} as Record<string, ISearch>);
-        this.updateUIState(user, watchList);
-    });
+    this.queryByUserId(userId, user);
   }
 
   ngOnDestroy(): void {
@@ -66,7 +50,30 @@ export class WatchListComponent {
     this.updateUIWatchListByPage(event.pageSize, event.pageIndex);
   }
 
+  private queryByUserId(userId: string, user: any): void {
+    this.loading = true;
+    this.watchListService.getByUserId(userId).pipe(
+      concatMap((res1: IWatchList) => {
+        console.log("len:" + res1.searches.length);
+        return this.searchService.getByIds(res1.searches as string[]).pipe(
+          map((res2: ISearch[]) => {
+            res1.searches = res2;
+            return res1;
+          })
+        );
+      })
+    ).subscribe((watchList: IWatchList) => {
+      console.log(watchList.searches);
+      // const record = searches.reduce((acc, search) => {
+      //   acc[search.id] = search;
+      //   return acc;
+      // }, {} as Record<string, ISearch>);
+      this.updateUIState(user, watchList);
+    });
+  }
+
   private updateUIState(user: any, watchList: IWatchList | null): void {
+    this.loading = false;
     this.updateUIUser(user);
     this.updateUIWatchList(watchList);
   }

@@ -1,58 +1,49 @@
-<div class="landing-page-container">
+<div class="landing-page-container" fxLayout="column">
     <div class="search-section">
         <div class="section-title">
             Cars for sale - Search Around The Nation
         </div>
-            <form [formGroup]="filterForm" (ngSubmit)="onClickSubmit()">
-                <div class="section-form">
-                <div class="model-input">
-                    <mat-form-field appearance="fill">
-                        <mat-label>Model</mat-label>
-                        <input matInput formControlName="model">
-                    </mat-form-field>
-                </div>
+        <form [formGroup]="filterForm" (ngSubmit)="onClickSubmit()">
+            <div class="section-form" fxLayout="row" fxLayoutAlign="space-around center" fxLayoutGap="20px">
+                <mat-form-field appearance="fill" fxFlex="20">
+                    <mat-label>Model</mat-label>
+                    <input matInput formControlName="model">
+                </mat-form-field>
                 
-                <div class="make-input">
-                    <mat-form-field appearance="fill">
-                        <mat-label>Make</mat-label>
-                        <input matInput formControlName="make">
-                    </mat-form-field>
-                </div>
+                <mat-form-field appearance="fill" fxFlex="20">
+                    <mat-label>Make</mat-label>
+                    <input matInput formControlName="make">
+                </mat-form-field>
                 
-                <div class="from-input">
+                <div fxLayout="row" fxFlex="20">
                     <mat-form-field appearance="fill">
                         <mat-label>From</mat-label>
                         <input matInput formControlName="startYear" type="number">
                     </mat-form-field>
-                </div>
 
-                <div class="to-input">
                     <mat-form-field appearance="fill">
                         <mat-label>To</mat-label>
                         <input matInput formControlName="endYear" type="number">
                     </mat-form-field>
                 </div>
 
-                <div class="region-input">
-                    <mat-form-field appearance="fill">
-                        <mat-select formControlName="selectedRegion">
-                            <mat-option *ngFor="let region of regionOptions" [value]="region">
-                                {{region}}
-                            </mat-option>
-                        </mat-select>
-                    </mat-form-field>
-                </div>
+                <mat-form-field appearance="fill" fxFlex="20">
+                    <mat-select formControlName="selectedRegion">
+                        <mat-option *ngFor="let region of regionOptions" [value]="region">
+                            {{region}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
                 
-                <div class="submit-button">
-                    <button 
-                        mat-flat-button 
-                        type="submit" 
-                        [disabled]="!filterForm.valid" 
-                        color="primary"
-                    >
-                        Search
-                    </button>
-                </div>
+                <button 
+                    mat-flat-button 
+                    type="submit" 
+                    [disabled]="!filterForm.valid" 
+                    color="primary"
+                    fxFlex="20"
+                >
+                    Search
+                </button>
             </div>
         </form>
     </div>

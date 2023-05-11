@@ -1,8 +1,7 @@
-
 <!--************    SEARCH BAR    ************-->
-<div class="container searchBackground" fxLayout="row" fxLayoutAlign="center center">
+<div class="container searchInput" fxLayout="row" fxLayoutAlign="center center">
 
-  <mat-grid-list cols="2" rowHeight="100px">
+  <!--<mat-grid-list cols="2" rowHeight="100px">-->
     <mat-form-field appearance="fill">
       <mat-label>Make</mat-label>
       <input matInput>
@@ -23,57 +22,84 @@
       <input matInput>
     </mat-form-field>
 
-    <mat-checkbox [(ngModel)]="subtask.completed"
-                        [color]="subtask.color"
+<!--TODO
+<mat-checkbox [(ngModel)]="subtask.completed"
                         (ngModelChange)="updateAllComplete()">
-            {{record.Region}}
+            {{Regions}}
     </mat-checkbox>
 
     <mat-checkbox [(ngModel)]="subtask.completed"
-                        [color]="subtask.color"
                         (ngModelChange)="updateAllComplete()">
-            {{record.Condition}}
+            {{Conditions}}
     </mat-checkbox>
 
-  </mat-grid-list>
+-->
+  <!--TODO</mat-grid-list>-->
 </div>
-
+<li
+        *ngFor="let record of searchResults.searchResults"
+    >
+        {{record.make}} {{record.model}} {{record.listingDescription}}
+    </li>
 <!--************    MAIN PAGE BODY    ************-->
 
 <!-- The grid layout -->
-<mat-paginator [length]="100"
+<!--TODO<mat-paginator [length]="100"
               [pageSize]="10"
               [pageSizeOptions]="[5, 10, 25, 100]"
-              aria-label="Select page">
+              aria-label="Select page">-->
 
-  <mat-grid-list cols="2" rowHeight="100px">
+  <mat-grid-list cols="2" rowHeight="500px" colWidth="500px">
     <!-- Material Card Template --> 
-    <div class="col" *ngFor="let record of listings">
-      <img mat-card-image>{{record.imageURL}}</img>
-        <mat-card-header>
-          {{record.carId.Make}} {{record.carId.Model}}
-          <div matBadge="1" matBadgeSize="large" class="active-listing" *ngIf="isActive">Active</div>
-          <div matBadge="1" matBadgeSize="large" class="closed-listing" *ngIf="!isActive">Sold</div>
-        </mat-card-header>
-        <mat-card-content>
-          {{record.listingDescription}}
-          <table mat-table [dataSource]="record" class="mat-elevation-z8">
-            <!--Titles-->
-            <td mat-header-cell *matHeaderCellDef>Price</td>
-            <td mat-header-cell *matHeaderCellDef>Mileage</td>
-            <td mat-header-cell *matHeaderCellDef>Condition</td>
-            <!--Data-->
-            <th mat-header-cell *matHeaderCellDef>{{record.price}}</th>
-            <th mat-header-cell *matHeaderCellDef>{{record.Mileage}}</th>
-            <th mat-header-cell *matHeaderCellDef>{{record.Condition}}</th>
-          </table>
-        </mat-card-content>
-        <mat-card-footer>          
-          <div matBadge="1" matBadgeSize="large" class="closed-listing" *ngIf="!isActive">Sold {{record.saleDate}}</div>          
-    </mat-card-footer>
+    <mat-grid-tile *ngFor="let record of searchResults.searchResults" [colspan]="1" [rowspan]="1">
+      <div class="searchDisplayItem">
+        <mat-card class="resultCard">
+          <img mat-card-image><!--TODO{{record.imageURL}}-->
+          <mat-card-header class="cardHeader">
+            <!--TODO<mat-grid-list cols="2">-->
+              <!--TODO<mat-grid-tile>-->
+                <h2>{{record.make}} {{record.model}}</h2>
+              <!--TODO</mat-grid-tile>-->
+              <!--TODO<mat-grid-tile>-->
+                <div class="active-listing"  *ngIf="record.isActive">Active</div>
+                <div class="closed-listing"  *ngIf="!record.isActive">Sold</div> 
+              <!--TODO</mat-grid-tile>-->
+           <!--TODO</mat-grid-list>-->
+            
+            
+              
+                                     
+          </mat-card-header>
+
+          <mat-card-content>
+            {{record.listingDescription}}
+            <!--Numerical Data-->
+            <mat-list>
+              <mat-list-item>
+                <span matListItemTitle>Mileage</span>
+                <span matListItemLine>{{record.mileage}}</span>
+              </mat-list-item>
+              <mat-list-item>
+                <span matListItemTitle>Condition</span>
+                <span>{{record.condition}}</span>
+              </mat-list-item>
+              <mat-list-item>
+                <span matListItemTitle>Price</span>
+                {{record.price}}
+              </mat-list-item>
+            </mat-list>
+          </mat-card-content>
+          <mat-card-footer>          
+            <div matBadgeSize="large" class="closed-listing" *ngIf="!record.isActive">Sold {{record.saleDate}}</div>          
+      </mat-card-footer>
+    </mat-card>
+        </div>
+        
+        
+      
+  </mat-grid-tile>
     <!-- End of Card -->
 
-  </mat-grid-list>
-</mat-paginator>
+ </mat-grid-list>
+  <!--TODO</mat-paginator> -->
 
-</div>

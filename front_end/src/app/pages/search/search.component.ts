@@ -1,4 +1,5 @@
-import { Component, Injectable } from '@angular/core';
+import { Component, Injectable} from '@angular/core';
+import {FormControl} from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { of, Observable, concat } from 'rxjs';
 import { SearchService, ISearch, ICarListing } from 'src/app/core/services/search.service';
@@ -43,10 +44,24 @@ const defaultData: ICarListing[] = [
 
 export class SearchComponent {
   
+  //searchResults: ISearch = {id: "0", searchResults: defaultData};
   searchResults: ISearch = {id: "0", searchResults: defaultData};
   constructor(private listingService: SearchService) {}
 
   ngOnInit(): void {
-    //this.searchResults = this.listingService.getRecords();
+    this.searchResults = this.listingService.getRecords();
+
+
 }
 }
+
+
+/** Region Select with multiple selection */
+/* @Component({
+  selector: 'select-multiple-region',
+  templateUrl: 'select-multiple-region.html',
+})
+export class SelectMultipleRegion {
+  regionSelect = new FormControl('');
+  regionsList: string[] = ["Northeast", "Southeast", "Midwest", "West", "Southwest" ]; 
+}*/

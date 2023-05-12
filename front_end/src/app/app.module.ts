@@ -16,7 +16,6 @@ import { MaterialModule } from './material.module';
 
 import { AboutComponent } from './pages/about/about.component';
 import { CarDetailComponent } from './pages/car-detail/car-detail.component';
-import { ExampleComponent } from './pages/example/example.component';
 import { LandingComponent } from './pages/landing/landing.component';
 import { LoginComponent } from './pages/login/login.component';
 import { MarketDataComponent } from './pages/market-data/market-data.component';
@@ -31,7 +30,6 @@ import { WatchListComponent } from './pages/watch-list/watch-list.component';
     AppComponent,
     AboutComponent,
     CarDetailComponent,
-    ExampleComponent,
     LandingComponent,
     LoginComponent,
     MarketDataComponent,

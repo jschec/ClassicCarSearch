@@ -22,6 +22,8 @@ export class WatchListComponent {
   pageSizeList: number[] = [5, 10, 25, 100]
   pageSize: number = this.pageSizeList[0];
   loading: boolean = true;
+  notifyByEmails: Record<string, boolean> = {};
+  notifyBySMSs: Record<string, boolean> = {};
 
   constructor(private authService: AuthService,
     private watchListService: WatchListService,

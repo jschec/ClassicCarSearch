@@ -41,6 +41,14 @@
                         <div class="flex-layout flex-column">
                             <button class="" mat-raised-button color="primary">Recommemdation</button>
                             <button class="" mat-raised-button color="primary">View Search</button>
+
+                            <section class="flex-layout flex-row align-items-start">
+                                <label class="" style="margin-top: 10px">Notify By:</label>
+                                <section class="flex-layout flex-column">
+                                    <mat-checkbox class="" [(ngModel)]="notifyByEmails[search.id]"><div class="checkbox-option-label">Email</div></mat-checkbox>
+                                    <mat-checkbox class="" [(ngModel)]="notifyBySMSs[search.id]"><div class="checkbox-option-label">SMS</div></mat-checkbox>
+                                </section>
+                            </section>
                         </div>
 
                     </div>

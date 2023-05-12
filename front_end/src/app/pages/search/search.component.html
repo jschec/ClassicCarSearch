@@ -63,7 +63,7 @@
         {{record.make}} {{record.model}} {{record.listingDescription}}
     </li>
 
-    
+
 <!--************    MAIN PAGE BODY    ************-->
 
 <!-- The grid layout -->
@@ -72,23 +72,25 @@
               [pageSizeOptions]="[5, 10, 25, 100]"
               aria-label="Select page">-->
 
-  <mat-grid-list cols="2" rowHeight="500px" colWidth="500px">
+  <mat-grid-list cols="2" rowHeight="500px" colWidth="fit">
     <!-- Material Card Template --> 
     <mat-grid-tile *ngFor="let record of searchResults.searchResults" [colspan]="1" [rowspan]="1">
       <div class="searchDisplayItem">
         <mat-card class="resultCard">
           <img mat-card-image><!--TODO{{record.imageURL}}-->
-          <mat-card-header class="cardHeader">
-            <!--TODO<mat-grid-list cols="2">-->
-              <!--TODO<mat-grid-tile>-->
-                <h2>{{record.make}} {{record.model}}</h2>
-              <!--TODO</mat-grid-tile>-->
-              <!--TODO<mat-grid-tile>-->
-                <div class="active-listing"  *ngIf="record.isActive">Active</div>
-                <div class="closed-listing"  *ngIf="!record.isActive">Sold</div> 
-              <!--TODO</mat-grid-tile>-->
-           <!--TODO</mat-grid-list>-->                                   
-          </mat-card-header>
+          <!--<mat-card-header class="cardHeader">-->
+            <mat-grid-list cols="2" rowHeight="100px" class="cardHeader">
+              
+                <mat-grid-tile [colspan]="1">
+                  <h2>{{record.make}} {{record.model}}</h2>
+                </mat-grid-tile>
+                <mat-grid-tile [colspan]="1">
+                  <div class="active-listingChip"  *ngIf="record.isActive">Active</div>
+                  <div class="closed-listingChip"  *ngIf="!record.isActive">Sold</div> 
+                </mat-grid-tile>
+                           
+           </mat-grid-list>                                 
+          <!--</mat-card-header>-->
 
           <mat-card-content>
             <!--{{record.listingDescription}}-->
@@ -108,8 +110,9 @@
               </mat-list-item>
             </mat-list>
           </mat-card-content>
-          <mat-card-footer>          
-            <div matBadgeSize="large" class="closed-listing" *ngIf="!record.isActive">Sold {{record.saleDate}}</div>          
+          <mat-card-footer>
+            <div matBadgeSize="large" class="active-listingFooter" *ngIf="record.isActive">Listed {{record.listDate}}</div>           
+            <div matBadgeSize="large" class="closed-listingFooter" *ngIf="!record.isActive">Sold {{record.saleDate}}</div>        
       </mat-card-footer>
     </mat-card>
         </div>

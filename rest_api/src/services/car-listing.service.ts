@@ -129,7 +129,21 @@ export const getAll = async (): Promise<ICarListingDoc[]> => {
  * @returns {Promise<ICarListingDoc | null>} A promise containing the specified CarListing record
  */
 export const getById = async (carListingId: Types.ObjectId): Promise<ICarListingDoc | null> => {
-  return CarListing.findById(carListingId);
+  let record = await CarListing.findById(carListingId);
+  if (record) {
+    record = await record.populate([
+      {
+        path: 'car',
+        select: '-createdAt -updatedAt -__v -_id',
+      },
+      {
+        path: 'seller',
+        select: '-createdAt -updatedAt -__v -_id',
+      }
+    ])
+  }
+
+  return record;
 };
 
 /**

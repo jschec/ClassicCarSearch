@@ -1,56 +1,69 @@
 <!--************    SEARCH BAR    ************-->
-<div class="container searchInput" fxLayout="row" fxLayoutAlign="center center">
+<div class="landing-page-container" fxLayout="column">
+  <div class="search-section">
+      <div class="section-title">
+          <h1>Cars for sale - Search Around The Nation</h1>
+      </div>
+      <form [formGroup]="filterForm" (ngSubmit)="onClickSubmit()">
+          <div class="section-form" fxLayout="row" fxLayoutAlign="space-around center" fxLayoutGap="20px">
+              <mat-form-field appearance="fill" fxFlex="20">
+                  <mat-label>Model</mat-label>
+                  <input matInput formControlName="model">
+              </mat-form-field>
+              
+              <mat-form-field appearance="fill" fxFlex="20">
+                  <mat-label>Make</mat-label>
+                  <input matInput formControlName="make">
+              </mat-form-field>
+              
+              <div fxLayout="row" fxFlex="20" fxLayoutGap="5px">
+                  <mat-form-field appearance="fill">
+                      <mat-label>From Year</mat-label>
+                      <input matInput formControlName="startYear" type="number">
+                  </mat-form-field>
 
-  <!--<mat-grid-list cols="2" rowHeight="100px">-->
-    <mat-form-field appearance="fill">
-      <mat-label>Make</mat-label>
-      <input matInput>
-    </mat-form-field>
+                  <mat-form-field appearance="fill">
+                      <mat-label>To Year</mat-label>
+                      <input matInput formControlName="endYear" type="number">
+                  </mat-form-field>
+              </div>
 
-    <mat-form-field appearance="fill">
-      <mat-label>Model</mat-label>
-      <input matInput>
-    </mat-form-field>
+              <mat-form-field appearance="fill" fxFlex="20">
+                  <mat-label>Region</mat-label>
+                  <mat-select formControlName="selectedRegion">
+                      <mat-option *ngFor="let region of regionOptions" [value]="region">
+                          {{region}}
+                      </mat-option>
+                  </mat-select>
+              </mat-form-field>
+              
+              <button
+                  mat-flat-button
+                  class="search-button" 
+                  type="submit" 
+                  [disabled]="!filterForm.valid" 
+                  color="primary"
+                  fxFlex="10"
+              >
+                  Search
+              </button>
+          </div>
+      </form>
+  </div>
 
-    <mat-form-field appearance="fill">
-      <mat-label>Max Mileage</mat-label>
-      <input matInput>
-    </mat-form-field>
-
-    <mat-form-field appearance="fill">
-      <mat-label>Max Price</mat-label>
-      <input matInput>
-    </mat-form-field>
-
-    <mat-form-field appearance="fill">
-      <mat-label>Minimum Condition</mat-label>
-      <mat-select>
-        <mat-option value="one">Bad</mat-option>
-        <mat-option value="two">Fair</mat-option>
-        <mat-option value="three">Good</mat-option>
-        <mat-option value="four">Excellent</mat-option>
-      </mat-select>
-    </mat-form-field>
-
-<!--TODO
-<mat-checkbox [(ngModel)]="subtask.completed"
-                        (ngModelChange)="updateAllComplete()">
-            {{Regions}}
-    </mat-checkbox>
-
-    <mat-checkbox [(ngModel)]="subtask.completed"
-                        (ngModelChange)="updateAllComplete()">
-            {{Conditions}}
-    </mat-checkbox>
-
--->
-  <!--TODO</mat-grid-list>-->
+  <!--TODO  TEMPORARY CRAP-->
+  <div class="landing-logo-section" fxLayout="column" fxLayoutAlign="center center">
+      <img class="landing-logo" src="../../../assets/vintage-car.svg"/>
+  </div>
+  
 </div>
 <li
         *ngFor="let record of searchResults.searchResults"
     >
         {{record.make}} {{record.model}} {{record.listingDescription}}
     </li>
+
+    
 <!--************    MAIN PAGE BODY    ************-->
 
 <!-- The grid layout -->
@@ -74,15 +87,11 @@
                 <div class="active-listing"  *ngIf="record.isActive">Active</div>
                 <div class="closed-listing"  *ngIf="!record.isActive">Sold</div> 
               <!--TODO</mat-grid-tile>-->
-           <!--TODO</mat-grid-list>-->
-            
-            
-              
-                                     
+           <!--TODO</mat-grid-list>-->                                   
           </mat-card-header>
 
           <mat-card-content>
-            {{record.listingDescription}}
+            <!--{{record.listingDescription}}-->
             <!--Numerical Data-->
             <mat-list>
               <mat-list-item>

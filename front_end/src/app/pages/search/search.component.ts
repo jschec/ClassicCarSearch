@@ -1,9 +1,9 @@
 import { Component, Injectable} from '@angular/core';
-import {FormControl} from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { of, Observable, concat } from 'rxjs';
 import { SearchService, ISearch, ICarListing } from 'src/app/core/services/search.service';
-
+import { NavigationExtras, Router } from '@angular/router';
 
 
 const defaultData: ICarListing[] = [
@@ -43,25 +43,48 @@ const defaultData: ICarListing[] = [
 })
 
 export class SearchComponent {
-  
+  regionOptions = [
+    "Northeast",
+    "Southwest",
+    "West",
+    "Southeast",
+    "Midwest"
+  ]
+  filterForm: FormGroup;
+
   //searchResults: ISearch = {id: "0", searchResults: defaultData};
   searchResults: ISearch = {id: "0", searchResults: defaultData};
-  constructor(private listingService: SearchService) {}
+
+  constructor(private listingService: SearchService, private router : Router) {
+    const minYear = 1885;
+    const maxYear = new Date().getFullYear() + 1;
+
+    this.filterForm = new FormGroup({
+      make: new FormControl(''),
+      model: new FormControl(''),
+      selectedRegion: new FormControl(''),
+      startYear: new FormControl(
+        minYear, [Validators.min(minYear), Validators.max(maxYear)]
+      ),
+      endYear: new FormControl(
+        maxYear, [Validators.min(minYear), Validators.max(maxYear)]
+      )
+      
+      });
+    
+  }
 
   ngOnInit(): void {
     this.searchResults = this.listingService.getRecords();
+    filterForm: FormGroup;
+}
+onClickSubmit() {
+  let navigationExtras: NavigationExtras = {
+    queryParams: {
+      searchCriteria: JSON.stringify(this.filterForm.value)
+    }
+  }
 
-
+  this.router.navigate(['/search'], navigationExtras);
 }
 }
-
-
-/** Region Select with multiple selection */
-/* @Component({
-  selector: 'select-multiple-region',
-  templateUrl: 'select-multiple-region.html',
-})
-export class SelectMultipleRegion {
-  regionSelect = new FormControl('');
-  regionsList: string[] = ["Northeast", "Southeast", "Midwest", "West", "Southwest" ]; 
-}*/

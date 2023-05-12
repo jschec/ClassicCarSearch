@@ -1,7 +1,7 @@
 <div class="landing-page-container" fxLayout="column">
     <div class="search-section">
         <div class="section-title">
-            Cars for sale - Search Around The Nation
+            <h1>Cars for sale - Search Around The Nation</h1>
         </div>
         <form [formGroup]="filterForm" (ngSubmit)="onClickSubmit()">
             <div class="section-form" fxLayout="row" fxLayoutAlign="space-around center" fxLayoutGap="20px">
@@ -15,19 +15,20 @@
                     <input matInput formControlName="make">
                 </mat-form-field>
                 
-                <div fxLayout="row" fxFlex="20">
+                <div fxLayout="row" fxFlex="20" fxLayoutGap="5px">
                     <mat-form-field appearance="fill">
-                        <mat-label>From</mat-label>
+                        <mat-label>From Year</mat-label>
                         <input matInput formControlName="startYear" type="number">
                     </mat-form-field>
 
                     <mat-form-field appearance="fill">
-                        <mat-label>To</mat-label>
+                        <mat-label>To Year</mat-label>
                         <input matInput formControlName="endYear" type="number">
                     </mat-form-field>
                 </div>
 
                 <mat-form-field appearance="fill" fxFlex="20">
+                    <mat-label>Region</mat-label>
                     <mat-select formControlName="selectedRegion">
                         <mat-option *ngFor="let region of regionOptions" [value]="region">
                             {{region}}
@@ -35,12 +36,13 @@
                     </mat-select>
                 </mat-form-field>
                 
-                <button 
-                    mat-flat-button 
+                <button
+                    mat-flat-button
+                    class="search-button" 
                     type="submit" 
                     [disabled]="!filterForm.valid" 
                     color="primary"
-                    fxFlex="20"
+                    fxFlex="10"
                 >
                     Search
                 </button>
@@ -48,7 +50,7 @@
         </form>
     </div>
 
-    <div>
+    <div class="landing-logo-section" fxLayout="column" fxLayoutAlign="center center">
         <img class="landing-logo" src="../../../assets/vintage-car.svg"/>
     </div>
     

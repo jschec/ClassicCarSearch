@@ -1,36 +1,10 @@
 .landing-page-container {
-    display: flex;
-    flex-direction: column;
+    margin: 20px;
 }
 
-.landing-page-container .search-section .section-form {
-    display: grid;
-    grid-template-columns: repeat(9, 1fr);
-    grid-auto-rows: minmax(100px, auto);
-    grid-template-areas:
-      "mo-in mo-in ma-in ma-in fr-in to-in re-in re-in su-btn";
-    grid-row-gap: 16px;
-    grid-column-gap: 16px;
-}
-
-.model-input {
-    grid-area: mo-in;
-}
-
-.make-input {
-    grid-area: ma-in;
-}
-
-.from-input {
-    grid-area: fr-in;
-}
-
-.to-input {
-    grid-area: to-in;
-}
-
-.submit-button {
-    grid-area: su-btn;
+.landing-page-container .search-section {
+    margin-left: 100px;
+    margin-right: 100px;
 }
 
 .mat-form-field {
@@ -43,12 +17,15 @@
     margin-bottom: 20px;
 }
 
-.landing-page-container .landing-logo {
-    min-height: 100px;
+.landing-page-container .landing-logo-section {
+    margin-top: 100px;
+    min-height: 300px;
 }
 
-.landing-page-container .landing-logo img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
+.landing-logo {
+    height: 400px;
+}
+
+.search-button {
+    margin-top: -25px;
 }

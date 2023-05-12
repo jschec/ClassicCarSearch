@@ -1,5 +1,6 @@
 <div class="subscription-page-container" fxLayout="column" fxLayoutGap="20px">
-    <div class="subscription-page-title">
+    
+    <div class="subscription-page-title" fxFlex="20">
         <h1>
             Subscription
         </h1>
@@ -8,7 +9,7 @@
         </p>
     </div>
 
-    <div fxLayout="row" fxLayoutGap="20px">
+    <div fxLayout="row" fxLayoutGap="20px" fxFlex="80">
         <mat-card
             class="subscription-card"
             *ngFor="let subscription of subscriptions" 

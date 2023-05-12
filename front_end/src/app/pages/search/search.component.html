@@ -72,11 +72,11 @@
               [pageSizeOptions]="[5, 10, 25, 100]"
               aria-label="Select page">-->
 
-  <mat-grid-list cols="2" rowHeight="500px" colWidth="fit">
+  <mat-grid-list cols="2" rowHeight="500px" colWidth="fit" class="resultBackdrop">
     <!-- Material Card Template --> 
     <mat-grid-tile *ngFor="let record of searchResults.searchResults" [colspan]="1" [rowspan]="1">
       <div class="searchDisplayItem">
-        <mat-card class="resultCard">
+        <mat-card class="resultCard" type="raised">
           <img mat-card-image><!--TODO{{record.imageURL}}-->
           <!--<mat-card-header class="cardHeader">-->
             <mat-grid-list cols="2" rowHeight="100px" class="cardHeader">

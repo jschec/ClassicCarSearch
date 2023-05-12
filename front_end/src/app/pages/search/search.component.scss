@@ -1,15 +1,44 @@
-.active-listing{
+.active-listingChip{
 background-color: blue;
 color: white;
-padding: 5px;
-border-radius: 2px;
+text-emphasis: bold;
+padding-left: 25px;
+padding-right: 25px;
+padding-top: 10px;
+padding-bottom: 10px;
+border-radius: 10px;
 }
-.closed-listing{
+.closed-listingChip{
 background-color: red;
 color:white;
-padding: 5px;
-border-radius: 2px;
+padding-left: 25px;
+padding-right: 25px;
+padding-top: 10px;
+padding-bottom: 10px;
+border-radius: 10px;
 }
+.active-listingFooter{
+    background-color: blue;
+    color: white;
+    text-emphasis: bold;
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    }
+    .closed-listingFooter{
+    background-color: red;
+    color:white;
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    }
+    
 .searchInput{
     max-width: 960px;
     margin: auto;

@@ -50,9 +50,13 @@ export class SearchComponent {
     "Southeast",
     "Midwest"
   ]
+  qualityOptions = [
+    "Bad",
+    "Fair",
+    "Good",
+    "Excellent"
+  ]
   filterForm: FormGroup;
-
-  //searchResults: ISearch = {id: "0", searchResults: defaultData};
   searchResults: ISearch = {id: "0", searchResults: defaultData};
 
   constructor(private listingService: SearchService, private router : Router) {
@@ -68,8 +72,8 @@ export class SearchComponent {
       ),
       endYear: new FormControl(
         maxYear, [Validators.min(minYear), Validators.max(maxYear)]
-      )
-      
+      ),
+      minQuality: new FormControl('')
       });
     
   }

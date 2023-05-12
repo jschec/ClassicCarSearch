@@ -27,8 +27,8 @@ border-radius: 10px;
     padding-bottom: 10px;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
-    }
-    .closed-listingFooter{
+}
+.closed-listingFooter{
     background-color: red;
     color:white;
     padding-left: 25px;
@@ -37,7 +37,7 @@ border-radius: 10px;
     padding-bottom: 10px;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
-    }
+}
     
 .searchInput{
     max-width: 960px;
@@ -53,10 +53,15 @@ border-radius: 10px;
     padding-left: 20px;
     padding-right: 20px;
 }
-
+.resultBackdrop{
+    background-color: rgb(242, 239, 239);
+}
+//CARDS
 .resultCard{
     background-color: beige;
     width: 100%;
+    border: tan;
+    border-width: 2px;
 }
 
 .cardHeader{

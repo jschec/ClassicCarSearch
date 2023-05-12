@@ -4,8 +4,9 @@ import { Types } from 'mongoose';
 import { 
   NewCarListingBody, UpdateCarListingBody, ICarListingDoc 
 } from '../interfaces/car-listing.interfaces';
+import { IPaginationResponse } from '../interfaces/pagination.interfaces';
 import { 
-  SearchCriteriaRequest 
+  SearchCriteriaRequest, SearchCriteriaRequestPaginated
 } from '../interfaces/search-criteria.interfaces';
 import CarListing from '../models/car-listing.model';
 import ApiError from '../utils/ApiError';
@@ -21,13 +22,95 @@ export const create = async (reqBody: NewCarListingBody): Promise<ICarListingDoc
 };
 
 /**
- * Retrieves all CarListing records
+ * Applies a query to retrieve CarListing records
  * 
  * @param {NewCarListingBody} reqBody The request body supplied by the client
- * @returns {Promise<ICarListingDoc | null>} A promise containing the all CarListing records
+ * @returns {Promise<ICarListingDoc[] | null>} A promise containing the matching CarListing records
  */
 export const applyQuery = async (reqBody: SearchCriteriaRequest): Promise<ICarListingDoc[]> => {
   return CarListing.find({...reqBody});
+};
+
+/**
+ * Applies a query to retrieve populated CarListing records
+ * 
+ * @param {SearchCriteriaRequestPaginated} reqBody The request body supplied by the client
+ * @returns {Promise<IPaginationResponse<ICarListingDoc>>} A promise containing the matching CarListing records
+ */
+export const applyQueryFullDoc = async (reqBody: SearchCriteriaRequestPaginated): Promise<IPaginationResponse<ICarListingDoc>> => {
+  let { page, pageSize, region, ...carCriteria } = reqBody;
+  
+  // Ugly, but necessary to convert page to number
+  if (typeof page === 'string') {
+    page = parseInt(page);
+  }
+
+  // Ugly, but necessary to convert pageSize to number
+  if (typeof pageSize === 'string') {
+    pageSize = parseInt(pageSize);
+  }
+
+  // Create a MongoDB friendly query
+  var searchCriteria: {[key: string]: any} = {};
+
+  if (region) {
+    searchCriteria["region"] = region;
+  }
+
+  for (const [k, v] of Object.entries(carCriteria)) {
+    searchCriteria[`car.${k}`] = v;
+  }
+
+  let aggregation = await CarListing.aggregate([
+    { 
+      $lookup: {
+        from: 'cars',
+        localField: 'car',
+        foreignField: '_id',
+        as: 'car'
+      }
+    },
+    { 
+      $lookup: {
+        from: 'carsellers',
+        localField: 'seller',
+        foreignField: '_id',
+        as: 'seller'
+      }
+    },
+    {
+      $unwind: '$car',
+    },
+    {
+      $unwind: '$seller',
+    },
+    { 
+      $match: searchCriteria
+    },
+    { 
+      $sort: { createdAt: -1 } 
+    },
+    {
+      $facet: {
+        records: [
+          { $skip: page }, 
+          { $limit: pageSize }
+        ],
+        numRecords: [
+          {
+            $count: 'count'
+          }
+        ]
+      }
+    }
+  ]);
+
+  return {
+    page: page,
+    pageSize: pageSize,
+    numRecords: aggregation[0].numRecords[0] ? aggregation[0].numRecords[0].count : 0, 
+    records: aggregation[0].records ? aggregation[0].records : []
+  }
 };
 
 /**

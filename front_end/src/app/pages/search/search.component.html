@@ -37,6 +37,15 @@
                   </mat-select>
               </mat-form-field>
               
+              <mat-form-field appearance="fill" fxFlex="20">
+                <mat-label>Quality</mat-label>
+                <mat-select formControlName="selectedRegion">
+                    <mat-option *ngFor="let quality of qualityOptions" [value]="quality">
+                        {{quality}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+
               <button
                   mat-flat-button
                   class="search-button" 

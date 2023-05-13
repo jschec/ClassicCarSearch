@@ -1,8 +1,10 @@
 import { Document, Model } from 'mongoose';
+
+import { ICarDoc } from './car.interfaces';
 import { ISearchDoc } from './search.interfaces';
 
 export interface IWatchList {
-  user: string;
+  user: string | ICarDoc;
   searches: string[] | ISearchDoc[];
 }
 

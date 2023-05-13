@@ -5,32 +5,34 @@ import {
   IWatchListDoc, IWatchListModel 
 } from '../interfaces/watch-list.interfaces';
 import User from './user.model';
+import toJSON from '../utils/toJson';
 
 const watchListSchema = new Schema<IWatchListDoc, IWatchListModel>(
   {
     _id: {
-      type: String,
+      type: Schema.Types.UUID,
       default: () => randomUUID(),
     },
     user: {
-      type: String,
+      type: Schema.Types.UUID,
       required: true,
       ref: 'User'
     },
     searches: [{
-      type: String,
+      type: Schema.Types.UUID,
       required: false,
       ref: 'Search'
     }]
   },
   {
     timestamps: true,
+    toJSON: { virtuals: true, getters: true },
+    toObject: { virtuals: true },
   }
 );
 
-const WatchList = model<IWatchListDoc, IWatchListModel>(
-  'WatchList', watchListSchema
-);
+// Add plugin to converts mongoose documents to json
+watchListSchema.plugin(toJSON);
 
 /**
  * A pre-save hook to apply additional validation logic to the User
@@ -45,5 +47,9 @@ watchListSchema.pre('validate', async function(next) {
 
   next();
 });
+
+const WatchList = model<IWatchListDoc, IWatchListModel>(
+  'WatchList', watchListSchema
+);
 
 export default WatchList;

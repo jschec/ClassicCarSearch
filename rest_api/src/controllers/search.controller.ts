@@ -2,7 +2,13 @@ import httpStatus from 'http-status';
 import { Request, Response } from 'express';
 import { Types } from 'mongoose';
 
+import { ICarListingDoc } from '../interfaces/car-listing.interfaces';
+import { IPaginationResponse } from '../interfaces/pagination.interfaces';
+
 import { ISearchDoc } from '../interfaces/search.interfaces';
+import { 
+  SearchCriteriaRequest, SearchCriteriaRequestPaginated 
+} from '../interfaces/search-criteria.interfaces';
 import { ISearchForecastDoc } from '../interfaces/search-forecast.interfaces';
 import * as carListingService from '../services/car-listing.service';
 import * as searchCriteriaService from '../services/search-criteria.service';
@@ -56,7 +62,37 @@ export const getSearch = catchAsync(async (req: Request, res: Response) => {
 
 /**
  * Retrieves the specified Search record
- * 
+ *
+ * @param {Request<SearchQueryRequest>} req The request supplied by the client
+ * @param {Response} res The response to be sent to the client
+ * @returns {Promise<ISearchDoc[]>} A promise containing the specified Search record
+ */
+export const getSearchByParam = catchAsync(async (req: Request, res: Response) => {
+  const record = await searchService.getFullDocByIds(req.body.ids);
+  res.send(record);
+});
+
+/**
+ * Retrieves the matching CarListing records
+ *
+ * @param {Request<SearchCriteriaRequestPaginated>} req The request supplied by the client
+ * @param {Response} res The response to be sent to the client
+ * @returns {Promise<IPaginationResponse<ICarListingDoc>>} A promise containing the paginated records
+ */
+export const applySearch = catchAsync(async (req: Request, res: Response) => {
+  const page = req.query.page ? parseInt(req.query.page as string) : 0;
+  const pageSize = req.query.pageSize ? parseInt(req.query.pageSize as string) : 10;
+
+  const records = await carListingService.applyQueryFullDoc({
+    page, pageSize, ...req.query
+  });
+
+  res.send(records);
+});
+
+/**
+ * Retrieves the specified Search record
+ *
  * @param {Request} req The request supplied by the client
  * @param {Response} res The response to be sent to the client
  * @returns {Promise<ISearchForecastDoc>} A promise containing the specified SearchForecast records

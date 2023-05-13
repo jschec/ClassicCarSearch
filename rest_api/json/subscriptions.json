@@ -1,0 +1,22 @@
+[
+    {
+        "_id": "645eec7550909331ebe1355e",
+        "name": "Free",
+        "cost": 0
+    },
+    {
+        "_id": "645eec7550909331ebe13561",
+        "name": "Basic",
+        "cost": 10
+    },
+    {
+        "_id": "645eec7550909331ebe13564",
+        "name": "Premium",
+        "cost": 20
+    },
+    {
+        "_id": "645eec7550909331ebe13567",
+        "name": "Enterprise",
+        "cost": 100
+    }
+]

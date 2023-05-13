@@ -6,13 +6,14 @@ import {
   ICarSellerDoc, ICarSellerModel 
 } from '../interfaces/car-seller.interfaces';
 import CarListing from './car-listing.model';
+import toJSON from '../utils/toJson';
 
 const carSellerSchema = new Schema<
   ICarSellerDoc, ICarSellerModel
 >(
   {
     _id: {
-      type: String,
+      type: Schema.Types.UUID,
       default: () => randomUUID(),
     },
     firstName: {
@@ -38,8 +39,13 @@ const carSellerSchema = new Schema<
   },
   {
     timestamps: true,
+    toJSON: { virtuals: true, getters: true },
+    toObject: { virtuals: true },
   }
 );
+
+// Add plugin to convert mongoose documents to json
+carSellerSchema.plugin(toJSON);
 
 /**
  * Check if the email associated with the CarSeller is already associated with

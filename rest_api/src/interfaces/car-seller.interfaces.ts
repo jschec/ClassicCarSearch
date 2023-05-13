@@ -1,4 +1,4 @@
-import { Document, Model, Types } from 'mongoose';
+import { Document, Model } from 'mongoose';
 
 export interface ICarSeller {
   firstName: string;
@@ -13,5 +13,5 @@ export type UpdateCarSellerBody = Partial<ICarSeller>;
 export interface ICarSellerDoc extends ICarSeller, Document {}
 
 export interface ICarSellerModel extends Model<ICarSellerDoc> {
-  isEmailTaken(email: string, excludeUserId?: Types.ObjectId): Promise<boolean>;
+  isEmailTaken(email: string, excludeUserId?: string): Promise<boolean>;
 }

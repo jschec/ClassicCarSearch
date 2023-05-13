@@ -6,9 +6,11 @@
 
 .watch-list-parent {
     width: 100%;
+    height: calc(100vh - 64px);
     padding-top: 20px;
     padding-bottom: 20px;
     background-color: #efefef;
+    overflow: scroll;
 }
 .watch-list-container {
     max-width: 960px;
@@ -23,13 +25,13 @@
 .watch-list-item {
     width: 100%;
     // border: 1px solid #cecece;
-    height: 206px;
+    height: 215px;
     overflow: hidden;
     // padding: 1px;
     // text-overflow: ellipsis;
 }
 .watch-list-item-content {
-    height: 172px;
+    height: 180px;
 }
 .watch-list-item-content button {
     margin-bottom: 10px;

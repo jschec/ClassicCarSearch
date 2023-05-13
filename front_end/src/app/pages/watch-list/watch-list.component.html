@@ -18,18 +18,19 @@
     <mat-progress-bar *ngIf="loading" mode="query"></mat-progress-bar>
 
     <mat-grid-list *ngIf="!loading" cols="1" rowHeight="216px">
-        <mat-grid-tile *ngFor="let search of pageSearches" [colspan]="1" [rowspan]="1">
+        <mat-grid-tile *ngFor="let search of pageSearches; let i = index" [colspan]="1" [rowspan]="1">
             <div class="watch-list-item">
             <mat-card>
                 <mat-card-content>
                     <div class="flex-layout flex-row watch-list-item-content">
                         <div class="">
                             <div class="watch-list-item-car-img-box">
-                                <img mat-card-lg-image *ngFor="let search of search.results | slice:0:4" src="{{search.car.img}}">
+                                <img mat-card-lg-image *ngFor="let searchResults of search.results | slice:0:4" src="{{searchResults.car.img}}">
                             </div>
                         </div>
                         <div class="flex-grow-1 flex-layout flex-row flex-wrap ">
                             <div class="flex-layout flex-column flex-wrap">
+                                <div class="watch-list-item-attr"> Num: {{pageIndex * pageSize + i + 1}}</div>
                                 <!-- <div class="watch-list-item-attr"> Search-ID: {{search.id}} </div> -->
                                 <div class="watch-list-item-attr"> Region: {{search.criterias[0].region}} </div>
                                 <div class="watch-list-item-attr"> Match Results: {{search.results.length}} </div>

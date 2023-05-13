@@ -1,0 +1,24 @@
+@use '@angular/material' as mat;
+
+.subscription-page-container {
+    margin: 20px;
+    height: 100%;
+}
+
+.subscription-card {
+    &:hover {
+        @include mat.elevation(12);
+    }
+}
+
+.subscription-card-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.subscription-action {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

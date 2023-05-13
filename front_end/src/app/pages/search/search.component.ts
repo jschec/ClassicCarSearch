@@ -6,6 +6,7 @@ import { PageEvent } from '@angular/material/paginator';
 import { SearchService, ISearch, ICarListing } from 'src/app/core/services/search.service';
 import { NavigationExtras, Router } from '@angular/router';
 
+
 @Component({
   selector: 'app-search',
   templateUrl: './search.component.html',
@@ -34,7 +35,7 @@ export class SearchComponent {
   pageSize: number = this.pageSizeList[0];
   numRecords: number = 0;
 
-  constructor(private searchService: SearchService, private router : Router) {
+  constructor(private route: ActivatedRoute, private router: Router, private searchService: SearchService) {
     const minYear = 1885;
     const maxYear = new Date().getFullYear() + 1;
 
@@ -54,10 +55,13 @@ export class SearchComponent {
   }
 
   ngOnInit(): void {
-    this.searchService.getRecords(this.page, this.pageSize, {}).subscribe((response) => {
-      this.searchResults = response.records; 
-      this.numRecords = response.numRecords;
-      console.log(this.searchResults);
+    this.route.queryParams.subscribe(params => {
+      console.log("recieved ", params);
+      this.searchService.getRecords(this.page, this.pageSize, {}).subscribe((response) => {
+        this.searchResults = response.records; 
+        this.numRecords = response.numRecords;
+        console.log(this.searchResults);
+      });
     });
   }
 

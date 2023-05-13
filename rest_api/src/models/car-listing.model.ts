@@ -7,13 +7,14 @@ import {
 import { Region } from '../interfaces/region.interfaces';
 import CarSeller from './car-seller.model';
 import Car from './car.model';
+import toJSON from '../utils/toJson';
 
 const carListingSchema = new Schema<
   ICarListingDoc, ICarListingModel
 >(
   {
     _id: {
-      type: String,
+      type: Schema.Types.UUID,
       default: () => randomUUID(),
     },
     region: {
@@ -33,20 +34,24 @@ const carListingSchema = new Schema<
       max: new Date(), // Can't be newer than today
     },
     seller: {
-      type: String,
+      type: Schema.Types.UUID,
       required: true,
       ref: 'CarSeller',
     },
     car: {
-      type: String,
+      type: Schema.Types.UUID,
       required: true,
       ref: 'Car',
     }
   },
   {
     timestamps: true,
+    toJSON: { getters: true }
   }
 );
+
+// Add plugin to convert mongoose documents to json
+carListingSchema.plugin(toJSON);
 
 /**
  * A pre-save hook to apply additional validation logic to the CarListing

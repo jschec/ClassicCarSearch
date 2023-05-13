@@ -1,4 +1,4 @@
-import { Component, HostListener } from '@angular/core';
+import { Component, HostListener, ElementRef, ViewChild } from '@angular/core';
 import { PageEvent } from '@angular/material/paginator';
 import { concatMap, map } from 'rxjs/operators';
 import { AuthService } from 'src/app/core/services/auth.service';
@@ -24,18 +24,13 @@ export class WatchListComponent {
   pageIndex: number = 0;
   pageSizeList: number[] = [5, 10, 25, 100]
   pageSize: number = this.pageSizeList[0];
+  // temp state
+  needScrollToBottom: boolean = false;
 
   constructor(
     private authService: AuthService,
     private watchListService: WatchListService,
     private searchService: SearchService) {
-  }
-
-  @HostListener('window:popstate', ['$event'])
-  onPopState(event: any) {
-    console.log('---onPopState---');
-    const state = history.state;
-    this.restoreState(state);
   }
 
   ngOnInit(): void {
@@ -58,9 +53,32 @@ export class WatchListComponent {
     console.log('---ngAfterViewInit---');
   }
 
+  ngAfterViewChecked(): void {
+    if (this.needScrollToBottom) {
+      this.needScrollToBottom = false;
+      this.scrollToBottom();
+    }
+    console.log(this.scrollContainer.nativeElement.offsetHeight);
+  }
+
   onPageChanged(event: PageEvent): void {
     this.updateUIWatchListByPage(event.pageSize, event.pageIndex);
     this.saveState();
+    this.needScrollToBottom = true;
+  }
+
+  @HostListener('window:popstate', ['$event'])
+  onPopState(event: any) {
+    console.log('---onPopState---');
+    const state = history.state;
+    this.restoreState(state);
+  }
+
+  @ViewChild('scrollContainer') private scrollContainer!: ElementRef;
+  scrollToBottom() {
+    const element = this.scrollContainer.nativeElement;
+    element.scrollTop = element.scrollHeight;
+    console.log(element.scrollHeight);
   }
 
   private queryByUserId(userId: string, user: any): void {

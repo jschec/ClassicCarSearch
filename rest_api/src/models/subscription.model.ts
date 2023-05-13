@@ -4,13 +4,14 @@ import { model, Schema } from 'mongoose';
 import { 
   ISubscriptionDoc, ISubscriptionModel 
 } from '../interfaces/subscription.interfaces';
+import toJSON from '../utils/toJson';
 
 const subscriptionSchema = new Schema<
   ISubscriptionDoc, ISubscriptionModel
 >(
   {
     _id: {
-      type: String,
+      type: Schema.Types.UUID,
       default: () => randomUUID(),
     },
     name: {
@@ -26,8 +27,13 @@ const subscriptionSchema = new Schema<
   },
   {
     timestamps: true,
+    toJSON: { virtuals: true, getters: true },
+    toObject: { virtuals: true },
   }
 );
+
+// Add plugin to converts mongoose documents to json
+subscriptionSchema.plugin(toJSON);
 
 /**
  * Check if the name associated with the subscripion is already associated with 

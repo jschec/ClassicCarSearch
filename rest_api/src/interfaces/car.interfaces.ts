@@ -10,6 +10,7 @@ export interface ICar {
   mechanicalCondition: Condition;
   mileage: number;
   color: string;
+  img: string;
 }
 
 export type NewCarBody = ICar;

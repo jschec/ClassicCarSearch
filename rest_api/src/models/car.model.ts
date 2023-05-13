@@ -40,6 +40,10 @@ const carSchema = new Schema<ICarDoc, ICarModel>(
       type: String,
       required: true,
     },
+    img: {
+      type: String,
+      required: false,
+    },
   },
   {
     timestamps: true,

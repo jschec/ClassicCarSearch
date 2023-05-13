@@ -1,0 +1,402 @@
+[
+    {
+        "_id": "645eec7650909331ebe135e8",
+        "region": "MidWest",
+        "listDate": "2022-07-09T19:22:20.506Z",
+        "saleDate": null,
+        "seller": "645eec7650909331ebe135e2",
+        "car": "645eec7550909331ebe1357e"
+    },
+    {
+        "_id": "645eec7650909331ebe135ec",
+        "region": "West",
+        "listDate": "2020-10-06T12:38:14.567Z",
+        "saleDate": null,
+        "seller": "645eec7650909331ebe135e6",
+        "car": "645eec7550909331ebe13580"
+    },
+    {
+        "_id": "645eec7650909331ebe135f0",
+        "region": "SouthWest",
+        "listDate": "2021-02-01T13:35:14.185Z",
+        "saleDate": null,
+        "seller": "645eec7650909331ebe135e6",
+        "car": "645eec7550909331ebe13582"
+    },
+    {
+        "_id": "645eec7650909331ebe135f4",
+        "region": "SouthWest",
+        "listDate": "2020-10-31T17:00:07.336Z",
+        "saleDate": null,
+        "seller": "645eec7650909331ebe135e6",
+        "car": "645eec7550909331ebe13584"
+    },
+    {
+        "_id": "645eec7750909331ebe135f8",
+        "region": "West",
+        "listDate": "2022-02-03T20:47:29.280Z",
+        "saleDate": null,
+        "seller": "645eec7650909331ebe135e2",
+        "car": "645eec7550909331ebe13586"
+    },
+    {
+        "_id": "645eec7750909331ebe135fc",
+        "region": "SouthWest",
+        "listDate": "2020-10-16T09:50:03.435Z",
+        "saleDate": null,
+        "seller": "645eec7650909331ebe135e6",
+        "car": "645eec7550909331ebe13588"
+    },
+    {
+        "_id": "645eec7750909331ebe13600",
+        "region": "SouthEast",
+        "listDate": "2021-07-12T06:32:39.981Z",
+        "saleDate": null,
+        "seller": "645eec7650909331ebe135e6",
+        "car": "645eec7550909331ebe1358a"
+    },
+    {
+        "_id": "645eec7750909331ebe13604",
+        "region": "SouthWest",
+        "listDate": "2021-11-16T22:44:02.198Z",
+        "saleDate": null,
+        "seller": "645eec7650909331ebe135e4",
+        "car": "645eec7550909331ebe1358c"
+    },
+    {
+        "_id": "645eec7750909331ebe13608",
+        "region": "MidWest",
+        "listDate": "2022-08-27T03:46:11.125Z",
+        "saleDate": null,
+        "seller": "645eec7650909331ebe135e6",
+        "car": "645eec7550909331ebe1358e"
+    },
+    {
+        "_id": "645eec7750909331ebe1360c",
+        "region": "MidWest",
+        "listDate": "2021-08-13T04:21:33.712Z",
+        "saleDate": null,
+        "seller": "645eec7650909331ebe135e4",
+        "car": "645eec7550909331ebe13590"
+    },
+    {
+        "_id": "645eec7750909331ebe13610",
+        "region": "MidWest",
+        "listDate": "2020-05-26T05:31:35.951Z",
+        "saleDate": null,
+        "seller": "645eec7650909331ebe135e6",
+        "car": "645eec7550909331ebe13592"
+    },
+    {
+        "_id": "645eec7750909331ebe13614",
+        "region": "SouthWest",
+        "listDate": "2023-04-24T09:15:30.764Z",
+        "saleDate": null,
+        "seller": "645eec7650909331ebe135e2",
+        "car": "645eec7550909331ebe13594"
+    },
+    {
+        "_id": "645eec7750909331ebe13618",
+        "region": "SouthEast",
+        "listDate": "2022-05-13T22:17:52.946Z",
+        "saleDate": null,
+        "seller": "645eec7650909331ebe135e6",
+        "car": "645eec7550909331ebe13596"
+    },
+    {
+        "_id": "645eec7750909331ebe1361c",
+        "region": "SouthEast",
+        "listDate": "2020-10-14T15:27:34.610Z",
+        "saleDate": null,
+        "seller": "645eec7650909331ebe135e6",
+        "car": "645eec7550909331ebe13598"
+    },
+    {
+        "_id": "645eec7750909331ebe13620",
+        "region": "NorthEast",
+        "listDate": "2021-01-19T16:13:46.929Z",
+        "saleDate": null,
+        "seller": "645eec7650909331ebe135e2",
+        "car": "645eec7650909331ebe1359a"
+    },
+    {
+        "_id": "645eec7750909331ebe13624",
+        "region": "MidWest",
+        "listDate": "2022-06-02T13:26:58.045Z",
+        "saleDate": null,
+        "seller": "645eec7650909331ebe135e6",
+        "car": "645eec7650909331ebe1359c"
+    },
+    {
+        "_id": "645eec7750909331ebe13628",
+        "region": "MidWest",
+        "listDate": "2022-01-17T03:42:27.930Z",
+        "saleDate": null,
+        "seller": "645eec7650909331ebe135e2",
+        "car": "645eec7650909331ebe1359e"
+    },
+    {
+        "_id": "645eec7750909331ebe1362c",
+        "region": "West",
+        "listDate": "2022-10-08T04:09:37.770Z",
+        "saleDate": null,
+        "seller": "645eec7650909331ebe135e4",
+        "car": "645eec7650909331ebe135a0"
+    },
+    {
+        "_id": "645eec7750909331ebe13630",
+        "region": "SouthEast",
+        "listDate": "2020-12-06T20:35:39.241Z",
+        "saleDate": null,
+        "seller": "645eec7650909331ebe135e4",
+        "car": "645eec7650909331ebe135a2"
+    },
+    {
+        "_id": "645eec7750909331ebe13634",
+        "region": "West",
+        "listDate": "2021-02-14T07:39:25.952Z",
+        "saleDate": null,
+        "seller": "645eec7650909331ebe135e2",
+        "car": "645eec7650909331ebe135a4"
+    },
+    {
+        "_id": "645eec7750909331ebe13638",
+        "region": "MidWest",
+        "listDate": "2022-06-26T05:01:29.990Z",
+        "saleDate": null,
+        "seller": "645eec7650909331ebe135e6",
+        "car": "645eec7650909331ebe135a6"
+    },
+    {
+        "_id": "645eec7750909331ebe1363c",
+        "region": "SouthWest",
+        "listDate": "2020-12-27T13:22:30.357Z",
+        "saleDate": null,
+        "seller": "645eec7650909331ebe135e6",
+        "car": "645eec7650909331ebe135a8"
+    },
+    {
+        "_id": "645eec7750909331ebe13640",
+        "region": "MidWest",
+        "listDate": "2020-06-25T17:00:28.998Z",
+        "saleDate": null,
+        "seller": "645eec7650909331ebe135e4",
+        "car": "645eec7650909331ebe135aa"
+    },
+    {
+        "_id": "645eec7750909331ebe13644",
+        "region": "SouthWest",
+        "listDate": "2022-03-28T02:36:53.308Z",
+        "saleDate": null,
+        "seller": "645eec7650909331ebe135e4",
+        "car": "645eec7650909331ebe135ac"
+    },
+    {
+        "_id": "645eec7750909331ebe13648",
+        "region": "SouthEast",
+        "listDate": "2021-06-04T14:44:29.107Z",
+        "saleDate": null,
+        "seller": "645eec7650909331ebe135e2",
+        "car": "645eec7650909331ebe135ae"
+    },
+    {
+        "_id": "645eec7750909331ebe1364c",
+        "region": "West",
+        "listDate": "2020-06-26T12:02:22.939Z",
+        "saleDate": null,
+        "seller": "645eec7650909331ebe135e2",
+        "car": "645eec7650909331ebe135b0"
+    },
+    {
+        "_id": "645eec7850909331ebe13650",
+        "region": "SouthEast",
+        "listDate": "2020-09-18T08:05:51.416Z",
+        "saleDate": null,
+        "seller": "645eec7650909331ebe135e6",
+        "car": "645eec7650909331ebe135b2"
+    },
+    {
+        "_id": "645eec7850909331ebe13654",
+        "region": "SouthWest",
+        "listDate": "2021-03-18T15:03:50.540Z",
+        "saleDate": null,
+        "seller": "645eec7650909331ebe135e2",
+        "car": "645eec7650909331ebe135b4"
+    },
+    {
+        "_id": "645eec7850909331ebe13658",
+        "region": "SouthEast",
+        "listDate": "2021-08-11T21:08:10.570Z",
+        "saleDate": null,
+        "seller": "645eec7650909331ebe135e4",
+        "car": "645eec7650909331ebe135b6"
+    },
+    {
+        "_id": "645eec7850909331ebe1365c",
+        "region": "West",
+        "listDate": "2021-07-08T03:29:00.704Z",
+        "saleDate": null,
+        "seller": "645eec7650909331ebe135e4",
+        "car": "645eec7650909331ebe135b8"
+    },
+    {
+        "_id": "645eec7850909331ebe13660",
+        "region": "SouthEast",
+        "listDate": "2021-03-14T09:19:59.330Z",
+        "saleDate": null,
+        "seller": "645eec7650909331ebe135e2",
+        "car": "645eec7650909331ebe135ba"
+    },
+    {
+        "_id": "645eec7850909331ebe13664",
+        "region": "SouthWest",
+        "listDate": "2020-11-17T08:07:16.265Z",
+        "saleDate": null,
+        "seller": "645eec7650909331ebe135e6",
+        "car": "645eec7650909331ebe135bc"
+    },
+    {
+        "_id": "645eec7850909331ebe13668",
+        "region": "MidWest",
+        "listDate": "2021-11-09T22:32:59.872Z",
+        "saleDate": null,
+        "seller": "645eec7650909331ebe135e4",
+        "car": "645eec7650909331ebe135be"
+    },
+    {
+        "_id": "645eec7850909331ebe1366c",
+        "region": "MidWest",
+        "listDate": "2022-08-20T12:34:44.102Z",
+        "saleDate": null,
+        "seller": "645eec7650909331ebe135e6",
+        "car": "645eec7650909331ebe135c0"
+    },
+    {
+        "_id": "645eec7850909331ebe13670",
+        "region": "West",
+        "listDate": "2021-11-14T12:04:49.586Z",
+        "saleDate": null,
+        "seller": "645eec7650909331ebe135e2",
+        "car": "645eec7650909331ebe135c2"
+    },
+    {
+        "_id": "645eec7850909331ebe13674",
+        "region": "West",
+        "listDate": "2023-02-12T15:17:52.822Z",
+        "saleDate": null,
+        "seller": "645eec7650909331ebe135e6",
+        "car": "645eec7650909331ebe135c4"
+    },
+    {
+        "_id": "645eec7850909331ebe13678",
+        "region": "SouthWest",
+        "listDate": "2022-03-28T21:15:40.319Z",
+        "saleDate": null,
+        "seller": "645eec7650909331ebe135e2",
+        "car": "645eec7650909331ebe135c6"
+    },
+    {
+        "_id": "645eec7850909331ebe1367c",
+        "region": "NorthEast",
+        "listDate": "2022-03-01T04:09:03.682Z",
+        "saleDate": null,
+        "seller": "645eec7650909331ebe135e4",
+        "car": "645eec7650909331ebe135c8"
+    },
+    {
+        "_id": "645eec7850909331ebe13680",
+        "region": "SouthEast",
+        "listDate": "2020-08-17T04:22:35.990Z",
+        "saleDate": null,
+        "seller": "645eec7650909331ebe135e4",
+        "car": "645eec7650909331ebe135ca"
+    },
+    {
+        "_id": "645eec7850909331ebe13684",
+        "region": "SouthWest",
+        "listDate": "2022-06-16T11:39:19.313Z",
+        "saleDate": null,
+        "seller": "645eec7650909331ebe135e4",
+        "car": "645eec7650909331ebe135cc"
+    },
+    {
+        "_id": "645eec7850909331ebe13688",
+        "region": "SouthEast",
+        "listDate": "2021-10-31T06:39:13.981Z",
+        "saleDate": null,
+        "seller": "645eec7650909331ebe135e4",
+        "car": "645eec7650909331ebe135ce"
+    },
+    {
+        "_id": "645eec7850909331ebe1368c",
+        "region": "NorthEast",
+        "listDate": "2020-10-23T07:09:01.660Z",
+        "saleDate": null,
+        "seller": "645eec7650909331ebe135e6",
+        "car": "645eec7650909331ebe135d0"
+    },
+    {
+        "_id": "645eec7850909331ebe13690",
+        "region": "SouthEast",
+        "listDate": "2022-01-27T19:56:21.315Z",
+        "saleDate": null,
+        "seller": "645eec7650909331ebe135e6",
+        "car": "645eec7650909331ebe135d2"
+    },
+    {
+        "_id": "645eec7850909331ebe13694",
+        "region": "West",
+        "listDate": "2020-11-11T19:13:06.050Z",
+        "saleDate": null,
+        "seller": "645eec7650909331ebe135e6",
+        "car": "645eec7650909331ebe135d4"
+    },
+    {
+        "_id": "645eec7850909331ebe13698",
+        "region": "West",
+        "listDate": "2022-10-18T13:39:51.837Z",
+        "saleDate": null,
+        "seller": "645eec7650909331ebe135e4",
+        "car": "645eec7650909331ebe135d6"
+    },
+    {
+        "_id": "645eec7850909331ebe1369c",
+        "region": "West",
+        "listDate": "2021-11-01T02:33:37.732Z",
+        "saleDate": null,
+        "seller": "645eec7650909331ebe135e6",
+        "car": "645eec7650909331ebe135d8"
+    },
+    {
+        "_id": "645eec7850909331ebe136a0",
+        "region": "SouthEast",
+        "listDate": "2022-03-04T00:09:34.017Z",
+        "saleDate": null,
+        "seller": "645eec7650909331ebe135e2",
+        "car": "645eec7650909331ebe135da"
+    },
+    {
+        "_id": "645eec7850909331ebe136a4",
+        "region": "MidWest",
+        "listDate": "2023-05-01T03:06:11.000Z",
+        "saleDate": null,
+        "seller": "645eec7650909331ebe135e6",
+        "car": "645eec7650909331ebe135dc"
+    },
+    {
+        "_id": "645eec7950909331ebe136a8",
+        "region": "NorthEast",
+        "listDate": "2021-03-09T12:51:40.966Z",
+        "saleDate": null,
+        "seller": "645eec7650909331ebe135e2",
+        "car": "645eec7650909331ebe135de"
+    },
+    {
+        "_id": "645eec7950909331ebe136ac",
+        "region": "SouthEast",
+        "listDate": "2022-12-17T03:00:14.450Z",
+        "saleDate": null,
+        "seller": "645eec7650909331ebe135e4",
+        "car": "645eec7650909331ebe135e0"
+    }
+]

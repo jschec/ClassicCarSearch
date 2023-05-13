@@ -32,10 +32,10 @@ export const createUser = catchAsync(async (req: Request, res: Response) => {
  * @returns {Promise<IUserDoc>} A promise containing the specified user record
  */
 export const getUser = catchAsync(async (req: Request, res: Response) => {
-  if (typeof req.params['userId'] === 'string') {
+  if (req.params['userId']) {
 
     let user: IUserDoc | null;
-    const userId = new mongoose.Types.ObjectId(req.params['userId'])
+    const userId = req.params['userId'];
 
     if (req.query?.fields) {
       const fields = String(req.query.fields).split(",");
@@ -61,9 +61,9 @@ export const getUser = catchAsync(async (req: Request, res: Response) => {
  * @returns {Promise<IWatchListDoc>} A promise containing the specified user record
  */
 export const getUserWatchList = catchAsync(async (req: Request, res: Response) => {
-  if (typeof req.params['userId'] === 'string') {
+  if (req.params['userId']) {
 
-    const userId = new mongoose.Types.ObjectId(req.params['userId'])
+    const userId = req.params['userId'];
     const watchList = await watchListService.getByUserId(userId);
 
     if (!watchList) {
@@ -83,10 +83,8 @@ export const getUserWatchList = catchAsync(async (req: Request, res: Response) =
  * @returns {Promise<IUserDoc>} A promise containing the updated user record
  */
 export const updateUser = catchAsync(async (req: Request, res: Response) => {
-  if (typeof req.params['userId'] === 'string') {
-    const user = await userService.updateById(
-      new mongoose.Types.ObjectId(req.params['userId']), req.body
-    );
+  if (req.params['userId']) {
+    const user = await userService.updateById(req.params['userId'], req.body);
     
     res.send(user);
   }
@@ -101,10 +99,8 @@ export const updateUser = catchAsync(async (req: Request, res: Response) => {
  * @returns {Promise<void>} A promise indicating the success of the operation
  */ 
 export const deleteUser = catchAsync(async (req: Request, res: Response) => {
-  if (typeof req.params['userId'] === 'string') {
-    await userService.deleteById(
-      new mongoose.Types.ObjectId(req.params['userId'])
-    );
+  if (req.params['userId']) {
+    await userService.deleteById(req.params['userId']);
 
     res.status(httpStatus.NO_CONTENT).send();
   }

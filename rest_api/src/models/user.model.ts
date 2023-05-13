@@ -5,11 +5,12 @@ import validator from 'validator';
 import { IUserDoc, IUserModel } from '../interfaces/user.interfaces';
 import WatchList from './watch-list.model';
 import Subscription from './subscription.model';
+import toJSON from '../utils/toJson';
 
 const userSchema = new Schema<IUserDoc, IUserModel>(
   {
     _id: {
-      type: String,
+      type: Schema.Types.UUID,
       default: () => randomUUID(),
     },
     firstName: {
@@ -42,20 +43,25 @@ const userSchema = new Schema<IUserDoc, IUserModel>(
       required: true,
     },
     subscription: {
-      type: String,
+      type: Schema.Types.UUID,
       required: false,
       ref: 'Subscription',
     },
     watchList: {
-      type: String,
+      type: Schema.Types.UUID,
       required: false,
       ref: 'WatchList',
     }
   },
   {
     timestamps: true,
+    toJSON: { virtuals: true, getters: true },
+    toObject: { virtuals: true },
   }
 );
+
+// Add plugin to converts mongoose documents to json
+userSchema.plugin(toJSON);
 
 /**
  * Check if the email associated with the user is already associated with 

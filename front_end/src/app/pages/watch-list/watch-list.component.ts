@@ -1,6 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { PageEvent } from '@angular/material/paginator';
-import { of, Observable, concat } from 'rxjs';
 import { concatMap, map } from 'rxjs/operators';
 import { AuthService } from 'src/app/core/services/auth.service';
 import { IWatchList, WatchListService } from 'src/app/core/services/watchList.service';
@@ -14,23 +13,33 @@ import { ISearch, SearchService } from 'src/app/core/services/search.service';
 export class WatchListComponent {
   // raw data, fetch from backend
   watchList: IWatchList | null = null;
-  // Objects for UI data binding, because our current WatchList object, the searches record is a complete list in the object, so it is currently unable to provide the back-end page-turning request, and the page-turning implementation is managed on the front-end.
+  // data binding
   userName: string = "";
   totalCount: number = 0;
   pageSearches: ISearch[] = [];
-  pageIndex: number = 0;
-  pageSizeList: number[] = [5, 10, 25, 100]
-  pageSize: number = this.pageSizeList[0];
   loading: boolean = true;
   notifyByEmails: Record<string, boolean> = {};
   notifyBySMSs: Record<string, boolean> = {};
+  // ui state
+  pageIndex: number = 0;
+  pageSizeList: number[] = [5, 10, 25, 100]
+  pageSize: number = this.pageSizeList[0];
 
-  constructor(private authService: AuthService,
+  constructor(
+    private authService: AuthService,
     private watchListService: WatchListService,
     private searchService: SearchService) {
   }
 
+  @HostListener('window:popstate', ['$event'])
+  onPopState(event: any) {
+    console.log('---onPopState---');
+    const state = history.state;
+    this.restoreState(state);
+  }
+
   ngOnInit(): void {
+    console.log('---ngOnInit---');
     // get login user from auth service.
     let user = this.authService.getCurrentUser();
     this.updateUIState(user, null);
@@ -41,15 +50,17 @@ export class WatchListComponent {
   }
 
   ngOnDestroy(): void {
-
+    console.log('---ngOnDestroy---');
+    this.saveState();
   }
 
   ngAfterViewInit(): void {
-    //
+    console.log('---ngAfterViewInit---');
   }
 
   onPageChanged(event: PageEvent): void {
     this.updateUIWatchListByPage(event.pageSize, event.pageIndex);
+    this.saveState();
   }
 
   private queryByUserId(userId: string, user: any): void {
@@ -66,12 +77,25 @@ export class WatchListComponent {
       })
     ).subscribe((watchList: IWatchList) => {
       console.log(watchList.searches);
-      // const record = searches.reduce((acc, search) => {
-      //   acc[search.id] = search;
-      //   return acc;
-      // }, {} as Record<string, ISearch>);
       this.updateUIState(user, watchList);
+      this.saveState();
     });
+  }
+
+  private saveState() {
+    const state = {
+      'pageIndex': this.pageIndex,
+      'pageSize': this.pageSize,
+      'watchList': this.watchList,
+    };
+    const title = document.title;
+    const url = window.location.href;
+    window.history.pushState(state, title, url);
+  }
+
+  private restoreState(state: any) {
+    this.updateUIState({}, state.watchList);
+    this.updateUIWatchListByPage(state.pageSize, state.pageIndex);
   }
 
   private updateUIState(user: any, watchList: IWatchList | null): void {

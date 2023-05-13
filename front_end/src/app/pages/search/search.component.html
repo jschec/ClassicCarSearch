@@ -38,13 +38,22 @@
               </mat-form-field>
               
               <mat-form-field appearance="fill" fxFlex="20">
-                <mat-label>Quality</mat-label>
-                <mat-select formControlName="selectedRegion">
+                <mat-label>Exterior Quality</mat-label>
+                <mat-select formControlName="exteriorQuality">
                     <mat-option *ngFor="let quality of qualityOptions" [value]="quality">
                         {{quality}}
                     </mat-option>
                 </mat-select>
             </mat-form-field>
+
+            <mat-form-field appearance="fill" fxFlex="20">
+              <mat-label>Mechanical Quality</mat-label>
+              <mat-select formControlName="mechanicalQuality">
+                  <mat-option *ngFor="let quality of qualityOptions" [value]="quality">
+                      {{quality}}
+                  </mat-option>
+              </mat-select>
+          </mat-form-field>
 
               <button
                   mat-flat-button
@@ -114,14 +123,10 @@
           </mat-grid-list>
     </mat-card>
         </div>
-        
-        
-      
   </mat-grid-tile>
     <!-- End of Card -->
-
  </mat-grid-list>
-  <!--TODO</mat-paginator> -->
+<!--***** PAGE BOTTOM *****-->
 <div class="search-footer">
         <mat-paginator [length]="numRecords" [pageIndex]="page" [pageSize]="pageSize" [pageSizeOptions]="pageSizeList" (page)="onPageChanged($event)" aria-label="Select page" >
         </mat-paginator>

@@ -48,7 +48,8 @@ export class SearchComponent {
       endYear: new FormControl(
         maxYear, [Validators.min(minYear), Validators.max(maxYear)]
       ),
-      minQuality: new FormControl('')
+      exteriorCondition: new FormControl(''),
+      mechanicalCondition: new FormControl('')
       });
     
   }
@@ -77,23 +78,23 @@ export class SearchComponent {
     //this.saveState();
     //this.needScrollToBottom = true;
   }
-  //TODO - Where are the ids?!
-  /*
+  
+  //TODO - Why are ids not accessable? Will this work?
   gotoDetail(targetDetail: ICarListing){
-    this.router.navigate(['/car-detail', { id: targetDetail.id}])
+    this.router.navigate(['/car-detail', { id: targetDetail.car}])
   }
-  */
+  
   
   //TODO - Do I need this top part? If so, what's my equivalent for the if statements?
   private updateSearchByPage(pageSize: number, page: number): void {
-    /*
-    if (!this.watchList) {
-      this.pageSearches = [];
-      this.pageIndex = 0;
+    
+    if (!this.searchResults) {
+      this.searchResults = [];
+      this.page = 0;
       this.pageSize = pageSize;
       return;
     }
-    */
+    
     this.page = page;
     this.pageSize = pageSize;
     const start = this.page * this.pageSize;

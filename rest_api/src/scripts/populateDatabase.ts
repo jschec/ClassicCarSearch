@@ -175,6 +175,7 @@ const populateCarListings = async () => {
       mechanicalCondition: randomCondition(),
       mileage: faker.datatype.number({min: 0, max: 200000}),
       color: faker.vehicle.color(),
+      img: faker.image.avatar(),
     };
 
     const carRecord = await Car.create(car);

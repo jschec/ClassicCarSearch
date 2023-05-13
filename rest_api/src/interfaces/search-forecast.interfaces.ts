@@ -1,7 +1,9 @@
 import { Document, Model } from 'mongoose';
 
+import { ISearchDoc } from './search.interfaces';
+
 export interface ISearchForecast {
-  search: string;
+  search: string | ISearchDoc;
   avgTimeOnMarket: number;
   avgPrice: number;
   averageMileage: number;

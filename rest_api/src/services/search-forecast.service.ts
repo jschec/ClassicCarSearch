@@ -1,5 +1,4 @@
 import httpStatus from 'http-status';
-import { Types } from 'mongoose';
 
 import { 
   NewSearchForecastBody, UpdateSearchForecastBody, ISearchForecastDoc 
@@ -20,32 +19,32 @@ export const create = async (reqBody: NewSearchForecastBody): Promise<ISearchFor
 /**
  * Retrieves the specified SearchForecast record
  * 
- * @param {Types.ObjectId} searchForecastId The identifier of the SearchForecast to retrieve
+ * @param {string} searchForecastId The identifier of the SearchForecast to retrieve
  * @returns {Promise<ISearchForecastDoc | null>} A promise containing the specified SearchForecast record
  */
-export const getById = async (searchForecastId: Types.ObjectId): Promise<ISearchForecastDoc | null> => {
+export const getById = async (searchForecastId: string): Promise<ISearchForecastDoc | null> => {
   return SearchForecast.findById(searchForecastId);
 };
 
 /**
  * Retrieves the specified SearchForecast record by searchId
  * 
- * @param {Types.ObjectId} searchId The identifier of the Search to retrieve SearchForecast for
+ * @param {string} searchId The identifier of the Search to retrieve SearchForecast for
  * @returns {Promise<ISearchForecastDoc | null>} A promise containing the specified SearchForecast record
  */
-export const getBySearchId = async (searchId: Types.ObjectId): Promise<ISearchForecastDoc[]> => {
+export const getBySearchId = async (searchId: string): Promise<ISearchForecastDoc[]> => {
   return SearchForecast.find({ searchId: searchId });
 };
 
 /**
  * Updates the SearchForecast record with the sought identifier.
  * 
- * @param {Types.ObjectId} searchForecastId The identifier of the SearchForecast to update
+ * @param {string} searchForecastId The identifier of the SearchForecast to update
  * @param {UpdateSearchForecastBody} reqBody The request body supplied by the client
  * @returns {Promise<ISearchForecastDoc | null>} A promise containing the updated SearchForecast record
  */
 export const updateById = async (
-  searchForecastId: Types.ObjectId, reqBody: UpdateSearchForecastBody
+  searchForecastId: string, reqBody: UpdateSearchForecastBody
 ): Promise<ISearchForecastDoc | null> => {
   const record = await getById(searchForecastId);
   
@@ -63,10 +62,10 @@ export const updateById = async (
 /**
  * Deletes the SearchForecast record with the sought identifier.
  * 
- * @param {Types.ObjectId} searchForecastId The identifier of the SearchForecast to update
+ * @param {string} searchForecastId The identifier of the SearchForecast to update
  * @returns {Promise<ISearchForecastDoc | null>} A promise containing the deleted SearchForecast record.
  */
-export const deleteById = async (searchForecastId: Types.ObjectId): Promise<ISearchForecastDoc | null> => {
+export const deleteById = async (searchForecastId: string): Promise<ISearchForecastDoc | null> => {
   const record = await getById(searchForecastId);
   
   if (!record) {

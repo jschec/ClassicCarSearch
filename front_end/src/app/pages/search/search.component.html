@@ -39,7 +39,7 @@
               
               <mat-form-field appearance="fill" fxFlex="20">
                 <mat-label>Exterior Quality</mat-label>
-                <mat-select formControlName="exteriorQuality">
+                <mat-select formControlName="exteriorCondition">
                     <mat-option *ngFor="let quality of qualityOptions" [value]="quality">
                         {{quality}}
                     </mat-option>
@@ -48,7 +48,7 @@
 
             <mat-form-field appearance="fill" fxFlex="20">
               <mat-label>Mechanical Quality</mat-label>
-              <mat-select formControlName="mechanicalQuality">
+              <mat-select formControlName="mechanicalCondition">
                   <mat-option *ngFor="let quality of qualityOptions" [value]="quality">
                       {{quality}}
                   </mat-option>

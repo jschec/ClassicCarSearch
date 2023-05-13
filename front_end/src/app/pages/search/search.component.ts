@@ -67,9 +67,11 @@ export class SearchComponent {
     let navigationExtras: NavigationExtras = {
       queryParams: {
         searchCriteria: JSON.stringify(this.filterForm.value)
+        
       }
     }
-
+    console.log(JSON.stringify(this.filterForm.value));
+    
     this.router.navigate(['/search'], navigationExtras);
   }
 
@@ -81,6 +83,7 @@ export class SearchComponent {
   
   //TODO - Why are ids not accessable? Will this work?
   gotoDetail(targetDetail: ICarListing){
+    console.log(targetDetail.car);
     this.router.navigate(['/car-detail', { id: targetDetail.car}])
   }
   

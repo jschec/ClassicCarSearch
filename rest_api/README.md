@@ -57,9 +57,11 @@ faker         # For mocking data in population script
 
 ### Required Run Time Environmental Variables
 ```
-APP_ENV         # The staging of the deployment. Allows values include: 'production', 'development', 'test'
-APP_PORT        # The port, in which the RESTful API is served on. Defaults to 3000 if no value is provided.
-MONGODB_URL     # The MongoDB connection string
+APP_ENV             # The staging of the deployment. Allows values include: 'production', 'development', 'test'
+APP_PORT            # The port, in which the RESTful API is served on. Defaults to 3000 if no value is provided.
+MONGODB_USER        # The username to use for the MongoDB connection
+MONGODB_PASSWORD    # The password to use for the MongoDB connection
+MONGODB_HOST        # The address of the server hosting the MongoDB instance
 ```
 
 ### Loading environmental variables

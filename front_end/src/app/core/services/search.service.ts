@@ -31,6 +31,8 @@ export interface ISearch {
     providedIn: 'root'
 })
 export class SearchService {
+    const Regions: string[] = ["Northeast", "Southeast", "Midwest", "West", "Southwest" ]
+    const Conditions: string[] = ["Bad", "Fair", "Good", "Excellent"]
 
     constructor(private http: HttpClient) { }
 
@@ -45,5 +47,9 @@ export class SearchService {
         };
         return this.http.post<ISearch[]>(url, body, httpOptions);
     }
-
+    
+    public getRecords(): ISearch {
+        const url = '/api/search';
+        return mockData;
+    }
 }

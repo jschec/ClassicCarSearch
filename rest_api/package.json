@@ -9,7 +9,7 @@
     "build": "npx tsc",
     "dev:start": "npm run clean && npm run build && node build/index.js",
     "dev:start-windows": "npm run clean-windows && npm run build && node build\\index.js",
-    "dev:populate": "npm run clean && npm run build && node build/scripts/populateDatabase.js"
+    "dev:populate": "npm run clean && npm run build && node build/scripts/populateDatabase_small-fixed.js"
   },
   "author": "Joshua Scheck",
   "license": "ISC",

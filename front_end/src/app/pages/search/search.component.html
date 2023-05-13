@@ -66,13 +66,6 @@
   </div>
   
 </div>
-<li
-        *ngFor="let record of searchResults.searchResults"
-    >
-        {{record.make}} {{record.model}} {{record.listingDescription}}
-    </li>
-
-
 <!--************    MAIN PAGE BODY    ************-->
 
 <!-- The grid layout -->
@@ -83,7 +76,7 @@
 
   <mat-grid-list cols="2" rowHeight="500px" colWidth="fit" class="resultBackdrop">
     <!-- Material Card Template --> 
-    <mat-grid-tile *ngFor="let record of searchResults.searchResults" [colspan]="1" [rowspan]="1">
+    <mat-grid-tile *ngFor="let record of searchResults" [colspan]="1" [rowspan]="1">
       <div class="searchDisplayItem">
         <mat-card class="resultCard" type="raised">
           <img mat-card-image><!--TODO{{record.imageURL}}-->
@@ -91,11 +84,11 @@
             <mat-grid-list cols="2" rowHeight="100px" class="cardHeader">
               
                 <mat-grid-tile [colspan]="1">
-                  <h2>{{record.make}} {{record.model}}</h2>
+                  <h2>{{record.car.make}} {{record.car.model}}</h2>
                 </mat-grid-tile>
                 <mat-grid-tile [colspan]="1">
-                  <div class="active-listingChip"  *ngIf="record.isActive">Active</div>
-                  <div class="closed-listingChip"  *ngIf="!record.isActive">Sold</div> 
+                  <div class="active-listingChip"  *ngIf="!record.saleDate">Active</div>
+                  <div class="closed-listingChip"  *ngIf="record.saleDate">Sold</div> 
                 </mat-grid-tile>
                            
            </mat-grid-list>                                 
@@ -107,21 +100,25 @@
             <mat-list>
               <mat-list-item>
                 <span matListItemTitle>Mileage</span>
-                <span matListItemLine>{{record.mileage}}</span>
+                <span matListItemLine>{{record.car.mileage}}</span>
               </mat-list-item>
               <mat-list-item>
-                <span matListItemTitle>Condition</span>
-                <span>{{record.condition}}</span>
+                <span matListItemTitle>Exterior Condition</span>
+                <span>{{record.car.exteriorCondition}}</span>
+              </mat-list-item>
+              <mat-list-item>
+                <span matListItemTitle>Mechanical Condition</span>
+                <span>{{record.car.mechanicalCondition}}</span>
               </mat-list-item>
               <mat-list-item>
                 <span matListItemTitle>Price</span>
-                {{record.price}}
+                <!--TODO {{record.price}} -->
               </mat-list-item>
             </mat-list>
           </mat-card-content>
           <mat-card-footer>
-            <div matBadgeSize="large" class="active-listingFooter" *ngIf="record.isActive">Listed {{record.listDate}}</div>           
-            <div matBadgeSize="large" class="closed-listingFooter" *ngIf="!record.isActive">Sold {{record.saleDate}}</div>        
+            <div matBadgeSize="large" class="active-listingFooter" *ngIf="!record.saleDate">Listed {{record.listDate}}</div>           
+            <div matBadgeSize="large" class="closed-listingFooter" *ngIf="record.saleDate">Sold {{record.saleDate}}</div>        
       </mat-card-footer>
     </mat-card>
         </div>

@@ -3,6 +3,7 @@ import mongoose, { Types } from 'mongoose';
 import path from 'path';
 import { faker } from '@faker-js/faker';
 import cliProgress from 'cli-progress';
+import fs from 'fs';
 
 // Import env variables
 dotenv.config({ debug: true, path: path.join(__dirname, '..', '..', '.env') });
@@ -33,10 +34,11 @@ import * as carListingService from '../services/car-listing.service';
 import * as searchCriteriaService from '../services/search-criteria.service';
 import * as searchForecastService from '../services/search-forecast.service';
 import * as searchService from '../services/search.service';
+import SearchForecast from '../models/search-forecast.model';
 
 /**
  * Creates the specified progress bar
- * 
+ *
  * @param {number} total The size of the progress bar
  * @returns {SingleBar} The created progress bar
  */
@@ -50,7 +52,7 @@ const createPBar = (total: number) => {
 
 /**
  * Selects a random Condition enum value
- * 
+ *
  * @returns {Condition} a random condition from the Condition enum
  */
 const randomCondition = () => {
@@ -62,8 +64,8 @@ const randomCondition = () => {
 
 /**
  * Selects a random Region enum value
- * 
- * @returns {Region} a random region from the Region enum 
+ *
+ * @returns {Region} a random region from the Region enum
  */
 const randomRegion = () => {
   const regions: string[] = Object.values(Region);
@@ -74,7 +76,7 @@ const randomRegion = () => {
 
 /**
  * Selects a random element from the given array
- * 
+ *
  * @param {T} array The array to select from
  * @returns {T} A random element from the given array
  */
@@ -128,9 +130,9 @@ const populateUsers = async () => {
   const subscriptionLevels = await Subscription.find();
 
   // Create a progress bar to track the progress
-  const pbar = createPBar(100);
+  const pbar = createPBar(5);
 
-  for (let i = 0; i < 100; i++) {
+  for (let i = 0; i < 5; i++) {
     const user: NewUserBody = {
       firstName: faker.name.firstName(),
       lastName: faker.name.lastName(),
@@ -143,7 +145,7 @@ const populateUsers = async () => {
     const updateData: UpdateUserBody = {
       subscription: randomArrayElement(subscriptionLevels)._id
     };
-    
+
     Object.assign(userRecord, updateData);
     await userRecord.save();
 
@@ -163,10 +165,13 @@ const populateCarListings = async () => {
   let carSellerIds: Types.ObjectId[] = [];
 
   // Create a progress bar to track the progress
-  const carPbar = createPBar(10000);
+  const carPbar = createPBar(50);
+
+  // get all car images
+  const carImages = JSON.parse(fs.readFileSync('json/carimgs.json', 'utf-8'));
 
   // Generate 10,000 random cars
-  for (let i = 0; i < 10000; i++) {
+  for (let i = 0; i < 50; i++) {
     const car: NewCarBody = {
       make: faker.vehicle.manufacturer(),
       model: faker.vehicle.model(),
@@ -175,7 +180,7 @@ const populateCarListings = async () => {
       mechanicalCondition: randomCondition(),
       mileage: faker.datatype.number({min: 0, max: 200000}),
       color: faker.vehicle.color(),
-      img: faker.image.avatar(),
+      img: carImages[Math.floor(Math.random() * carImages.length)],
     };
 
     const carRecord = await Car.create(car);
@@ -188,10 +193,10 @@ const populateCarListings = async () => {
   console.log("Populating car sellers...");
 
   // Create a progress bar to track the progress
-  const carSellerPbar = createPBar(1000);
+  const carSellerPbar = createPBar(3);
 
   // Generate 1,000 random car sellers
-  for (let i = 0; i < 1000; i++) {
+  for (let i = 0; i < 3; i++) {
     const carSeller: NewCarSellerBody = {
       firstName: faker.name.firstName(),
       lastName: faker.name.lastName(),
@@ -209,7 +214,7 @@ const populateCarListings = async () => {
   console.log("Populating car listings...");
 
   // Create a progress bar to track the progress
-  const carListingPbar = createPBar(10000);
+  const carListingPbar = createPBar(carIds.length);
 
   // Assign each car to a listing
   for (let i = 0; i < carIds.length; i++) {
@@ -232,16 +237,16 @@ const populateCarListings = async () => {
 };
 
 /**
- * Populates the Searches, SearchCriteria, and SearchResults collections with 
+ * Populates the Searches, SearchCriteria, and SearchResults collections with
  * dummy data.
  */
 const populateSearches = async () => {
   console.log("Populating searches...");
 
   // Create a progress bar to track the progress
-  const pbar = createPBar(1000);
+  const pbar = createPBar(30);
 
-  for (let i = 0; i < 1000; i++) {
+  for (let i = 0; i < 30; i++) {
     const searchCriteria: SearchCriteriaRequest = {
       region: randomRegion()
     };
@@ -250,7 +255,7 @@ const populateSearches = async () => {
       searchCriteria
     );
     const listingIds = matchingListings.map(listing => listing._id);
-    
+
     const record = await searchService.create({
       ...searchCriteria, results: listingIds
     });
@@ -261,7 +266,7 @@ const populateSearches = async () => {
     });
 
     // Create 10 SearchForecast records for each Search record
-    for (let j = 0; j < 10; j++) {
+    for (let j = 0; j < 1; j++) {
       const searchForecast: NewSearchForecastBody = {
         search: record._id,
         avgTimeOnMarket: faker.datatype.number({min: 1, max: 1000}),
@@ -304,7 +309,7 @@ const populateWatchLists = async () => {
     };
 
     await WatchList.create(watchList);
-    
+
     pbar.update(i + 1);
   }
 
@@ -312,21 +317,136 @@ const populateWatchLists = async () => {
 }
 
 /**
- * Populates the database with dummy data
+ * Export all data from the MongoDB database to JSON files
  */
-const populateDatabase = async () => {
-  await populateSubscriptions();
-  await populateUsers();
-  await populateCarListings();
-  await populateSearches();
-  await populateWatchLists();
+const exportAll = async () => {
+  const removeFields = '-createdAt -updatedAt -__v';
+  
+  // subscriptions
+  const subscriptions = await Subscription.find({}, removeFields).lean();
+  let json = JSON.stringify(subscriptions, null, 4);
+  await fs.promises.writeFile('json/subscriptions.json', json);
+  
+  // users
+  const users = await User.find({}, removeFields).lean();
+  json = JSON.stringify(users, null, 4);
+  await fs.promises.writeFile('json/users.json', json);
+  
+  // cars, sellers, carlistings
+  const cars = await Car.find({}, removeFields).lean();
+  json = JSON.stringify(cars, null, 4);
+  await fs.promises.writeFile('json/cars.json', json);
+  
+  const sellers = await CarSeller.find({}, removeFields).lean();
+  json = JSON.stringify(sellers, null, 4);
+  await fs.promises.writeFile('json/sellers.json', json);
+  
+  const carListings = await CarListing.find({}, removeFields).lean();
+  json = JSON.stringify(carListings, null, 4);
+  await fs.promises.writeFile('json/carlistings.json', json);
+  
+  // searchs, searchforecast
+  const searches = await Search.find({}, removeFields).lean();
+  json = JSON.stringify(searches, null, 4);
+  await fs.promises.writeFile('json/searches.json', json);
+  
+  const searchforecasts = await SearchForecast.find({}, removeFields).lean();
+  json = JSON.stringify(searchforecasts, null, 4);
+  await fs.promises.writeFile('json/searchforecasts.json', json);
+  
+  // watchlist
+  const watchlists = await WatchList.find({}, removeFields).lean();
+  json = JSON.stringify(watchlists, null, 4);
+  await fs.promises.writeFile('json/watchlists.json', json);
 };
 
+/**
+ * Delete all documents from all collections in the database.
+*/
+const deleteAll = async () => {
+  // delete all data
+  await Subscription.deleteMany({});
+  await User.deleteMany({});
+  await Car.deleteMany({});
+  await CarSeller.deleteMany({});
+  await CarListing.deleteMany({});
+  await Search.deleteMany({});
+  await SearchForecast.deleteMany({});
+  await WatchList.deleteMany({});
+};
+
+/**
+ * Imports data from JSON files into the MongoDB database using Mongoose models
+ * Deletes all data from the database before importing
+*/
+const importAll = async () => {
+  // import from json
+  const subscriptions = JSON.parse(fs.readFileSync('json/subscriptions.json', 'utf8'));
+  await Subscription.insertMany(subscriptions);
+
+  const users = JSON.parse(fs.readFileSync('json/users.json', 'utf8'));
+  await User.insertMany(users);
+  
+  const cars = JSON.parse(fs.readFileSync('json/cars.json', 'utf8'));
+  await Car.insertMany(cars);
+  
+  const sellers = JSON.parse(fs.readFileSync('json/sellers.json', 'utf8'));
+  await CarSeller.insertMany(sellers);
+  
+  const carListings = JSON.parse(fs.readFileSync('json/carlistings.json', 'utf8'));
+  await CarListing.insertMany(carListings);
+  
+  const searches = JSON.parse(fs.readFileSync('json/searches.json', 'utf8'));
+  await Search.insertMany(searches);
+  
+  const searchforecasts = JSON.parse(fs.readFileSync('json/searchforecasts.json', 'utf8'));
+  await SearchForecast.insertMany(searchforecasts);
+  
+  const watchlists = JSON.parse(fs.readFileSync('json/watchlists.json', 'utf8'));
+  await WatchList.insertMany(watchlists);
+};
+
+/**
+ * Populates the database with dummy data
+ */
+const populateDatabase = async (fromJson: boolean) => {
+  await deleteAll();
+
+  if (fromJson) {
+    // Import all data from JSON files.
+    await importAll();
+  } else {
+    // Create synthetic data.
+    await populateSubscriptions();
+    await populateUsers();
+    await populateCarListings();
+    await populateSearches();
+    await populateWatchLists();
+    await exportAll();
+  }
+};
+
+
+//////////////////////////////////////////////////////
 // Entry point for the population script
+//
+// Usage: npm run populate [-from-json]
+//////////////////////////////////////////////////////
+
 mongoose.connect(config.mongo.url).then(() => {
   console.log('Connected to MongoDB');
-  
-  populateDatabase().then(() => {
+
+  let fromJson: boolean;
+
+  if (process.argv[2] && process.argv[2] === '-from-json') {
+    console.log('Replicating database from JSON files...');
+    fromJson = true;
+  } else {
+    console.log('Creating synthetic data...');
+    fromJson = false;
+  }
+
+  populateDatabase(fromJson).then(() => {
     console.log('Database populated');
     process.exit(0);
   });

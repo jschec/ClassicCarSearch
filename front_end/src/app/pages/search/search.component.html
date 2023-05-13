@@ -60,69 +60,58 @@
       </form>
   </div>
 
-  <!--TODO  TEMPORARY CRAP-->
-  <div class="landing-logo-section" fxLayout="column" fxLayoutAlign="center center">
-      <img class="landing-logo" src="../../../assets/vintage-car.svg"/>
-  </div>
-  
-</div>
-<li
-        *ngFor="let record of searchResults.searchResults"
-    >
-        {{record.make}} {{record.model}} {{record.listingDescription}}
-    </li>
-
-
 <!--************    MAIN PAGE BODY    ************-->
-
-<!-- The grid layout -->
-<!--TODO<mat-paginator [length]="100"
-              [pageSize]="10"
-              [pageSizeOptions]="[5, 10, 25, 100]"
-              aria-label="Select page">-->
-
   <mat-grid-list cols="2" rowHeight="500px" colWidth="fit" class="resultBackdrop">
-    <!-- Material Card Template --> 
-    <mat-grid-tile *ngFor="let record of searchResults.searchResults" [colspan]="1" [rowspan]="1">
+    <!-- ***********    Material Card Template*    ************ --> 
+    <mat-grid-tile *ngFor="let record of searchResults" [colspan]="1" [rowspan]="1">
       <div class="searchDisplayItem">
         <mat-card class="resultCard" type="raised">
           <img mat-card-image><!--TODO{{record.imageURL}}-->
-          <!--<mat-card-header class="cardHeader">-->
+         
             <mat-grid-list cols="2" rowHeight="100px" class="cardHeader">
               
                 <mat-grid-tile [colspan]="1">
-                  <h2>{{record.make}} {{record.model}}</h2>
+                  <h2>{{record.car.make}} {{record.car.model}}</h2>
                 </mat-grid-tile>
                 <mat-grid-tile [colspan]="1">
-                  <div class="active-listingChip"  *ngIf="record.isActive">Active</div>
-                  <div class="closed-listingChip"  *ngIf="!record.isActive">Sold</div> 
+                  <div class="active-listingChip"  *ngIf="!record.saleDate">Active</div>
+                  <div class="closed-listingChip"  *ngIf="record.saleDate">Sold</div> 
                 </mat-grid-tile>
                            
            </mat-grid-list>                                 
-          <!--</mat-card-header>-->
 
           <mat-card-content>
-            <!--{{record.listingDescription}}-->
-            <!--Numerical Data-->
+            <!--TODO: Add Description {{record.listingDescription}}-->
+            <!--***********  Numerical Data  ************-->
             <mat-list>
               <mat-list-item>
                 <span matListItemTitle>Mileage</span>
-                <span matListItemLine>{{record.mileage}}</span>
+                <span matListItemLine>{{record.car.mileage}}</span>
               </mat-list-item>
               <mat-list-item>
-                <span matListItemTitle>Condition</span>
-                <span>{{record.condition}}</span>
+                <span matListItemTitle>Exterior Condition</span>
+                <span>{{record.car.exteriorCondition}}</span>
+              </mat-list-item>
+              <mat-list-item>
+                <span matListItemTitle>Mechanical Condition</span>
+                <span>{{record.car.mechanicalCondition}}</span>
               </mat-list-item>
               <mat-list-item>
                 <span matListItemTitle>Price</span>
-                {{record.price}}
+                <!--TODO {{record.price}} -->
               </mat-list-item>
             </mat-list>
           </mat-card-content>
-          <mat-card-footer>
-            <div matBadgeSize="large" class="active-listingFooter" *ngIf="record.isActive">Listed {{record.listDate}}</div>           
-            <div matBadgeSize="large" class="closed-listingFooter" *ngIf="!record.isActive">Sold {{record.saleDate}}</div>        
-      </mat-card-footer>
+          <mat-grid-list cols="2" rowHeight="100px" class="cardFooter">
+            <mat-grid-tile [colspan]="1">
+              <div matBadgeSize="large" class="active-listingFooter" *ngIf="!record.saleDate">Listed {{record.listDate}}</div>           
+            <div matBadgeSize="large" class="closed-listingFooter" *ngIf="record.saleDate">Sold {{record.saleDate}}</div>
+            </mat-grid-tile>
+            <mat-grid-tile [colspan]="1">
+              <!--TODO: Have gotoCarDetail action for button-->
+              <mat-card-actions><button mat-flat-button color="primary">See Detail</button></mat-card-actions>        
+            </mat-grid-tile>
+          </mat-grid-list>
     </mat-card>
         </div>
         
@@ -133,4 +122,7 @@
 
  </mat-grid-list>
   <!--TODO</mat-paginator> -->
-
+<div class="search-footer">
+        <mat-paginator [length]="numRecords" [pageIndex]="page" [pageSize]="pageSize" [pageSizeOptions]="pageSizeList" (page)="onPageChanged($event)" aria-label="Select page" >
+        </mat-paginator>
+</div>

@@ -161,8 +161,8 @@ const populateUsers = async () => {
 const populateCarListings = async () => {
   console.log("Populating cars...");
 
-  let carIds: Types.ObjectId[] = [];
-  let carSellerIds: Types.ObjectId[] = [];
+  let carIds: string[] = [];
+  let carSellerIds: string[] = [];
 
   // Create a progress bar to track the progress
   const carPbar = createPBar(50);
@@ -218,7 +218,7 @@ const populateCarListings = async () => {
 
   // Assign each car to a listing
   for (let i = 0; i < carIds.length; i++) {
-    const carSellerId = randomArrayElement<Types.ObjectId>(carSellerIds);
+    const carSellerId = randomArrayElement<string>(carSellerIds);
 
     const carListing: NewCarListingBody = {
       region: randomRegion(),
@@ -226,7 +226,7 @@ const populateCarListings = async () => {
       listDate: faker.date.past(3),
       saleDate: null,
       car: carIds[i],
-      seller: carSellerId as Types.ObjectId
+      seller: carSellerId
     };
 
     await CarListing.create(carListing);
@@ -296,7 +296,7 @@ const populateWatchLists = async () => {
   const pbar = createPBar(users.length);
 
   for (let i = 0; i < users.length; i++) {
-    let selectedSearches: Types.ObjectId[] = [];
+    let selectedSearches: string[] = [];
 
     // Select 10 random searches
     for (let i = 0; i < 10; i++) {

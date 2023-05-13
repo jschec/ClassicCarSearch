@@ -1,21 +1,21 @@
 [
     {
-        "_id": "645eec7550909331ebe1355e",
+        "_id": "b80632f2-0657-4d2e-989f-2f543cb96b78",
         "name": "Free",
         "cost": 0
     },
     {
-        "_id": "645eec7550909331ebe13561",
+        "_id": "8b3f6fe4-a4c5-42cf-914d-e02592341aae",
         "name": "Basic",
         "cost": 10
     },
     {
-        "_id": "645eec7550909331ebe13564",
+        "_id": "faf484dc-f205-4ce5-8b9d-e49c9544f1ee",
         "name": "Premium",
         "cost": 20
     },
     {
-        "_id": "645eec7550909331ebe13567",
+        "_id": "0b058069-4d23-48eb-aec6-5613e7232e1e",
         "name": "Enterprise",
         "cost": 100
     }

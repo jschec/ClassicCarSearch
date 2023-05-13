@@ -5,6 +5,10 @@ export interface ISearch {
   results: Types.ObjectId[] | ISearchDoc[];
 }
 
+export interface SearchQueryRequest {
+  ids: Types.ObjectId[];
+}
+
 export type NewSearchBody = ISearch;
 
 export type UpdateSearchBody = Partial<ISearch>;

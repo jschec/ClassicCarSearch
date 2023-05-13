@@ -4,8 +4,10 @@ import mongoose from 'mongoose';
 
 import { IUserDoc } from '../interfaces/user.interfaces';
 import * as userService from '../services/user.service';
+import * as watchListService from '../services/watch-list.service';
 import catchAsync from '../utils/catchAsync';
 import ApiError from '../utils/ApiError';
+import { IWatchListDoc } from '../interfaces/watch-list.interfaces';
 
 /**
  * Creates a new User record
@@ -47,6 +49,28 @@ export const getUser = catchAsync(async (req: Request, res: Response) => {
     }
     
     res.send(user);
+  }
+});
+
+/**
+ * Retrieves the specified User record
+ *
+ * @param {Request} req The request supplied by the client
+ * @param {Response} res The response to be sent to the client
+ *
+ * @returns {Promise<IWatchListDoc>} A promise containing the specified user record
+ */
+export const getUserWatchList = catchAsync(async (req: Request, res: Response) => {
+  if (typeof req.params['userId'] === 'string') {
+
+    const userId = new mongoose.Types.ObjectId(req.params['userId'])
+    const watchList = await watchListService.getByUserId(userId);
+
+    if (!watchList) {
+      throw new ApiError(httpStatus.NOT_FOUND, 'WatchList not found');
+    }
+
+    res.send(watchList);
   }
 });
 

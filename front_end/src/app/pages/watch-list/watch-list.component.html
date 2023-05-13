@@ -1,59 +1,58 @@
+<div class="watch-list-parent">
+<div class="watch-list-container">
+    <mat-card class="watch-list-header">
+        <mat-card-header>
+            <!-- <div mat-card-avatar class="example-header-image"></div> -->
+            <mat-card-title>{{userName}}'s Watch List</mat-card-title>
+            <mat-card-subtitle>
+                <span *ngIf="loading">loading</span>
+                <span *ngIf="!loading">{{totalCount}} records</span>
+            </mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-actions>
+            <button mat-button>EDIT</button>
+            <button mat-button>SHARE</button>
+        </mat-card-actions>
+    </mat-card>
 
+    <mat-progress-bar *ngIf="loading" mode="query"></mat-progress-bar>
 
-<div class="container">
-    <br/>
-    <div class="alert alert-success" role="alert">
-        watch-list works!
-    </div>
-
-    <!-- watch-list-item -->
-    <div class="card watch-list-item">
-
-        <div class="card-body">
-
-            <div class="row">
-                <div class="col">
-                    <img class="car-cover" src="https://platform.cstatic-images.com/xlarge/in/v2/c95d212d-d1df-58bc-8599-864c7791c88f/32cacf95-34da-4266-a910-5583226a89e3/_vpsUaLVHkmdInh_5lDitX8Jv5g.jpg"
-                        alt="Card image cap">
-                </div>
-                <div class="col-6">
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item">Search Description 1</li>
-                        <li class="list-group-item">Recommendation: BUY</li>
-                        <li class="list-group-item">Median Price: $xxx</li>
-                        <li class="list-group-item">Media Time On Market: N days</li>
-                    </ul>
-<!--
-                    Search Description 1
-                    Recommendation: BUY
-                    Median Price: $xxx
-                    Media Time On Market: N days -->
-
-                    <!-- <blockquote class="blockquote mb-0">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-                        <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite></footer>
-                    </blockquote> -->
-                </div>
-                <div class="col-3">
-
-                    <div class="row justify-content-around">
-                        <button type="button" class="btn btn-sm btn-primary">Get Recommendation</button>
-                        <button type="button" class="btn btn-sm btn-primary">View Search</button>
-                    </div>
-                    <div class="row justify-content-end">
-                        <div class="col-9">
-                            <div class="row justify-content-around">
-                                <p>Notify By:</p>
-                                <p><input type="checkbox"> Email </p>
-                                <p><input type="checkbox"> SMS </p>
-                            </div>
+    <mat-grid-list *ngIf="!loading" cols="1" rowHeight="216px">
+        <mat-grid-tile *ngFor="let search of pageSearches" [colspan]="1" [rowspan]="1">
+            <div class="watch-list-item">
+            <mat-card>
+                <mat-card-content>
+                    <div class="flex-layout flex-row watch-list-item-content">
+                        <div class="">
+                            <img mat-card-lg-image
+                                src="https://platform.cstatic-images.com/xlarge/in/v2/c95d212d-d1df-58bc-8599-864c7791c88f/32cacf95-34da-4266-a910-5583226a89e3/_vpsUaLVHkmdInh_5lDitX8Jv5g.jpg">
                         </div>
+                        <div class="flex-grow-1 flex-layout flex-row flex-wrap ">
+                            <div class="flex-layout flex-column flex-wrap">
+                                <div class="watch-list-item-attr"> Search-ID: {{search.id}} </div>
+                                <div class="watch-list-item-attr"> Region: {{search.criterias[0].region}} </div>
+                                <div class="watch-list-item-attr"> Match Results: {{search.results.length}} </div>
+                            </div>
+                            <div class="flex-layout flex-column flex-wrap">
+                                <div class="watch-list-item-attr"> Recommendation: BUY </div>
+                            </div>
+
+                        </div>
+                        <div class="flex-layout flex-column">
+                            <button class="" mat-raised-button color="primary">Recommemdation</button>
+                            <button class="" mat-raised-button color="primary">View Search</button>
+                        </div>
+
                     </div>
-                </div>
+            </mat-card-content>
+            </mat-card>
             </div>
+        </mat-grid-tile>
+    </mat-grid-list>
 
-
-        </div>
+    <div *ngIf="!loading" class="watch-list-footer">
+        <mat-paginator [length]="totalCount" [pageIndex]="pageIndex" [pageSize]="pageSize" [pageSizeOptions]="pageSizeList" (page)="onPageChanged($event)" aria-label="Select page" >
+        </mat-paginator>
     </div>
-
+</div>
 </div>

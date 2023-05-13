@@ -6,7 +6,7 @@ export interface ISearch {
 }
 
 export interface SearchQueryRequest {
-  ids: Types.ObjectId[];
+  ids: string[];
 }
 
 export type NewSearchBody = ISearch;

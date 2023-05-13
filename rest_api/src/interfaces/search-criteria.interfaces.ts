@@ -3,9 +3,10 @@ import { Document, Model } from 'mongoose';
 import { Condition } from './condition.interfaces';
 import { IPagination } from './pagination.interfaces';
 import { Region } from './region.interfaces';
+import { ISearchDoc } from './search.interfaces';
 
 export interface ISearchCrtieria {
-  search: string;
+  search: string | ISearchDoc;
   region: Region;
   maxMileage: number;
   maxPrice: number;

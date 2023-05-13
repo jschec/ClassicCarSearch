@@ -5,33 +5,35 @@ import { ISearchDoc, ISearchModel } from '../interfaces/search.interfaces';
 import CarListing from './car-listing.model';
 import SearchCriteria from './search-criteria.model';
 import SearchForecast from './search-forecast.model';
+import toJSON from '../utils/toJson';
 
 const searchSchema = new Schema<ISearchDoc, ISearchModel>(
   {
     _id: {
-      type: String,
+      type: Schema.Types.UUID,
       default: () => randomUUID(),
     },
     results: [{
-      type: String,
+      type: Schema.Types.UUID,
       required: false,
       ref: 'CarListing',
     }]
   },
   {
     timestamps: true,
-    toJSON: { virtuals: true },
+    toJSON: { virtuals: true, getters: true },
     toObject: { virtuals: true },
   }
 );
+
+// Add plugin to converts mongoose documents to json
+searchSchema.plugin(toJSON);
 
 searchSchema.virtual('criterias', {
   ref: 'SearchCriteria',
   localField: '_id',
   foreignField: 'search',
 });
-
-const Search = model<ISearchDoc, ISearchModel>('Search', searchSchema);
 
 /**
  * A pre-save hook to apply additional validation logic to the CarListing
@@ -64,5 +66,7 @@ searchSchema.pre("deleteOne", { document: true, query: false }, async function (
 
   next();
 });
+
+const Search = model<ISearchDoc, ISearchModel>('Search', searchSchema);
 
 export default Search;

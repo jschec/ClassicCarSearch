@@ -3,6 +3,7 @@ import { Document, Model } from 'mongoose';
 export interface ISubscription {
   name: string;
   cost: number;
+  features: string[];
 }
 
 export type NewSubscriptionBody = ISubscription;

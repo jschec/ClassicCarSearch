@@ -23,6 +23,10 @@ Please note that the environmental variables listed in the 'Required Run Time En
 
 To run the population script, you can execute the command `npm run dev:populate`. Please note that the environmental variables listed in the 'Required Run Time Environmental Variables' section of this documentation must be made available.
 
+### Running The Tests
+
+To run the tests for the application, you can execute the command `npm run test`.
+
 ### Code Organization
 ```
 src                 # The source code implementations for the Express RESTful API 

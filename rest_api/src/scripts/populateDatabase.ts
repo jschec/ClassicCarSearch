@@ -187,7 +187,7 @@ const populateCarListings = async () => {
   const carPbar = createPBar(50);
 
   // get all car images
-  const carImages = JSON.parse(fs.readFileSync('json/carimgs.json', 'utf-8'));
+  const carImages = JSON.parse(fs.readFileSync('data/carimgs.json', 'utf-8'));
 
   // Generate 10,000 random cars
   for (let i = 0; i < 50; i++) {
@@ -344,39 +344,39 @@ const exportAll = async () => {
   // subscriptions
   const subscriptions = await Subscription.find({}, removeFields).lean();
   let json = JSON.stringify(subscriptions, null, 4);
-  await fs.promises.writeFile('json/subscriptions.json', json);
+  await fs.promises.writeFile('data/subscriptions.json', json);
   
   // users
   const users = await User.find({}, removeFields).lean();
   json = JSON.stringify(users, null, 4);
-  await fs.promises.writeFile('json/users.json', json);
+  await fs.promises.writeFile('data/users.json', json);
   
   // cars, sellers, carlistings
   const cars = await Car.find({}, removeFields).lean();
   json = JSON.stringify(cars, null, 4);
-  await fs.promises.writeFile('json/cars.json', json);
+  await fs.promises.writeFile('data/cars.json', json);
   
   const sellers = await CarSeller.find({}, removeFields).lean();
   json = JSON.stringify(sellers, null, 4);
-  await fs.promises.writeFile('json/sellers.json', json);
+  await fs.promises.writeFile('data/sellers.json', json);
   
   const carListings = await CarListing.find({}, removeFields).lean();
   json = JSON.stringify(carListings, null, 4);
-  await fs.promises.writeFile('json/carlistings.json', json);
+  await fs.promises.writeFile('data/carlistings.json', json);
   
   // searchs, searchforecast
   const searches = await Search.find({}, removeFields).lean();
   json = JSON.stringify(searches, null, 4);
-  await fs.promises.writeFile('json/searches.json', json);
+  await fs.promises.writeFile('data/searches.json', json);
   
   const searchforecasts = await SearchForecast.find({}, removeFields).lean();
   json = JSON.stringify(searchforecasts, null, 4);
-  await fs.promises.writeFile('json/searchforecasts.json', json);
+  await fs.promises.writeFile('data/searchforecasts.json', json);
   
   // watchlist
   const watchlists = await WatchList.find({}, removeFields).lean();
   json = JSON.stringify(watchlists, null, 4);
-  await fs.promises.writeFile('json/watchlists.json', json);
+  await fs.promises.writeFile('data/watchlists.json', json);
 };
 
 /**
@@ -400,28 +400,28 @@ const deleteAll = async () => {
 */
 const importAll = async () => {
   // import from json
-  const subscriptions = JSON.parse(fs.readFileSync('json/subscriptions.json', 'utf8'));
+  const subscriptions = JSON.parse(fs.readFileSync('data/subscriptions.json', 'utf8'));
   await Subscription.insertMany(subscriptions);
 
-  const users = JSON.parse(fs.readFileSync('json/users.json', 'utf8'));
+  const users = JSON.parse(fs.readFileSync('data/users.json', 'utf8'));
   await User.insertMany(users);
   
-  const cars = JSON.parse(fs.readFileSync('json/cars.json', 'utf8'));
+  const cars = JSON.parse(fs.readFileSync('data/cars.json', 'utf8'));
   await Car.insertMany(cars);
   
-  const sellers = JSON.parse(fs.readFileSync('json/sellers.json', 'utf8'));
+  const sellers = JSON.parse(fs.readFileSync('data/sellers.json', 'utf8'));
   await CarSeller.insertMany(sellers);
   
-  const carListings = JSON.parse(fs.readFileSync('json/carlistings.json', 'utf8'));
+  const carListings = JSON.parse(fs.readFileSync('data/carlistings.json', 'utf8'));
   await CarListing.insertMany(carListings);
   
-  const searches = JSON.parse(fs.readFileSync('json/searches.json', 'utf8'));
+  const searches = JSON.parse(fs.readFileSync('data/searches.json', 'utf8'));
   await Search.insertMany(searches);
   
-  const searchforecasts = JSON.parse(fs.readFileSync('json/searchforecasts.json', 'utf8'));
+  const searchforecasts = JSON.parse(fs.readFileSync('data/searchforecasts.json', 'utf8'));
   await SearchForecast.insertMany(searchforecasts);
   
-  const watchlists = JSON.parse(fs.readFileSync('json/watchlists.json', 'utf8'));
+  const watchlists = JSON.parse(fs.readFileSync('data/watchlists.json', 'utf8'));
   await WatchList.insertMany(watchlists);
 };
 

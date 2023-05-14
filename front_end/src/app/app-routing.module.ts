@@ -13,6 +13,7 @@ import { SearchComponent } from './pages/search/search.component';
 import { SubscriptionComponent } from './pages/subscription/subscription.component';
 import { WatchListComponent } from './pages/watch-list/watch-list.component';
 
+
 //import { AuthGuard } from './core/guards/auth.guard';
 
 const routes: Routes = [
@@ -63,6 +64,18 @@ const routes: Routes = [
     component: RecommendationComponent,
     //canActivate: [AuthGuard]
   },
+
+  {
+    path: 'car-detail/:id',
+    component: CarDetailComponent,
+    
+  },
+  {
+    path: 'car-detail',
+    component: CarDetailComponent,
+   
+  },
+
   {
     path: '**',
     redirectTo: 'home',

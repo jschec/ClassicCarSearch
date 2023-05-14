@@ -29,13 +29,13 @@ export const createCarListing = catchAsync(async (req: Request, res: Response) =
  */
 export const getCarListing = catchAsync(async (req: Request, res: Response) => {
   if (req.params['carListingId']) {
-    const record = await carListingService.getById(req.params['carListingId']);
+    const record = await carListingService.getById(req.params['carListingId'], true);
     
     if (!record) {
       throw new ApiError(httpStatus.NOT_FOUND, 'Car listing not found');
     }
     
-    res.send(record.toJSON());
+    res.send(record);
   }
 });
 

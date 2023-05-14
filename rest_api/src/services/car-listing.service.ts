@@ -125,11 +125,12 @@ export const getAll = async (): Promise<ICarListingDoc[]> => {
  * Retrieves the specified CarListing record
  * 
  * @param {string} carListingId The identifier of the CarListing to retrieve
+ * @param {boolean} isPopulated Whether to populate the CarListing record. Defaults to false.
  * @returns {Promise<ICarListingDoc | null>} A promise containing the specified CarListing record
  */
-export const getById = async (carListingId: string): Promise<ICarListingDoc | null> => {
+export const getById = async (carListingId: string, isPopulated: boolean = false): Promise<ICarListingDoc | null> => {
   let record = await CarListing.findById(carListingId);
-  if (record) {
+  if (record && isPopulated) {
     record = await record.populate([
       {
         path: 'car',

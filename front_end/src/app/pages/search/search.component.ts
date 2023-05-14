@@ -1,4 +1,4 @@
-import { Component, Injectable} from '@angular/core';
+import { Component, Injectable, HostListener} from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { of, Observable, concat } from 'rxjs';
@@ -53,6 +53,55 @@ export class SearchComponent {
       });
     
   }
+  @HostListener('window:popstate', ['$event'])
+  onPopState(event: any) {
+    console.log('---onPopState---');
+    const state = history.state;
+    this.restoreState(state);
+  }
+  private saveState() {
+    const state = {
+      'page': this.page,
+      'pageSize': this.pageSize,
+      'searchResults': this.searchResults,
+    };
+    const title = document.title;
+    const url = window.location.href;
+    window.history.pushState(state, title, url);
+  }
+  private restoreState(state: any) {
+    this.updateUIState({}, state.watchList);
+    this.updateSearchByPage(state.pageSize, state.pageIndex);
+  }
+  private updateUIState(user: any, searchResult: ISearch | null): void {
+    this.updateSearch(searchResult);
+  }
+
+  private updateSearch(search: ISearch | null): void {
+    if (!search) {
+      return;
+    }
+    this.searchResults = search.results;
+    this.numRecords = search.results.length;
+    this.updateSearchByPage(this.pageSize, 0);
+  }
+
+//TODO - Do I need this top part? If so, what's my equivalent for the if statements?
+private updateSearchByPage(pageSize: number, page: number): void {
+    
+  if (!this.searchResults) {
+    this.searchResults = [];
+    this.page = 0;
+    this.pageSize = pageSize;
+    return;
+  }
+  
+  this.page = page;
+  this.pageSize = pageSize;
+  const start = this.page * this.pageSize;
+  const end = start + this.pageSize;
+  this.searchResults = (this.searchResults as ICarListing[]).slice(start, end);
+}
 
   ngOnInit(): void {
     this.searchService.getRecords(this.page, this.pageSize, {}).subscribe((response) => {
@@ -77,7 +126,8 @@ export class SearchComponent {
 
   onPageChanged(event: PageEvent): void {
     this.updateSearchByPage(event.pageSize, event.pageIndex);
-    //this.saveState();
+    this.saveState();
+    console.log(this.pageSize, this.page)
     //this.needScrollToBottom = true;
   }
   
@@ -88,20 +138,5 @@ export class SearchComponent {
   }
   
   
-  //TODO - Do I need this top part? If so, what's my equivalent for the if statements?
-  private updateSearchByPage(pageSize: number, page: number): void {
-    
-    if (!this.searchResults) {
-      this.searchResults = [];
-      this.page = 0;
-      this.pageSize = pageSize;
-      return;
-    }
-    
-    this.page = page;
-    this.pageSize = pageSize;
-    const start = this.page * this.pageSize;
-    const end = start + this.pageSize;
-    this.searchResults = (this.searchResults as ICarListing[]).slice(start, end);
-  }
+  
 }

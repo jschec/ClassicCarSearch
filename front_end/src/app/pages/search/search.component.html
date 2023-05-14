@@ -70,17 +70,17 @@
   </div>
 
 <!--************    MAIN PAGE BODY    ************-->
-  <mat-grid-list cols="2" rowHeight="500px" colWidth="fit" class="resultBackdrop">
+  <mat-grid-list cols="2" rowHeight="800px" colWidth="fit" class="resultBackdrop">
     <!-- ***********    Material Card Template*    ************ --> 
     <mat-grid-tile *ngFor="let record of searchResults" [colspan]="1" [rowspan]="1">
       <div class="searchDisplayItem">
         <mat-card class="resultCard" type="raised">
-          <img mat-card-image><!--TODO{{record.imageURL}}-->
+          <img mat-card-image src="{{record.car.img}}"> 
          
-            <mat-grid-list cols="2" rowHeight="100px" class="cardHeader">
+            <mat-grid-list cols="2" rowHeight="50px" class="cardHeader">
               
                 <mat-grid-tile [colspan]="1">
-                  <h2>{{record.car.make}} {{record.car.model}}</h2>
+                  <h3>{{record.car.make}} {{record.car.model}}</h3>
                 </mat-grid-tile>
                 <mat-grid-tile [colspan]="1">
                   <div class="active-listingChip"  *ngIf="!record.saleDate">Active</div>
@@ -111,14 +111,19 @@
               </mat-list-item>
             </mat-list>
           </mat-card-content>
-          <mat-grid-list cols="2" rowHeight="100px" class="cardFooter">
+          <mat-grid-list cols="2" rowHeight="50px" class="cardFooter">
             <mat-grid-tile [colspan]="1">
               <div matBadgeSize="large" class="active-listingFooter" *ngIf="!record.saleDate">Listed {{record.listDate}}</div>           
             <div matBadgeSize="large" class="closed-listingFooter" *ngIf="record.saleDate">Sold {{record.saleDate}}</div>
             </mat-grid-tile>
             <mat-grid-tile [colspan]="1">
-              <!--TODO: Have gotoCarDetail action for button-->
-              <mat-card-actions><button mat-flat-button color="primary">See Detail</button></mat-card-actions>        
+              <!--TODO: Have gotoCarDetail action for button-->              
+              <mat-card-actions>
+                <button mat-flat-button color="primary" 
+                routerLink="/car-detail/{{record}}">
+                See Detail
+                </button>
+              </mat-card-actions>        
             </mat-grid-tile>
           </mat-grid-list>
     </mat-card>
@@ -128,6 +133,12 @@
  </mat-grid-list>
 <!--***** PAGE BOTTOM *****-->
 <div class="search-footer">
-        <mat-paginator [length]="numRecords" [pageIndex]="page" [pageSize]="pageSize" [pageSizeOptions]="pageSizeList" (page)="onPageChanged($event)" aria-label="Select page" >
+        <mat-paginator 
+        [length]="numRecords" 
+        [pageIndex]="page" 
+        [pageSize]="pageSize" 
+        [pageSizeOptions]="pageSizeList" 
+        (page)="onPageChanged($event)" 
+        aria-label="Select page" >
         </mat-paginator>
 </div>

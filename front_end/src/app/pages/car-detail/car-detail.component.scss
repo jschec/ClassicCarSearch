@@ -1,0 +1,19 @@
+
+
+
+.example-card {
+    max-width: 800px;
+}
+  
+.example-header-image {
+    
+    background-size: cover;
+}
+
+
+@mixin border-style {
+    border-radius: 0;
+    border: 1px solid #bebebe;
+    box-shadow: none;
+}
+;

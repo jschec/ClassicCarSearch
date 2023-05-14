@@ -22,6 +22,10 @@ const carListingSchema = new Schema<
       required: true,
       enum: Object.values(Region),
     },
+    price: {
+      type: Number,
+      required: true,
+    },
     listDate: {
       type: Date,
       required: true,

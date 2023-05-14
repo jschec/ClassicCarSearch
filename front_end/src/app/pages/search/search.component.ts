@@ -70,7 +70,7 @@ export class SearchComponent {
     window.history.pushState(state, title, url);
   }
   private restoreState(state: any) {
-    this.updateUIState({}, state.watchList);
+    this.updateUIState({}, state.searchReults);
     this.updateSearchByPage(state.pageSize, state.pageIndex);
   }
   private updateUIState(user: any, searchResult: ISearch | null): void {
@@ -115,8 +115,7 @@ private updateSearchByPage(pageSize: number, page: number): void {
   onClickSubmit() {
     let navigationExtras: NavigationExtras = {
       queryParams: {
-        searchCriteria: JSON.stringify(this.filterForm.value)
-        
+        searchCriteria: JSON.stringify(this.filterForm.value)        
       }
     }
     console.log(JSON.stringify(this.filterForm.value));

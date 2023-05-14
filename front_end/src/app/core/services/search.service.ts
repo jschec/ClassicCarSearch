@@ -16,11 +16,13 @@ export interface ISeller {
 }
 
 export interface ICarListing {
+    //id: string;
     car: ICar;
     region: string;
     listDate: Date;
     saleDate: Date | null;
     seller: ISeller;
+    //price: number;
 }
 
 export interface ISearch {

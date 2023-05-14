@@ -1,6 +1,7 @@
 import { Document, Model, Types } from 'mongoose';
 
 export interface ICarListing {
+  id: string;
   region: string;
   price: number;
   listDate: Date;

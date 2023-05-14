@@ -53,6 +53,10 @@ border-radius: 10px;
     padding-left: 20px;
     padding-right: 20px;
 }
+
+.search-footer{
+    margin-top: 8px;
+}
 .resultBackdrop{
     background-color: rgb(242, 239, 239);
 }
@@ -66,6 +70,15 @@ border-radius: 10px;
 
 .cardHeader{
     background-color: tan;
+}
+.cardFooter{
+    background-color: tan;
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
 }
 
 //LANDING REUSE

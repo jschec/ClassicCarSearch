@@ -1,22 +1,39 @@
-<div class="flex-container">
-    <mat-grid-list cols="4" rowHeight="100px">
-        <mat-grid-tile
-            [colspan]=4
-            [rowspan]=1
+<div class="subscription-page-container" fxLayout="column" fxLayoutGap="20px">
+    
+    <div class="subscription-page-title" fxFlex="20">
+        <h1>
+            Subscription
+        </h1>
+        <p>
+            Choose one of the following subscription plans to get started.
+        </p>
+    </div>
+
+    <div fxLayout="row" fxLayoutGap="20px" fxFlex="80">
+        <mat-card
+            class="subscription-card"
+            *ngFor="let subscription of subscriptions" 
+            fxFlex="25"
         >
+            <mat-card-header class="subscription-card-header">
+                <mat-card-title>
+                    {{subscription.name}}
+                </mat-card-title>
+            </mat-card-header>
             <mat-card-content>
-                Current Plan: Standard
+                <div class="subscription-description">
+                    <h2>
+                        {{subscription.price}}
+                    </h2>
+
+                    <ul *ngFor="let feature of subscription.features">
+                        <li>{{feature}}</li>
+                    </ul>  
+                </div>
             </mat-card-content>
-        </mat-grid-tile>
-        
-        <mat-grid-tile
-            *ngFor="let subscription of subscriptions"
-            [colspan]=1
-            [rowspan]=1
-        >
-            <mat-card-content>
-                {{subscription.name}}
-            </mat-card-content>
-        </mat-grid-tile>
-    </mat-grid-list>
+            <mat-card-actions class="subscription-action">
+                <button mat-flat-button color="primary">Select</button>
+            </mat-card-actions>
+        </mat-card>
+    </div>
 </div>

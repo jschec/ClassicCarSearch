@@ -19,6 +19,10 @@ const subscriptionSchema = new Schema<
       required: true,
       unique: true,
     },
+    features: {
+      type: [String],
+      required: true,
+    },
     cost: {
       type: Number,
       required: true,

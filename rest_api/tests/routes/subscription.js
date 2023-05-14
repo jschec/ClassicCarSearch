@@ -3,13 +3,11 @@ const chaiHttp = require('chai-http');
 
 const config = require('../config');
 
-var assert = chai.assert;
-var expect = chai.expect;
-var should = chai.should();
+const expect = chai.expect;
 
 chai.use(chaiHttp);
 
-describe('Test get subscriptions', function() {
+describe('Test get all subscriptions', function() {
 	var requestResult;
 	var response;
 
@@ -50,5 +48,36 @@ describe('Test get subscriptions', function() {
 				return true;
 			});
 	});	
-	
+});
+
+
+describe('Test get single subscription', function() {
+	var requestResult;
+	var response;
+
+  before(function (done) {
+    chai.request(`http://${config.hostName}:${config.hostPort}`)
+      .get("/subscriptions/d3529038-9304-432c-b372-8bc9f391a257")
+      .end(function (err, res) {
+        requestResult = res.body;
+        response = res;
+
+        expect(err).to.be.null;
+        expect(res).to.have.status(200);
+        done();
+      });
+  });
+    
+  it('Should return an object', function () {
+		expect(response).to.have.status(200);
+		expect(response.body).to.be.an('object');
+		expect(response).to.have.headers;
+  });
+    
+	it('The object in the array has known properties', function() {
+    expect(requestResult).to.have.property('id');
+    expect(requestResult).to.have.property('name');
+    expect(requestResult).to.have.property('cost');
+		expect(response.body).to.not.be.a.string;
+	});
 });

@@ -46,7 +46,7 @@ searchSchema.pre('validate', async function(next) {
     resultIds.push(item as String);
   });
   
-  const resultCount = await CarListing.countDocuments({ id: { $in: resultIds } });
+  const resultCount = await CarListing.countDocuments({ _id: { $in: resultIds } });
 
   if (resultCount !== this.results.length) {
     next(new Error('One or more results do not exist'));

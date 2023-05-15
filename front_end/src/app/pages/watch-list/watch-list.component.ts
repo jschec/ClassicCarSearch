@@ -91,17 +91,7 @@ export class WatchListComponent {
 
   private queryByUserId(userId: string, user: any): void {
     this.loading = true;
-    this.watchListService.getByUserId(userId).pipe(
-      concatMap((res1: IWatchList) => {
-        console.log("len:" + res1.searches.length);
-        return this.searchService.getByIds(res1.searches as string[]).pipe(
-          map((res2: ISearch[]) => {
-            res1.searches = res2;
-            return res1;
-          })
-        );
-      })
-    ).subscribe((watchList: IWatchList) => {
+    this.watchListService.getByUserId(userId).subscribe((watchList: IWatchList) => {
       console.log(watchList.searches);
       this.updateUIState(user, watchList);
       this.saveState();

@@ -5,6 +5,7 @@ import { SearchService, ICarListing } from 'src/app/core/services/search.service
 import { ICar } from 'src/app/core/services/cars.service';
 import { ActivatedRoute, Router } from '@angular/router';
 
+
 @Component({
   selector: 'app-search',
   templateUrl: './search.component.html',
@@ -53,7 +54,6 @@ maxYear, [Validators.min(minYear), Validators.max(maxYear)]
 exteriorCondition: new FormControl(''),
 mechanicalCondition: new FormControl('')
 });
-
 }
 
 applySearch(): void {

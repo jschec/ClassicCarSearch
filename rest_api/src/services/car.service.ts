@@ -1,5 +1,4 @@
 import httpStatus from 'http-status';
-import { Types } from 'mongoose';
 
 import { 
   NewCarBody, UpdateCarBody, ICarDoc 
@@ -29,22 +28,22 @@ export const getAll = async (): Promise<ICarDoc[]> => {
 /**
  * Retrieves the specified Car record
  * 
- * @param {Types.ObjectId} carId The identifier of the Car to retrieve
+ * @param {string} carId The identifier of the Car to retrieve
  * @returns {Promise<ICarDoc | null>} A promise containing the specified Car record
  */
-export const getById = async (carId: Types.ObjectId): Promise<ICarDoc | null> => {
+export const getById = async (carId: string): Promise<ICarDoc | null> => {
   return Car.findById(carId);
 };
 
 /**
  * Updates the Car record with the sought identifier.
  * 
- * @param {Types.ObjectId} carId The identifier of the Car to update
+ * @param {string} carId The identifier of the Car to update
  * @param {UpdateCarBody} reqBody The request body supplied by the client
  * @returns {Promise<ICarDoc | null>} A promise containing the updated Car record
  */
 export const updateById = async (
-  carId: Types.ObjectId, reqBody: UpdateCarBody
+  carId: string, reqBody: UpdateCarBody
 ): Promise<ICarDoc | null> => {
   const record = await getById(carId);
   
@@ -62,10 +61,10 @@ export const updateById = async (
 /**
  * Deletes the Car record with the sought identifier.
  * 
- * @param {Types.ObjectId} carId The identifier of the Car to update
+ * @param {string} carId The identifier of the Car to update
  * @returns {Promise<ICarDoc | null>} A promise containing the deleted Car record.
  */
-export const deleteById = async (carId: Types.ObjectId): Promise<ICarDoc | null> => {
+export const deleteById = async (carId: string): Promise<ICarDoc | null> => {
   const record = await getById(carId);
   
   if (!record) {

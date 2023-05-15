@@ -1,5 +1,4 @@
 import httpStatus from 'http-status';
-import mongoose from 'mongoose';
 
 import { 
   NewUserBody, 
@@ -26,19 +25,19 @@ export const create = async (userBody: NewUserBody): Promise<IUserDoc> => {
 /**
  * Retrieves the specified User record
  * 
- * @param {mongoose.Types.ObjectId} id The identifier of the User to retrieve
+ * @param {string} id The identifier of the User to retrieve
  * @returns {Promise<IUserDoc | null>} A promise containing the specified User record
  */
-export const getById = async (id: mongoose.Types.ObjectId): Promise<IUserDoc | null> => User.findById(id);
+export const getById = async (id: string): Promise<IUserDoc | null> => User.findById(id);
 
 /**
  * Retrieves the User record with the specified ID and returns it as a promise.
  *
- * @param {mongoose.Types.ObjectId} id The identifier of the User to retrieve
+ * @param {string} id The identifier of the User to retrieve
  * @param {String[]} fields - An array of fields to select from the User record
  * @returns {Promise<IUserDoc | null>} A promise containing the specified User record
  */
-export const getByIdWithFields = async (id: mongoose.Types.ObjectId, fields: String[]): Promise<IUserDoc | null> => {
+export const getByIdWithFields = async (id: string, fields: String[]): Promise<IUserDoc | null> => {
   let user = await User.findById(id);
   if (!user) {
     throw new ApiError(httpStatus.NOT_FOUND, 'User not found');
@@ -65,12 +64,12 @@ export const getByIdWithFields = async (id: mongoose.Types.ObjectId, fields: Str
 /**
  * Updates the specified User record
  * 
- * @param {mongoose.Types.ObjectId} userId The identifier of the User to update
+ * @param {string} userId The identifier of the User to update
  * @param {UpdateUserBody} updateBody The request body supplied by the client
  * @returns {Promise<IUserDoc | null>} A promise containing the updated User record
  */
 export const updateById = async (
-  userId: mongoose.Types.ObjectId, updateBody: UpdateUserBody
+  userId: string, updateBody: UpdateUserBody
 ): Promise<IUserDoc | null> => {
   const user = await getById(userId);
   
@@ -92,10 +91,10 @@ export const updateById = async (
 /**
  * Deletes the User record with the sought identifier.
  * 
- * @param {mongoose.Types.ObjectId} userId  The identifier of the user to delete.
+ * @param {string} userId  The identifier of the user to delete.
  * @returns {Promise<IUserDoc | null>} A promise containing the deleted user record.
  */
-export const deleteById = async (userId: mongoose.Types.ObjectId): Promise<IUserDoc | null> => {
+export const deleteById = async (userId: string): Promise<IUserDoc | null> => {
   const user = await getById(userId);
   
   if (!user) {

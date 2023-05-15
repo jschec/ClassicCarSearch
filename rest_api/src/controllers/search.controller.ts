@@ -47,10 +47,8 @@ export const createSearch = catchAsync(async (req: Request, res: Response) => {
  * @returns {Promise<ISearchDoc>} A promise containing the specified Search record
  */
 export const getSearch = catchAsync(async (req: Request, res: Response) => {
-  if (typeof req.params['searchId'] === 'string') {
-    const record = await searchService.getFullDocById(
-      new Types.ObjectId(req.params['searchId'])
-    );
+  if (req.params['searchId']) {
+    const record = await searchService.getFullDocById(req.params['searchId']);
     
     if (!record) {
       throw new ApiError(httpStatus.NOT_FOUND, 'Search not found');
@@ -98,9 +96,9 @@ export const applySearch = catchAsync(async (req: Request, res: Response) => {
  * @returns {Promise<ISearchForecastDoc>} A promise containing the specified SearchForecast records
  */
 export const getSearchForecasts = catchAsync(async (req: Request, res: Response) => {
-  if (typeof req.params['searchId'] === 'string') {
+  if (req.params['searchId']) {
     const records = await searchForecastService.getBySearchId(
-      new Types.ObjectId(req.params['searchId'])
+      req.params['searchId']
     );
 
     res.send(records);
@@ -115,9 +113,9 @@ export const getSearchForecasts = catchAsync(async (req: Request, res: Response)
  * @returns {Promise<ISearchDoc>} A promise containing the updated Search record
  */
 export const updateSearch = catchAsync(async (req: Request, res: Response) => {
-  if (typeof req.params['searchId'] === 'string') {
+  if (req.params['searchId']) {
     const record = await searchService.updateById(
-      new Types.ObjectId(req.params['searchId']), req.body
+      req.params['searchId'], req.body
     );
     
     res.send(record);
@@ -132,10 +130,8 @@ export const updateSearch = catchAsync(async (req: Request, res: Response) => {
  * @returns {Promise<void>} A promise indicating the success of the operation
  */ 
 export const deleteSearch = catchAsync(async (req: Request, res: Response) => {
-  if (typeof req.params['searchId'] === 'string') {
-    await searchService.deleteById(
-      new Types.ObjectId(req.params['searchId'])
-    );
+  if (req.params['searchId']) {
+    await searchService.deleteById(req.params['searchId']);
 
     res.status(httpStatus.NO_CONTENT).send();
   }

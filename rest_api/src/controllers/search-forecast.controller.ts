@@ -28,9 +28,9 @@ export const createSearchForecast = catchAsync(async (req: Request, res: Respons
  * @returns {Promise<ISearchForecastDoc>} A promise containing the specified SearchForecast record
  */
 export const getSearchForecast = catchAsync(async (req: Request, res: Response) => {
-  if (typeof req.params['searchForecastId'] === 'string') {
+  if (req.params['searchForecastId']) {
     const record = await searchForecastService.getById(
-      new Types.ObjectId(req.params['searchForecastId'])
+      req.params['searchForecastId']
     );
     
     if (!record) {
@@ -49,9 +49,9 @@ export const getSearchForecast = catchAsync(async (req: Request, res: Response) 
  * @returns {Promise<ISearchForecastDoc>} A promise containing the updated SearchForecast record
  */
 export const updateSearchForecast = catchAsync(async (req: Request, res: Response) => {
-  if (typeof req.params['searchForecastId'] === 'string') {
+  if (req.params['searchForecastId']) {
     const record = await searchForecastService.updateById(
-      new Types.ObjectId(req.params['searchForecastId']), req.body
+      req.params['searchForecastId'], req.body
     );
     
     res.send(record);
@@ -66,10 +66,8 @@ export const updateSearchForecast = catchAsync(async (req: Request, res: Respons
  * @returns {Promise<void>} A promise indicating the success of the operation
  */ 
 export const deleteSearchForecast = catchAsync(async (req: Request, res: Response) => {
-  if (typeof req.params['searchForecastId'] === 'string') {
-    await searchForecastService.deleteById(
-      new Types.ObjectId(req.params['searchForecastId'])
-    );
+  if (req.params['searchForecastId']) {
+    await searchForecastService.deleteById(req.params['searchForecastId']);
 
     res.status(httpStatus.NO_CONTENT).send();
   }

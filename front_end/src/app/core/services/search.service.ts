@@ -17,13 +17,13 @@ export interface ISeller {
 }
 
 export interface ICarListing {
-
     _id: string;
     car: ICar;
     region: string;
     listDate: Date;
     saleDate: Date | null;
     seller: ISeller;
+    price: number;
 }
 
 export interface ISearch {
@@ -60,62 +60,42 @@ export class SearchService {
 constructor(private http: HttpClient) { }
 
 public getByIds(ids: string[]): Observable<ISearch[]> {
-
         const url = '/api/searches/query';
-
         const body = JSON.stringify({"ids": ids});
-
         const httpOptions = {
 
-            headers: new HttpHeaders({
-
-                // 'Authorization': 'Bearer my-auth-token'
-
-                'Content-Type': "application/json",
-
-            })
-
+         headers: new HttpHeaders({
+// 'Authorization': 'Bearer my-auth-token'
+         'Content-Type': "application/json",
+         })
         };
-
-        return this.http.post<ISearch[]>(url, body, httpOptions);
-
-    }
+    return this.http.post<ISearch[]>(url, body, httpOptions);
+}
 
     
 
     public getRecords(page: number, pageSize: number, criteria: SearchCriteriaRequest): Observable<IPaginationResponse<ICarListing>> {
-
-        
-
-        const url = '/api/searches';
-
+        const url = '/api/searches';
         let queryParams = new HttpParams();
-
         queryParams = queryParams.append("page", page);
-
         queryParams = queryParams.append("pageSize", pageSize);
-
         for (const [k, v] of Object.entries(criteria)) {
-
             // Skip empty values
-
             if (v === undefined || v === null || v === "") {
-
                 continue;
-
             }
-
             // temp
-
             if (k === "startYear" || k === "endYear") {
-
                 continue;
-
             }
 queryParams = queryParams.append(k, v);
         }
 return this.http.get<IPaginationResponse<ICarListing>>(url,{params:queryParams});
-
     }
+//TODO: Is this necessary, when we could use an empty search?
+public getAllRecords(page: number, pageSize: number){
+    const url = '/'
+    return this.http.get<IPaginationResponse<ICarListing>>(url);
+}
 
 }

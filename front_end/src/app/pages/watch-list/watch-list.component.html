@@ -49,10 +49,10 @@
                             <section class="flex-layout flex-row align-items-start">
                                 <label class="" style="margin-top: 10px">Notify By:</label>
                                 <section class="flex-layout flex-column">
-                                    <mat-checkbox class="" [(ngModel)]="notifyByEmails[search.id]">
+                                    <mat-checkbox class="" [(ngModel)]="notifyByEmails[search.id]" (change)="onNotifyByEmailChanged($event, search.id)">
                                         <div class="checkbox-option-label">Email</div>
                                     </mat-checkbox>
-                                    <mat-checkbox class="" [(ngModel)]="notifyBySMSs[search.id]">
+                                    <mat-checkbox class="" [(ngModel)]="notifyBySMSs[search.id]" (change)="onNotifyBySMSChanged($event, search.id)">
                                         <div class="checkbox-option-label">SMS</div>
                                     </mat-checkbox>
                                 </section>

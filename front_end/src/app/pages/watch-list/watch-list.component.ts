@@ -4,6 +4,7 @@ import { concatMap, map } from 'rxjs/operators';
 import { AuthService } from 'src/app/core/services/auth.service';
 import { IWatchList, WatchListService } from 'src/app/core/services/watchList.service';
 import { ISearch, SearchService } from 'src/app/core/services/search.service';
+import { MatCheckboxChange } from '@angular/material/checkbox';
 
 @Component({
   selector: 'app-watch-list',
@@ -58,13 +59,20 @@ export class WatchListComponent {
       this.needScrollToBottom = false;
       this.scrollToBottom();
     }
-    console.log(this.scrollContainer.nativeElement.offsetHeight);
   }
 
   onPageChanged(event: PageEvent): void {
     this.updateUIWatchListByPage(event.pageSize, event.pageIndex);
     this.saveState();
     this.needScrollToBottom = true;
+  }
+
+  onNotifyByEmailChanged(event: MatCheckboxChange, searchId: string): void {
+    console.log(this.notifyByEmails[searchId], event.checked);
+  }
+
+  onNotifyBySMSChanged(event: MatCheckboxChange, searchId: string): void {
+    console.log(this.notifyBySMSs[searchId], event.checked);
   }
 
   @HostListener('window:popstate', ['$event'])

@@ -4,7 +4,6 @@ import { ICarDoc } from './car.interfaces';
 import { ICarSellerDoc } from './car-seller.interfaces';
 
 export interface ICarListing {
-  id: string;
   region: string;
   price: number;
   listDate: Date;

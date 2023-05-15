@@ -1,10 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, HostListener, ElementRef, ViewChild } from '@angular/core';
 import { PageEvent } from '@angular/material/paginator';
-import { of, Observable, concat } from 'rxjs';
 import { concatMap, map } from 'rxjs/operators';
 import { AuthService } from 'src/app/core/services/auth.service';
 import { IWatchList, WatchListService } from 'src/app/core/services/watchList.service';
 import { ISearch, SearchService } from 'src/app/core/services/search.service';
+import { MatCheckboxChange } from '@angular/material/checkbox';
 
 @Component({
   selector: 'app-watch-list',
@@ -14,40 +14,79 @@ import { ISearch, SearchService } from 'src/app/core/services/search.service';
 export class WatchListComponent {
   // raw data, fetch from backend
   watchList: IWatchList | null = null;
-  // Objects for UI data binding, because our current WatchList object, the searches record is a complete list in the object, so it is currently unable to provide the back-end page-turning request, and the page-turning implementation is managed on the front-end.
+  // data binding
   userName: string = "";
   totalCount: number = 0;
   pageSearches: ISearch[] = [];
+  loading: boolean = true;
+  notifyByEmails: Record<string, boolean> = {};
+  notifyBySMSs: Record<string, boolean> = {};
+  // ui state
   pageIndex: number = 0;
   pageSizeList: number[] = [5, 10, 25, 100]
   pageSize: number = this.pageSizeList[0];
-  loading: boolean = true;
+  // temp state
+  needScrollToBottom: boolean = false;
 
-  constructor(private authService: AuthService,
+  constructor(
+    private authService: AuthService,
     private watchListService: WatchListService,
     private searchService: SearchService) {
   }
 
   ngOnInit(): void {
+    console.log('---ngOnInit---');
     // get login user from auth service.
     let user = this.authService.getCurrentUser();
     this.updateUIState(user, null);
 
     // TODO: get userId from user
-    let userId: string = "645152ad99d4ed3965a94438";
+    let userId: string = "5e6da5a1-dd55-4661-8527-1b41473358ce";
     this.queryByUserId(userId, user);
   }
 
   ngOnDestroy(): void {
-
+    console.log('---ngOnDestroy---');
+    this.saveState();
   }
 
   ngAfterViewInit(): void {
-    //
+    console.log('---ngAfterViewInit---');
+  }
+
+  ngAfterViewChecked(): void {
+    if (this.needScrollToBottom) {
+      this.needScrollToBottom = false;
+      this.scrollToBottom();
+    }
   }
 
   onPageChanged(event: PageEvent): void {
     this.updateUIWatchListByPage(event.pageSize, event.pageIndex);
+    this.saveState();
+    this.needScrollToBottom = true;
+  }
+
+  onNotifyByEmailChanged(event: MatCheckboxChange, searchId: string): void {
+    console.log(this.notifyByEmails[searchId], event.checked);
+  }
+
+  onNotifyBySMSChanged(event: MatCheckboxChange, searchId: string): void {
+    console.log(this.notifyBySMSs[searchId], event.checked);
+  }
+
+  @HostListener('window:popstate', ['$event'])
+  onPopState(event: any) {
+    console.log('---onPopState---');
+    const state = history.state;
+    this.restoreState(state);
+  }
+
+  @ViewChild('scrollContainer') private scrollContainer!: ElementRef;
+  scrollToBottom() {
+    const element = this.scrollContainer.nativeElement;
+    element.scrollTop = element.scrollHeight;
+    console.log(element.scrollHeight);
   }
 
   private queryByUserId(userId: string, user: any): void {
@@ -64,12 +103,25 @@ export class WatchListComponent {
       })
     ).subscribe((watchList: IWatchList) => {
       console.log(watchList.searches);
-      // const record = searches.reduce((acc, search) => {
-      //   acc[search.id] = search;
-      //   return acc;
-      // }, {} as Record<string, ISearch>);
       this.updateUIState(user, watchList);
+      this.saveState();
     });
+  }
+
+  private saveState() {
+    const state = {
+      'pageIndex': this.pageIndex,
+      'pageSize': this.pageSize,
+      'watchList': this.watchList,
+    };
+    const title = document.title;
+    const url = window.location.href;
+    window.history.pushState(state, title, url);
+  }
+
+  private restoreState(state: any) {
+    this.updateUIState({}, state.watchList);
+    this.updateUIWatchListByPage(state.pageSize, state.pageIndex);
   }
 
   private updateUIState(user: any, watchList: IWatchList | null): void {

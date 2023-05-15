@@ -1,4 +1,4 @@
-<div class="watch-list-parent">
+<div class="watch-list-parent" #scrollContainer>
 <div class="watch-list-container">
     <mat-card class="watch-list-header">
         <mat-card-header>
@@ -17,30 +17,46 @@
 
     <mat-progress-bar *ngIf="loading" mode="query"></mat-progress-bar>
 
-    <mat-grid-list *ngIf="!loading" cols="1" rowHeight="216px">
-        <mat-grid-tile *ngFor="let search of pageSearches" [colspan]="1" [rowspan]="1">
+    <mat-grid-list *ngIf="!loading" cols="1" rowHeight="225px">
+        <mat-grid-tile *ngFor="let search of pageSearches; let i = index" [colspan]="1" [rowspan]="1">
             <div class="watch-list-item">
             <mat-card>
                 <mat-card-content>
                     <div class="flex-layout flex-row watch-list-item-content">
                         <div class="">
-                            <img mat-card-lg-image
-                                src="https://platform.cstatic-images.com/xlarge/in/v2/c95d212d-d1df-58bc-8599-864c7791c88f/32cacf95-34da-4266-a910-5583226a89e3/_vpsUaLVHkmdInh_5lDitX8Jv5g.jpg">
+                            <div class="watch-list-item-car-img-box">
+                                <img mat-card-lg-image *ngFor="let searchResults of search.results | slice:0:4" src="{{searchResults.car.img}}">
+                            </div>
                         </div>
                         <div class="flex-grow-1 flex-layout flex-row flex-wrap ">
                             <div class="flex-layout flex-column flex-wrap">
-                                <div class="watch-list-item-attr"> Search-ID: {{search.id}} </div>
-                                <div class="watch-list-item-attr"> Region: {{search.criterias[0].region}} </div>
+                                <div class="watch-list-item-attr"> Num: {{pageIndex * pageSize + i + 1}}</div>
+                                <!-- <div class="watch-list-item-attr"> Search-ID: {{search.id}} </div> -->
+                                <div class="watch-list-item-attr"> Region: {{search.results[0].region}} </div>
                                 <div class="watch-list-item-attr"> Match Results: {{search.results.length}} </div>
                             </div>
                             <div class="flex-layout flex-column flex-wrap">
                                 <div class="watch-list-item-attr"> Recommendation: BUY </div>
+                                <div class="watch-list-item-attr"> Median Price: $xxx </div>
+                                <div class="watch-list-item-attr"> Median Time On Market: N Days </div>
                             </div>
 
                         </div>
                         <div class="flex-layout flex-column">
-                            <button class="" mat-raised-button color="primary">Recommemdation</button>
-                            <button class="" mat-raised-button color="primary">View Search</button>
+                            <button class="" mat-flat-button color="primary">Recommemdation</button>
+                            <button class="" mat-flat-button color="primary">View Search</button>
+
+                            <section class="flex-layout flex-row align-items-start">
+                                <label class="" style="margin-top: 10px">Notify By:</label>
+                                <section class="flex-layout flex-column">
+                                    <mat-checkbox class="" [(ngModel)]="notifyByEmails[search.id]" (change)="onNotifyByEmailChanged($event, search.id)">
+                                        <div class="checkbox-option-label">Email</div>
+                                    </mat-checkbox>
+                                    <mat-checkbox class="" [(ngModel)]="notifyBySMSs[search.id]" (change)="onNotifyBySMSChanged($event, search.id)">
+                                        <div class="checkbox-option-label">SMS</div>
+                                    </mat-checkbox>
+                                </section>
+                            </section>
                         </div>
 
                     </div>

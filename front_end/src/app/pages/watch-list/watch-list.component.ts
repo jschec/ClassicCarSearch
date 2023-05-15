@@ -32,17 +32,14 @@ export class WatchListComponent {
     private authService: AuthService,
     private watchListService: WatchListService,
     private searchService: SearchService) {
+
   }
 
   ngOnInit(): void {
     console.log('---ngOnInit---');
-    // get login user from auth service.
-    let user = this.authService.getCurrentUser();
+    const user = this.getCurrentUser()
     this.updateUIState(user, null);
-
-    // TODO: get userId from user
-    let userId: string = "5e6da5a1-dd55-4661-8527-1b41473358ce";
-    this.queryByUserId(userId, user);
+    this.queryByUser(user);
   }
 
   ngOnDestroy(): void {
@@ -89,9 +86,22 @@ export class WatchListComponent {
     console.log(element.scrollHeight);
   }
 
-  private queryByUserId(userId: string, user: any): void {
+  private getCurrentUser(): any {
+    // TODO: After the login mechanism is completed, here the current user is retrieved through the AuthService.
+    // return this.authService.getCurrentUser();
+
+    // TODO: currently use mock data.
+    const userJSON = {
+      id: '5e6da5a1-dd55-4661-8527-1b41473358ce',
+      fullName: 'Ward Bogan',
+      pictureUri: 'https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/886.jpg'
+    };
+    return userJSON;
+  }
+
+  private queryByUser(user: any): void {
     this.loading = true;
-    this.watchListService.getByUserId(userId).subscribe((watchList: IWatchList) => {
+    this.watchListService.getByUserId(user.id).subscribe((watchList: IWatchList) => {
       console.log(watchList.searches);
       this.updateUIState(user, watchList);
       this.saveState();
@@ -110,7 +120,7 @@ export class WatchListComponent {
   }
 
   private restoreState(state: any) {
-    this.updateUIState({}, state.watchList);
+    this.updateUIState(this.getCurrentUser(), state.watchList);
     this.updateUIWatchListByPage(state.pageSize, state.pageIndex);
   }
 
@@ -121,8 +131,7 @@ export class WatchListComponent {
   }
 
   private updateUIUser(user: any): void {
-    // TODO: auth service
-    this.userName = "Zhihai";
+    this.userName = user.fullName;
   }
 
   private updateUIWatchList(watchList: IWatchList | null): void {

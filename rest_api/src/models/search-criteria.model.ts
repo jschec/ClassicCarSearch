@@ -27,6 +27,18 @@ const searchCriteriaSchema = new Schema<
       required: false,
       enum: Object.values(Region),
     },
+    startYear: {
+      type: Number,
+      required: false,
+      min: 1885, // First car was invented in 1885
+      max: new Date().getFullYear() + 1 // Can't be newer than next year,
+    },
+    endYear: {
+      type: Number,
+      required: false,
+      min: 1885, // First car was invented in 1885
+      max: new Date().getFullYear() + 1 // Can't be newer than next year,
+    },
     maxMileage: {
       type: Number,
       required: false,

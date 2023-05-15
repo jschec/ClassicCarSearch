@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 type Condition = 'Excellent' | 'Good' | 'Fair' | 'Poor';
 
 export interface ICar {
+  _id: string;
   make: string;
   model: string;
   year: number;

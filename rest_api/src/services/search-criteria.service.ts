@@ -1,5 +1,4 @@
 import httpStatus from 'http-status';
-import { Types } from 'mongoose';
 
 import { 
   NewSearchCriteriaBody, UpdateSearchCriteriaBody, ISearchCriteriaDoc 
@@ -20,22 +19,22 @@ export const create = async (reqBody: NewSearchCriteriaBody): Promise<ISearchCri
 /**
  * Retrieves the specified SearchCriteria record
  * 
- * @param {Types.ObjectId} searchCriteriaId The identifier of the SearchCriteria to retrieve
+ * @param {string} searchCriteriaId The identifier of the SearchCriteria to retrieve
  * @returns {Promise<ISearchCriteriaDoc | null>} A promise containing the specified SearchCriteria record
  */
-export const getById = async (searchCriteriaId: Types.ObjectId): Promise<ISearchCriteriaDoc | null> => {
+export const getById = async (searchCriteriaId: string): Promise<ISearchCriteriaDoc | null> => {
   return SearchCriteria.findById(searchCriteriaId);
 };
 
 /**
  * Updates the SearchCriteria record with the sought identifier.
  * 
- * @param {Types.ObjectId} searchCriteriaId The identifier of the SearchCriteria to update
+ * @param {string} searchCriteriaId The identifier of the SearchCriteria to update
  * @param {UpdateSearchCriteriaBody} reqBody The request body supplied by the client
  * @returns {Promise<ISearchCriteriaDoc | null>} A promise containing the updated SearchCriteria record
  */
 export const updateById = async (
-  searchCriteriaId: Types.ObjectId, reqBody: UpdateSearchCriteriaBody
+  searchCriteriaId: string, reqBody: UpdateSearchCriteriaBody
 ): Promise<ISearchCriteriaDoc | null> => {
   const record = await getById(searchCriteriaId);
   
@@ -53,10 +52,10 @@ export const updateById = async (
 /**
  * Deletes the SearchCriteria record with the sought identifier.
  * 
- * @param {Types.ObjectId} searchCriteriaId The identifier of the SearchCriteria to update
+ * @param {string} searchCriteriaId The identifier of the SearchCriteria to update
  * @returns {Promise<ISearchCriteriaDoc | null>} A promise containing the deleted SearchCriteria record.
  */
-export const deleteById = async (searchCriteriaId: Types.ObjectId): Promise<ISearchCriteriaDoc | null> => {
+export const deleteById = async (searchCriteriaId: string): Promise<ISearchCriteriaDoc | null> => {
   const record = await getById(searchCriteriaId);
   
   if (!record) {

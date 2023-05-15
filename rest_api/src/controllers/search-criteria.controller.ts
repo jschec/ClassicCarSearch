@@ -28,9 +28,9 @@ export const createSearchCriteria = catchAsync(async (req: Request, res: Respons
  * @returns {Promise<ISearchCriteriaDoc>} A promise containing the specified SearchCriteria record
  */
 export const getSearchCriteria = catchAsync(async (req: Request, res: Response) => {
-  if (typeof req.params['searchCriteriaId'] === 'string') {
+  if (req.params['searchCriteriaId']) {
     const record = await searchCriteriaService.getById(
-      new Types.ObjectId(req.params['searchCriteriaId'])
+      req.params['searchCriteriaId']
     );
     
     if (!record) {
@@ -49,9 +49,9 @@ export const getSearchCriteria = catchAsync(async (req: Request, res: Response) 
  * @returns {Promise<ISearchCriteriaDoc>} A promise containing the updated SearchCriteria record
  */
 export const updateSearchCriteria = catchAsync(async (req: Request, res: Response) => {
-  if (typeof req.params['searchCriteriaId'] === 'string') {
+  if (req.params['searchCriteriaId']) {
     const record = await searchCriteriaService.updateById(
-      new Types.ObjectId(req.params['searchCriteriaId']), req.body
+      req.params['searchCriteriaId'], req.body
     );
     
     res.send(record);
@@ -66,10 +66,8 @@ export const updateSearchCriteria = catchAsync(async (req: Request, res: Respons
  * @returns {Promise<void>} A promise indicating the success of the operation
  */ 
 export const deleteSearchCriteria = catchAsync(async (req: Request, res: Response) => {
-  if (typeof req.params['searchCriteriaId'] === 'string') {
-    await searchCriteriaService.deleteById(
-      new Types.ObjectId(req.params['searchCriteriaId'])
-    );
+  if (req.params['searchCriteriaId']) {
+    await searchCriteriaService.deleteById(req.params['searchCriteriaId']);
 
     res.status(httpStatus.NO_CONTENT).send();
   }

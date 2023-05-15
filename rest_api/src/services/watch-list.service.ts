@@ -1,5 +1,4 @@
 import httpStatus from 'http-status';
-import { Types } from 'mongoose';
 
 import { 
   NewWatchListBody, UpdateWatchListBody, IWatchListDoc 
@@ -20,32 +19,32 @@ export const create = async (reqBody: NewWatchListBody): Promise<IWatchListDoc> 
 /**
  * Retrieves the specified WatchList record
  * 
- * @param {Types.ObjectId} watchListId The identifier of the WatchList to retrieve
+ * @param {string} watchListId The identifier of the WatchList to retrieve
  * @returns {Promise<IWatchListDoc | null>} A promise containing the specified WatchList record
  */
-export const getById = async (watchListId: Types.ObjectId): Promise<IWatchListDoc | null> => {
+export const getById = async (watchListId: string): Promise<IWatchListDoc | null> => {
   return WatchList.findById(watchListId);
 };
 
 /**
  * Retrieves the specified WatchList record
  *
- * @param {Types.ObjectId} userId The identifier of the WatchList to retrieve
+ * @param {string} userId The identifier of the WatchList to retrieve
  * @returns {Promise<IWatchListDoc | null>} A promise containing the specified WatchList record
  */
-export const getByUserId = async (userId: Types.ObjectId): Promise<IWatchListDoc | null> => {
+export const getByUserId = async (userId: string): Promise<IWatchListDoc | null> => {
   return WatchList.findOne({ "user": userId });
 };
 
 /**
  * Updates the WatchList record with the sought identifier.
  * 
- * @param {Types.ObjectId} watchListId The identifier of the WatchList to update
+ * @param {string} watchListId The identifier of the WatchList to update
  * @param {UpdateWatchListBody} reqBody The request body supplied by the client
  * @returns {Promise<IWatchListDoc | null>} A promise containing the updated WatchList record
  */
 export const updateById = async (
-  watchListId: Types.ObjectId, reqBody: UpdateWatchListBody
+  watchListId: string, reqBody: UpdateWatchListBody
 ): Promise<IWatchListDoc | null> => {
   const record = await getById(watchListId);
   
@@ -63,10 +62,10 @@ export const updateById = async (
 /**
  * Deletes the WatchList record with the sought identifier.
  * 
- * @param {Types.ObjectId} watchListId The identifier of the WatchList to update
+ * @param {string} watchListId The identifier of the WatchList to update
  * @returns {Promise<IWatchListDoc | null>} A promise containing the deleted WatchList record.
  */
-export const deleteById = async (watchListId: Types.ObjectId): Promise<IWatchListDoc | null> => {
+export const deleteById = async (watchListId: string): Promise<IWatchListDoc | null> => {
   const record = await getById(watchListId);
   
   if (!record) {

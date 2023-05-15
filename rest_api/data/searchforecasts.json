@@ -1,0 +1,242 @@
+[
+    {
+        "_id": "28363f9d-ce7c-45e9-b2e8-8144b413bec5",
+        "search": "6ff47477-a347-445e-bfb2-05c34c33f69f",
+        "avgTimeOnMarket": 6,
+        "avgPrice": 33092,
+        "averageMileage": 144735,
+        "ttl": 300
+    },
+    {
+        "_id": "f2f2e04d-39bb-4f54-abc3-9cc2b055fb38",
+        "search": "c0ca47c2-e8ac-447a-9986-e1efe8945101",
+        "avgTimeOnMarket": 64,
+        "avgPrice": 62117,
+        "averageMileage": 43901,
+        "ttl": 300
+    },
+    {
+        "_id": "45dfbe7c-67f9-4e77-886b-e8c45203b70f",
+        "search": "a6fb2030-6bc2-471c-b7e9-e0b8d69afb8b",
+        "avgTimeOnMarket": 840,
+        "avgPrice": 18663,
+        "averageMileage": 185839,
+        "ttl": 300
+    },
+    {
+        "_id": "9d4ba4c4-e7a3-4a57-861c-c910452688cd",
+        "search": "5684dd2a-c975-4f47-bd6e-f0ee133a9ad3",
+        "avgTimeOnMarket": 195,
+        "avgPrice": 20652,
+        "averageMileage": 48777,
+        "ttl": 300
+    },
+    {
+        "_id": "f72fb70c-024e-418e-bcae-c2a5d6343f4a",
+        "search": "6507a402-284b-46b9-846e-fdbc49c9aabd",
+        "avgTimeOnMarket": 886,
+        "avgPrice": 43355,
+        "averageMileage": 193738,
+        "ttl": 300
+    },
+    {
+        "_id": "5777febf-2cd7-4364-812f-cc84b654af30",
+        "search": "78d73021-bbf1-46a0-9ec3-60da35247095",
+        "avgTimeOnMarket": 853,
+        "avgPrice": 8959,
+        "averageMileage": 157485,
+        "ttl": 300
+    },
+    {
+        "_id": "b6bfbb65-236e-4677-84c4-9cbd8f3d9378",
+        "search": "1b6b2ef6-b7a3-454f-9446-e0b9671f889c",
+        "avgTimeOnMarket": 967,
+        "avgPrice": 13006,
+        "averageMileage": 14296,
+        "ttl": 300
+    },
+    {
+        "_id": "ffd64079-93f6-4f5e-b8b0-5ab7e619ffa6",
+        "search": "0ad8d0e0-dc0d-4f09-a326-34da7de1bdd3",
+        "avgTimeOnMarket": 363,
+        "avgPrice": 83467,
+        "averageMileage": 180034,
+        "ttl": 300
+    },
+    {
+        "_id": "64552d9e-eee2-42dc-9630-1cccec2b4e46",
+        "search": "33872b1d-1a8d-48e0-8395-dec083b377da",
+        "avgTimeOnMarket": 389,
+        "avgPrice": 86261,
+        "averageMileage": 98601,
+        "ttl": 300
+    },
+    {
+        "_id": "33120db0-c0b0-432f-af1f-f95d9255fb64",
+        "search": "8b1d140b-c903-4639-922c-7b3d36b55c99",
+        "avgTimeOnMarket": 91,
+        "avgPrice": 15976,
+        "averageMileage": 103512,
+        "ttl": 300
+    },
+    {
+        "_id": "1d6dcda8-0009-4735-b929-b5e05cc3a3eb",
+        "search": "437a439a-5182-45cf-a462-dc4a7e945d1c",
+        "avgTimeOnMarket": 267,
+        "avgPrice": 66056,
+        "averageMileage": 159776,
+        "ttl": 300
+    },
+    {
+        "_id": "8ab3bb3c-3367-43a5-bdb0-4141d73e30be",
+        "search": "ffbc9f22-9654-4d80-93f2-89645c4bd8d0",
+        "avgTimeOnMarket": 247,
+        "avgPrice": 78824,
+        "averageMileage": 76759,
+        "ttl": 300
+    },
+    {
+        "_id": "89a26088-a4a1-4c71-ac95-8e1ef36f19bd",
+        "search": "a4927c4c-5bc8-49d1-9efe-f720ef027759",
+        "avgTimeOnMarket": 697,
+        "avgPrice": 46157,
+        "averageMileage": 193126,
+        "ttl": 300
+    },
+    {
+        "_id": "bbea33e5-be4e-4354-a73b-df85f9a9fb9f",
+        "search": "7a52c7ff-d5de-41d8-a2f4-1efd0c8206ce",
+        "avgTimeOnMarket": 433,
+        "avgPrice": 31201,
+        "averageMileage": 195107,
+        "ttl": 300
+    },
+    {
+        "_id": "4a56b6d3-6175-49f2-ace7-113231a88a56",
+        "search": "86784fc5-c4f5-4f84-98eb-45adb79c603d",
+        "avgTimeOnMarket": 940,
+        "avgPrice": 71919,
+        "averageMileage": 191750,
+        "ttl": 300
+    },
+    {
+        "_id": "a8977118-84f3-4baf-933e-e389c0bfcdd3",
+        "search": "038a75c3-1824-413c-bcb4-1cc89eb0620d",
+        "avgTimeOnMarket": 743,
+        "avgPrice": 90540,
+        "averageMileage": 138439,
+        "ttl": 300
+    },
+    {
+        "_id": "670f5a73-bd33-4d67-ab1d-814811ecc707",
+        "search": "4a899638-05d4-46d4-9a6d-3d5508a2ff70",
+        "avgTimeOnMarket": 569,
+        "avgPrice": 21977,
+        "averageMileage": 36788,
+        "ttl": 300
+    },
+    {
+        "_id": "0a53dc6a-d54e-4a84-bbcb-2304b5185d63",
+        "search": "0ffacadf-eb56-4d5f-aee0-5a7d3b6bbbab",
+        "avgTimeOnMarket": 897,
+        "avgPrice": 96215,
+        "averageMileage": 117491,
+        "ttl": 300
+    },
+    {
+        "_id": "60e60be7-f866-471a-a409-1fe2558482a3",
+        "search": "fb0795b7-4cf2-4990-be88-3248867fff7e",
+        "avgTimeOnMarket": 505,
+        "avgPrice": 64942,
+        "averageMileage": 123552,
+        "ttl": 300
+    },
+    {
+        "_id": "642cba56-224c-4a8c-977f-4db39d08d699",
+        "search": "657a406b-630b-4287-af10-e4b749ae2481",
+        "avgTimeOnMarket": 507,
+        "avgPrice": 15319,
+        "averageMileage": 84494,
+        "ttl": 300
+    },
+    {
+        "_id": "7db1dbbb-d91e-42c7-a47a-bc3bacd85fd1",
+        "search": "9f15c827-72b6-4d6f-8ebe-160ee8fc9e81",
+        "avgTimeOnMarket": 755,
+        "avgPrice": 3717,
+        "averageMileage": 23928,
+        "ttl": 300
+    },
+    {
+        "_id": "885434b6-84f3-4c80-9a6d-d3e2db0b329e",
+        "search": "76fe8080-7e16-4324-a840-d4601f17b511",
+        "avgTimeOnMarket": 544,
+        "avgPrice": 45945,
+        "averageMileage": 178532,
+        "ttl": 300
+    },
+    {
+        "_id": "bd4b3cd0-69ef-49b9-8e50-5b2cd37c14ff",
+        "search": "b9f39223-33c9-4a59-89f2-51f4d53fc173",
+        "avgTimeOnMarket": 588,
+        "avgPrice": 58310,
+        "averageMileage": 51891,
+        "ttl": 300
+    },
+    {
+        "_id": "ada0b9d3-5785-4a57-a489-53087572d06b",
+        "search": "79fb50f8-c41f-4938-9a9a-4cf999e08ff7",
+        "avgTimeOnMarket": 366,
+        "avgPrice": 29589,
+        "averageMileage": 16265,
+        "ttl": 300
+    },
+    {
+        "_id": "18358843-c6ac-4926-a7c9-e2dfff64a9fc",
+        "search": "e23cd4b7-1ade-4280-9541-dc68febe25e8",
+        "avgTimeOnMarket": 695,
+        "avgPrice": 46090,
+        "averageMileage": 53069,
+        "ttl": 300
+    },
+    {
+        "_id": "930c2cc2-e0bd-4c88-ad3d-844944f439ec",
+        "search": "8eb483cf-5bae-4249-9d51-1d057b79e4d8",
+        "avgTimeOnMarket": 703,
+        "avgPrice": 33860,
+        "averageMileage": 8341,
+        "ttl": 300
+    },
+    {
+        "_id": "013c2077-ece6-419f-8052-00de74b4c2ef",
+        "search": "7dd0b0e3-0e84-431b-b5d0-b2c3a30ee314",
+        "avgTimeOnMarket": 839,
+        "avgPrice": 4981,
+        "averageMileage": 46208,
+        "ttl": 300
+    },
+    {
+        "_id": "1df4e723-4738-4d90-b699-f8637cbf2f28",
+        "search": "161fa02f-3347-4171-b420-93b280d50a15",
+        "avgTimeOnMarket": 146,
+        "avgPrice": 97799,
+        "averageMileage": 134462,
+        "ttl": 300
+    },
+    {
+        "_id": "1776bba9-a460-4ed2-a520-d38e7c7c1fd6",
+        "search": "fa496b04-4abc-4d8a-ae86-37e7f511a9c5",
+        "avgTimeOnMarket": 261,
+        "avgPrice": 55556,
+        "averageMileage": 114866,
+        "ttl": 300
+    },
+    {
+        "_id": "56634636-e184-402f-9bdd-a3bc6d127eba",
+        "search": "ca75d6d0-c4f5-43d1-a118-b50e5a8f5ea2",
+        "avgTimeOnMarket": 474,
+        "avgPrice": 43611,
+        "averageMileage": 81195,
+        "ttl": 300
+    }
+]

@@ -1,6 +1,7 @@
 import { Router } from 'express';
 
 import {
+  applySearch,
   createSearch,
   deleteSearch,
   getSearch,
@@ -11,6 +12,7 @@ import {
 
 const router = Router();
 
+router.get("/", (req, res, next) => applySearch(req, res, next));
 router.post("/", (req, res, next) => createSearch(req, res, next));
 router.post("/query", (req, res, next) => getSearchByParam(req, res, next));
 router.get("/:searchId", (req, res, next) => getSearch(req, res, next));

@@ -27,11 +27,7 @@ const subscriptionSchema = new Schema<
       type: Number,
       required: true,
       min: 0,
-    },
-    features: {
-      type: [String],
-      required: true,
-    },
+    }
   },
   {
     timestamps: true,

@@ -5,6 +5,7 @@ import mongoose from 'mongoose';
 import { IUserDoc } from '../interfaces/user.interfaces';
 import * as userService from '../services/user.service';
 import * as watchListService from '../services/watch-list.service';
+import * as searchService from '../services/search.service';
 import catchAsync from '../utils/catchAsync';
 import ApiError from '../utils/ApiError';
 import { IWatchListDoc } from '../interfaces/watch-list.interfaces';
@@ -64,11 +65,14 @@ export const getUserWatchList = catchAsync(async (req: Request, res: Response) =
   if (req.params['userId']) {
 
     const userId = req.params['userId'];
-    const watchList = await watchListService.getByUserId(userId);
+    let watchList = await watchListService.getByUserId(userId);
 
     if (!watchList) {
       throw new ApiError(httpStatus.NOT_FOUND, 'WatchList not found');
     }
+
+    const searches = await searchService.getFullDocByIds(watchList.searches as string[]);
+    watchList.searches = searches;
 
     res.send(watchList);
   }

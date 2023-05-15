@@ -2,9 +2,11 @@
 <div class="landing-page-container" fxLayout="column">
     <div class="search-section">
         <div class="section-title">
-            <mat-card>
+          <mat-card>
             <mat-card-header>
               <mat-card-title> Car Details</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
               <mat-card-subtitle>Make: {{carListing?.car?.make}}</mat-card-subtitle>
               <mat-card-subtitle>Model: {{carListing?.car?.model}}</mat-card-subtitle>
               <mat-card-subtitle>Year: {{carListing?.car?.year}}</mat-card-subtitle>
@@ -12,21 +14,9 @@
               <mat-card-subtitle>Mechanical Conditon: {{carListing?.car?.mechanicalCondition}}</mat-card-subtitle>
               <mat-card-subtitle>Milage: {{carListing?.car?.mileage}}</mat-card-subtitle>
               <mat-card-subtitle>Color: {{carListing?.car?.color}}</mat-card-subtitle>
-            </mat-card-header>
-            
+              <img class="car-image" mat-card-image src="{{carListing?.car?.img}}" alt="Photo of a Shiba Inu">
+            </mat-card-content>
           </mat-card>
         </div>
     </div>
-</div> 
-<mat-card class="example-card">
-  <img mat-card-image src="{{carListing?.car?.img}}" alt="Photo of a Shiba Inu">
-  <mat-card-content>
-    <p>
-    this car is the shit
-    </p>
-  </mat-card-content>
-  <mat-card-actions>
-    <button mat-button>LIKE</button>
-    <button mat-button>SHARE</button>
-  </mat-card-actions>
-</mat-card>
+</div>

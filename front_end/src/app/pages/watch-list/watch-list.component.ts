@@ -41,7 +41,7 @@ export class WatchListComponent {
     this.updateUIState(user, null);
 
     // TODO: get userId from user
-    let userId: string = "645eec7550909331ebe1356a";
+    let userId: string = "5e6da5a1-dd55-4661-8527-1b41473358ce";
     this.queryByUserId(userId, user);
   }
 

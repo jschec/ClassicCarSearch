@@ -8,6 +8,8 @@ import { ISearchDoc } from './search.interfaces';
 export interface ISearchCrtieria {
   search: string | ISearchDoc;
   region: Region;
+  startYear: number;
+  endYear: number;
   maxMileage: number;
   maxPrice: number;
   exteriorCondition: Condition;

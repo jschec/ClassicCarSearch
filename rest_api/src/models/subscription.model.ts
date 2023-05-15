@@ -28,10 +28,6 @@ const subscriptionSchema = new Schema<
       required: true,
       min: 0,
     },
-    features: {
-      type: [String],
-      required: true,
-    },
   },
   {
     timestamps: true,

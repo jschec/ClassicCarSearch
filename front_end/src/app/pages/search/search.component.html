@@ -38,19 +38,19 @@
               </mat-form-field>
               
               <mat-form-field appearance="fill" fxFlex="20">
-                <mat-label>Exterior Quality</mat-label>
+                <mat-label>Exterior Condition</mat-label>
                 <mat-select formControlName="exteriorCondition">
-                    <mat-option *ngFor="let quality of qualityOptions" [value]="quality">
-                        {{quality}}
+                    <mat-option *ngFor="let exteriorCondition of qualityOptions" [value]="exteriorCondition">
+                        {{exteriorCondition}}
                     </mat-option>
                 </mat-select>
             </mat-form-field>
 
             <mat-form-field appearance="fill" fxFlex="20">
-              <mat-label>Mechanical Quality</mat-label>
+              <mat-label>Mechanical Condition</mat-label>
               <mat-select formControlName="mechanicalCondition">
-                  <mat-option *ngFor="let quality of qualityOptions" [value]="quality">
-                      {{quality}}
+                  <mat-option *ngFor="let mechanicalCondition of qualityOptions" [value]="mechanicalCondition">
+                      {{mechanicalCondition}}
                   </mat-option>
               </mat-select>
           </mat-form-field>
@@ -64,7 +64,7 @@
                   fxFlex="10"
               >
                   Search
-              </button>
+              </button>              
           </div>
       </form>
   </div>
@@ -106,8 +106,9 @@
                 <span>{{record.car.mechanicalCondition}}</span>
               </mat-list-item>
               <mat-list-item>
-                <span matListItemTitle>Price</span>
-                <!--TODO{{record.price}}-->
+                <span matListItemTitle>Price: {{record.price}}</span>
+                <!--TODO Add Price -->
+                
               </mat-list-item>
             </mat-list>
           </mat-card-content>
@@ -116,12 +117,10 @@
               <div matBadgeSize="large" class="active-listingFooter" *ngIf="!record.saleDate">Listed {{record.listDate}}</div>           
             <div matBadgeSize="large" class="closed-listingFooter" *ngIf="record.saleDate">Sold {{record.saleDate}}</div>
             </mat-grid-tile>
-            <mat-grid-tile [colspan]="1">
-              <!--TODO: Have gotoCarDetail action for button-->              
+            <mat-grid-tile [colspan]="1">                         
               <mat-card-actions>
                 <button mat-flat-button color="primary" 
-                routerLink="/car/{{record.car._id}}">
-                <!--TODO: Shouldn't id be here? I had to add id to ICar and ICarListing-->
+                routerLink="/car/{{record.car._id}}">                
                 See Detail
                 </button>
               </mat-card-actions>        

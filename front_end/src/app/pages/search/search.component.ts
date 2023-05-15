@@ -10,9 +10,10 @@ import { ActivatedRoute, Router } from '@angular/router';
   templateUrl: './search.component.html',
   styleUrls: ['./search.component.scss']
 })
-
+//TODO: Alternative to blanks for show all
 export class SearchComponent {
   regionOptions = [
+  "",
     "Northeast",
     "Southwest",
     "West",
@@ -21,14 +22,12 @@ export class SearchComponent {
   ]
 
   qualityOptions = [
+  "",
     "Bad",
     "Fair",
     "Good",
     "Excellent"
   ]
-
-
-
 
   filterForm: FormGroup;  
   searchResults: ICarListing[] = [];
@@ -36,9 +35,6 @@ export class SearchComponent {
   pageSizeList: number[] = [5, 10, 25, 100]
   pageSize: number = this.pageSizeList[0];
   numRecords: number = 0;
-
-
-
 
 constructor(private route: ActivatedRoute, private router: Router, private searchService: SearchService) {
 const minYear = 1885;
@@ -69,9 +65,6 @@ this.numRecords = response.numRecords;
 });
 }
 
-
-
-
 ngOnInit(): void {
 this.route.queryParams.subscribe(params => {
       if (params["searchCriteria"]) {
@@ -82,16 +75,9 @@ this.applySearch();
     });
 }
 
-
-
-
-
 onClickSubmit() {
 this.applySearch();
 }
-
-
-
 
 onPageChanged(event: PageEvent): void {
     this.page = event.pageIndex;
@@ -101,5 +87,9 @@ onPageChanged(event: PageEvent): void {
 
 goToDetail(carRecord: ICar){
     this.router.navigate(['/car', carRecord._id])
+}
+//TODO: Is this necessary, when we could do an empty search?
+seeAll(event: PageEvent){
+  this.searchService.getAllRecords(this.page, this.pageSize);
 }
 }

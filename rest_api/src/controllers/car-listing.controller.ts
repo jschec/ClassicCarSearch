@@ -36,7 +36,6 @@ export const getCarListing = catchAsync(async (req: Request, res: Response) => {
     if (!record) {
       throw new ApiError(httpStatus.NOT_FOUND, 'Car listing not found');
     }
-    
     res.send(record);
   }
 });

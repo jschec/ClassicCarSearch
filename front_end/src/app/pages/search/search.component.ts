@@ -10,10 +10,10 @@ import { ActivatedRoute, Router } from '@angular/router';
   templateUrl: './search.component.html',
   styleUrls: ['./search.component.scss']
 })
-//TODO: Alternative to blanks for show all
+
 export class SearchComponent {
   regionOptions = [
-  "",
+    "",
     "Northeast",
     "Southwest",
     "West",
@@ -22,7 +22,7 @@ export class SearchComponent {
   ]
 
   qualityOptions = [
-  "",
+    "",
     "Bad",
     "Fair",
     "Good",
@@ -88,8 +88,5 @@ onPageChanged(event: PageEvent): void {
 goToDetail(carRecord: ICar){
     this.router.navigate(['/car', carRecord._id])
 }
-//TODO: Is this necessary, when we could do an empty search?
-seeAll(event: PageEvent){
-  this.searchService.getAllRecords(this.page, this.pageSize);
-}
+
 }

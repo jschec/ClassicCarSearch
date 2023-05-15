@@ -106,11 +106,10 @@
                 <span>{{record.car.mechanicalCondition}}</span>
               </mat-list-item>
               <mat-list-item>
-                <span matListItemTitle>Price: {{record.price}}</span>
-                <!--TODO Add Price -->
-                
+                <span matListItemTitle>Price: {{record.price}}</span>               
               </mat-list-item>
             </mat-list>
+            <!--***********  Card Footer ************-->
           </mat-card-content>
           <mat-grid-list cols="2" rowHeight="50px" class="cardFooter">
             <mat-grid-tile [colspan]="1">
@@ -131,6 +130,7 @@
   </mat-grid-tile>
     <!-- End of Card -->
  </mat-grid-list>
+ 
 <!--***** PAGE BOTTOM *****-->
 <div class="search-footer">
         <mat-paginator 

@@ -1,11 +1,12 @@
-import { Document, Model, Types } from 'mongoose';
+import { Document, Model } from 'mongoose';
 
 import { Condition } from './condition.interfaces';
 import { IPagination } from './pagination.interfaces';
 import { Region } from './region.interfaces';
+import { ISearchDoc } from './search.interfaces';
 
 export interface ISearchCrtieria {
-  search: Types.ObjectId;
+  search: string | ISearchDoc;
   region: Region;
   maxMileage: number;
   maxPrice: number;

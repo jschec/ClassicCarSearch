@@ -1,5 +1,4 @@
 import httpStatus from 'http-status';
-import { Types } from 'mongoose';
 
 import { 
   NewCarListingBody, UpdateCarListingBody, ICarListingDoc 
@@ -125,12 +124,13 @@ export const getAll = async (): Promise<ICarListingDoc[]> => {
 /**
  * Retrieves the specified CarListing record
  * 
- * @param {Types.ObjectId} carListingId The identifier of the CarListing to retrieve
+ * @param {string} carListingId The identifier of the CarListing to retrieve
+ * @param {boolean} isPopulated Whether to populate the CarListing record. Defaults to false.
  * @returns {Promise<ICarListingDoc | null>} A promise containing the specified CarListing record
  */
-export const getById = async (carListingId: Types.ObjectId): Promise<ICarListingDoc | null> => {
+export const getById = async (carListingId: string, isPopulated: boolean = false): Promise<ICarListingDoc | null> => {
   let record = await CarListing.findById(carListingId);
-  if (record) {
+  if (record && isPopulated) {
     record = await record.populate([
       {
         path: 'car',
@@ -149,12 +149,12 @@ export const getById = async (carListingId: Types.ObjectId): Promise<ICarListing
 /**
  * Updates the CarListing record with the sought identifier.
  * 
- * @param {Types.ObjectId} carListingId The identifier of the CarListing to update
+ * @param {string} carListingId The identifier of the CarListing to update
  * @param {UpdateCarListingBody} reqBody The request body supplied by the client
  * @returns {Promise<ICarListingDoc | null>} A promise containing the updated CarListing record
  */
 export const updateById = async (
-  carListingId: Types.ObjectId, reqBody: UpdateCarListingBody
+  carListingId: string, reqBody: UpdateCarListingBody
 ): Promise<ICarListingDoc | null> => {
   const record = await getById(carListingId);
   
@@ -172,10 +172,10 @@ export const updateById = async (
 /**
  * Deletes the CarListing record with the sought identifier.
  * 
- * @param {Types.ObjectId} carListingId The identifier of the CarListing to update
+ * @param {string} carListingId The identifier of the CarListing to update
  * @returns {Promise<ICarListingDoc | null>} A promise containing the deleted CarListing record.
  */
-export const deleteById = async (carListingId: Types.ObjectId): Promise<ICarListingDoc | null> => {
+export const deleteById = async (carListingId: string): Promise<ICarListingDoc | null> => {
   const record = await getById(carListingId);
   
   if (!record) {

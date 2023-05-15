@@ -1,3 +1,4 @@
+import { randomUUID } from 'crypto';
 import { model, Schema } from 'mongoose';
 
 import { Condition } from '../interfaces/condition.interfaces';
@@ -6,13 +7,18 @@ import {
   ISearchCriteriaDoc, ISearchCriteriaModel
 } from '../interfaces/search-criteria.interfaces';
 import Search from './search.model';
+import toJSON from '../utils/toJson';
 
 const searchCriteriaSchema = new Schema<
   ISearchCriteriaDoc, ISearchCriteriaModel
 >(
   {
+    _id: {
+      type: Schema.Types.UUID,
+      default: () => randomUUID(),
+    },
     search: {
-      type: Schema.Types.ObjectId,
+      type: String,
       required: true,
       ref: 'Search',
     },
@@ -58,12 +64,13 @@ const searchCriteriaSchema = new Schema<
   },
   {
     timestamps: true,
+    toJSON: { virtuals: true, getters: true },
+    toObject: { virtuals: true },
   }
 );
 
-const SearchCriteria = model<ISearchCriteriaDoc, ISearchCriteriaModel>(
-  'SearchCriteria', searchCriteriaSchema
-);
+// Add plugin to converts mongoose documents to json
+searchCriteriaSchema.plugin(toJSON);
 
 /**
  * A pre-save hook to apply additional validation logic to the SearchCriteria
@@ -78,5 +85,9 @@ searchCriteriaSchema.pre('validate', async function(next) {
 
   next();
 });
+
+const SearchCriteria = model<ISearchCriteriaDoc, ISearchCriteriaModel>(
+  'SearchCriteria', searchCriteriaSchema
+);
 
 export default SearchCriteria;

@@ -1,16 +1,22 @@
+import { randomUUID } from 'crypto';
 import { model, Schema } from 'mongoose';
 
 import { 
   ISearchForecastDoc, ISearchForecastModel
 } from '../interfaces/search-forecast.interfaces';
 import Search from './search.model';
+import toJSON from '../utils/toJson';
 
 const searchForecastSchema = new Schema<
   ISearchForecastDoc, ISearchForecastModel
 >(
   {
+    _id: {
+      type: Schema.Types.UUID,
+      default: () => randomUUID(),
+    },
     search: {
-      type: Schema.Types.ObjectId,
+      type: Schema.Types.UUID,
       required: true,
       ref: 'Search',
     },
@@ -39,12 +45,13 @@ const searchForecastSchema = new Schema<
   },
   {
     timestamps: true,
+    toJSON: { virtuals: true, getters: true },
+    toObject: { virtuals: true },
   }
 );
 
-const SearchForecast = model<ISearchForecastDoc, ISearchForecastModel>(
-  'SearchForecast', searchForecastSchema
-);
+// Add plugin to converts mongoose documents to json
+searchForecastSchema.plugin(toJSON);
 
 /**
  * A pre-save hook to apply additional validation logic to the SearchForecast
@@ -59,5 +66,10 @@ searchForecastSchema.pre('validate', async function(next) {
 
   next();
 });
+
+
+const SearchForecast = model<ISearchForecastDoc, ISearchForecastModel>(
+  'SearchForecast', searchForecastSchema
+);
 
 export default SearchForecast;

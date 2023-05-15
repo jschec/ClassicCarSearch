@@ -28,10 +28,8 @@ export const createWatchList = catchAsync(async (req: Request, res: Response) =>
  * @returns {Promise<IWatchListDoc>} A promise containing the specified WatchList record
  */
 export const getWatchList = catchAsync(async (req: Request, res: Response) => {
-  if (typeof req.params['watchListId'] === 'string') {
-    const record = await watchListService.getById(
-      new Types.ObjectId(req.params['watchListId'])
-    );
+  if (req.params['watchListId']) {
+    const record = await watchListService.getById(req.params['watchListId']);
     
     if (!record) {
       throw new ApiError(httpStatus.NOT_FOUND, 'Watch list not found');
@@ -49,9 +47,9 @@ export const getWatchList = catchAsync(async (req: Request, res: Response) => {
  * @returns {Promise<IWatchListDoc>} A promise containing the updated WatchList record
  */
 export const updateWatchList = catchAsync(async (req: Request, res: Response) => {
-  if (typeof req.params['watchListId'] === 'string') {
+  if (req.params['watchListId']) {
     const record = await watchListService.updateById(
-      new Types.ObjectId(req.params['watchListId']), req.body
+      req.params['watchListId'], req.body
     );
     
     res.send(record);
@@ -66,10 +64,8 @@ export const updateWatchList = catchAsync(async (req: Request, res: Response) =>
  * @returns {Promise<void>} A promise indicating the success of the operation
  */ 
 export const deleteWatchList = catchAsync(async (req: Request, res: Response) => {
-  if (typeof req.params['watchListId'] === 'string') {
-    await watchListService.deleteById(
-      new Types.ObjectId(req.params['watchListId'])
-    );
+  if (req.params['watchListId']) {
+    await watchListService.deleteById(req.params['watchListId']);
 
     res.status(httpStatus.NO_CONTENT).send();
   }

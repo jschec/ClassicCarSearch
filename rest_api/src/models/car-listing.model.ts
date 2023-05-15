@@ -1,3 +1,4 @@
+import { randomUUID } from 'crypto';
 import { model, Schema } from 'mongoose';
 
 import { 
@@ -6,15 +7,24 @@ import {
 import { Region } from '../interfaces/region.interfaces';
 import CarSeller from './car-seller.model';
 import Car from './car.model';
+import toJSON from '../utils/toJson';
 
 const carListingSchema = new Schema<
   ICarListingDoc, ICarListingModel
 >(
   {
+    _id: {
+      type: Schema.Types.UUID,
+      default: () => randomUUID(),
+    },
     region: {
       type: String,
       required: true,
       enum: Object.values(Region),
+    },
+    price: {
+      type: Number,
+      required: true,
     },
     listDate: {
       type: Date,
@@ -28,20 +38,24 @@ const carListingSchema = new Schema<
       max: new Date(), // Can't be newer than today
     },
     seller: {
-      type: Schema.Types.ObjectId,
+      type: Schema.Types.UUID,
       required: true,
       ref: 'CarSeller',
     },
     car: {
-      type: Schema.Types.ObjectId,
+      type: Schema.Types.UUID,
       required: true,
       ref: 'Car',
     }
   },
   {
     timestamps: true,
+    toJSON: { getters: true }
   }
 );
+
+// Add plugin to convert mongoose documents to json
+carListingSchema.plugin(toJSON);
 
 /**
  * A pre-save hook to apply additional validation logic to the CarListing

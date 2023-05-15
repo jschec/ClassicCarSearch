@@ -1,5 +1,4 @@
 import httpStatus from 'http-status';
-import { Types } from 'mongoose';
 
 import { 
   NewCarSellerBody, UpdateCarSellerBody, ICarSellerDoc 
@@ -33,22 +32,22 @@ export const getAll = async (): Promise<ICarSellerDoc[]> => {
 /**
  * Retrieves the specified CarSeller record
  * 
- * @param {Types.ObjectId} carSellerId The identifier of the CarSeller to retrieve
+ * @param {string} carSellerId The identifier of the CarSeller to retrieve
  * @returns {Promise<ICarSellerDoc | null>} A promise containing the specified CarSeller record
  */
-export const getById = async (carSellerId: Types.ObjectId): Promise<ICarSellerDoc | null> => {
+export const getById = async (carSellerId: string): Promise<ICarSellerDoc | null> => {
   return CarSeller.findById(carSellerId);
 };
 
 /**
  * Updates the CarSeller record with the sought identifier.
  * 
- * @param {Types.ObjectId} carSellerId The identifier of the CarSeller to update
+ * @param {string} carSellerId The identifier of the CarSeller to update
  * @param {UpdateCarSellerBody} reqBody The request body supplied by the client
  * @returns {Promise<ICarSellerDoc | null>} A promise containing the updated CarSeller record
  */
 export const updateById = async (
-  carSellerId: Types.ObjectId, reqBody: UpdateCarSellerBody
+  carSellerId: string, reqBody: UpdateCarSellerBody
 ): Promise<ICarSellerDoc | null> => {
   const record = await getById(carSellerId);
   
@@ -70,10 +69,10 @@ export const updateById = async (
 /**
  * Deletes the CarSeller record with the sought identifier.
  * 
- * @param {Types.ObjectId} carSellerId The identifier of the CarSeller to update
+ * @param {string} carSellerId The identifier of the CarSeller to update
  * @returns {Promise<ICarSellerDoc | null>} A promise containing the deleted CarSeller record.
  */
-export const deleteById = async (carSellerId: Types.ObjectId): Promise<ICarSellerDoc | null> => {
+export const deleteById = async (carSellerId: string): Promise<ICarSellerDoc | null> => {
   const record = await getById(carSellerId);
   
   if (!record) {

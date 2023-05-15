@@ -30,10 +30,8 @@ export const createSubscription = catchAsync(async (req: Request, res: Response)
  * @returns {Promise<ISubscriptionDoc>} A promise containing the specified Subscription record
  */
 export const getSubscription = catchAsync(async (req: Request, res: Response) => {
-  if (typeof req.params['subscriptionId'] === 'string') {
-    const subscription = await subscriptionService.getById(
-      new mongoose.Types.ObjectId(req.params['subscriptionId'])
-    );
+  if (req.params['subscriptionId']) {
+    const subscription = await subscriptionService.getById(req.params['subscriptionId']);
     
     if (!subscription) {
       throw new ApiError(httpStatus.NOT_FOUND, 'Subscription not found');
@@ -66,10 +64,8 @@ export const getSubscriptions = catchAsync(async (req: Request, res: Response) =
  * @returns {Promise<ISubscriptionDoc>} A promise containing the updated Subscription record
  */
 export const updateSubscription = catchAsync(async (req: Request, res: Response) => {
-  if (typeof req.params['subscriptionId'] === 'string') {
-    const subscription = await subscriptionService.updateById(
-      new mongoose.Types.ObjectId(req.params['subscriptionId']), req.body
-    );
+  if (req.params['subscriptionId']) {
+    const subscription = await subscriptionService.updateById(req.params['subscriptionId'], req.body);
     
     res.send(subscription);
   }
@@ -84,10 +80,8 @@ export const updateSubscription = catchAsync(async (req: Request, res: Response)
  * @returns {Promise<void>} A promise indicating the success of the operation
  */ 
 export const deleteSubscription = catchAsync(async (req: Request, res: Response) => {
-  if (typeof req.params['subscriptionId'] === 'string') {
-    await subscriptionService.deleteById(
-      new mongoose.Types.ObjectId(req.params['subscriptionId'])
-    );
+  if (req.params['subscriptionId']) {
+    await subscriptionService.deleteById(req.params['subscriptionId']);
 
     res.status(httpStatus.NO_CONTENT).send();
   }

@@ -30,7 +30,7 @@
 
         <mat-form-field appearance="fill" fxFlex="20">
           <mat-label>Region</mat-label>
-          <mat-select formControlName="region">
+          <mat-select formControlName="region" multiple>
             <mat-option *ngFor="let region of regionOptions" [value]="region">
               {{region}}
             </mat-option>
@@ -39,7 +39,7 @@
 
         <mat-form-field appearance="fill" fxFlex="20">
           <mat-label>Exterior Condition</mat-label>
-          <mat-select formControlName="exteriorCondition">
+          <mat-select formControlName="exteriorCondition" multiple>
             <mat-option *ngFor="let exteriorCondition of qualityOptions" [value]="exteriorCondition">
               {{exteriorCondition}}
             </mat-option>
@@ -48,7 +48,7 @@
 
         <mat-form-field appearance="fill" fxFlex="20">
           <mat-label>Mechanical Condition</mat-label>
-          <mat-select formControlName="mechanicalCondition">
+          <mat-select formControlName="mechanicalCondition" multiple>
             <mat-option *ngFor="let mechanicalCondition of qualityOptions" [value]="mechanicalCondition">
               {{mechanicalCondition}}
             </mat-option>

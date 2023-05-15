@@ -38,11 +38,11 @@ export interface IPaginationResponse<T> {
 }
 
 export interface ISearchCrtieria {
-  region: string;
+  region: any;
   maxMileage: number;
   maxPrice: number;
-  exteriorCondition: string;
-  mechanicalCondition: string;
+  exteriorCondition: any;
+  mechanicalCondition: any;
   color: string;
   make: string;
   model: string;
@@ -75,16 +75,21 @@ export class SearchService {
     let queryParams = new HttpParams();
     queryParams = queryParams.append("page", page);
     queryParams = queryParams.append("pageSize", pageSize);
-    for (const [k, v] of Object.entries(criteria)) {
+    for (let [k, v] of Object.entries(criteria)) {
       // Skip empty values
-      if (v === undefined || v === null || v === "") {
+      if (v === undefined || v === null || v === "" || v.length == 0) {
         continue;
+      }
+      //Handle arrays
+      if (k === "region" || k === "interiorCondition" || k === "mechanicalCondition") {        
+        v = v.toString();
+        console.log(k, v);
       }
       // temp
       if (k === "startYear" || k === "endYear") {
         continue;
-      }
-      queryParams = queryParams.append(k, v);
+      }      
+        queryParams = queryParams.append(k, v);      
     }
     return this.http.get<IPaginationResponse<ICarListing>>(url, { params: queryParams });
   }

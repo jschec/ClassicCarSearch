@@ -36,6 +36,7 @@ export class SearchComponent {
   pageSizeList: number[] = [5, 10, 25, 100]
   pageSize: number = this.pageSizeList[0];
   numRecords: number = 0;
+ 
 
   constructor(private route: ActivatedRoute, private router: Router, private searchService: SearchService) {
     const minYear = 1885;
@@ -44,15 +45,15 @@ export class SearchComponent {
     this.filterForm = new FormGroup({
       make: new FormControl(''),
       model: new FormControl(''),
-      region: new FormControl(''),
+      region: new FormControl([]),
       startYear: new FormControl(
         minYear, [Validators.min(minYear), Validators.max(maxYear)]
       ),
       endYear: new FormControl(
         maxYear, [Validators.min(minYear), Validators.max(maxYear)]
       ),
-      exteriorCondition: new FormControl(''),
-      mechanicalCondition: new FormControl('')
+      exteriorCondition: new FormControl([]),
+      mechanicalCondition: new FormControl([])
     });
   }
 

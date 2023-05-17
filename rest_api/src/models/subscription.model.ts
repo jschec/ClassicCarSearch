@@ -28,6 +28,7 @@ const subscriptionSchema = new Schema<
       required: true,
       min: 0,
     }
+
   },
   {
     timestamps: true,

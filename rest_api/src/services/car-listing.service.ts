@@ -53,11 +53,19 @@ export const applyQueryFullDoc = async (reqBody: SearchCriteriaRequestPaginated)
   var searchCriteria: {[key: string]: any} = {};
 
   if (region) {
-    searchCriteria["region"] = region;
+    searchCriteria["region"] = { "$in": region.split(',') };
   }
 
   for (const [k, v] of Object.entries(carCriteria)) {
-    searchCriteria[`car.${k}`] = v;
+    if (k === 'exteriorCondition' || k === 'mechanicalCondition') {
+      searchCriteria[`car.${k}`] = { "$in": (v as string).split(',') }
+    } else if (k === 'startYear') {
+      searchCriteria['car.year'] = { "$gte": parseInt(v as string) }
+    } else if (k === 'endYear') {
+      searchCriteria['car.year'] = { "$lte": parseInt(v as string) }
+    } else {
+      searchCriteria[`car.${k}`] = v;
+    }
   }
 
   let aggregation = await CarListing.aggregate([

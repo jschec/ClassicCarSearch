@@ -25,7 +25,7 @@ export class LandingComponent {
     this.filterForm = new FormGroup({
       make: new FormControl(''),
       model: new FormControl(''),
-      selectedRegion: new FormControl(''),
+      region: new FormControl(''),
       startYear: new FormControl(
         minYear, [Validators.min(minYear), Validators.max(maxYear)]
       ),

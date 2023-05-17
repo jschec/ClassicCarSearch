@@ -29,7 +29,7 @@
 
                 <mat-form-field appearance="fill" fxFlex="20">
                     <mat-label>Region</mat-label>
-                    <mat-select formControlName="selectedRegion">
+                    <mat-select formControlName="region" multiple>
                         <mat-option *ngFor="let region of regionOptions" [value]="region">
                             {{region}}
                         </mat-option>

@@ -20,8 +20,14 @@ export class UserService {
 
   constructor(private http: HttpClient) { }
 
-  getUser(userId: string): Observable<IUser> {
-    const url = `/api/user/${userId}`;
+  public getUser(userId: string): Observable<IUser> {
+    const url = `/api/users/${userId}`;
     return this.http.get<IUser>(url);
+  }
+
+  public setSubscription(userId: string, subscriptionId: string): Observable<IUser> {
+    const url = `/api/users/${userId}`;
+    const body = { subscription: subscriptionId };
+    return this.http.put<IUser>(url, body);
   }
 }

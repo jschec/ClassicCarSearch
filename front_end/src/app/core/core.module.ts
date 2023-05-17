@@ -5,8 +5,8 @@ import { MediaMatcher } from '@angular/cdk/layout';
 
 import { CarsService } from './services/cars.service';
 import { SearchService } from './services/search.service';
-import { UserService } from './services/user.service';
 import { SubscriptionService } from './services/subscription.service';
+import { UserService } from './services/user.service';
 
 @NgModule({
   declarations: [],
@@ -18,6 +18,7 @@ import { SubscriptionService } from './services/subscription.service';
     CarsService,
     SubscriptionService,
     SearchService,
+    UserService,
     MediaMatcher,
   ]
 })

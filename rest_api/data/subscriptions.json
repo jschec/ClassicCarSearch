@@ -1,41 +1,41 @@
 [
     {
-        "_id": "b6c1d053-cd87-4580-8c90-77fea6edf12b",
+        "_id": "1e5b78db-26d9-4d38-bc95-adf0f8915aa8",
         "name": "Free",
-        "cost": 0,
         "features": [
             "20 searches per day",
             "Displayed advertisements"
-        ]
+        ],
+        "cost": 0
     },
     {
-        "_id": "aa419067-ab1b-402e-b49c-5c50f26ad1b4",
+        "_id": "6ecb0659-7673-468e-848b-b7815a0450fd",
         "name": "Basic",
-        "cost": 10,
         "features": [
             "Unlimited searches",
             "Ability to save and manage searches",
             "No advertisements"
-        ]
+        ],
+        "cost": 10
     },
     {
-        "_id": "2ac50460-cb0f-446b-a791-d33a6c0f0c35",
+        "_id": "ccfcdab6-fe84-48cc-8580-508ac2b01d2b",
         "name": "Premium",
-        "cost": 20,
         "features": [
             "Access to market research data",
             "Access to limited data API",
             "Limit to 100 API calls per minute"
-        ]
+        ],
+        "cost": 20
     },
     {
-        "_id": "00cfb9e1-49e7-4b48-b0bf-dd7c77f68fc0",
+        "_id": "ad3dc4c4-4e56-4e3b-803d-0ec94776211b",
         "name": "Enterprise",
-        "cost": 100,
         "features": [
             "Access to expanded data API",
             "Limit to 10,000 API calls per minute",
             "Technical support"
-        ]
+        ],
+        "cost": 100
     }
 ]

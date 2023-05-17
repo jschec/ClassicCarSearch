@@ -18,12 +18,12 @@ const searchCriteriaSchema = new Schema<
       default: () => randomUUID(),
     },
     search: {
-      type: String,
+      type: Schema.Types.UUID,
       required: true,
       ref: 'Search',
     },
     region: {
-      type: String,
+      type: [String],
       required: false,
       enum: Object.values(Region),
     },
@@ -52,12 +52,12 @@ const searchCriteriaSchema = new Schema<
       max: 100000000 // 100 million
     },
     exteriorCondition: {
-      type: String,
+      type: [String],
       required: false,
       enum: Object.values(Condition),
     },
     mechanicalCondition: {
-      type: String,
+      type: [String],
       required: false,
       enum: Object.values(Condition),
     },

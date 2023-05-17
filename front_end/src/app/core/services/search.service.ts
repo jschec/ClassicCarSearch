@@ -75,6 +75,7 @@ export class SearchService {
     let queryParams = new HttpParams();
     queryParams = queryParams.append("page", page);
     queryParams = queryParams.append("pageSize", pageSize);
+    
     for (let [k, v] of Object.entries(criteria)) {
       // Skip empty values
       if (v === undefined || v === null || v === "" || v.length == 0) {
@@ -83,20 +84,10 @@ export class SearchService {
       //Handle arrays
       if (k === "region" || k === "interiorCondition" || k === "mechanicalCondition") {        
         v = v.toString();
-        console.log(k, v);
       }
-      // temp
-      if (k === "startYear" || k === "endYear") {
-        continue;
-      }      
-        queryParams = queryParams.append(k, v);      
+
+      queryParams = queryParams.append(k, v);      
     }
     return this.http.get<IPaginationResponse<ICarListing>>(url, { params: queryParams });
-  }
-
-  //TODO: Is this necessary, when we could use an empty search?
-  public getAllRecords(page: number, pageSize: number) {
-    const url = '/'
-    return this.http.get<IPaginationResponse<ICarListing>>(url);
   }
 }

@@ -1,9 +1,8 @@
 import { Component } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { PageEvent } from '@angular/material/paginator';
 import { SearchService, ICarListing } from 'src/app/core/services/search.service';
-import { ICar } from 'src/app/core/services/cars.service';
-import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-search',
@@ -35,7 +34,7 @@ export class SearchComponent {
   numRecords: number = 0;
  
 
-  constructor(private route: ActivatedRoute, private router: Router, private searchService: SearchService) {
+  constructor(private route: ActivatedRoute, private searchService: SearchService) {
     const minYear = 1885;
     const maxYear = new Date().getFullYear() + 1;
 
@@ -82,9 +81,4 @@ export class SearchComponent {
     this.pageSize = event.pageSize;
     this.applySearch();
   }
-
-  goToDetail(carRecord: ICar) {
-    this.router.navigate(['/car', carRecord._id])
-  }
-
 }

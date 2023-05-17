@@ -1,54 +1,59 @@
 <div class="landing-page-container" fxLayout="column">
-    <div class="search-section">
-        <div class="section-title">
-            <h1>Cars for sale - Search Around The Nation</h1>
-        </div>
-        <form [formGroup]="filterForm" (ngSubmit)="onClickSubmit()">
-            <div class="section-form" fxLayout="row" fxLayoutAlign="space-around center" fxLayoutGap="20px">
-                <mat-form-field appearance="fill" fxFlex="20">
-                    <mat-label>Model</mat-label>
-                    <input matInput formControlName="model">
-                </mat-form-field>
-                
-                <mat-form-field appearance="fill" fxFlex="20">
-                    <mat-label>Make</mat-label>
-                    <input matInput formControlName="make">
-                </mat-form-field>
-                
-                <div fxLayout="row" fxFlex="20" fxLayoutGap="5px">
-                    <mat-form-field appearance="fill">
-                        <mat-label>From Year</mat-label>
-                        <input matInput formControlName="startYear" type="number">
+    <mat-card class="search-section">
+        <mat-card-header>
+            <mat-card-title>
+                <h1>Cars for sale - Search Around The Nation</h1>
+            </mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <form [formGroup]="filterForm" (ngSubmit)="onClickSubmit()">
+                <div class="section-form" fxLayout="row" fxLayoutAlign="space-around center" fxLayoutGap="20px">
+                    <mat-form-field appearance="fill" fxFlex="20">
+                        <mat-label>Model</mat-label>
+                        <input matInput formControlName="model">
                     </mat-form-field>
-
-                    <mat-form-field appearance="fill">
-                        <mat-label>To Year</mat-label>
-                        <input matInput formControlName="endYear" type="number">
+                    
+                    <mat-form-field appearance="fill" fxFlex="20">
+                        <mat-label>Make</mat-label>
+                        <input matInput formControlName="make">
                     </mat-form-field>
+                    
+                    <div fxLayout="row" fxFlex="20" fxLayoutGap="5px">
+                        <mat-form-field appearance="fill">
+                            <mat-label>From Year</mat-label>
+                            <input matInput formControlName="startYear" type="number">
+                        </mat-form-field>
+    
+                        <mat-form-field appearance="fill">
+                            <mat-label>To Year</mat-label>
+                            <input matInput formControlName="endYear" type="number">
+                        </mat-form-field>
+                    </div>
+    
+                    <mat-form-field appearance="fill" fxFlex="20">
+                        <mat-label>Region</mat-label>
+                        <mat-select formControlName="region" multiple>
+                            <mat-option *ngFor="let region of regionOptions" [value]="region">
+                                {{region}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                    
+                    <button
+                        mat-flat-button
+                        class="search-button" 
+                        type="submit" 
+                        [disabled]="!filterForm.valid" 
+                        color="primary"
+                        fxFlex="10"
+                    >
+                        Search
+                    </button>
                 </div>
-
-                <mat-form-field appearance="fill" fxFlex="20">
-                    <mat-label>Region</mat-label>
-                    <mat-select formControlName="region" multiple>
-                        <mat-option *ngFor="let region of regionOptions" [value]="region">
-                            {{region}}
-                        </mat-option>
-                    </mat-select>
-                </mat-form-field>
-                
-                <button
-                    mat-flat-button
-                    class="search-button" 
-                    type="submit" 
-                    [disabled]="!filterForm.valid" 
-                    color="primary"
-                    fxFlex="10"
-                >
-                    Search
-                </button>
-            </div>
-        </form>
-    </div>
+            </form>
+        </mat-card-content>
+    </mat-card>
+        
 
     <div class="landing-logo-section" fxLayout="column" fxLayoutAlign="center center">
         <img class="landing-logo" src="../../../assets/vintage-car.svg"/>

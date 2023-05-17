@@ -13,8 +13,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 
 export class SearchComponent {
-  regionOptions = [
-    "",
+  regionOptions = [    
     "Northeast",
     "Southwest",
     "West",
@@ -22,8 +21,7 @@ export class SearchComponent {
     "Midwest"
   ]
 
-  qualityOptions = [
-    "",
+  qualityOptions = [    
     "Bad",
     "Fair",
     "Good",

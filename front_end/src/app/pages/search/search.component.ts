@@ -5,7 +5,6 @@ import { SearchService, ICarListing } from 'src/app/core/services/search.service
 import { ICar } from 'src/app/core/services/cars.service';
 import { ActivatedRoute, Router } from '@angular/router';
 
-
 @Component({
   selector: 'app-search',
   templateUrl: './search.component.html',

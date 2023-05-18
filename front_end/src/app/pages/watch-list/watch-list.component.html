@@ -30,10 +30,10 @@
                         </div>
                         <div class="flex-grow-1 flex-layout flex-row flex-wrap ">
                             <div class="flex-layout flex-column flex-wrap">
-                                <div class="watch-list-item-attr"> Num: {{pageIndex * pageSize + i + 1}}</div>
+                                <div class="watch-list-item-attr"> Search #{{pageIndex * pageSize + i + 1}}</div>
                                 <!-- <div class="watch-list-item-attr"> Search-ID: {{search.id}} </div> -->
                                 <div class="watch-list-item-attr"> Region: {{search.results[0].region}} </div>
-                                <div class="watch-list-item-attr"> Match Results: {{search.results.length}} </div>
+                                <div class="watch-list-item-attr"> Matched Results: {{search.results.length}} </div>
                             </div>
                             <div class="flex-layout flex-column flex-wrap">
                                 <div class="watch-list-item-attr"> Recommendation: BUY </div>
@@ -45,7 +45,7 @@
                         </div>
                         <div class="flex-layout flex-column">
                             <!-- <button class="" mat-flat-button color="primary">Recommemdation</button> -->
-                            <button class="" mat-flat-button color="primary" routerLink="/search/{{search.id}}">View Search</button>
+                            <button class="" mat-flat-button color="primary" (click)="onSearchNavigate(search)">View Search</button>
                             <button class="" mat-flat-button color="warn">Remove</button>
 
                             <!-- <section class="flex-layout flex-row align-items-start">

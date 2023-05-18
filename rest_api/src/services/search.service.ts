@@ -38,7 +38,7 @@ export const getFullDocById = async (searchId: string): Promise<ISearchDoc | nul
   if (searchDoc) {
     searchDoc = await searchDoc.populate([
       {
-        path: 'criterias',
+        path: 'criteria',
         select: '-createdAt -updatedAt -__v -_id',
       },
       {
@@ -69,7 +69,7 @@ export const getFullDocById = async (searchId: string): Promise<ISearchDoc | nul
 export const getFullDocByIds = async (searchIds: string[]): Promise<ISearchDoc[]> => {
   const result = await Search.find({ _id: { $in: searchIds } }).populate([
       {
-        path: 'criterias',
+        path: 'criteria',
         select: '-createdAt -updatedAt -__v -_id',
       },
       {

@@ -26,16 +26,30 @@ import ApiError from '../utils/ApiError';
  */
 export const createSearch = catchAsync(async (req: Request, res: Response) => {
   // Apply the search criteria to the CarListing records
-  const matchingListings = await carListingService.applyQuery(req.body);
-  const listingIds = matchingListings.map(listing => listing._id);
-  
+
+  const matchingListings = await carListingService.applyQuery({
+    page: 0, pageSize: -1, ...req.body
+  }, false);
+
+  const listingIds = matchingListings.records.map(listing => listing._id);
+
   const record = await searchService.create({
     ...req.body, results: listingIds
   });
 
   // Create the SearchCriteria record
-  await searchCriteriaService.create({...req.body, search: record._id});
-  
+  let searchCriteria: Record<string, any> = {};
+
+  for (let [k, v] of Object.entries(req.body)) {
+    if (k === "region" || k === "exteriorCondition" || k === "mechanicalCondition") {        
+      searchCriteria[k] = (v as string).split(',');
+    } else {
+      searchCriteria[k] = v;
+    }
+  }
+
+  await searchCriteriaService.create({...searchCriteria, search: record._id});
+
   res.status(httpStatus.CREATED).send(record);
 });
 
@@ -81,7 +95,7 @@ export const applySearch = catchAsync(async (req: Request, res: Response) => {
   const page = req.query.page ? parseInt(req.query.page as string) : 0;
   const pageSize = req.query.pageSize ? parseInt(req.query.pageSize as string) : 10;
 
-  const records = await carListingService.applyQueryFullDoc({
+  const records = await carListingService.applyQuery({
     page, pageSize, ...req.query
   });
 

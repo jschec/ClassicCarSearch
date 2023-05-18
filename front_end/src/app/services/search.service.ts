@@ -4,7 +4,17 @@ import { Observable } from 'rxjs';
 import { ICar } from './cars.service';
 
 export interface ICriteria {
-  region: string;
+  search: string;
+  region?: string[];
+  startYear?: number;
+  endYear?: number;
+  maxMileage?: number;
+  maxPrice?: number;
+  exteriorCondition?: string[];
+  mechanicalCondition?: string[];
+  color?: string;
+  make?: string;
+  model?: string;
 }
 
 export interface ISeller {
@@ -26,7 +36,7 @@ export interface ICarListing {
 
 export interface ISearch {
   id: string;
-  criterias: ICriteria[];
+  criteria: ICriteria;
   results: ICarListing[];
 }
 
@@ -57,46 +67,48 @@ export type SearchCriteriaRequest = Partial<ISearchCrtieria>;
 export class SearchService {
   constructor(private http: HttpClient) { }
 
-  public getByIds(ids: string[]): Observable<ISearch[]> {
-    const url = '/api/searches/query';
-    const body = JSON.stringify({ "ids": ids });
-    const httpOptions = {
-
-      headers: new HttpHeaders({
-        // 'Authorization': 'Bearer my-auth-token'
-        'Content-Type': "application/json",
-      })
-    };
-    return this.http.post<ISearch[]>(url, body, httpOptions);
-  }
-
-  public getRecords(page: number, pageSize: number, criteria: SearchCriteriaRequest): Observable<IPaginationResponse<ICarListing>> {
+  public getRecords(
+    page: number, pageSize: number, criteria: SearchCriteriaRequest
+  ): Observable<IPaginationResponse<ICarListing>> {
+    
     const url = '/api/searches';
     let queryParams = new HttpParams();
     queryParams = queryParams.append("page", page);
     queryParams = queryParams.append("pageSize", pageSize);
+    
     for (let [k, v] of Object.entries(criteria)) {
       // Skip empty values
       if (v === undefined || v === null || v === "" || v.length == 0) {
         continue;
       }
       //Handle arrays
-      if (k === "region" || k === "interiorCondition" || k === "mechanicalCondition") {        
+      if (k === "region" || k === "exteriorCondition" || k === "mechanicalCondition") {        
         v = v.toString();
-        console.log(k, v);
       }
-      // temp
-      if (k === "startYear" || k === "endYear") {
-        continue;
-      }      
-        queryParams = queryParams.append(k, v);      
+
+      queryParams = queryParams.append(k, v);      
     }
     return this.http.get<IPaginationResponse<ICarListing>>(url, { params: queryParams });
   }
 
-  //TODO: Is this necessary, when we could use an empty search?
-  public getAllRecords(page: number, pageSize: number) {
-    const url = '/'
-    return this.http.get<IPaginationResponse<ICarListing>>(url);
+  public save(criteria: SearchCriteriaRequest): Observable<ISearch> {
+    const url = '/api/searches';
+
+    let queryBody: Record<string, any> = {};
+
+    for (let [k, v] of Object.entries(criteria)) {
+      // Skip empty values
+      if (v === undefined || v === null || v === "" || v.length == 0) {
+        continue;
+      }
+      //Handle arrays
+      if (k === "region" || k === "exteriorCondition" || k === "mechanicalCondition") {        
+        v = v.toString();
+      }
+
+      queryBody[k] = v;
+    }
+        
+    return this.http.post<ISearch>(url, queryBody);
   }
 }

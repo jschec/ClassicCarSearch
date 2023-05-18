@@ -9,6 +9,7 @@ import {
 } from '../interfaces/search-criteria.interfaces';
 import CarListing from '../models/car-listing.model';
 import ApiError from '../utils/ApiError';
+import { PipelineStage } from 'mongoose';
 
 /**
  * Creates a new CarListing record
@@ -21,24 +22,15 @@ export const create = async (reqBody: NewCarListingBody): Promise<ICarListingDoc
 };
 
 /**
- * Applies a query to retrieve CarListing records
- * 
- * @param {NewCarListingBody} reqBody The request body supplied by the client
- * @returns {Promise<ICarListingDoc[] | null>} A promise containing the matching CarListing records
- */
-export const applyQuery = async (reqBody: SearchCriteriaRequest): Promise<ICarListingDoc[]> => {
-  return CarListing.find({...reqBody});
-};
-
-/**
  * Applies a query to retrieve populated CarListing records
  * 
  * @param {SearchCriteriaRequestPaginated} reqBody The request body supplied by the client
+ * @param {boolean} isPaginated If true, the query will be paginated. Defaults to true.
  * @returns {Promise<IPaginationResponse<ICarListingDoc>>} A promise containing the matching CarListing records
  */
-export const applyQueryFullDoc = async (reqBody: SearchCriteriaRequestPaginated): Promise<IPaginationResponse<ICarListingDoc>> => {
+export const applyQuery = async (reqBody: SearchCriteriaRequestPaginated, isPaginated: boolean = true): Promise<IPaginationResponse<ICarListingDoc>> => {
   let { page, pageSize, region, ...carCriteria } = reqBody;
-  
+
   // Ugly, but necessary to convert page to number
   if (typeof page === 'string') {
     page = parseInt(page);
@@ -53,22 +45,24 @@ export const applyQueryFullDoc = async (reqBody: SearchCriteriaRequestPaginated)
   var searchCriteria: {[key: string]: any} = {};
 
   if (region) {
-    searchCriteria["region"] = { "$in": region.split(',') };
+    searchCriteria["region"] = { "$in": (region as string).split(',') };
   }
 
   for (const [k, v] of Object.entries(carCriteria)) {
     if (k === 'exteriorCondition' || k === 'mechanicalCondition') {
       searchCriteria[`car.${k}`] = { "$in": (v as string).split(',') }
     } else if (k === 'startYear') {
-      searchCriteria['car.year'] = { "$gte": parseInt(v as string) }
+      const startYear = typeof v === 'string' ? parseInt(v as string) : v;
+      searchCriteria['car.year'] = { "$gte": startYear }
     } else if (k === 'endYear') {
-      searchCriteria['car.year'] = { "$lte": parseInt(v as string) }
+      const endYear = typeof v === 'string' ? parseInt(v as string) : v;
+      searchCriteria['car.year'] = { "$lte": endYear }
     } else {
       searchCriteria[`car.${k}`] = v;
     }
   }
 
-  let aggregation = await CarListing.aggregate([
+  let transformations: PipelineStage[] = [
     { 
       $lookup: {
         from: 'cars',
@@ -97,20 +91,42 @@ export const applyQueryFullDoc = async (reqBody: SearchCriteriaRequestPaginated)
     { 
       $sort: { createdAt: -1 } 
     },
-    {
-      $facet: {
-        records: [
-          { $skip: page }, 
-          { $limit: pageSize }
-        ],
-        numRecords: [
-          {
-            $count: 'count'
-          }
-        ]
+  ];
+
+  if (isPaginated) {
+    transformations.push(
+      {
+        $facet: {
+          records: [
+            { $skip: page * pageSize }, 
+            { $limit: pageSize }
+          ],
+          numRecords: [
+            {
+              $count: 'count'
+            }
+          ]
+        }
       }
-    }
-  ]);
+    );
+  } else {
+    transformations.push(
+      {
+        $facet: {
+          records: [
+            { $skip: 0 }
+          ],
+          numRecords: [
+            {
+              $count: 'count'
+            }
+          ]
+        }
+      }
+    );
+  }
+
+  const aggregation = await CarListing.aggregate(transformations);
 
   return {
     page: page,

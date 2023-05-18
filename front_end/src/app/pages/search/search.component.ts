@@ -1,23 +1,25 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { PageEvent } from '@angular/material/paginator';
-import { SearchService, ICarListing } from 'src/app/core/services/search.service';
-import { ICar } from 'src/app/core/services/cars.service';
-import { ActivatedRoute, Router } from '@angular/router';
+import { SearchService, ICarListing } from 'src/app/services/search.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { IWatchListMinified, WatchListService } from 'src/app/services/watchList.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-search',
   templateUrl: './search.component.html',
   styleUrls: ['./search.component.scss']
 })
-
 export class SearchComponent {
+  numCols: number = 3;
   regionOptions = [    
-    "Northeast",
-    "Southwest",
+    "NorthEast",
+    "SouthWest",
     "West",
-    "Southeast",
-    "Midwest"
+    "SouthEast",
+    "MidWest"
   ]
 
   qualityOptions = [    
@@ -26,16 +28,20 @@ export class SearchComponent {
     "Good",
     "Excellent"
   ]
-
+  userId: string | undefined = undefined;
   filterForm: FormGroup;
   searchResults: ICarListing[] = [];
   page: number = 0;
-  pageSizeList: number[] = [5, 10, 25, 100]
+  pageSizeList: number[] = [6, 12, 24, 120]
   pageSize: number = this.pageSizeList[0];
   numRecords: number = 0;
- 
 
-  constructor(private route: ActivatedRoute, private router: Router, private searchService: SearchService) {
+  constructor(
+    private route: ActivatedRoute, 
+    private searchService: SearchService,
+    private watchListService: WatchListService,
+    private userService: UserService,
+    private snackBar: MatSnackBar) {
     const minYear = 1885;
     const maxYear = new Date().getFullYear() + 1;
 
@@ -51,6 +57,10 @@ export class SearchComponent {
       ),
       exteriorCondition: new FormControl([]),
       mechanicalCondition: new FormControl([])
+    });
+
+    this.userService.getCurrentUser().subscribe((user) => {
+      this.userId = user.id;
     });
   }
 
@@ -83,8 +93,36 @@ export class SearchComponent {
     this.applySearch();
   }
 
-  goToDetail(carRecord: ICar) {
-    this.router.navigate(['/car', carRecord._id])
+  onPinSearch() {
+    if (!this.userId) {
+      return;
+    }
+
+    this.watchListService.getByUserId(this.userId).subscribe((watchList) => {
+      this.searchService.save(this.filterForm.value).subscribe((response) => {
+        let updatedWatchList: IWatchListMinified = {
+          searches: watchList.searches.map(listing => listing.id)
+        };
+
+        updatedWatchList.searches.push(response.id);
+
+        this.watchListService.updateWatchList(watchList.id, updatedWatchList).subscribe(() => {
+          this.snackBar.open("Search saved!", "close");
+        })
+      });
+    });
   }
 
+  @HostListener('window:resize', ['$event'])
+  onResize(event: Event) {
+    const windowWidth = (event.target as Window).innerWidth;
+    
+    if (windowWidth <= 700) {
+      this.numCols = 1;
+    } else if (windowWidth <= 1000) {
+      this.numCols = 2;
+    } else {
+      this.numCols = 3;
+    }
+  }
 }

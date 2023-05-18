@@ -1,11 +1,11 @@
 import { Component, HostListener, ElementRef, ViewChild } from '@angular/core';
 import { PageEvent } from '@angular/material/paginator';
-import { concatMap, map } from 'rxjs/operators';
-import { AuthService } from 'src/app/core/services/auth.service';
-import { IWatchList, WatchListService } from 'src/app/core/services/watchList.service';
-import { ISearch, SearchService } from 'src/app/core/services/search.service';
+import { NavigationExtras, Router } from '@angular/router';
+import { IWatchListPopulated, WatchListService } from 'src/app/services/watchList.service';
+import { ISearch, SearchService } from 'src/app/services/search.service';
 import { MatCheckboxChange } from '@angular/material/checkbox';
 import { getMatAutocompleteMissingPanelError } from '@angular/material/autocomplete';
+import { UserService, IUser } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-watch-list',
@@ -14,7 +14,7 @@ import { getMatAutocompleteMissingPanelError } from '@angular/material/autocompl
 })
 export class WatchListComponent {
   // raw data, fetch from backend
-  watchList: IWatchList | null = null;
+  watchList: IWatchListPopulated | null = null;
   // data binding
   userName: string = "";
   totalCount: number = 0;
@@ -30,17 +30,21 @@ export class WatchListComponent {
   needScrollToBottom: boolean = false;
 
   constructor(
-    private authService: AuthService,
+    private router: Router,
     private watchListService: WatchListService,
-    private searchService: SearchService) {
-
+    private searchService: SearchService,
+    private userService: UserService) {
   }
 
   ngOnInit(): void {
     console.log('---ngOnInit---');
-    const user = this.getCurrentUser()
-    this.updateUIState(user, null);
-    this.queryByUser(user);
+
+    // retrieve current user from user service
+    this.userService.getCurrentUser().subscribe(
+      (user: IUser) => {
+        this.updateUIState(user, null);
+        this.getWatchList(user);
+    });
   }
 
   ngOnDestroy(): void {
@@ -183,9 +187,9 @@ export class WatchListComponent {
     return userJSON;
   }
 
-  private queryByUser(user: any): void {
+  private getWatchList(user: IUser): void {
     this.loading = true;
-    this.watchListService.getByUserId(user.id).subscribe((watchList: IWatchList) => {
+    this.watchListService.getByUserId(user.id).subscribe((watchList: IWatchListPopulated) => {
       console.log(watchList.searches);
       this.updateUIState(user, watchList);
       this.saveState();
@@ -204,21 +208,25 @@ export class WatchListComponent {
   }
 
   private restoreState(state: any) {
-    this.updateUIState(this.getCurrentUser(), state.watchList);
+    this.updateUIState(null, state.watchList);
     this.updateUIWatchListByPage(state.pageSize, state.pageIndex);
   }
 
-  private updateUIState(user: any, watchList: IWatchList | null): void {
+  private updateUIState(user: IUser | null, watchList: IWatchListPopulated | null): void {
     this.loading = false;
     this.updateUIUser(user);
     this.updateUIWatchList(watchList);
   }
 
-  private updateUIUser(user: any): void {
-    this.userName = user.fullName;
+  private updateUIUser(user: IUser | null): void {
+    if (user) {
+      this.userName = `${user.firstName} ${user.lastName}`;
+    } else {
+      this.userName = "None";
+    }
   }
 
-  private updateUIWatchList(watchList: IWatchList | null): void {
+  private updateUIWatchList(watchList: IWatchListPopulated | null): void {
     if (!watchList) {
       return;
     }
@@ -239,5 +247,17 @@ export class WatchListComponent {
     const start = this.pageIndex * this.pageSize;
     const end = start + this.pageSize;
     this.pageSearches = (this.watchList.searches as ISearch[]).slice(start, end);
+  }
+
+  public onSearchNavigate(record: ISearch): void {
+    var { search, ...narrowCriteria} = record.criteria;
+
+    let navigationExtras: NavigationExtras = {
+      queryParams: {
+        searchCriteria: JSON.stringify(narrowCriteria)
+      }
+    }
+
+    this.router.navigate(['/search'], navigationExtras);
   }
 }

@@ -5,7 +5,6 @@ import { ISearchDoc, ISearchModel } from '../interfaces/search.interfaces';
 import CarListing from './car-listing.model';
 import SearchCriteria from './search-criteria.model';
 import SearchForecast from './search-forecast.model';
-import toJSON from '../utils/toJson';
 
 const searchSchema = new Schema<ISearchDoc, ISearchModel>(
   {
@@ -27,12 +26,12 @@ const searchSchema = new Schema<ISearchDoc, ISearchModel>(
 );
 
 // Add plugin to converts mongoose documents to json
-searchSchema.plugin(toJSON);
 
-searchSchema.virtual('criterias', {
+searchSchema.virtual('criteria', {
   ref: 'SearchCriteria',
   localField: '_id',
   foreignField: 'search',
+  justOne: true
 });
 
 /**

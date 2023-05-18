@@ -4,6 +4,8 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { PageEvent } from '@angular/material/paginator';
 import { SearchService, ICarListing } from 'src/app/core/services/search.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { IWatchListMinified, WatchListService } from 'src/app/core/services/watchList.service';
+import { UserService } from 'src/app/core/services/user.service';
 
 @Component({
   selector: 'app-search',
@@ -26,18 +28,19 @@ export class SearchComponent {
     "Good",
     "Excellent"
   ]
-
+  userId: string | undefined = undefined;
   filterForm: FormGroup;
   searchResults: ICarListing[] = [];
   page: number = 0;
   pageSizeList: number[] = [6, 12, 24, 120]
   pageSize: number = this.pageSizeList[0];
   numRecords: number = 0;
- 
 
   constructor(
     private route: ActivatedRoute, 
     private searchService: SearchService,
+    private watchListService: WatchListService,
+    private userService: UserService,
     private snackBar: MatSnackBar) {
     const minYear = 1885;
     const maxYear = new Date().getFullYear() + 1;
@@ -55,6 +58,10 @@ export class SearchComponent {
       exteriorCondition: new FormControl([]),
       mechanicalCondition: new FormControl([])
     });
+
+    this.userService.getCurrentUser().subscribe((user) => {
+      this.userId = user.id;
+    });
   }
 
   applySearch(): void {
@@ -70,7 +77,6 @@ export class SearchComponent {
     this.route.queryParams.subscribe(params => {
       if (params["searchCriteria"]) {
         const parsedParams = JSON.parse(params["searchCriteria"]);
-        console.log('parsedParams', parsedParams)
         this.filterForm.patchValue(parsedParams);
       }
       this.applySearch();
@@ -88,9 +94,22 @@ export class SearchComponent {
   }
 
   onPinSearch() {
-    this.searchService.save(this.filterForm.value).subscribe((response) => {
-      console.log('response', response);
-      this.snackBar.open("Search saved!", "close");
+    if (!this.userId) {
+      return;
+    }
+
+    this.watchListService.getByUserId(this.userId).subscribe((watchList) => {
+      this.searchService.save(this.filterForm.value).subscribe((response) => {
+        let updatedWatchList: IWatchListMinified = {
+          searches: watchList.searches.map(listing => listing.id)
+        };
+
+        updatedWatchList.searches.push(response.id);
+
+        this.watchListService.updateWatchList(watchList.id, updatedWatchList).subscribe(() => {
+          this.snackBar.open("Search saved!", "close");
+        })
+      });
     });
   }
 

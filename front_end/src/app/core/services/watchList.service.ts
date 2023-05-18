@@ -3,9 +3,16 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { ISearch } from './search.service';
 
-export interface IWatchList {
+export interface IWatchListPopulated {
+  id: string;
   user: string;
-  searches: string[] | ISearch[];
+  searches: ISearch[];
+}
+
+export interface IWatchListMinified {
+  id?: string;
+  user?: string;
+  searches: string[];
 }
 
 @Injectable({
@@ -14,9 +21,14 @@ export interface IWatchList {
 export class WatchListService {
 
   constructor(private http: HttpClient) { }
+
+  public updateWatchList(watchListId: string, updatedRed: IWatchListMinified): Observable<IWatchListMinified> {
+    const url = `/api/watch-lists/${watchListId}`;
+    return this.http.put<IWatchListMinified>(url, updatedRed);
+  }
   
-  public getByUserId(userId: string): Observable<IWatchList> {
+  public getByUserId(userId: string): Observable<IWatchListPopulated> {
     const url = `/api/users/${userId}/watchlist`;
-    return this.http.get<IWatchList>(url);
+    return this.http.get<IWatchListPopulated>(url);
   }
 }

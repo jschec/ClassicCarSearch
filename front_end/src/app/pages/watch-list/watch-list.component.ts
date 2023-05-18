@@ -126,6 +126,48 @@ export class WatchListComponent {
     }
   }
 
+  hasCriteriaRegion(search: ISearch): boolean {
+    if (search.criteria?.region) {
+      return search.criteria?.region.length > 0;
+    }
+    return false;
+  }
+
+  hasExteriorCondition(search: ISearch): boolean {
+    if (search.criteria?.exteriorCondition) {
+      return search.criteria?.exteriorCondition.length > 0;
+    }
+    return false;
+  }
+
+  hasMechanicalCondition(search: ISearch): boolean {
+    if (search.criteria?.mechanicalCondition) {
+      return search.criteria?.mechanicalCondition.length > 0;
+    }
+    return false;
+  }
+
+  getCriteriaRegion(search: ISearch): string {
+    if (search.criteria?.region) {
+      return search.criteria?.region.join(",");
+    }
+    return "";
+  }
+
+  getExteriorCondition(search: ISearch): string {
+    if (search.criteria?.exteriorCondition) {
+      return search.criteria?.exteriorCondition.join(",");
+    }
+    return "";
+  }
+
+  getMechanicalCondition(search: ISearch): string {
+    if (search.criteria?.mechanicalCondition) {
+      return search.criteria?.mechanicalCondition.join(",");
+    }
+    return "";
+  }
+
   getMedianPriceText(search: ISearch): string {
     return this.formatPriceText(this.getMedianPrice(search));
   }

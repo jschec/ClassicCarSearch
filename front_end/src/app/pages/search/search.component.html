@@ -1,93 +1,87 @@
 <!--************    SEARCH BAR    ************-->
 <div class="landing-page-container" fxLayout="column">
   <div class="search-section">
-      <div class="section-title">
-          <h1>Cars for sale - Search Around The Nation</h1>
-      </div>
-      <form [formGroup]="filterForm" (ngSubmit)="onClickSubmit()">
-          <div class="section-form" fxLayout="row" fxLayoutAlign="space-around center" fxLayoutGap="20px">
-              <mat-form-field appearance="fill" fxFlex="20">
-                  <mat-label>Model</mat-label>
-                  <input matInput formControlName="model">
-              </mat-form-field>
-              
-              <mat-form-field appearance="fill" fxFlex="20">
-                  <mat-label>Make</mat-label>
-                  <input matInput formControlName="make">
-              </mat-form-field>
-              
-              <div fxLayout="row" fxFlex="20" fxLayoutGap="5px">
-                  <mat-form-field appearance="fill">
-                      <mat-label>From Year</mat-label>
-                      <input matInput formControlName="startYear" type="number">
-                  </mat-form-field>
+    <div class="section-title">
+      <h1>Cars for sale - Search Around The Nation</h1>
+    </div>
+    <form [formGroup]="filterForm" (ngSubmit)="onClickSubmit()">
+      <div class="section-form" fxLayout="row" fxLayoutAlign="space-around center" fxLayoutGap="20px">
+        <mat-form-field appearance="fill" fxFlex="20">
+          <mat-label>Model</mat-label>
+          <input matInput formControlName="model">
+        </mat-form-field>
 
-                  <mat-form-field appearance="fill">
-                      <mat-label>To Year</mat-label>
-                      <input matInput formControlName="endYear" type="number">
-                  </mat-form-field>
-              </div>
+        <mat-form-field appearance="fill" fxFlex="20">
+          <mat-label>Make</mat-label>
+          <input matInput formControlName="make">
+        </mat-form-field>
 
-              <mat-form-field appearance="fill" fxFlex="20">
-                  <mat-label>Region</mat-label>
-                  <mat-select formControlName="region">
-                      <mat-option *ngFor="let region of regionOptions" [value]="region">
-                          {{region}}
-                      </mat-option>
-                  </mat-select>
-              </mat-form-field>
-              
-              <mat-form-field appearance="fill" fxFlex="20">
-                <mat-label>Exterior Condition</mat-label>
-                <mat-select formControlName="exteriorCondition">
-                    <mat-option *ngFor="let exteriorCondition of qualityOptions" [value]="exteriorCondition">
-                        {{exteriorCondition}}
-                    </mat-option>
-                </mat-select>
-            </mat-form-field>
-
-            <mat-form-field appearance="fill" fxFlex="20">
-              <mat-label>Mechanical Condition</mat-label>
-              <mat-select formControlName="mechanicalCondition">
-                  <mat-option *ngFor="let mechanicalCondition of qualityOptions" [value]="mechanicalCondition">
-                      {{mechanicalCondition}}
-                  </mat-option>
-              </mat-select>
+        <div fxLayout="row" fxFlex="20" fxLayoutGap="5px">
+          <mat-form-field appearance="fill">
+            <mat-label>From Year</mat-label>
+            <input matInput formControlName="startYear" type="number">
           </mat-form-field>
 
-              <button
-                  mat-flat-button
-                  class="search-button" 
-                  type="submit" 
-                  [disabled]="!filterForm.valid" 
-                  color="primary"
-                  fxFlex="10"
-              >
-                  Search
-              </button>              
-          </div>
-      </form>
+          <mat-form-field appearance="fill">
+            <mat-label>To Year</mat-label>
+            <input matInput formControlName="endYear" type="number">
+          </mat-form-field>
+        </div>
+
+        <mat-form-field appearance="fill" fxFlex="20">
+          <mat-label>Region</mat-label>
+          <mat-select formControlName="region" multiple>
+            <mat-option *ngFor="let region of regionOptions" [value]="region">
+              {{region}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" fxFlex="20">
+          <mat-label>Exterior Condition</mat-label>
+          <mat-select formControlName="exteriorCondition" multiple>
+            <mat-option *ngFor="let exteriorCondition of qualityOptions" [value]="exteriorCondition">
+              {{exteriorCondition}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" fxFlex="20">
+          <mat-label>Mechanical Condition</mat-label>
+          <mat-select formControlName="mechanicalCondition" multiple>
+            <mat-option *ngFor="let mechanicalCondition of qualityOptions" [value]="mechanicalCondition">
+              {{mechanicalCondition}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <button mat-flat-button class="search-button" type="submit" [disabled]="!filterForm.valid" color="primary"
+          fxFlex="10">
+          Search
+        </button>
+      </div>
+    </form>
   </div>
 
-<!--************    MAIN PAGE BODY    ************-->
+  <!--************    MAIN PAGE BODY    ************-->
   <mat-grid-list cols="2" rowHeight="800px" colWidth="fit" class="resultBackdrop">
-    <!-- ***********    Material Card Template*    ************ --> 
+    <!-- ***********    Material Card Template*    ************ -->
     <mat-grid-tile *ngFor="let record of searchResults" [colspan]="1" [rowspan]="1">
       <div class="searchDisplayItem">
         <mat-card class="resultCard" type="raised">
-          <img mat-card-image src="{{record.car.img}}"> 
-         
-            <mat-grid-list cols="2" rowHeight="50px" class="cardHeader">
-              
-                <mat-grid-tile [colspan]="1">
-                  <h3>{{record.car.make}} {{record.car.model}}</h3>
-                </mat-grid-tile>
-                <mat-grid-tile [colspan]="1">
-                  <div class="active-listingChip"  *ngIf="!record.saleDate">Active</div>
-                  <div class="closed-listingChip"  *ngIf="record.saleDate">Sold</div> 
-                </mat-grid-tile>
-                           
-           </mat-grid-list>                                 
+          <img mat-card-image src="{{record.car.img}}">
+
+          <mat-grid-list cols="2" rowHeight="50px" class="cardHeader">
+
+            <mat-grid-tile [colspan]="1">
+              <h3>{{record.car.make}} {{record.car.model}}</h3>
+            </mat-grid-tile>
+            <mat-grid-tile [colspan]="1">
+              <div class="active-listingChip" *ngIf="!record.saleDate">Active</div>
+              <div class="closed-listingChip" *ngIf="record.saleDate">Sold</div>
+            </mat-grid-tile>
+
+          </mat-grid-list>
 
           <mat-card-content>
             <!--TODO: Add Description {{record.listingDescription}}-->
@@ -106,39 +100,35 @@
                 <span>{{record.car.mechanicalCondition}}</span>
               </mat-list-item>
               <mat-list-item>
-                <span matListItemTitle>Price: {{record.price}}</span>               
+                <span matListItemTitle>Price: {{record.price}}</span>
               </mat-list-item>
             </mat-list>
             <!--***********  Card Footer ************-->
           </mat-card-content>
           <mat-grid-list cols="2" rowHeight="50px" class="cardFooter">
             <mat-grid-tile [colspan]="1">
-              <div matBadgeSize="large" class="active-listingFooter" *ngIf="!record.saleDate">Listed {{record.listDate}}</div>           
-            <div matBadgeSize="large" class="closed-listingFooter" *ngIf="record.saleDate">Sold {{record.saleDate}}</div>
+              <div matBadgeSize="large" class="active-listingFooter" *ngIf="!record.saleDate">Listed {{record.listDate}}
+              </div>
+              <div matBadgeSize="large" class="closed-listingFooter" *ngIf="record.saleDate">Sold {{record.saleDate}}
+              </div>
             </mat-grid-tile>
-            <mat-grid-tile [colspan]="1">                         
+            <mat-grid-tile [colspan]="1">
               <mat-card-actions>
-                <button mat-flat-button color="primary" 
-                routerLink="/car/{{record.car._id}}">                
-                See Detail
+                <button mat-flat-button color="primary" routerLink="/car/{{record.car._id}}">
+                  See Detail
                 </button>
-              </mat-card-actions>        
+              </mat-card-actions>
             </mat-grid-tile>
           </mat-grid-list>
-    </mat-card>
-        </div>
-  </mat-grid-tile>
+        </mat-card>
+      </div>
+    </mat-grid-tile>
     <!-- End of Card -->
- </mat-grid-list>
- 
-<!--***** PAGE BOTTOM *****-->
-<div class="search-footer">
-        <mat-paginator 
-        [length]="numRecords" 
-        [pageIndex]="page" 
-        [pageSize]="pageSize" 
-        [pageSizeOptions]="pageSizeList" 
-        (page)="onPageChanged($event)" 
-        aria-label="Select page" >
-        </mat-paginator>
-</div>
+  </mat-grid-list>
+
+  <!--***** PAGE BOTTOM *****-->
+  <div class="search-footer">
+    <mat-paginator [length]="numRecords" [pageIndex]="page" [pageSize]="pageSize" [pageSizeOptions]="pageSizeList"
+      (page)="onPageChanged($event)" aria-label="Select page">
+    </mat-paginator>
+  </div>

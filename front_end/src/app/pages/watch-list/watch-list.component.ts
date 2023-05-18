@@ -1,11 +1,12 @@
 import { Component, HostListener, ElementRef, ViewChild } from '@angular/core';
 import { PageEvent } from '@angular/material/paginator';
 import { NavigationExtras, Router } from '@angular/router';
-import { IWatchListPopulated, WatchListService } from 'src/app/services/watchList.service';
+import { IWatchListMinified, IWatchListPopulated, WatchListService } from 'src/app/services/watchList.service';
 import { ISearch, SearchService } from 'src/app/services/search.service';
 import { MatCheckboxChange } from '@angular/material/checkbox';
 import { getMatAutocompleteMissingPanelError } from '@angular/material/autocomplete';
 import { UserService, IUser } from 'src/app/services/user.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-watch-list',
@@ -15,6 +16,7 @@ import { UserService, IUser } from 'src/app/services/user.service';
 export class WatchListComponent {
   // raw data, fetch from backend
   watchList: IWatchListPopulated | null = null;
+  user: IUser | null = null;
   // data binding
   userName: string = "";
   totalCount: number = 0;
@@ -33,7 +35,8 @@ export class WatchListComponent {
     private router: Router,
     private watchListService: WatchListService,
     private searchService: SearchService,
-    private userService: UserService) {
+    private userService: UserService,
+    private snackBar: MatSnackBar) {
   }
 
   ngOnInit(): void {
@@ -75,6 +78,37 @@ export class WatchListComponent {
 
   onNotifyBySMSChanged(event: MatCheckboxChange, searchId: string): void {
     console.log(this.notifyBySMSs[searchId], event.checked);
+  }
+
+  onSearchNavigate(record: ISearch): void {
+    var { search, ...narrowCriteria } = record.criteria;
+
+    let navigationExtras: NavigationExtras = {
+      queryParams: {
+        searchCriteria: JSON.stringify(narrowCriteria)
+      }
+    }
+
+    this.router.navigate(['/search'], navigationExtras);
+  }
+
+  onRemoveSearch(searchId: string): void {
+    this.loading = true;
+    this.watchListService.getByWatchListId(this.watchList!.id).subscribe((watchList: IWatchListMinified) => {
+      const originalCount = watchList.searches.length;
+      watchList.searches = watchList.searches.filter(item => item !== searchId);
+      if (watchList.searches.length != originalCount) {
+        this.watchListService.updateWatchList(watchList.id as string, watchList).subscribe((newWatchList: IWatchListMinified) => {
+          this.watchList!.searches = this.watchList?.searches.filter(item => item.id !== searchId) as ISearch[];
+          this.updateUIState(this.user, this.watchList);
+          this.snackBar.open("Successfully removed search record!", "close");
+        });
+      } else {
+        this.watchList!.searches = this.watchList?.searches.filter(item => item.id !== searchId) as ISearch[];
+        this.updateUIState(this.user, this.watchList);
+        this.snackBar.open("Successfully removed search record!", "close");
+      }
+    });
   }
 
   @HostListener('window:popstate', ['$event'])
@@ -216,19 +250,6 @@ export class WatchListComponent {
     });
   }
 
-  private getCurrentUser(): any {
-    // TODO: After the login mechanism is completed, here the current user is retrieved through the AuthService.
-    // return this.authService.getCurrentUser();
-
-    // TODO: currently use mock data.
-    const userJSON = {
-      id: '5e6da5a1-dd55-4661-8527-1b41473358ce',
-      fullName: 'Ward Bogan',
-      pictureUri: 'https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/886.jpg'
-    };
-    return userJSON;
-  }
-
   private getWatchList(user: IUser): void {
     this.loading = true;
     this.watchListService.getByUserId(user.id).subscribe((watchList: IWatchListPopulated) => {
@@ -243,6 +264,7 @@ export class WatchListComponent {
       'pageIndex': this.pageIndex,
       'pageSize': this.pageSize,
       'watchList': this.watchList,
+      'user': this.user,
     };
     const title = document.title;
     const url = window.location.href;
@@ -250,7 +272,7 @@ export class WatchListComponent {
   }
 
   private restoreState(state: any) {
-    this.updateUIState(null, state.watchList);
+    this.updateUIState(state.user, state.watchList);
     this.updateUIWatchListByPage(state.pageSize, state.pageIndex);
   }
 
@@ -261,6 +283,7 @@ export class WatchListComponent {
   }
 
   private updateUIUser(user: IUser | null): void {
+    this.user = user;
     if (user) {
       this.userName = `${user.firstName} ${user.lastName}`;
     } else {
@@ -291,15 +314,4 @@ export class WatchListComponent {
     this.pageSearches = (this.watchList.searches as ISearch[]).slice(start, end);
   }
 
-  public onSearchNavigate(record: ISearch): void {
-    var { search, ...narrowCriteria} = record.criteria;
-
-    let navigationExtras: NavigationExtras = {
-      queryParams: {
-        searchCriteria: JSON.stringify(narrowCriteria)
-      }
-    }
-
-    this.router.navigate(['/search'], navigationExtras);
-  }
 }

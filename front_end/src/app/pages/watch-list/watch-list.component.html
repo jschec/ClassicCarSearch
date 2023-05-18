@@ -10,8 +10,8 @@
             </mat-card-subtitle>
         </mat-card-header>
         <mat-card-actions>
-            <button mat-button>EDIT</button>
-            <button mat-button>SHARE</button>
+            <!-- <button mat-button>EDIT</button> -->
+            <!-- <button mat-button>SHARE</button> -->
         </mat-card-actions>
     </mat-card>
 
@@ -32,8 +32,8 @@
                             <div class="flex-layout flex-column flex-wrap">
                                 <div class="watch-list-item-attr"> Search #{{pageIndex * pageSize + i + 1}}</div>
                                 <div class="watch-list-item-attr" *ngIf="hasCriteriaRegion(search)"> Region: {{getCriteriaRegion(search)}} </div>
-                                <div class="watch-list-item-attr" *ngIf="hasExteriorCondition(search)"> Region: {{getExteriorCondition(search)}} </div>
-                                <div class="watch-list-item-attr" *ngIf="hasMechanicalCondition(search)"> Region: {{getMechanicalCondition(search)}} </div>
+                                <div class="watch-list-item-attr" *ngIf="hasExteriorCondition(search)"> Exterior: {{getExteriorCondition(search)}} </div>
+                                <div class="watch-list-item-attr" *ngIf="hasMechanicalCondition(search)"> Mechanical: {{getMechanicalCondition(search)}} </div>
                                 <div class="watch-list-item-attr"> Matched Results: {{search.results.length}} </div>
                             </div>
                             <div class="flex-layout flex-column flex-wrap">
@@ -46,7 +46,7 @@
                         </div>
                         <div class="flex-layout flex-column">
                             <button class="" mat-flat-button color="primary" (click)="onSearchNavigate(search)">View Search</button>
-                            <button class="" mat-flat-button color="warn">Remove</button>
+                            <button class="" mat-flat-button color="warn" (click)="onRemoveSearch(search.id)">Remove</button>
                         </div>
 
                     </div>

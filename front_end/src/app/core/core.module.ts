@@ -8,6 +8,7 @@ import { AuthGuard } from './guards/auth.guard';
 import { CarsService } from './services/cars.service';
 import { SearchService } from './services/search.service';
 import { SubscriptionService } from './services/subscription.service';
+import {CarDetailsService} from './services/car-details.service';
 
 @NgModule({
   declarations: [],
@@ -18,6 +19,7 @@ import { SubscriptionService } from './services/subscription.service';
   providers: [
     AuthGuard,
     CarsService,
+    CarDetailsService,
     SubscriptionService,
     SearchService,
     MediaMatcher,

@@ -4,7 +4,17 @@ import { Observable } from 'rxjs';
 import { ICar } from './cars.service';
 
 export interface ICriteria {
-  region: string;
+  search: string;
+  region?: string[];
+  startYear?: number;
+  endYear?: number;
+  maxMileage?: number;
+  maxPrice?: number;
+  exteriorCondition?: string[];
+  mechanicalCondition?: string[];
+  color?: string;
+  make?: string;
+  model?: string;
 }
 
 export interface ISeller {
@@ -26,7 +36,7 @@ export interface ICarListing {
 
 export interface ISearch {
   id: string;
-  criterias: ICriteria[];
+  criteria: ICriteria;
   results: ICarListing[];
 }
 
@@ -79,5 +89,13 @@ export class SearchService {
       queryParams = queryParams.append(k, v);      
     }
     return this.http.get<IPaginationResponse<ICarListing>>(url, { params: queryParams });
+  }
+
+  public save(criteria: SearchCriteriaRequest): Observable<ISearch> {
+    const url = '/api/searches';
+
+    console.log('criteria', criteria);
+    
+    return this.http.post<ISearch>(url, criteria);
   }
 }

@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { PageEvent } from '@angular/material/paginator';
 import { SearchService, ICarListing } from 'src/app/core/services/search.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-search',
@@ -34,7 +35,10 @@ export class SearchComponent {
   numRecords: number = 0;
  
 
-  constructor(private route: ActivatedRoute, private searchService: SearchService) {
+  constructor(
+    private route: ActivatedRoute, 
+    private searchService: SearchService,
+    private snackBar: MatSnackBar) {
     const minYear = 1885;
     const maxYear = new Date().getFullYear() + 1;
 
@@ -81,6 +85,13 @@ export class SearchComponent {
     this.page = event.pageIndex;
     this.pageSize = event.pageSize;
     this.applySearch();
+  }
+
+  onPinSearch() {
+    this.searchService.save(this.filterForm.value).subscribe((response) => {
+      console.log('response', response);
+      this.snackBar.open("Search saved!", "close");
+    });
   }
 
   @HostListener('window:resize', ['$event'])

@@ -56,8 +56,13 @@
         </mat-form-field>
 
         <button mat-flat-button class="search-button" type="submit" [disabled]="!filterForm.valid" color="primary"
-          fxFlex="10">
+          fxFlex="5">
           Search
+        </button>
+
+        <button mat-flat-button class="search-button" [disabled]="!filterForm.valid" color="primary" (click)="onPinSearch()"
+          fxFlex="5">
+          Pin
         </button>
       </div>
     </form>

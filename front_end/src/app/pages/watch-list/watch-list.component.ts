@@ -1,10 +1,10 @@
 import { Component, HostListener, ElementRef, ViewChild } from '@angular/core';
 import { PageEvent } from '@angular/material/paginator';
-import { concatMap, map } from 'rxjs/operators';
-import { AuthService } from 'src/app/core/services/auth.service';
+import { NavigationExtras, Router } from '@angular/router';
 import { IWatchList, WatchListService } from 'src/app/core/services/watchList.service';
-import { ISearch, SearchService } from 'src/app/core/services/search.service';
+import { ISearch } from 'src/app/core/services/search.service';
 import { MatCheckboxChange } from '@angular/material/checkbox';
+import { UserService, IUser } from 'src/app/core/services/user.service';
 
 @Component({
   selector: 'app-watch-list',
@@ -29,20 +29,20 @@ export class WatchListComponent {
   needScrollToBottom: boolean = false;
 
   constructor(
-    private authService: AuthService,
+    private router: Router,
     private watchListService: WatchListService,
-    private searchService: SearchService) {
+    private userService: UserService) {
   }
 
   ngOnInit(): void {
     console.log('---ngOnInit---');
-    // get login user from auth service.
-    let user = this.authService.getCurrentUser();
-    this.updateUIState(user, null);
-
-    // TODO: get userId from user
-    let userId: string = "5e6da5a1-dd55-4661-8527-1b41473358ce";
-    this.queryByUserId(userId, user);
+    
+    // retrieve current user from user service
+    this.userService.getCurrentUser().subscribe(
+      (user: IUser) => {
+        this.updateUIState(user, null);
+        this.getWatchList(user);
+    });
   }
 
   ngOnDestroy(): void {
@@ -89,9 +89,9 @@ export class WatchListComponent {
     console.log(element.scrollHeight);
   }
 
-  private queryByUserId(userId: string, user: any): void {
+  private getWatchList(user: IUser): void {
     this.loading = true;
-    this.watchListService.getByUserId(userId).subscribe((watchList: IWatchList) => {
+    this.watchListService.getByUserId(user.id).subscribe((watchList: IWatchList) => {
       console.log(watchList.searches);
       this.updateUIState(user, watchList);
       this.saveState();
@@ -110,19 +110,22 @@ export class WatchListComponent {
   }
 
   private restoreState(state: any) {
-    this.updateUIState({}, state.watchList);
+    this.updateUIState(null, state.watchList);
     this.updateUIWatchListByPage(state.pageSize, state.pageIndex);
   }
 
-  private updateUIState(user: any, watchList: IWatchList | null): void {
+  private updateUIState(user: IUser | null, watchList: IWatchList | null): void {
     this.loading = false;
     this.updateUIUser(user);
     this.updateUIWatchList(watchList);
   }
 
-  private updateUIUser(user: any): void {
-    // TODO: auth service
-    this.userName = "Zhihai";
+  private updateUIUser(user: IUser | null): void {
+    if (user) {
+      this.userName = `${user.firstName} ${user.lastName}`;
+    } else {
+      this.userName = "None";
+    }
   }
 
   private updateUIWatchList(watchList: IWatchList | null): void {
@@ -146,5 +149,17 @@ export class WatchListComponent {
     const start = this.pageIndex * this.pageSize;
     const end = start + this.pageSize;
     this.pageSearches = (this.watchList.searches as ISearch[]).slice(start, end);
+  }
+
+  public onSearchNavigate(record: ISearch): void {
+    var { search, ...narrowCriteria} = record.criteria;
+
+    let navigationExtras: NavigationExtras = {
+      queryParams: {
+        searchCriteria: JSON.stringify(narrowCriteria)
+      }
+    }
+
+    this.router.navigate(['/search'], navigationExtras);
   }
 }

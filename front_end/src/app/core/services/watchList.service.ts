@@ -14,10 +14,9 @@ export interface IWatchList {
 export class WatchListService {
 
   constructor(private http: HttpClient) { }
-
+  
   public getByUserId(userId: string): Observable<IWatchList> {
     const url = `/api/users/${userId}/watchlist`;
     return this.http.get<IWatchList>(url);
   }
-
 }

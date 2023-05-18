@@ -27,6 +27,10 @@
     }
 }
 
+.subscription-card mat-card-content {
+    height: 200px;
+}
+
 .subscription-action {
     display: flex;
     justify-content: center;

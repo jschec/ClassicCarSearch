@@ -1,5 +1,18 @@
 @use '@angular/material' as mat;
 
+:host {
+    height: 100%;
+}
+
+.loading-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
 .subscription-page-container {
     margin: 20px;
     height: 100%;

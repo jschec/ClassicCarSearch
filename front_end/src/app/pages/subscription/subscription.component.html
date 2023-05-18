@@ -1,47 +1,53 @@
-<div class="subscription-page-container" fxLayout="column" fxLayoutGap="20px">
-
-    <mat-card class="subscription-header">
-        <mat-card-header>
-            <mat-card-title>
-                <h1>Subscription: {{selectedSubscriptionName}}</h1>
-            </mat-card-title>
-            <mat-card-subtitle>
-                <p>Choose one of the following subscription plans to get started.</p>
-            </mat-card-subtitle>
-        </mat-card-header>
-    </mat-card>
-
-    <div fxLayout="row" fxLayoutGap="20px" fxFlex="80">
-        <mat-card
-            class="subscription-card"
-            *ngFor="let subscription of subscriptions" 
-            fxFlex="25"
-        >
-            <mat-card-header class="subscription-card-header">
-                <mat-card-title>
-                    {{subscription.name}}
-                </mat-card-title>
-            </mat-card-header>
-            <mat-card-content>
-                <div class="subscription-description">
-                    <h2>
-                        {{subscription.price}}
-                    </h2>
-
-                    <ul *ngFor="let feature of subscription.features">
-                        <li>{{feature}}</li>
-                    </ul>  
-                </div>
-            </mat-card-content>
-            <mat-card-actions class="subscription-action">
-                <button 
-                    mat-flat-button 
-                    color="primary" 
-                    (click)="onSetSubscription(subscription)"
-                >
-                    Select
-                </button>
-            </mat-card-actions>
-        </mat-card>
-    </div>
+<div class="loading-container" *ngIf="isLoading; else elseBlock">
+    <mat-spinner></mat-spinner>
+    <h1>Loading...</h1>
 </div>
+
+<ng-template #elseBlock>
+    <div class="subscription-page-container" fxLayout="column" fxLayoutGap="20px">
+        <mat-card class="subscription-header">
+            <mat-card-header>
+                <mat-card-title>
+                    <h1>Current Subscription: {{selectedSubscriptionName}}</h1>
+                </mat-card-title>
+                <mat-card-subtitle>
+                    <p>Choose one of the following subscription plans</p>
+                </mat-card-subtitle>
+            </mat-card-header>
+        </mat-card>
+
+        <div class="subscription-options" fxLayout="row" fxLayoutGap="20px" fxFlex="80">
+            <mat-card
+                class="subscription-card"
+                *ngFor="let subscription of subscriptions" 
+                fxFlex="25"
+            >
+                <mat-card-header class="subscription-card-header">
+                    <mat-card-title>
+                        {{subscription.name}}
+                    </mat-card-title>
+                </mat-card-header>
+                <mat-card-content>
+                    <div class="subscription-description">
+                        <h2>
+                            {{subscription.price}}
+                        </h2>
+
+                        <ul *ngFor="let feature of subscription.features">
+                            <li>{{feature}}</li>
+                        </ul>  
+                    </div>
+                </mat-card-content>
+                <mat-card-actions class="subscription-action">
+                    <button 
+                        mat-flat-button 
+                        color="primary" 
+                        (click)="onSetSubscription(subscription)"
+                    >
+                        Select
+                    </button>
+                </mat-card-actions>
+            </mat-card>
+        </div>
+    </div>
+</ng-template>

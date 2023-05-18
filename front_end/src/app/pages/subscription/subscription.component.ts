@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
-import { SubscriptionService, ISubscription } from 'src/app/core/services/subscription.service';
+import { delay } from 'rxjs';
+import { 
+  SubscriptionService, ISubscription 
+} from 'src/app/core/services/subscription.service';
 import { UserService } from 'src/app/core/services/user.service';
 
 @Component({
@@ -8,11 +11,10 @@ import { UserService } from 'src/app/core/services/user.service';
   styleUrls: ['./subscription.component.scss']
 })
 export class SubscriptionComponent {
-  userId: string = 'f8b51edc-c435-4be6-b2c7-fbf9a72d3d54';
+  isLoading: boolean = true;
   subscriptions: ISubscription[] = [];
   selectedSubscriptionId: string | undefined = undefined;
   selectedSubscriptionName: string | undefined = undefined;
-
 
   constructor(
     private subscriptionService: SubscriptionService, 
@@ -22,16 +24,28 @@ export class SubscriptionComponent {
       this.subscriptions = response;
     });
 
-    this.userService.getUser(this.userId).subscribe((response) => {
+    this.userService.getCurrentUser().pipe(
+      delay(1000), // To allow for demo of loading screen
+    ).subscribe((response) => {
       this.selectedSubscriptionId = response.subscription;
       this.selectedSubscriptionName = this.subscriptions.find((subscription) => {
         return subscription.id === this.selectedSubscriptionId;
       })?.name;
+
+      this.isLoading = false;
     });
   };
 
+  /**
+   * Assigns the specified subscription to the current user.
+   * 
+   * @param subscription The subscription to assign to the current user.
+   */
   public onSetSubscription(subscription: ISubscription) {
-    this.userService.setSubscription(this.userId, subscription.id).subscribe(() => {
+    
+    this.userService.setSubscription(subscription.id).subscribe(() => {
+      // Update the selected subscription with specified subscription
+      // since API call was successful
       this.selectedSubscriptionId = subscription.id;
       this.selectedSubscriptionName = subscription.name;
     });

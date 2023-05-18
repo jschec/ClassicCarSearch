@@ -11,5 +11,4 @@ To install the dependencies for the
 Running the development server
 `ng serve --open`
 
-to start front_end
-'npm run start'
+to start front_end server: 'npm run start'

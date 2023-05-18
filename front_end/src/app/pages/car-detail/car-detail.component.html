@@ -1,7 +1,7 @@
 <!--************    details grid   ************-->
 <div class="carDeatails-page-container"fxLayout="column">
     <div class="details-section">
-      <mat-grid-list cols="3" rowHeight="250px">
+      <mat-grid-list cols="2" rowHeight="250px">
         <mat-grid-tile [colspan]="1" [rowspan]="1">
           <mat-card class= card-container>
             <mat-card-header>
@@ -33,25 +33,12 @@
               <mat-card-title> Costs Details</mat-card-title>
             </mat-card-header>
             <mat-card-content>
-              <mat-card-subtitle>Region: {{carListing?.price}}</mat-card-subtitle>
-              <mat-card-subtitle>Price: {{carListing?.region}}</mat-card-subtitle>
+              <mat-card-subtitle>Region: {{carListing?.region}}</mat-card-subtitle>
+              <mat-card-subtitle>Price: ${{carListing?.price}}</mat-card-subtitle>
             </mat-card-content>
           </mat-card>
         </mat-grid-tile>
-
-        <mat-grid-tile [colspan]="1"[rowspan]="1">
-          <mat-card class= card-container rowHeight="250px">
-            <mat-card-header>
-              <mat-card-title> Forecast </mat-card-title>
-            </mat-card-header>
-            <mat-card-content>
-             
-              <mat-card-subtitle> Under Constuction </mat-card-subtitle>
-            </mat-card-content>
-          </mat-card>
-        </mat-grid-tile>
-
-        <mat-grid-tile [colspan]="3"[rowspan]="2">
+        <mat-grid-tile [colspan]="2"[rowspan]="2">
           <img class="car-image" mat-card-image src="{{carListing?.car?.img}}" alt="Photo of a Shiba Inu">
         </mat-grid-tile>
       </mat-grid-list>

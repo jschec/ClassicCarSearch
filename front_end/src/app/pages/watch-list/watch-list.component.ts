@@ -1,10 +1,12 @@
 import { Component, HostListener, ElementRef, ViewChild } from '@angular/core';
 import { PageEvent } from '@angular/material/paginator';
 import { NavigationExtras, Router } from '@angular/router';
-import { IWatchListPopulated, WatchListService } from 'src/app/services/watchList.service';
-import { ISearch } from 'src/app/services/search.service';
+import { IWatchListMinified, IWatchListPopulated, WatchListService } from 'src/app/services/watchList.service';
+import { ISearch, SearchService } from 'src/app/services/search.service';
 import { MatCheckboxChange } from '@angular/material/checkbox';
+import { getMatAutocompleteMissingPanelError } from '@angular/material/autocomplete';
 import { UserService, IUser } from 'src/app/services/user.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-watch-list',
@@ -14,6 +16,7 @@ import { UserService, IUser } from 'src/app/services/user.service';
 export class WatchListComponent {
   // raw data, fetch from backend
   watchList: IWatchListPopulated | null = null;
+  user: IUser | null = null;
   // data binding
   userName: string = "";
   totalCount: number = 0;
@@ -31,12 +34,14 @@ export class WatchListComponent {
   constructor(
     private router: Router,
     private watchListService: WatchListService,
-    private userService: UserService) {
+    private searchService: SearchService,
+    private userService: UserService,
+    private snackBar: MatSnackBar) {
   }
 
   ngOnInit(): void {
     console.log('---ngOnInit---');
-    
+
     // retrieve current user from user service
     this.userService.getCurrentUser().subscribe(
       (user: IUser) => {
@@ -75,6 +80,37 @@ export class WatchListComponent {
     console.log(this.notifyBySMSs[searchId], event.checked);
   }
 
+  onSearchNavigate(record: ISearch): void {
+    var { search, ...narrowCriteria } = record.criteria;
+
+    let navigationExtras: NavigationExtras = {
+      queryParams: {
+        searchCriteria: JSON.stringify(narrowCriteria)
+      }
+    }
+
+    this.router.navigate(['/search'], navigationExtras);
+  }
+
+  onRemoveSearch(searchId: string): void {
+    this.loading = true;
+    this.watchListService.getByWatchListId(this.watchList!.id).subscribe((watchList: IWatchListMinified) => {
+      const originalCount = watchList.searches.length;
+      watchList.searches = watchList.searches.filter(item => item !== searchId);
+      if (watchList.searches.length != originalCount) {
+        this.watchListService.updateWatchList(watchList.id as string, watchList).subscribe((newWatchList: IWatchListMinified) => {
+          this.watchList!.searches = this.watchList?.searches.filter(item => item.id !== searchId) as ISearch[];
+          this.updateUIState(this.user, this.watchList);
+          this.snackBar.open("Successfully removed search record!", "close");
+        });
+      } else {
+        this.watchList!.searches = this.watchList?.searches.filter(item => item.id !== searchId) as ISearch[];
+        this.updateUIState(this.user, this.watchList);
+        this.snackBar.open("Successfully removed search record!", "close");
+      }
+    });
+  }
+
   @HostListener('window:popstate', ['$event'])
   onPopState(event: any) {
     console.log('---onPopState---');
@@ -87,6 +123,131 @@ export class WatchListComponent {
     const element = this.scrollContainer.nativeElement;
     element.scrollTop = element.scrollHeight;
     console.log(element.scrollHeight);
+  }
+
+  getMeanPrice(search: ISearch): number {
+    let priceArr: Array<number> = [];
+    search.results.forEach((result) => {
+      priceArr.push(result.price);
+    })
+
+    const sum = priceArr.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
+    const mean = sum / priceArr.length;
+
+    return mean;
+  }
+
+  getMedianPrice(search: ISearch): number {
+    let priceArr: Array<number> = [];
+    search.results.forEach((result) => {
+      priceArr.push(result.price);
+    })
+
+    // Sort the array in ascending order
+    const sortedArr = priceArr.sort((a, b) => a - b);
+    const length = sortedArr.length;
+    if (length === 0) {
+      return 0;
+    }
+
+    const middleIndex = Math.floor(length / 2);
+    if (length % 2 === 0) {
+      // Array length is even
+      return (sortedArr[middleIndex - 1] + sortedArr[middleIndex]) / 2;
+    } else {
+      // Array length is odd
+      return sortedArr[middleIndex];
+    }
+  }
+
+  hasCriteriaRegion(search: ISearch): boolean {
+    if (search.criteria?.region) {
+      return search.criteria?.region.length > 0;
+    }
+    return false;
+  }
+
+  hasExteriorCondition(search: ISearch): boolean {
+    if (search.criteria?.exteriorCondition) {
+      return search.criteria?.exteriorCondition.length > 0;
+    }
+    return false;
+  }
+
+  hasMechanicalCondition(search: ISearch): boolean {
+    if (search.criteria?.mechanicalCondition) {
+      return search.criteria?.mechanicalCondition.length > 0;
+    }
+    return false;
+  }
+
+  getCriteriaRegion(search: ISearch): string {
+    if (search.criteria?.region) {
+      return search.criteria?.region.join(",");
+    }
+    return "";
+  }
+
+  getExteriorCondition(search: ISearch): string {
+    if (search.criteria?.exteriorCondition) {
+      return search.criteria?.exteriorCondition.join(",");
+    }
+    return "";
+  }
+
+  getMechanicalCondition(search: ISearch): string {
+    if (search.criteria?.mechanicalCondition) {
+      return search.criteria?.mechanicalCondition.join(",");
+    }
+    return "";
+  }
+
+  getMedianPriceText(search: ISearch): string {
+    return this.formatPriceText(this.getMedianPrice(search));
+  }
+
+  getMeanPriceText(search: ISearch): string {
+    return this.formatPriceText(this.getMeanPrice(search));
+  }
+
+  getMedianDateText(search: ISearch): number {
+    let priceArr: Array<number> = [];
+    search.results.forEach((result) => {
+      priceArr.push(new Date(result.listDate.toString()).getTime());
+    })
+
+    // Sort the array in ascending order
+    const sortedArr = priceArr.sort((a, b) => a - b);
+    const length = sortedArr.length;
+    if (length === 0) {
+      return 0;
+    }
+
+    const middleIndex = Math.floor(length / 2);
+    if (length % 2 === 0) {
+      // Array length is even
+      return this.calculateDaysPassed((sortedArr[middleIndex - 1] + sortedArr[middleIndex]) / 2);
+    } else {
+      // Array length is odd
+      return this.calculateDaysPassed(sortedArr[middleIndex]);
+    }
+  }
+
+  private calculateDaysPassed(timestamp: number): number {
+    const currentDate = new Date();
+    const currentTimestamp = currentDate.getTime();
+
+    const timeDiff = currentTimestamp - timestamp;
+    const daysPassed = Math.floor(timeDiff / (24 * 60 * 60 * 1000));
+
+    return daysPassed;
+  }
+
+  private formatPriceText(num: number): string {
+    return num.toLocaleString('en-US', {
+      style: 'currency',
+      currency: 'USD'
+    });
   }
 
   private getWatchList(user: IUser): void {
@@ -103,6 +264,7 @@ export class WatchListComponent {
       'pageIndex': this.pageIndex,
       'pageSize': this.pageSize,
       'watchList': this.watchList,
+      'user': this.user,
     };
     const title = document.title;
     const url = window.location.href;
@@ -110,7 +272,7 @@ export class WatchListComponent {
   }
 
   private restoreState(state: any) {
-    this.updateUIState(null, state.watchList);
+    this.updateUIState(state.user, state.watchList);
     this.updateUIWatchListByPage(state.pageSize, state.pageIndex);
   }
 
@@ -121,6 +283,7 @@ export class WatchListComponent {
   }
 
   private updateUIUser(user: IUser | null): void {
+    this.user = user;
     if (user) {
       this.userName = `${user.firstName} ${user.lastName}`;
     } else {
@@ -151,15 +314,4 @@ export class WatchListComponent {
     this.pageSearches = (this.watchList.searches as ISearch[]).slice(start, end);
   }
 
-  public onSearchNavigate(record: ISearch): void {
-    var { search, ...narrowCriteria} = record.criteria;
-
-    let navigationExtras: NavigationExtras = {
-      queryParams: {
-        searchCriteria: JSON.stringify(narrowCriteria)
-      }
-    }
-
-    this.router.navigate(['/search'], navigationExtras);
-  }
 }

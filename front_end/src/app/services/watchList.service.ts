@@ -26,7 +26,12 @@ export class WatchListService {
     const url = `/api/watch-lists/${watchListId}`;
     return this.http.put<IWatchListMinified>(url, updatedRed);
   }
-  
+
+  public getByWatchListId(watchListId: string): Observable<IWatchListMinified> {
+    const url = `/api/watch-lists/${watchListId}`;
+    return this.http.get<IWatchListMinified>(url);
+  }
+
   public getByUserId(userId: string): Observable<IWatchListPopulated> {
     const url = `/api/users/${userId}/watchlist`;
     return this.http.get<IWatchListPopulated>(url);

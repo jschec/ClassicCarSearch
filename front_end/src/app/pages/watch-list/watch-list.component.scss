@@ -13,7 +13,7 @@
 }
 
 .watch-list-container {
-    max-width: 960px;
+    max-width: 1024px;
     margin: auto;
     padding-left: 20px;
     padding-right: 20px;
@@ -45,6 +45,9 @@
 
 .watch-list-item-attr {
     padding: 0px 20px 10px 20px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 280px;
 }
 
 .flex-layout {

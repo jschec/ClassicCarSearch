@@ -1,9 +1,15 @@
 <mat-toolbar
   color="primary"
 >
-  Classical Car Search
+  <a [routerLink]="'/home'">
+    <button mat-flat-button color="primary">
+      Classical Car Search
+    </button>
+  </a>
 
+  <span class="spacer"></span>
   <div>
+    <a mat-button [routerLink]="'/search'">Search</a>
     <a mat-button [routerLink]="'/subscription'">Subscription</a>
     <a mat-button [routerLink]="'/watch-list'">Watch List</a>
   </div>

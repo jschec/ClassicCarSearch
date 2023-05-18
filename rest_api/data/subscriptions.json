@@ -1,6 +1,6 @@
 [
     {
-        "_id": "1e5b78db-26d9-4d38-bc95-adf0f8915aa8",
+        "_id": "40fe189a-bb13-47d4-8985-5705b2b599d4",
         "name": "Free",
         "features": [
             "20 searches per day",
@@ -9,7 +9,7 @@
         "cost": 0
     },
     {
-        "_id": "6ecb0659-7673-468e-848b-b7815a0450fd",
+        "_id": "d59e3b6e-7b66-4727-8cd0-27bfb9de8187",
         "name": "Basic",
         "features": [
             "Unlimited searches",
@@ -19,7 +19,7 @@
         "cost": 10
     },
     {
-        "_id": "ccfcdab6-fe84-48cc-8580-508ac2b01d2b",
+        "_id": "27030227-c505-4b4c-9486-da1567217f39",
         "name": "Premium",
         "features": [
             "Access to market research data",
@@ -29,7 +29,7 @@
         "cost": 20
     },
     {
-        "_id": "ad3dc4c4-4e56-4e3b-803d-0ec94776211b",
+        "_id": "ee5fee7d-1490-43bd-a9df-f656963d21b6",
         "name": "Enterprise",
         "features": [
             "Access to expanded data API",

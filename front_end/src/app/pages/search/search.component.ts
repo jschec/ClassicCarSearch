@@ -12,11 +12,11 @@ import { SearchService, ICarListing } from 'src/app/core/services/search.service
 export class SearchComponent {
   numCols: number = 3;
   regionOptions = [    
-    "Northeast",
-    "Southwest",
+    "NorthEast",
+    "SouthWest",
     "West",
-    "Southeast",
-    "Midwest"
+    "SouthEast",
+    "MidWest"
   ]
 
   qualityOptions = [    
@@ -66,6 +66,7 @@ export class SearchComponent {
     this.route.queryParams.subscribe(params => {
       if (params["searchCriteria"]) {
         const parsedParams = JSON.parse(params["searchCriteria"]);
+        console.log('parsedParams', parsedParams)
         this.filterForm.patchValue(parsedParams);
       }
       this.applySearch();

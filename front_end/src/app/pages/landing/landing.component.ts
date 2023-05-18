@@ -10,11 +10,11 @@ import { NavigationExtras, Router } from '@angular/router';
 export class LandingComponent {
   filterForm: FormGroup;
   regionOptions = [
-    "Northeast",
-    "Southwest",
+    "NorthEast",
+    "SouthWest",
     "West",
-    "Southeast",
-    "Midwest"
+    "SouthEast",
+    "MidWest"
   ]
 
   constructor(private router: Router) {

@@ -1,0 +1,75 @@
+:host {
+  height: 100%;
+  overflow-y: scroll;
+}
+
+// Search criteria
+.search-footer {
+  margin-top: 8px;
+}
+
+.search-page-container {
+  margin: 20px;
+}
+
+.mat-form-field {
+  width: 100%;
+}
+
+.search-button {
+  margin-top: -25px;
+}
+
+// Result cards
+.result-card {
+  background-color: #efefef;
+  width: 100%;
+  border: #bebebe;
+  border-width: 2px;
+}
+
+mat-card img{
+  object-fit: cover;
+  width: 100%;
+  height: 300px;
+  background-color: black;
+}
+
+.result-section {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 10px;
+  background-color: #c6c4c4;
+}
+
+.result-title {
+  margin-bottom: -1px;
+}
+
+.active-chip {
+  background-color: #4281b1 !important;
+}
+
+.sold-chip {
+  background-color: #f67280 !important;
+}
+
+.active-footer {
+  background-color: #3f51b5;
+  color: white;
+  text-emphasis: bold;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.closed-footer {
+  background-color: #f67280;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+}

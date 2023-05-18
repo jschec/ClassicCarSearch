@@ -1,11 +1,17 @@
+import { randomUUID } from 'crypto';
 import { Schema, model } from 'mongoose';
 
 import { Condition } from '../interfaces/condition.interfaces';
 import { ICarDoc, ICarModel } from '../interfaces/car.interfaces';
 import CarListing from './car-listing.model';
+import toJSON from '../utils/toJson';
 
 const carSchema = new Schema<ICarDoc, ICarModel>(
   {
+    _id: {
+      type: Schema.Types.UUID,
+      default: () => randomUUID(),
+    },
     make: {
       type: String,
       required: true
@@ -40,13 +46,19 @@ const carSchema = new Schema<ICarDoc, ICarModel>(
       type: String,
       required: true,
     },
+    img: {
+      type: String,
+      required: false,
+    },
   },
   {
     timestamps: true,
+    toJSON: { getters: true },
   }
 );
 
-const Car = model<ICarDoc, ICarModel>('Car', carSchema);
+// Add plugin to converts mongoose documents to json
+carSchema.plugin(toJSON);
 
 /**
  * A pre deleteOne hook to delete all CarListing documents associated with
@@ -56,5 +68,8 @@ carSchema.pre("deleteOne", { document: true, query: false }, async function (nex
   await CarListing.deleteMany({ carId: this._id });
   next();
 });
+
+const Car = model<ICarDoc, ICarModel>('Car', carSchema);
+
 
 export default Car;

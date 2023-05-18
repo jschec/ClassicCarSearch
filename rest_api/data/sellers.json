@@ -1,0 +1,20 @@
+[
+    {
+        "_id": "c8fb0769-04eb-440c-b9ba-3bb1887ddc37",
+        "firstName": "Genesis",
+        "lastName": "Glover",
+        "email": "piper.ebert21@gmail.com"
+    },
+    {
+        "_id": "fb12333d-1bb8-41fe-b2a3-e1495c2b4d9a",
+        "firstName": "Amara",
+        "lastName": "Shanahan",
+        "email": "dylan.lindgren@hotmail.com"
+    },
+    {
+        "_id": "8368881d-3ceb-4f9d-891b-45fce9e716c8",
+        "firstName": "Oceane",
+        "lastName": "Hickle",
+        "email": "adalberto.rosenbaum@hotmail.com"
+    }
+]

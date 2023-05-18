@@ -23,6 +23,10 @@ Please note that the environmental variables listed in the 'Required Run Time En
 
 To run the population script, you can execute the command `npm run dev:populate`. Please note that the environmental variables listed in the 'Required Run Time Environmental Variables' section of this documentation must be made available.
 
+### Running The Tests
+
+To run the tests for the application, you can execute the command `npm run test`.
+
 ### Code Organization
 ```
 src                 # The source code implementations for the Express RESTful API 
@@ -57,9 +61,11 @@ faker         # For mocking data in population script
 
 ### Required Run Time Environmental Variables
 ```
-APP_ENV         # The staging of the deployment. Allows values include: 'production', 'development', 'test'
-APP_PORT        # The port, in which the RESTful API is served on. Defaults to 3000 if no value is provided.
-MONGODB_URL     # The MongoDB connection string
+APP_ENV             # The staging of the deployment. Allows values include: 'production', 'development', 'test'
+APP_PORT            # The port, in which the RESTful API is served on. Defaults to 3000 if no value is provided.
+MONGODB_USER        # The username to use for the MongoDB connection
+MONGODB_PASSWORD    # The password to use for the MongoDB connection
+MONGODB_HOST        # The address of the server hosting the MongoDB instance
 ```
 
 ### Loading environmental variables

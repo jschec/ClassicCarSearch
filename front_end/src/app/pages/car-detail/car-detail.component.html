@@ -1,1 +1,46 @@
-<p>detail works!</p>
+<!--************    details grid   ************-->
+<div class="carDeatails-page-container"fxLayout="column">
+    <div class="details-section">
+      <mat-grid-list cols="2" rowHeight="250px">
+        <mat-grid-tile [colspan]="1" [rowspan]="1">
+          <mat-card class= card-container>
+            <mat-card-header>
+              <mat-card-title> Car Details</mat-card-title>
+            </mat-card-header>
+              <mat-card-content>
+                <mat-card-subtitle>Make: {{carListing?.car?.make}}</mat-card-subtitle>
+                <mat-card-subtitle>Model: {{carListing?.car?.model}}</mat-card-subtitle>
+                <mat-card-subtitle>Year: {{carListing?.car?.year}}</mat-card-subtitle>
+                <mat-card-subtitle>Exterior Conditon: {{carListing?.car?.exteriorCondition}}</mat-card-subtitle>
+                <mat-card-subtitle>Mechanical Conditon: {{carListing?.car?.mechanicalCondition}}</mat-card-subtitle>
+                <mat-card-subtitle>Milage: {{carListing?.car?.mileage}}</mat-card-subtitle>
+                <mat-card-subtitle>Color: {{carListing?.car?.color}}</mat-card-subtitle>
+              </mat-card-content>
+          </mat-card>
+        </mat-grid-tile>
+
+        <mat-grid-tile [colspan]="1" [rowspan]="1">
+          <mat-card class= card-container rowHeight="250px">
+            <mat-card-header>
+              <mat-card-title> Seller's Details</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+              <mat-card-subtitle>First Name: {{carListing?.seller?.firstName}}</mat-card-subtitle>
+              <mat-card-subtitle>Last Name: {{carListing?.seller?.lastName}}</mat-card-subtitle>
+              <mat-card-subtitle>Email: {{carListing?.seller?.email}}</mat-card-subtitle>
+            </mat-card-content>
+            <mat-card-header>
+              <mat-card-title> Costs Details</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+              <mat-card-subtitle>Region: {{carListing?.region}}</mat-card-subtitle>
+              <mat-card-subtitle>Price: ${{carListing?.price}}</mat-card-subtitle>
+            </mat-card-content>
+          </mat-card>
+        </mat-grid-tile>
+        <mat-grid-tile [colspan]="2"[rowspan]="2">
+          <img class="car-image" mat-card-image src="{{carListing?.car?.img}}">
+        </mat-grid-tile>
+      </mat-grid-list>
+    </div>
+</div>

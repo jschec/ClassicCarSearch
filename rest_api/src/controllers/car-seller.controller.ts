@@ -28,10 +28,8 @@ export const createCarSeller = catchAsync(async (req: Request, res: Response) =>
  * @returns {Promise<ICarSellerDoc[]>} A promise containing the specified CarSeller record
  */
 export const getCarSeller = catchAsync(async (req: Request, res: Response) => {
-  if (typeof req.params['carSellerId'] === 'string') {
-    const record = await carSellerService.getById(
-      new Types.ObjectId(req.params['carSellerId'])
-    );
+  if (req.params['carSellerId']) {
+    const record = await carSellerService.getById(req.params['carSellerId']);
     
     if (!record) {
       throw new ApiError(httpStatus.NOT_FOUND, 'Car seller not found');
@@ -62,9 +60,9 @@ export const getCarSellers = catchAsync(async (req: Request, res: Response) => {
  * @returns {Promise<ICarSellerDoc>} A promise containing the updated CarSeller record
  */
 export const updateCarSeller = catchAsync(async (req: Request, res: Response) => {
-  if (typeof req.params['carSellerId'] === 'string') {
+  if (req.params['carSellerId']) {
     const record = await carSellerService.updateById(
-      new Types.ObjectId(req.params['carSellerId']), req.body
+      req.params['carSellerId'], req.body
     );
     
     res.send(record);
@@ -79,10 +77,8 @@ export const updateCarSeller = catchAsync(async (req: Request, res: Response) =>
  * @returns {Promise<void>} A promise indicating the success of the operation
  */ 
 export const deleteCarSeller = catchAsync(async (req: Request, res: Response) => {
-  if (typeof req.params['carSellerId'] === 'string') {
-    await carSellerService.deleteById(
-      new Types.ObjectId(req.params['carSellerId'])
-    );
+  if (req.params['carSellerId']) {
+    await carSellerService.deleteById(req.params['carSellerId']);
 
     res.status(httpStatus.NO_CONTENT).send();
   }

@@ -1,0 +1,34 @@
+.landing-page-container {
+    margin: 30px;
+}
+
+.landing-page-container .search-section {
+    margin-left: 100px;
+    margin-right: 100px;
+    border-radius: 0;
+    border: 1px solid #bebebe;
+    box-shadow: none;
+}
+
+.mat-form-field {
+    width: 100%;
+}
+
+.landing-page-container .landing-page-title {
+    font-size: 2em;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.landing-page-container .landing-logo-section {
+    margin-top: 50px;
+    min-height: 300px;
+}
+
+.landing-logo {
+    height: 400px;
+}
+
+.search-button {
+    margin-top: -25px;
+}

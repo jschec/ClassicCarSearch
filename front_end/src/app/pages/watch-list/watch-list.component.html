@@ -44,10 +44,11 @@
 
                         </div>
                         <div class="flex-layout flex-column">
-                            <button class="" mat-flat-button color="primary">Recommemdation</button>
+                            <!-- <button class="" mat-flat-button color="primary">Recommemdation</button> -->
                             <button class="" mat-flat-button color="primary" routerLink="/search/{{search.id}}">View Search</button>
+                            <button class="" mat-flat-button color="warn">Remove</button>
 
-                            <section class="flex-layout flex-row align-items-start">
+                            <!-- <section class="flex-layout flex-row align-items-start">
                                 <label class="" style="margin-top: 10px">Notify By:</label>
                                 <section class="flex-layout flex-column">
                                     <mat-checkbox class="" [(ngModel)]="notifyByEmails[search.id]" (change)="onNotifyByEmailChanged($event, search.id)">
@@ -57,7 +58,7 @@
                                         <div class="checkbox-option-label">SMS</div>
                                     </mat-checkbox>
                                 </section>
-                            </section>
+                            </section> -->
                         </div>
 
                     </div>

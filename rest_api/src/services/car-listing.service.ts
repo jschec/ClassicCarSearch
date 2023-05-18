@@ -31,11 +31,6 @@ export const create = async (reqBody: NewCarListingBody): Promise<ICarListingDoc
 export const applyQuery = async (reqBody: SearchCriteriaRequestPaginated, isPaginated: boolean = true): Promise<IPaginationResponse<ICarListingDoc>> => {
   let { page, pageSize, region, ...carCriteria } = reqBody;
 
-  console.log("page", page);
-  console.log("pageSize", pageSize);
-  console.log("region", region);
-  console.log("carCriteria", carCriteria);
-  
   // Ugly, but necessary to convert page to number
   if (typeof page === 'string') {
     page = parseInt(page);
@@ -103,7 +98,7 @@ export const applyQuery = async (reqBody: SearchCriteriaRequestPaginated, isPagi
       {
         $facet: {
           records: [
-            { $skip: page }, 
+            { $skip: page * pageSize }, 
             { $limit: pageSize }
           ],
           numRecords: [

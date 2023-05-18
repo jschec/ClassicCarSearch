@@ -82,7 +82,7 @@ export class SearchService {
         continue;
       }
       //Handle arrays
-      if (k === "region" || k === "interiorCondition" || k === "mechanicalCondition") {        
+      if (k === "region" || k === "exteriorCondition" || k === "mechanicalCondition") {        
         v = v.toString();
       }
 
@@ -102,7 +102,7 @@ export class SearchService {
         continue;
       }
       //Handle arrays
-      if (k === "region" || k === "interiorCondition" || k === "mechanicalCondition") {        
+      if (k === "region" || k === "exteriorCondition" || k === "mechanicalCondition") {        
         v = v.toString();
       }
 

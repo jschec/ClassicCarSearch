@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ICarListing,CarDetailsService} from 'src/app/core/services/car-details.service';
+import { ICarListing,CarDetailsService} from 'src/app/services/car-details.service';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({

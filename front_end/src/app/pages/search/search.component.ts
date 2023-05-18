@@ -2,10 +2,10 @@ import { Component, HostListener } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { PageEvent } from '@angular/material/paginator';
-import { SearchService, ICarListing } from 'src/app/core/services/search.service';
+import { SearchService, ICarListing } from 'src/app/services/search.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { IWatchListMinified, WatchListService } from 'src/app/core/services/watchList.service';
-import { UserService } from 'src/app/core/services/user.service';
+import { IWatchListMinified, WatchListService } from 'src/app/services/watchList.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-search',

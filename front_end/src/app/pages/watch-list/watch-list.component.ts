@@ -1,10 +1,10 @@
 import { Component, HostListener, ElementRef, ViewChild } from '@angular/core';
 import { PageEvent } from '@angular/material/paginator';
 import { NavigationExtras, Router } from '@angular/router';
-import { IWatchListPopulated, WatchListService } from 'src/app/core/services/watchList.service';
-import { ISearch } from 'src/app/core/services/search.service';
+import { IWatchListPopulated, WatchListService } from 'src/app/services/watchList.service';
+import { ISearch } from 'src/app/services/search.service';
 import { MatCheckboxChange } from '@angular/material/checkbox';
-import { UserService, IUser } from 'src/app/core/services/user.service';
+import { UserService, IUser } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-watch-list',

@@ -7,7 +7,6 @@ import { SearchComponent } from './pages/search/search.component';
 import { SubscriptionComponent } from './pages/subscription/subscription.component';
 import { WatchListComponent } from './pages/watch-list/watch-list.component';
 
-
 const routes: Routes = [
   {
     path: 'home',
@@ -16,6 +15,10 @@ const routes: Routes = [
   {
     path: 'search',
     component: SearchComponent,
+  },
+  {
+    path: 'search/:id',
+    component: MarketDataComponent,
   },
   {
     path: 'car/:id',
@@ -28,6 +31,16 @@ const routes: Routes = [
   {
     path: 'watch-list',
     component: WatchListComponent,
+  },
+
+  {
+    path: 'car-detail/:id',
+    component: CarDetailComponent,
+    
+  },
+  {
+    path: 'car-detail',
+    component: CarDetailComponent,
   },
   {
     path: '**',

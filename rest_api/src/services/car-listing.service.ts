@@ -57,9 +57,11 @@ export const applyQuery = async (reqBody: SearchCriteriaRequestPaginated, isPagi
     if (k === 'exteriorCondition' || k === 'mechanicalCondition') {
       searchCriteria[`car.${k}`] = { "$in": (v as string).split(',') }
     } else if (k === 'startYear') {
-      searchCriteria['car.year'] = { "$gte": parseInt(v as string) }
+      const startYear = typeof v === 'string' ? parseInt(v as string) : v;
+      searchCriteria['car.year'] = { "$gte": startYear }
     } else if (k === 'endYear') {
-      searchCriteria['car.year'] = { "$lte": parseInt(v as string) }
+      const endYear = typeof v === 'string' ? parseInt(v as string) : v;
+      searchCriteria['car.year'] = { "$lte": endYear }
     } else {
       searchCriteria[`car.${k}`] = v;
     }

@@ -41,7 +41,7 @@ const routes: Routes = [
     component: MarketDataComponent,
   },
   {
-    path: 'car/:id',
+    path: 'car/:id', //car means carlisting in this line
     component: CarDetailComponent,
   },
   {

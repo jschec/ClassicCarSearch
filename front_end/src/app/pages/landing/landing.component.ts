@@ -9,7 +9,6 @@ import { NavigationExtras, Router } from '@angular/router';
 })
 export class LandingComponent {
   filterForm: FormGroup;
-  
   regionOptions = [
     "Northeast",
     "Southwest",
@@ -18,7 +17,7 @@ export class LandingComponent {
     "Midwest"
   ]
 
-  constructor(private router : Router) {
+  constructor(private router: Router) {
     const minYear = 1885;
     const maxYear = new Date().getFullYear() + 1;
 
@@ -35,10 +34,11 @@ export class LandingComponent {
     });
   }
 
-  ngOnInit(): void {
-  }
 
-  onClickSubmit() {
+  /**
+   * Handles the submission of the specified search criteria.
+   */
+  public onClickSubmit() {
     let navigationExtras: NavigationExtras = {
       queryParams: {
         searchCriteria: JSON.stringify(this.filterForm.value)

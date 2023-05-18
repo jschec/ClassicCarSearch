@@ -130,6 +130,39 @@ export class WatchListComponent {
     return this.formatPriceText(this.getMeanPrice(search));
   }
 
+  getMedianDateText(search: ISearch): number {
+    let priceArr: Array<number> = [];
+    search.results.forEach((result) => {
+      priceArr.push(new Date(result.listDate.toString()).getTime());
+    })
+
+    // Sort the array in ascending order
+    const sortedArr = priceArr.sort((a, b) => a - b);
+    const length = sortedArr.length;
+    if (length === 0) {
+      return 0;
+    }
+
+    const middleIndex = Math.floor(length / 2);
+    if (length % 2 === 0) {
+      // Array length is even
+      return this.calculateDaysPassed((sortedArr[middleIndex - 1] + sortedArr[middleIndex]) / 2);
+    } else {
+      // Array length is odd
+      return this.calculateDaysPassed(sortedArr[middleIndex]);
+    }
+  }
+
+  private calculateDaysPassed(timestamp: number): number {
+    const currentDate = new Date();
+    const currentTimestamp = currentDate.getTime();
+
+    const timeDiff = currentTimestamp - timestamp;
+    const daysPassed = Math.floor(timeDiff / (24 * 60 * 60 * 1000));
+
+    return daysPassed;
+  }
+
   private formatPriceText(num: number): string {
     return num.toLocaleString('en-US', {
       style: 'currency',

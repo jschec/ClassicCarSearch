@@ -5,6 +5,7 @@ import { AuthService } from 'src/app/core/services/auth.service';
 import { IWatchList, WatchListService } from 'src/app/core/services/watchList.service';
 import { ISearch, SearchService } from 'src/app/core/services/search.service';
 import { MatCheckboxChange } from '@angular/material/checkbox';
+import { getMatAutocompleteMissingPanelError } from '@angular/material/autocomplete';
 
 @Component({
   selector: 'app-watch-list',
@@ -84,6 +85,56 @@ export class WatchListComponent {
     const element = this.scrollContainer.nativeElement;
     element.scrollTop = element.scrollHeight;
     console.log(element.scrollHeight);
+  }
+
+  getMeanPrice(search: ISearch): number {
+    let priceArr: Array<number> = [];
+    search.results.forEach((result) => {
+      priceArr.push(result.price);
+    })
+
+    const sum = priceArr.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
+    const mean = sum / priceArr.length;
+
+    return mean;
+  }
+
+  getMedianPrice(search: ISearch): number {
+    let priceArr: Array<number> = [];
+    search.results.forEach((result) => {
+      priceArr.push(result.price);
+    })
+
+    // Sort the array in ascending order
+    const sortedArr = priceArr.sort((a, b) => a - b);
+    const length = sortedArr.length;
+    if (length === 0) {
+      return 0;
+    }
+
+    const middleIndex = Math.floor(length / 2);
+    if (length % 2 === 0) {
+      // Array length is even
+      return (sortedArr[middleIndex - 1] + sortedArr[middleIndex]) / 2;
+    } else {
+      // Array length is odd
+      return sortedArr[middleIndex];
+    }
+  }
+
+  getMedianPriceText(search: ISearch): string {
+    return this.formatPriceText(this.getMedianPrice(search));
+  }
+
+  getMeanPriceText(search: ISearch): string {
+    return this.formatPriceText(this.getMeanPrice(search));
+  }
+
+  private formatPriceText(num: number): string {
+    return num.toLocaleString('en-US', {
+      style: 'currency',
+      currency: 'USD'
+    });
   }
 
   private getCurrentUser(): any {

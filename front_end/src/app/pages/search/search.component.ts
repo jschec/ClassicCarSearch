@@ -1,23 +1,23 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { PageEvent } from '@angular/material/paginator';
 import { SearchService, ICarListing } from 'src/app/core/services/search.service';
-import { ICar } from 'src/app/core/services/cars.service';
-import { ActivatedRoute, Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-search',
   templateUrl: './search.component.html',
   styleUrls: ['./search.component.scss']
 })
-
 export class SearchComponent {
+  numCols: number = 3;
   regionOptions = [    
-    "Northeast",
-    "Southwest",
+    "NorthEast",
+    "SouthWest",
     "West",
-    "Southeast",
-    "Midwest"
+    "SouthEast",
+    "MidWest"
   ]
 
   qualityOptions = [    
@@ -30,12 +30,15 @@ export class SearchComponent {
   filterForm: FormGroup;
   searchResults: ICarListing[] = [];
   page: number = 0;
-  pageSizeList: number[] = [5, 10, 25, 100]
+  pageSizeList: number[] = [6, 12, 24, 120]
   pageSize: number = this.pageSizeList[0];
   numRecords: number = 0;
  
 
-  constructor(private route: ActivatedRoute, private router: Router, private searchService: SearchService) {
+  constructor(
+    private route: ActivatedRoute, 
+    private searchService: SearchService,
+    private snackBar: MatSnackBar) {
     const minYear = 1885;
     const maxYear = new Date().getFullYear() + 1;
 
@@ -67,6 +70,7 @@ export class SearchComponent {
     this.route.queryParams.subscribe(params => {
       if (params["searchCriteria"]) {
         const parsedParams = JSON.parse(params["searchCriteria"]);
+        console.log('parsedParams', parsedParams)
         this.filterForm.patchValue(parsedParams);
       }
       this.applySearch();
@@ -83,8 +87,23 @@ export class SearchComponent {
     this.applySearch();
   }
 
-  goToDetail(carRecord: ICar) {
-    this.router.navigate(['/car', carRecord._id])
+  onPinSearch() {
+    this.searchService.save(this.filterForm.value).subscribe((response) => {
+      console.log('response', response);
+      this.snackBar.open("Search saved!", "close");
+    });
   }
 
+  @HostListener('window:resize', ['$event'])
+  onResize(event: Event) {
+    const windowWidth = (event.target as Window).innerWidth;
+    
+    if (windowWidth <= 700) {
+      this.numCols = 1;
+    } else if (windowWidth <= 1000) {
+      this.numCols = 2;
+    } else {
+      this.numCols = 3;
+    }
+  }
 }

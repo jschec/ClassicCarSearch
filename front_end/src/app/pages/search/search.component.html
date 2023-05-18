@@ -1,5 +1,5 @@
 <!--************    SEARCH BAR    ************-->
-<div class="landing-page-container" fxLayout="column">
+<div class="search-page-container" fxLayout="column">
   <div class="search-section">
     <div class="section-title">
       <h1>Cars for sale - Search Around The Nation</h1>
@@ -56,36 +56,36 @@
         </mat-form-field>
 
         <button mat-flat-button class="search-button" type="submit" [disabled]="!filterForm.valid" color="primary"
-          fxFlex="10">
+          fxFlex="5">
           Search
+        </button>
+
+        <button mat-flat-button class="search-button" [disabled]="!filterForm.valid" color="primary" (click)="onPinSearch()"
+          fxFlex="5">
+          Pin
         </button>
       </div>
     </form>
   </div>
 
   <!--************    MAIN PAGE BODY    ************-->
-  <mat-grid-list cols="2" rowHeight="800px" colWidth="fit" class="resultBackdrop">
+  <mat-grid-list [cols]="numCols" rowHeight="700px" colWidth="fit" [gutterSize]="'20px'" (window:resize)="onResize($event)">
+    
     <!-- ***********    Material Card Template*    ************ -->
     <mat-grid-tile *ngFor="let record of searchResults" [colspan]="1" [rowspan]="1">
-      <div class="searchDisplayItem">
-        <mat-card class="resultCard" type="raised">
+        <mat-card class="result-card" type="raised">
+
+          <!--***********  Card Header ************-->
           <img mat-card-image src="{{record.car.img}}">
+          
+          <div class="result-section">
+            <h4 class="result-title">{{record.car.year}} {{record.car.make}} {{record.car.model}}</h4>
+            <mat-chip class="active-chip" *ngIf="!record.saleDate">Active</mat-chip>
+            <mat-chip class="sold-chip" *ngIf="record.saleDate">Sold</mat-chip>
+          </div>
 
-          <mat-grid-list cols="2" rowHeight="50px" class="cardHeader">
-
-            <mat-grid-tile [colspan]="1">
-              <h3>{{record.car.make}} {{record.car.model}}</h3>
-            </mat-grid-tile>
-            <mat-grid-tile [colspan]="1">
-              <div class="active-listingChip" *ngIf="!record.saleDate">Active</div>
-              <div class="closed-listingChip" *ngIf="record.saleDate">Sold</div>
-            </mat-grid-tile>
-
-          </mat-grid-list>
-
+          <!--***********  Numerical Data  ************-->
           <mat-card-content>
-            <!--TODO: Add Description {{record.listingDescription}}-->
-            <!--***********  Numerical Data  ************-->
             <mat-list>
               <mat-list-item>
                 <span matListItemTitle>Mileage</span>
@@ -100,30 +100,29 @@
                 <span>{{record.car.mechanicalCondition}}</span>
               </mat-list-item>
               <mat-list-item>
-                <span matListItemTitle>Price: {{record.price}}</span>
+                <span matListItemTitle>Price: ${{record.price}}</span>
               </mat-list-item>
             </mat-list>
-            <!--***********  Card Footer ************-->
           </mat-card-content>
-          <mat-grid-list cols="2" rowHeight="50px" class="cardFooter">
-            <mat-grid-tile [colspan]="1">
-              <div matBadgeSize="large" class="active-listingFooter" *ngIf="!record.saleDate">Listed {{record.listDate}}
-              </div>
-              <div matBadgeSize="large" class="closed-listingFooter" *ngIf="record.saleDate">Sold {{record.saleDate}}
-              </div>
-            </mat-grid-tile>
-            <mat-grid-tile [colspan]="1">
-              <mat-card-actions>
-                <button mat-flat-button color="primary" routerLink="/car/{{record.car._id}}">
-                  See Detail
-                </button>
-              </mat-card-actions>
-            </mat-grid-tile>
-          </mat-grid-list>
+          
+          <!--***********  Card Footer ************-->
+          <div class="result-section">
+            <div class="active-footer" matBadgeSize="large" *ngIf="!record.saleDate">
+              Listed {{record.listDate}}
+            </div>
+            <div class="closed-footer" matBadgeSize="large" *ngIf="record.saleDate">
+              Sold {{record.saleDate}}
+            </div>
+
+            <button mat-flat-button color="primary" routerLink="/car/{{record.car._id}}">
+              See Detail
+            </button>
+          </div>
+
         </mat-card>
-      </div>
     </mat-grid-tile>
     <!-- End of Card -->
+  
   </mat-grid-list>
 
   <!--***** PAGE BOTTOM *****-->

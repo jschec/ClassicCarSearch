@@ -9,23 +9,22 @@ import { NavigationExtras, Router } from '@angular/router';
 })
 export class LandingComponent {
   filterForm: FormGroup;
-  
   regionOptions = [
-    "Northeast",
-    "Southwest",
+    "NorthEast",
+    "SouthWest",
     "West",
-    "Southeast",
-    "Midwest"
+    "SouthEast",
+    "MidWest"
   ]
 
-  constructor(private router : Router) {
+  constructor(private router: Router) {
     const minYear = 1885;
     const maxYear = new Date().getFullYear() + 1;
 
     this.filterForm = new FormGroup({
       make: new FormControl(''),
       model: new FormControl(''),
-      selectedRegion: new FormControl(''),
+      region: new FormControl(''),
       startYear: new FormControl(
         minYear, [Validators.min(minYear), Validators.max(maxYear)]
       ),
@@ -35,10 +34,11 @@ export class LandingComponent {
     });
   }
 
-  ngOnInit(): void {
-  }
 
-  onClickSubmit() {
+  /**
+   * Handles the submission of the specified search criteria.
+   */
+  public onClickSubmit() {
     let navigationExtras: NavigationExtras = {
       queryParams: {
         searchCriteria: JSON.stringify(this.filterForm.value)

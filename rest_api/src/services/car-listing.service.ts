@@ -9,6 +9,7 @@ import {
 } from '../interfaces/search-criteria.interfaces';
 import CarListing from '../models/car-listing.model';
 import ApiError from '../utils/ApiError';
+import { PipelineStage } from 'mongoose';
 
 /**
  * Creates a new CarListing record
@@ -21,23 +22,19 @@ export const create = async (reqBody: NewCarListingBody): Promise<ICarListingDoc
 };
 
 /**
- * Applies a query to retrieve CarListing records
- * 
- * @param {NewCarListingBody} reqBody The request body supplied by the client
- * @returns {Promise<ICarListingDoc[] | null>} A promise containing the matching CarListing records
- */
-export const applyQuery = async (reqBody: SearchCriteriaRequest): Promise<ICarListingDoc[]> => {
-  return CarListing.find({...reqBody});
-};
-
-/**
  * Applies a query to retrieve populated CarListing records
  * 
  * @param {SearchCriteriaRequestPaginated} reqBody The request body supplied by the client
+ * @param {boolean} isPaginated If true, the query will be paginated. Defaults to true.
  * @returns {Promise<IPaginationResponse<ICarListingDoc>>} A promise containing the matching CarListing records
  */
-export const applyQueryFullDoc = async (reqBody: SearchCriteriaRequestPaginated): Promise<IPaginationResponse<ICarListingDoc>> => {
+export const applyQuery = async (reqBody: SearchCriteriaRequestPaginated, isPaginated: boolean = true): Promise<IPaginationResponse<ICarListingDoc>> => {
   let { page, pageSize, region, ...carCriteria } = reqBody;
+
+  console.log("page", page);
+  console.log("pageSize", pageSize);
+  console.log("region", region);
+  console.log("carCriteria", carCriteria);
   
   // Ugly, but necessary to convert page to number
   if (typeof page === 'string') {
@@ -53,7 +50,7 @@ export const applyQueryFullDoc = async (reqBody: SearchCriteriaRequestPaginated)
   var searchCriteria: {[key: string]: any} = {};
 
   if (region) {
-    searchCriteria["region"] = { "$in": region.split(',') };
+    searchCriteria["region"] = { "$in": (region as string).split(',') };
   }
 
   for (const [k, v] of Object.entries(carCriteria)) {
@@ -68,7 +65,7 @@ export const applyQueryFullDoc = async (reqBody: SearchCriteriaRequestPaginated)
     }
   }
 
-  let aggregation = await CarListing.aggregate([
+  let transformations: PipelineStage[] = [
     { 
       $lookup: {
         from: 'cars',
@@ -97,20 +94,42 @@ export const applyQueryFullDoc = async (reqBody: SearchCriteriaRequestPaginated)
     { 
       $sort: { createdAt: -1 } 
     },
-    {
-      $facet: {
-        records: [
-          { $skip: page }, 
-          { $limit: pageSize }
-        ],
-        numRecords: [
-          {
-            $count: 'count'
-          }
-        ]
+  ];
+
+  if (isPaginated) {
+    transformations.push(
+      {
+        $facet: {
+          records: [
+            { $skip: page }, 
+            { $limit: pageSize }
+          ],
+          numRecords: [
+            {
+              $count: 'count'
+            }
+          ]
+        }
       }
-    }
-  ]);
+    );
+  } else {
+    transformations.push(
+      {
+        $facet: {
+          records: [
+            { $skip: 0 }
+          ],
+          numRecords: [
+            {
+              $count: 'count'
+            }
+          ]
+        }
+      }
+    );
+  }
+
+  const aggregation = await CarListing.aggregate(transformations);
 
   return {
     page: page,

@@ -1,24 +1,42 @@
 @use '@angular/material' as mat;
 
+:host {
+    height: 100%;
+}
+
+.loading-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
 .subscription-page-container {
     margin: 20px;
     height: 100%;
 }
 
 .subscription-card {
+    height: 300px;
+    min-width: 230px;
+
     &:hover {
         @include mat.elevation(12);
     }
 }
 
-.subscription-card-header {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.subscription-card mat-card-content {
+    height: 200px;
 }
 
 .subscription-action {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.subscription-options {
+    overflow-x: scroll;
 }

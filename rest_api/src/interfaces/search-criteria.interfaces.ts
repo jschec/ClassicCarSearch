@@ -7,13 +7,13 @@ import { ISearchDoc } from './search.interfaces';
 
 export interface ISearchCrtieria {
   search: string | ISearchDoc;
-  region: Region;
+  region: Region[] | string;
   startYear: number;
   endYear: number;
   maxMileage: number;
   maxPrice: number;
-  exteriorCondition: Condition;
-  mechanicalCondition: Condition;
+  exteriorCondition: Condition[] | string;
+  mechanicalCondition: Condition[] | string;
   color: string;
   make: string;
   model: string;
@@ -23,7 +23,7 @@ export type NewSearchCriteriaBody = Partial<ISearchCrtieria>;
 
 export type UpdateSearchCriteriaBody = Partial<ISearchCrtieria>;
 
-export type SearchCriteriaRequest = Partial<Omit<ISearchCrtieria, 'searchId'>>; 
+export type SearchCriteriaRequest = Partial<Omit<ISearchCrtieria, 'search'>>; 
 
 export type SearchCriteriaRequestPaginated = SearchCriteriaRequest & IPagination;
 

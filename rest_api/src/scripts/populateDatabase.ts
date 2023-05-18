@@ -270,10 +270,11 @@ const populateSearches = async () => {
       region: randomRegion()
     };
 
-    const matchingListings = await carListingService.applyQuery(
-      searchCriteria
-    );
-    const listingIds = matchingListings.map(listing => listing._id);
+    const matchingListings = await carListingService.applyQuery({
+      page: 0, pageSize: -1, ...searchCriteria
+    }, false);
+
+    const listingIds = matchingListings.records.map(listing => listing._id);
 
     const record = await searchService.create({
       ...searchCriteria, results: listingIds

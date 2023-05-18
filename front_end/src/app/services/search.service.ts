@@ -82,7 +82,7 @@ export class SearchService {
         continue;
       }
       //Handle arrays
-      if (k === "region" || k === "interiorCondition" || k === "mechanicalCondition") {        
+      if (k === "region" || k === "exteriorCondition" || k === "mechanicalCondition") {        
         v = v.toString();
       }
 
@@ -94,8 +94,21 @@ export class SearchService {
   public save(criteria: SearchCriteriaRequest): Observable<ISearch> {
     const url = '/api/searches';
 
-    console.log('criteria', criteria);
-    
-    return this.http.post<ISearch>(url, criteria);
+    let queryBody: Record<string, any> = {};
+
+    for (let [k, v] of Object.entries(criteria)) {
+      // Skip empty values
+      if (v === undefined || v === null || v === "" || v.length == 0) {
+        continue;
+      }
+      //Handle arrays
+      if (k === "region" || k === "exteriorCondition" || k === "mechanicalCondition") {        
+        v = v.toString();
+      }
+
+      queryBody[k] = v;
+    }
+        
+    return this.http.post<ISearch>(url, queryBody);
   }
 }

@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-
 export interface ICar {
   make: string;
   model: string;
@@ -25,19 +24,16 @@ export interface ICarListing {
   price: number;
   listDate: Date;
   saleDate: Date | null;
-  seller: ICarSeller; //this should be the seller id
-  car: ICar; // this should be the car id
+  seller: ICarSeller; 
+  car: ICar;
 }
+
 export enum Condition {
   Excellent = 'Excellent',
   Good = 'Good',
   Fair = 'Fair',
   Bad = 'Bad',
 }
-
-
-
-
 
 @Injectable({
   providedIn: 'root'
@@ -50,6 +46,4 @@ export class CarDetailsService {
     const url = '/api/car-listings/' + carlistingId ;
     return this.http.get<ICarListing>(url); 
   }
-
- 
 }

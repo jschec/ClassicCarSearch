@@ -32,14 +32,24 @@ export const createSearch = catchAsync(async (req: Request, res: Response) => {
   }, false);
 
   const listingIds = matchingListings.records.map(listing => listing._id);
-  
+
   const record = await searchService.create({
     ...req.body, results: listingIds
   });
 
   // Create the SearchCriteria record
-  await searchCriteriaService.create({...req.body, search: record._id});
-  
+  let searchCriteria: Record<string, any> = {};
+
+  for (let [k, v] of Object.entries(req.body)) {
+    if (k === "region" || k === "exteriorCondition" || k === "mechanicalCondition") {        
+      searchCriteria[k] = (v as string).split(',');
+    } else {
+      searchCriteria[k] = v;
+    }
+  }
+
+  await searchCriteriaService.create({...searchCriteria, search: record._id});
+
   res.status(httpStatus.CREATED).send(record);
 });
 

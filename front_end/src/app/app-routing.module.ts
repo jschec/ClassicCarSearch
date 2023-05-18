@@ -17,10 +17,6 @@ const routes: Routes = [
     component: SearchComponent,
   },
   {
-    path: 'search/:id',
-    component: MarketDataComponent,
-  },
-  {
     path: 'car/:id',
     component: CarDetailComponent,
   },

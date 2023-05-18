@@ -31,11 +31,6 @@ export const create = async (reqBody: NewCarListingBody): Promise<ICarListingDoc
 export const applyQuery = async (reqBody: SearchCriteriaRequestPaginated, isPaginated: boolean = true): Promise<IPaginationResponse<ICarListingDoc>> => {
   let { page, pageSize, region, ...carCriteria } = reqBody;
 
-  console.log("page", page);
-  console.log("pageSize", pageSize);
-  console.log("region", region);
-  console.log("carCriteria", carCriteria);
-  
   // Ugly, but necessary to convert page to number
   if (typeof page === 'string') {
     page = parseInt(page);
@@ -57,9 +52,11 @@ export const applyQuery = async (reqBody: SearchCriteriaRequestPaginated, isPagi
     if (k === 'exteriorCondition' || k === 'mechanicalCondition') {
       searchCriteria[`car.${k}`] = { "$in": (v as string).split(',') }
     } else if (k === 'startYear') {
-      searchCriteria['car.year'] = { "$gte": parseInt(v as string) }
+      const startYear = typeof v === 'string' ? parseInt(v as string) : v;
+      searchCriteria['car.year'] = { "$gte": startYear }
     } else if (k === 'endYear') {
-      searchCriteria['car.year'] = { "$lte": parseInt(v as string) }
+      const endYear = typeof v === 'string' ? parseInt(v as string) : v;
+      searchCriteria['car.year'] = { "$lte": endYear }
     } else {
       searchCriteria[`car.${k}`] = v;
     }
@@ -101,7 +98,7 @@ export const applyQuery = async (reqBody: SearchCriteriaRequestPaginated, isPagi
       {
         $facet: {
           records: [
-            { $skip: page }, 
+            { $skip: page * pageSize }, 
             { $limit: pageSize }
           ],
           numRecords: [

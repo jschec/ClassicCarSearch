@@ -2,8 +2,8 @@ import { Component } from '@angular/core';
 import { delay } from 'rxjs';
 import { 
   SubscriptionService, ISubscription 
-} from 'src/app/core/services/subscription.service';
-import { UserService } from 'src/app/core/services/user.service';
+} from 'src/app/services/subscription.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-subscription',

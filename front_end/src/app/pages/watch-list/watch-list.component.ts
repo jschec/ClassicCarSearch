@@ -1,10 +1,10 @@
 import { Component, HostListener, ElementRef, ViewChild } from '@angular/core';
 import { PageEvent } from '@angular/material/paginator';
 import { NavigationExtras, Router } from '@angular/router';
-import { IWatchList, WatchListService } from 'src/app/core/services/watchList.service';
-import { ISearch } from 'src/app/core/services/search.service';
+import { IWatchListPopulated, WatchListService } from 'src/app/services/watchList.service';
+import { ISearch } from 'src/app/services/search.service';
 import { MatCheckboxChange } from '@angular/material/checkbox';
-import { UserService, IUser } from 'src/app/core/services/user.service';
+import { UserService, IUser } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-watch-list',
@@ -13,7 +13,7 @@ import { UserService, IUser } from 'src/app/core/services/user.service';
 })
 export class WatchListComponent {
   // raw data, fetch from backend
-  watchList: IWatchList | null = null;
+  watchList: IWatchListPopulated | null = null;
   // data binding
   userName: string = "";
   totalCount: number = 0;
@@ -91,7 +91,7 @@ export class WatchListComponent {
 
   private getWatchList(user: IUser): void {
     this.loading = true;
-    this.watchListService.getByUserId(user.id).subscribe((watchList: IWatchList) => {
+    this.watchListService.getByUserId(user.id).subscribe((watchList: IWatchListPopulated) => {
       console.log(watchList.searches);
       this.updateUIState(user, watchList);
       this.saveState();
@@ -114,7 +114,7 @@ export class WatchListComponent {
     this.updateUIWatchListByPage(state.pageSize, state.pageIndex);
   }
 
-  private updateUIState(user: IUser | null, watchList: IWatchList | null): void {
+  private updateUIState(user: IUser | null, watchList: IWatchListPopulated | null): void {
     this.loading = false;
     this.updateUIUser(user);
     this.updateUIWatchList(watchList);
@@ -128,7 +128,7 @@ export class WatchListComponent {
     }
   }
 
-  private updateUIWatchList(watchList: IWatchList | null): void {
+  private updateUIWatchList(watchList: IWatchListPopulated | null): void {
     if (!watchList) {
       return;
     }

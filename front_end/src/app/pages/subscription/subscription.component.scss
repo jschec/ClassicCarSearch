@@ -15,7 +15,6 @@
 
 .subscription-page-container {
     margin: 20px;
-    height: 100%;
 }
 
 .subscription-card {
@@ -38,5 +37,5 @@
 }
 
 .subscription-options {
-    overflow-x: scroll;
+    display: flex;
 }

@@ -67,7 +67,7 @@ describe('Test get single subscription', function() {
 
   before(function (done) {
     chai.request(`http://${config.hostName}:${config.hostPort}`)
-      .get("/subscriptions/d3529038-9304-432c-b372-8bc9f391a257")
+      .get("/subscriptions/d59e3b6e-7b66-4727-8cd0-27bfb9de8187")
       .end(function (err, res) {
         requestResult = res.body;
         response = res;
@@ -96,4 +96,21 @@ describe('Test get single subscription', function() {
 
     expect(response.body).to.not.be.a.string;
 	});
+
+  it('The object should have the expected body', function() {
+    const expectedBody = {
+      "name": "Basic",
+        "features": [
+            "Unlimited searches",
+            "Ability to save and manage searches",
+            "No advertisements"
+        ],
+      "cost": 10,
+      "createdAt": "2023-05-18T05:51:34.750Z",
+      "updatedAt": "2023-05-18T05:51:34.750Z",
+      "id": "d59e3b6e-7b66-4727-8cd0-27bfb9de8187"
+    };
+
+    expect(response.body).to.deep.include(expectedBody);
+  });
 });

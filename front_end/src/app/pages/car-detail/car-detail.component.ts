@@ -7,16 +7,21 @@ import { ICarListing,CarDetailsService} from 'src/app/core/services/car-details.
 import { ActivatedRoute } from '@angular/router';
 
 
+
 @Component({
   selector: 'app-detail',
   templateUrl: './car-detail.component.html',
   styleUrls: ['./car-detail.component.scss']
 })
+
+
 export class CarDetailComponent {
   // from backend
   carListing: ICarListing | null = null;
   loading: boolean = true;
   id: string;
+
+ 
 
   constructor(private route: ActivatedRoute,
     private carDetailsService: CarDetailsService){

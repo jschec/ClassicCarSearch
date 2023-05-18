@@ -57,20 +57,10 @@ export type SearchCriteriaRequest = Partial<ISearchCrtieria>;
 export class SearchService {
   constructor(private http: HttpClient) { }
 
-  public getByIds(ids: string[]): Observable<ISearch[]> {
-    const url = '/api/searches/query';
-    const body = JSON.stringify({ "ids": ids });
-    const httpOptions = {
-
-      headers: new HttpHeaders({
-        // 'Authorization': 'Bearer my-auth-token'
-        'Content-Type': "application/json",
-      })
-    };
-    return this.http.post<ISearch[]>(url, body, httpOptions);
-  }
-
-  public getRecords(page: number, pageSize: number, criteria: SearchCriteriaRequest): Observable<IPaginationResponse<ICarListing>> {
+  public getRecords(
+    page: number, pageSize: number, criteria: SearchCriteriaRequest
+  ): Observable<IPaginationResponse<ICarListing>> {
+    
     const url = '/api/searches';
     let queryParams = new HttpParams();
     queryParams = queryParams.append("page", page);

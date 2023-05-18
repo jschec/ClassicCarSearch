@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { PageEvent } from '@angular/material/paginator';
@@ -9,8 +9,8 @@ import { SearchService, ICarListing } from 'src/app/core/services/search.service
   templateUrl: './search.component.html',
   styleUrls: ['./search.component.scss']
 })
-
 export class SearchComponent {
+  numCols: number = 3;
   regionOptions = [    
     "Northeast",
     "Southwest",
@@ -29,7 +29,7 @@ export class SearchComponent {
   filterForm: FormGroup;
   searchResults: ICarListing[] = [];
   page: number = 0;
-  pageSizeList: number[] = [5, 10, 25, 100]
+  pageSizeList: number[] = [6, 12, 24, 120]
   pageSize: number = this.pageSizeList[0];
   numRecords: number = 0;
  
@@ -80,5 +80,18 @@ export class SearchComponent {
     this.page = event.pageIndex;
     this.pageSize = event.pageSize;
     this.applySearch();
+  }
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event: Event) {
+    const windowWidth = (event.target as Window).innerWidth;
+    
+    if (windowWidth <= 700) {
+      this.numCols = 1;
+    } else if (windowWidth <= 1000) {
+      this.numCols = 2;
+    } else {
+      this.numCols = 3;
+    }
   }
 }

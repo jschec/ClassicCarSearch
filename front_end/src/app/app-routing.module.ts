@@ -28,16 +28,6 @@ const routes: Routes = [
     path: 'watch-list',
     component: WatchListComponent,
   },
-
-  {
-    path: 'car-detail/:id',
-    component: CarDetailComponent,
-    
-  },
-  {
-    path: 'car-detail',
-    component: CarDetailComponent,
-  },
   {
     path: '**',
     redirectTo: 'home',

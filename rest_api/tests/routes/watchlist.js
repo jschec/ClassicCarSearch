@@ -13,7 +13,7 @@ describe('Test get watchlist by userid', function () {
 
     before(function (done) {
         chai.request(`http://${config.hostName}:${config.hostPort}`)
-            .get("/users/06f926d9-bd7c-4ee5-b82e-b0ead34c5d95/watchlist")
+            .get("/users/c07c3693-b054-4b6d-95f5-a8b6d715a631/watchlist")
             .end(function (err, res) {
                 response = res;
 

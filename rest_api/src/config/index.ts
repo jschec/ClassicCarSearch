@@ -9,6 +9,8 @@ const envVarsSchema = Joi.object()
     MONGODB_HOST: Joi.string().required().description('Mongo DB host'),
     OAUTH_CLIENT_ID: Joi.string().required().description('OAuth client ID'),
     OAUTH_CLIENT_SECRET: Joi.string().required().description('OAuth client secret'),
+    OAUTH_CALLBACK_URL: Joi.string().default('/auth/google/callback'),
+    OAUTH_SCOPE: Joi.array<string>().default(['profile']),
   })
   .unknown();
 
@@ -25,6 +27,8 @@ interface MongoConfig {
 interface OAuthConfig {
   clientId: string;
   clientSecret: string;
+  callbackUrl: string;
+  scope: string[];
 }
 
 interface AppConfig {
@@ -43,6 +47,8 @@ const config: AppConfig = {
   oauth: {
     clientId: envVars.OAUTH_CLIENT_ID,
     clientSecret: envVars.OAUTH_CLIENT_SECRET,
+    callbackUrl: envVars.OAUTH_CALLBACK_URL,
+    scope: envVars.OAUTH_SCOPE,
   }
 };
 

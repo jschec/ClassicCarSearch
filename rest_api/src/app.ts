@@ -2,6 +2,7 @@ import express, { Express } from 'express';
 import helmet from 'helmet';
 import cors from 'cors';
 import httpStatus from 'http-status';
+import passport from 'passport';
 
 import routes from './routes';
 import ApiError from './utils/ApiError';
@@ -21,6 +22,10 @@ app.use(express.json());
 
 // Parse urlencoded request body
 app.use(express.urlencoded({ extended: true }));
+
+// Passport middleware
+app.use(passport.initialize());
+app.use(passport.session());
 
 // Map application API routes
 app.use('/', routes);

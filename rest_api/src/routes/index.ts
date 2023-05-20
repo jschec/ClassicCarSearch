@@ -1,4 +1,5 @@
 import express, { Router } from 'express';
+import authRoutes from './auth';
 import carListingRoutes from './car-listing';
 import carSellerRoutes from './car-seller';
 import carRoutes from './car';
@@ -17,6 +18,10 @@ interface IRoute {
 
 // Definition of route collections
 const routeCollections: IRoute[] = [
+  {
+    prefix: "/auth",
+    routes: authRoutes
+  },
   {
     prefix: "/car-listings",
     routes: carListingRoutes

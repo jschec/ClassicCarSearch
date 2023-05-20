@@ -7,6 +7,8 @@ const envVarsSchema = Joi.object()
     MONGODB_USER: Joi.string().required().description('Mongo DB username'),
     MONGODB_PASSWORD: Joi.string().required().description('Mongo DB password'),
     MONGODB_HOST: Joi.string().required().description('Mongo DB host'),
+    OAUTH_CLIENT_ID: Joi.string().required().description('OAuth client ID'),
+    OAUTH_CLIENT_SECRET: Joi.string().required().description('OAuth client secret'),
   })
   .unknown();
 
@@ -20,10 +22,16 @@ interface MongoConfig {
   url: string;
 }
 
+interface OAuthConfig {
+  clientId: string;
+  clientSecret: string;
+}
+
 interface AppConfig {
   env: string;
   port: number;
   mongo: MongoConfig;
+  oauth: OAuthConfig;
 }
 
 const config: AppConfig = {
@@ -31,6 +39,10 @@ const config: AppConfig = {
   port: envVars.APP_PORT,
   mongo: {
     url: `mongodb+srv://${envVars.MONGODB_USER}:${envVars.MONGODB_PASSWORD}@${envVars.MONGODB_HOST}/${envVars.APP_ENV}`,
+  },
+  oauth: {
+    clientId: envVars.OAUTH_CLIENT_ID,
+    clientSecret: envVars.OAUTH_CLIENT_SECRET,
   }
 };
 

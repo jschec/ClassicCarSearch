@@ -1,181 +1,13 @@
 {
-    "user": "ee31988f-bb01-4c31-b4a2-5e15073ad08d",
+    "user": "c07c3693-b054-4b6d-95f5-a8b6d715a631",
     "searches": [
         {
-            "_id": "0527b489-3cef-4854-8a5a-918fa4de9c36",
+            "_id": "00f2ebd8-2cf1-4c27-a128-08c9d59fb450",
             "results": [
                 {
-                    "region": "SouthWest",
-                    "price": 93699,
-                    "listDate": "2021-05-26T15:29:55.857Z",
-                    "saleDate": null,
-                    "seller": {
-                        "firstName": "Amara",
-                        "lastName": "Shanahan",
-                        "email": "dylan.lindgren@hotmail.com",
-                        "id": null
-                    },
-                    "car": {
-                        "make": "Jeep",
-                        "model": "Challenger",
-                        "year": 1987,
-                        "exteriorCondition": "Good",
-                        "mechanicalCondition": "Excellent",
-                        "mileage": 170951,
-                        "color": "magenta",
-                        "img": "https://platform.cstatic-images.com/xlarge/in/v2/b945599e-76d8-4194-9f7e-f90c64b56fff/09e0ffda-f3fc-4b9c-bd2f-6fb32567f812/u5DRAMFQbJpsjSI56RBKpfRiY0c.jpg",
-                        "id": null
-                    },
-                    "id": null
-                },
-                {
-                    "region": "SouthWest",
-                    "price": 54139,
-                    "listDate": "2022-11-21T21:27:22.226Z",
-                    "saleDate": null,
-                    "seller": {
-                        "firstName": "Amara",
-                        "lastName": "Shanahan",
-                        "email": "dylan.lindgren@hotmail.com",
-                        "id": null
-                    },
-                    "car": {
-                        "make": "Volkswagen",
-                        "model": "Sentra",
-                        "year": 2009,
-                        "exteriorCondition": "Excellent",
-                        "mechanicalCondition": "Good",
-                        "mileage": 45501,
-                        "color": "yellow",
-                        "img": "https://platform.cstatic-images.com/xlarge/in/v2/b130b31b-0b57-470b-aa39-4bd80f4baec1/0d4869b5-0719-4a8e-83a6-dfe2c22b3bfc/D6sPm-5wgIdF3-pzBMyDie-A6Cw.jpg",
-                        "id": null
-                    },
-                    "id": null
-                },
-                {
-                    "region": "SouthWest",
-                    "price": 16504,
-                    "listDate": "2021-05-04T11:28:57.796Z",
-                    "saleDate": null,
-                    "seller": {
-                        "firstName": "Amara",
-                        "lastName": "Shanahan",
-                        "email": "dylan.lindgren@hotmail.com",
-                        "id": null
-                    },
-                    "car": {
-                        "make": "Ferrari",
-                        "model": "Expedition",
-                        "year": 1993,
-                        "exteriorCondition": "Excellent",
-                        "mechanicalCondition": "Fair",
-                        "mileage": 12558,
-                        "color": "plum",
-                        "img": "https://platform.cstatic-images.com/xlarge/in/v2/4694b836-a897-576b-b9c5-7a960b9ace73/40a6b363-bfe8-4842-85de-4e5baf88e97e/fTI2LbsplluYC4WBI2K0tj3BFk0.jpg",
-                        "id": null
-                    },
-                    "id": null
-                },
-                {
-                    "region": "SouthWest",
-                    "price": 77713,
-                    "listDate": "2022-03-06T02:18:25.203Z",
-                    "saleDate": null,
-                    "seller": {
-                        "firstName": "Oceane",
-                        "lastName": "Hickle",
-                        "email": "adalberto.rosenbaum@hotmail.com",
-                        "id": null
-                    },
-                    "car": {
-                        "make": "Nissan",
-                        "model": "Model T",
-                        "year": 2018,
-                        "exteriorCondition": "Fair",
-                        "mechanicalCondition": "Bad",
-                        "mileage": 20738,
-                        "color": "fuchsia",
-                        "img": "https://platform.cstatic-images.com/xlarge/in/v2/56a8452e-c1e5-5c6b-8671-024e77bdc075/39a30d72-7cf5-4c0e-8e8b-f21893e17980/T1A-O8jnqHgxMSxJZEQtBUaA2Ws.jpg",
-                        "id": null
-                    },
-                    "id": null
-                },
-                {
-                    "region": "SouthWest",
-                    "price": 30649,
-                    "listDate": "2020-08-12T19:46:29.501Z",
-                    "saleDate": null,
-                    "seller": {
-                        "firstName": "Amara",
-                        "lastName": "Shanahan",
-                        "email": "dylan.lindgren@hotmail.com",
-                        "id": null
-                    },
-                    "car": {
-                        "make": "Aston Martin",
-                        "model": "Model S",
-                        "year": 1982,
-                        "exteriorCondition": "Good",
-                        "mechanicalCondition": "Good",
-                        "mileage": 181426,
-                        "color": "green",
-                        "img": "https://platform.cstatic-images.com/xlarge/in/v2/b130b31b-0b57-470b-aa39-4bd80f4baec1/0d4869b5-0719-4a8e-83a6-dfe2c22b3bfc/D6sPm-5wgIdF3-pzBMyDie-A6Cw.jpg",
-                        "id": null
-                    },
-                    "id": null
-                },
-                {
-                    "region": "SouthWest",
-                    "price": 20186,
-                    "listDate": "2021-12-27T05:56:47.925Z",
-                    "saleDate": null,
-                    "seller": {
-                        "firstName": "Amara",
-                        "lastName": "Shanahan",
-                        "email": "dylan.lindgren@hotmail.com",
-                        "id": null
-                    },
-                    "car": {
-                        "make": "Volkswagen",
-                        "model": "Model S",
-                        "year": 1982,
-                        "exteriorCondition": "Good",
-                        "mechanicalCondition": "Excellent",
-                        "mileage": 170847,
-                        "color": "cyan",
-                        "img": "https://platform.cstatic-images.com/xlarge/in/v2/d3cefbfc-011c-43d3-b233-8c30b41a2dc7/b4c45090-8690-4a24-8f94-bb6140cdcbc4/KynBoGbnaEkz12KjHb_2w3oPUf8.jpg",
-                        "id": null
-                    },
-                    "id": null
-                },
-                {
-                    "region": "SouthWest",
-                    "price": 34184,
-                    "listDate": "2023-05-03T17:14:37.771Z",
-                    "saleDate": null,
-                    "seller": {
-                        "firstName": "Amara",
-                        "lastName": "Shanahan",
-                        "email": "dylan.lindgren@hotmail.com",
-                        "id": null
-                    },
-                    "car": {
-                        "make": "Fiat",
-                        "model": "Explorer",
-                        "year": 1989,
-                        "exteriorCondition": "Good",
-                        "mechanicalCondition": "Excellent",
-                        "mileage": 17485,
-                        "color": "magenta",
-                        "img": "https://platform.cstatic-images.com/xlarge/in/v2/b130b31b-0b57-470b-aa39-4bd80f4baec1/0d4869b5-0719-4a8e-83a6-dfe2c22b3bfc/D6sPm-5wgIdF3-pzBMyDie-A6Cw.jpg",
-                        "id": null
-                    },
-                    "id": null
-                },
-                {
-                    "region": "SouthWest",
-                    "price": 36123,
-                    "listDate": "2022-02-06T17:52:23.105Z",
+                    "region": "NorthEast",
+                    "price": 34882,
+                    "listDate": "2021-04-17T11:23:44.934Z",
                     "saleDate": null,
                     "seller": {
                         "firstName": "Genesis",
@@ -184,46 +16,142 @@
                         "id": null
                     },
                     "car": {
-                        "make": "Smart",
-                        "model": "911",
-                        "year": 1980,
-                        "exteriorCondition": "Excellent",
+                        "make": "Mercedes Benz",
+                        "model": "XTS",
+                        "year": 1990,
+                        "exteriorCondition": "Bad",
                         "mechanicalCondition": "Bad",
-                        "mileage": 15182,
-                        "color": "fuchsia",
-                        "img": "https://platform.cstatic-images.com/xlarge/in/v2/6b28ebb5-97c5-54ef-956a-d021aea28de5/3eaaef7f-c6ea-4a32-a4d1-e90254853eac/3AONcVp27pedMCkl-qw-rhWLJ1E.jpg",
+                        "mileage": 68850,
+                        "color": "gold",
+                        "img": "https://platform.cstatic-images.com/xlarge/in/v2/6b28ebb5-97c5-54ef-956a-d021aea28de5/21a90906-8238-446b-8cd3-c20e5eaaf497/09YwPxUslFF1EgKUlMo1yDyCoR4.jpg",
                         "id": null
                     },
                     "id": null
                 },
                 {
-                    "region": "SouthWest",
-                    "price": 67790,
-                    "listDate": "2021-03-05T23:14:45.445Z",
+                    "region": "NorthEast",
+                    "price": 4615,
+                    "listDate": "2021-12-16T07:16:03.052Z",
                     "saleDate": null,
                     "seller": {
-                        "firstName": "Oceane",
-                        "lastName": "Hickle",
-                        "email": "adalberto.rosenbaum@hotmail.com",
+                        "firstName": "Genesis",
+                        "lastName": "Glover",
+                        "email": "piper.ebert21@gmail.com",
+                        "id": null
+                    },
+                    "car": {
+                        "make": "Hyundai",
+                        "model": "XTS",
+                        "year": 2020,
+                        "exteriorCondition": "Excellent",
+                        "mechanicalCondition": "Fair",
+                        "mileage": 151998,
+                        "color": "gold",
+                        "img": "https://platform.cstatic-images.com/xlarge/in/v2/b72675a4-93a7-5da5-b85f-43cb2be1e34b/090891c1-1191-4e5a-bc5e-ea350ad1d3d8/MCIL1g4m-mF_I7OCNVFo0xiEies.jpg",
+                        "id": null
+                    },
+                    "id": null
+                },
+                {
+                    "region": "NorthEast",
+                    "price": 17685,
+                    "listDate": "2022-02-26T02:05:36.422Z",
+                    "saleDate": null,
+                    "seller": {
+                        "firstName": "Amara",
+                        "lastName": "Shanahan",
+                        "email": "dylan.lindgren@hotmail.com",
                         "id": null
                     },
                     "car": {
                         "make": "Volkswagen",
-                        "model": "Golf",
-                        "year": 1982,
+                        "model": "ATS",
+                        "year": 2016,
                         "exteriorCondition": "Excellent",
-                        "mechanicalCondition": "Fair",
-                        "mileage": 85720,
-                        "color": "magenta",
-                        "img": "https://platform.cstatic-images.com/xlarge/in/v2/d3cefbfc-011c-43d3-b233-8c30b41a2dc7/322f8747-b232-4425-a732-44dc943b4d6b/N4trAfW1am1r4L05_QmY1_eIZ2Q.jpg",
+                        "mechanicalCondition": "Bad",
+                        "mileage": 151842,
+                        "color": "cyan",
+                        "img": "https://platform.cstatic-images.com/xlarge/in/v2/60df18f0-64c3-5ce6-85d4-e5fa080fc244/63ac9737-3119-4d8e-9dcb-ea7b4a439cda/BuUvRRNL44YkOjyzY8_DY3PAUSE.jpg",
                         "id": null
                     },
                     "id": null
                 },
                 {
-                    "region": "SouthWest",
-                    "price": 30478,
-                    "listDate": "2022-04-20T21:10:14.694Z",
+                    "region": "NorthEast",
+                    "price": 49037,
+                    "listDate": "2022-05-04T16:54:27.299Z",
+                    "saleDate": null,
+                    "seller": {
+                        "firstName": "Amara",
+                        "lastName": "Shanahan",
+                        "email": "dylan.lindgren@hotmail.com",
+                        "id": null
+                    },
+                    "car": {
+                        "make": "Rolls Royce",
+                        "model": "LeBaron",
+                        "year": 1983,
+                        "exteriorCondition": "Fair",
+                        "mechanicalCondition": "Bad",
+                        "mileage": 32731,
+                        "color": "gold",
+                        "img": "https://platform.cstatic-images.com/xlarge/in/v2/db1143c7-624e-4473-b240-7cc221d896bf/d2f05445-c6be-4ac8-a5d8-d96d620f933d/zSLEnaUHMuOC-AQnYZQHQ9Xpcn8.jpg",
+                        "id": null
+                    },
+                    "id": null
+                },
+                {
+                    "region": "NorthEast",
+                    "price": 59313,
+                    "listDate": "2021-03-20T18:52:38.123Z",
+                    "saleDate": null,
+                    "seller": {
+                        "firstName": "Genesis",
+                        "lastName": "Glover",
+                        "email": "piper.ebert21@gmail.com",
+                        "id": null
+                    },
+                    "car": {
+                        "make": "BMW",
+                        "model": "Model Y",
+                        "year": 2008,
+                        "exteriorCondition": "Good",
+                        "mechanicalCondition": "Bad",
+                        "mileage": 85979,
+                        "color": "orange",
+                        "img": "https://platform.cstatic-images.com/xlarge/in/v2/5507a7b2-444d-56a2-84ce-d0c581c921ee/d103405a-0d71-46a4-a1f1-bf36d2b7a3a6/01mqnvqI_M_jvdQ0CNfD6SwPlcg.jpg",
+                        "id": null
+                    },
+                    "id": null
+                },
+                {
+                    "region": "NorthEast",
+                    "price": 10841,
+                    "listDate": "2021-04-02T09:32:34.700Z",
+                    "saleDate": null,
+                    "seller": {
+                        "firstName": "Amara",
+                        "lastName": "Shanahan",
+                        "email": "dylan.lindgren@hotmail.com",
+                        "id": null
+                    },
+                    "car": {
+                        "make": "Mazda",
+                        "model": "Impala",
+                        "year": 2014,
+                        "exteriorCondition": "Bad",
+                        "mechanicalCondition": "Fair",
+                        "mileage": 176256,
+                        "color": "turquoise",
+                        "img": "https://platform.cstatic-images.com/xlarge/in/v2/d3cefbfc-011c-43d3-b233-8c30b41a2dc7/43d3241c-edc7-41c5-a977-f79ddead41f3/-Eqijrth0mKvx4YrOryYRdYjKHY.jpg",
+                        "id": null
+                    },
+                    "id": null
+                },
+                {
+                    "region": "NorthEast",
+                    "price": 71599,
+                    "listDate": "2023-04-24T19:31:01.282Z",
                     "saleDate": null,
                     "seller": {
                         "firstName": "Oceane",
@@ -232,32 +160,362 @@
                         "id": null
                     },
                     "car": {
-                        "make": "Audi",
-                        "model": "Model T",
-                        "year": 1989,
+                        "make": "Dodge",
+                        "model": "Altima",
+                        "year": 1985,
+                        "exteriorCondition": "Bad",
+                        "mechanicalCondition": "Good",
+                        "mileage": 83715,
+                        "color": "plum",
+                        "img": "https://platform.cstatic-images.com/xlarge/in/v2/a9ca834f-7c56-5bde-8bf5-62dcf8b558c8/197e1d0d-c67e-45f7-80a6-1f5709eb2f7b/o3e4XqdPSStWkkmvCSP947QrBPg.jpg",
+                        "id": null
+                    },
+                    "id": null
+                },
+                {
+                    "region": "NorthEast",
+                    "price": 56903,
+                    "listDate": "2020-06-22T20:05:22.884Z",
+                    "saleDate": null,
+                    "seller": {
+                        "firstName": "Oceane",
+                        "lastName": "Hickle",
+                        "email": "adalberto.rosenbaum@hotmail.com",
+                        "id": null
+                    },
+                    "car": {
+                        "make": "Polestar",
+                        "model": "Countach",
+                        "year": 2000,
+                        "exteriorCondition": "Excellent",
+                        "mechanicalCondition": "Bad",
+                        "mileage": 122716,
+                        "color": "gold",
+                        "img": "https://platform.cstatic-images.com/xlarge/in/v2/b0734600-6047-555e-8373-f71bc89ff827/8fea73c5-6f18-4e58-b849-fbda2ab0fe0b/x7l8ga9vq86xiS348Nr3Ub1mzoc.jpg",
+                        "id": null
+                    },
+                    "id": null
+                },
+                {
+                    "region": "NorthEast",
+                    "price": 28526,
+                    "listDate": "2022-07-19T14:50:57.414Z",
+                    "saleDate": null,
+                    "seller": {
+                        "firstName": "Amara",
+                        "lastName": "Shanahan",
+                        "email": "dylan.lindgren@hotmail.com",
+                        "id": null
+                    },
+                    "car": {
+                        "make": "Chrysler",
+                        "model": "El Camino",
+                        "year": 2005,
                         "exteriorCondition": "Good",
                         "mechanicalCondition": "Excellent",
-                        "mileage": 155592,
-                        "color": "silver",
-                        "img": "https://platform.cstatic-images.com/xlarge/in/v2/d3cefbfc-011c-43d3-b233-8c30b41a2dc7/08a49be0-bfb5-417f-9bce-4cddde7e17d1/7e2lS4aWwll9f2ofY5bXA24Qp_Q.jpg",
+                        "mileage": 87398,
+                        "color": "tan",
+                        "img": "https://platform.cstatic-images.com/xlarge/in/v2/b945599e-76d8-4194-9f7e-f90c64b56fff/b3c89e55-5989-4756-8bbc-53f22dfe6b40/YRvx0ke1g13h02gssqaQpygvw3w.jpg",
+                        "id": null
+                    },
+                    "id": null
+                },
+                {
+                    "region": "NorthEast",
+                    "price": 68929,
+                    "listDate": "2022-10-08T11:36:46.478Z",
+                    "saleDate": null,
+                    "seller": {
+                        "firstName": "Oceane",
+                        "lastName": "Hickle",
+                        "email": "adalberto.rosenbaum@hotmail.com",
+                        "id": null
+                    },
+                    "car": {
+                        "make": "Smart",
+                        "model": "Cruze",
+                        "year": 2000,
+                        "exteriorCondition": "Fair",
+                        "mechanicalCondition": "Bad",
+                        "mileage": 3067,
+                        "color": "turquoise",
+                        "img": "https://platform.cstatic-images.com/xlarge/in/v2/d3cefbfc-011c-43d3-b233-8c30b41a2dc7/535ac4f5-07a6-40da-9575-0abd7149713e/hb6aEkKcv2fddxo-LFk9kfF0AzE.jpg",
                         "id": null
                     },
                     "id": null
                 }
             ],
             "__v": 0,
-            "createdAt": "2023-05-18T05:51:36.874Z",
-            "updatedAt": "2023-05-18T05:51:36.874Z",
+            "createdAt": "2023-05-19T00:41:59.543Z",
+            "updatedAt": "2023-05-19T00:41:59.543Z",
             "criteria": {
-                "search": "0527b489-3cef-4854-8a5a-918fa4de9c36",
+                "search": "00f2ebd8-2cf1-4c27-a128-08c9d59fb450",
                 "region": [
-                    "SouthWest"
+                    "NorthEast"
                 ],
                 "exteriorCondition": [],
                 "mechanicalCondition": [],
                 "id": null
             },
-            "id": "0527b489-3cef-4854-8a5a-918fa4de9c36"
+            "id": "00f2ebd8-2cf1-4c27-a128-08c9d59fb450"
+        },
+        {
+            "_id": "0aa3b6c2-219a-4ae4-9469-31cb3ebb03f4",
+            "results": [
+                {
+                    "region": "NorthEast",
+                    "price": 34882,
+                    "listDate": "2021-04-17T11:23:44.934Z",
+                    "saleDate": null,
+                    "seller": {
+                        "firstName": "Genesis",
+                        "lastName": "Glover",
+                        "email": "piper.ebert21@gmail.com",
+                        "id": null
+                    },
+                    "car": {
+                        "make": "Mercedes Benz",
+                        "model": "XTS",
+                        "year": 1990,
+                        "exteriorCondition": "Bad",
+                        "mechanicalCondition": "Bad",
+                        "mileage": 68850,
+                        "color": "gold",
+                        "img": "https://platform.cstatic-images.com/xlarge/in/v2/6b28ebb5-97c5-54ef-956a-d021aea28de5/21a90906-8238-446b-8cd3-c20e5eaaf497/09YwPxUslFF1EgKUlMo1yDyCoR4.jpg",
+                        "id": null
+                    },
+                    "id": null
+                },
+                {
+                    "region": "NorthEast",
+                    "price": 4615,
+                    "listDate": "2021-12-16T07:16:03.052Z",
+                    "saleDate": null,
+                    "seller": {
+                        "firstName": "Genesis",
+                        "lastName": "Glover",
+                        "email": "piper.ebert21@gmail.com",
+                        "id": null
+                    },
+                    "car": {
+                        "make": "Hyundai",
+                        "model": "XTS",
+                        "year": 2020,
+                        "exteriorCondition": "Excellent",
+                        "mechanicalCondition": "Fair",
+                        "mileage": 151998,
+                        "color": "gold",
+                        "img": "https://platform.cstatic-images.com/xlarge/in/v2/b72675a4-93a7-5da5-b85f-43cb2be1e34b/090891c1-1191-4e5a-bc5e-ea350ad1d3d8/MCIL1g4m-mF_I7OCNVFo0xiEies.jpg",
+                        "id": null
+                    },
+                    "id": null
+                },
+                {
+                    "region": "NorthEast",
+                    "price": 17685,
+                    "listDate": "2022-02-26T02:05:36.422Z",
+                    "saleDate": null,
+                    "seller": {
+                        "firstName": "Amara",
+                        "lastName": "Shanahan",
+                        "email": "dylan.lindgren@hotmail.com",
+                        "id": null
+                    },
+                    "car": {
+                        "make": "Volkswagen",
+                        "model": "ATS",
+                        "year": 2016,
+                        "exteriorCondition": "Excellent",
+                        "mechanicalCondition": "Bad",
+                        "mileage": 151842,
+                        "color": "cyan",
+                        "img": "https://platform.cstatic-images.com/xlarge/in/v2/60df18f0-64c3-5ce6-85d4-e5fa080fc244/63ac9737-3119-4d8e-9dcb-ea7b4a439cda/BuUvRRNL44YkOjyzY8_DY3PAUSE.jpg",
+                        "id": null
+                    },
+                    "id": null
+                },
+                {
+                    "region": "NorthEast",
+                    "price": 49037,
+                    "listDate": "2022-05-04T16:54:27.299Z",
+                    "saleDate": null,
+                    "seller": {
+                        "firstName": "Amara",
+                        "lastName": "Shanahan",
+                        "email": "dylan.lindgren@hotmail.com",
+                        "id": null
+                    },
+                    "car": {
+                        "make": "Rolls Royce",
+                        "model": "LeBaron",
+                        "year": 1983,
+                        "exteriorCondition": "Fair",
+                        "mechanicalCondition": "Bad",
+                        "mileage": 32731,
+                        "color": "gold",
+                        "img": "https://platform.cstatic-images.com/xlarge/in/v2/db1143c7-624e-4473-b240-7cc221d896bf/d2f05445-c6be-4ac8-a5d8-d96d620f933d/zSLEnaUHMuOC-AQnYZQHQ9Xpcn8.jpg",
+                        "id": null
+                    },
+                    "id": null
+                },
+                {
+                    "region": "NorthEast",
+                    "price": 59313,
+                    "listDate": "2021-03-20T18:52:38.123Z",
+                    "saleDate": null,
+                    "seller": {
+                        "firstName": "Genesis",
+                        "lastName": "Glover",
+                        "email": "piper.ebert21@gmail.com",
+                        "id": null
+                    },
+                    "car": {
+                        "make": "BMW",
+                        "model": "Model Y",
+                        "year": 2008,
+                        "exteriorCondition": "Good",
+                        "mechanicalCondition": "Bad",
+                        "mileage": 85979,
+                        "color": "orange",
+                        "img": "https://platform.cstatic-images.com/xlarge/in/v2/5507a7b2-444d-56a2-84ce-d0c581c921ee/d103405a-0d71-46a4-a1f1-bf36d2b7a3a6/01mqnvqI_M_jvdQ0CNfD6SwPlcg.jpg",
+                        "id": null
+                    },
+                    "id": null
+                },
+                {
+                    "region": "NorthEast",
+                    "price": 10841,
+                    "listDate": "2021-04-02T09:32:34.700Z",
+                    "saleDate": null,
+                    "seller": {
+                        "firstName": "Amara",
+                        "lastName": "Shanahan",
+                        "email": "dylan.lindgren@hotmail.com",
+                        "id": null
+                    },
+                    "car": {
+                        "make": "Mazda",
+                        "model": "Impala",
+                        "year": 2014,
+                        "exteriorCondition": "Bad",
+                        "mechanicalCondition": "Fair",
+                        "mileage": 176256,
+                        "color": "turquoise",
+                        "img": "https://platform.cstatic-images.com/xlarge/in/v2/d3cefbfc-011c-43d3-b233-8c30b41a2dc7/43d3241c-edc7-41c5-a977-f79ddead41f3/-Eqijrth0mKvx4YrOryYRdYjKHY.jpg",
+                        "id": null
+                    },
+                    "id": null
+                },
+                {
+                    "region": "NorthEast",
+                    "price": 71599,
+                    "listDate": "2023-04-24T19:31:01.282Z",
+                    "saleDate": null,
+                    "seller": {
+                        "firstName": "Oceane",
+                        "lastName": "Hickle",
+                        "email": "adalberto.rosenbaum@hotmail.com",
+                        "id": null
+                    },
+                    "car": {
+                        "make": "Dodge",
+                        "model": "Altima",
+                        "year": 1985,
+                        "exteriorCondition": "Bad",
+                        "mechanicalCondition": "Good",
+                        "mileage": 83715,
+                        "color": "plum",
+                        "img": "https://platform.cstatic-images.com/xlarge/in/v2/a9ca834f-7c56-5bde-8bf5-62dcf8b558c8/197e1d0d-c67e-45f7-80a6-1f5709eb2f7b/o3e4XqdPSStWkkmvCSP947QrBPg.jpg",
+                        "id": null
+                    },
+                    "id": null
+                },
+                {
+                    "region": "NorthEast",
+                    "price": 56903,
+                    "listDate": "2020-06-22T20:05:22.884Z",
+                    "saleDate": null,
+                    "seller": {
+                        "firstName": "Oceane",
+                        "lastName": "Hickle",
+                        "email": "adalberto.rosenbaum@hotmail.com",
+                        "id": null
+                    },
+                    "car": {
+                        "make": "Polestar",
+                        "model": "Countach",
+                        "year": 2000,
+                        "exteriorCondition": "Excellent",
+                        "mechanicalCondition": "Bad",
+                        "mileage": 122716,
+                        "color": "gold",
+                        "img": "https://platform.cstatic-images.com/xlarge/in/v2/b0734600-6047-555e-8373-f71bc89ff827/8fea73c5-6f18-4e58-b849-fbda2ab0fe0b/x7l8ga9vq86xiS348Nr3Ub1mzoc.jpg",
+                        "id": null
+                    },
+                    "id": null
+                },
+                {
+                    "region": "NorthEast",
+                    "price": 28526,
+                    "listDate": "2022-07-19T14:50:57.414Z",
+                    "saleDate": null,
+                    "seller": {
+                        "firstName": "Amara",
+                        "lastName": "Shanahan",
+                        "email": "dylan.lindgren@hotmail.com",
+                        "id": null
+                    },
+                    "car": {
+                        "make": "Chrysler",
+                        "model": "El Camino",
+                        "year": 2005,
+                        "exteriorCondition": "Good",
+                        "mechanicalCondition": "Excellent",
+                        "mileage": 87398,
+                        "color": "tan",
+                        "img": "https://platform.cstatic-images.com/xlarge/in/v2/b945599e-76d8-4194-9f7e-f90c64b56fff/b3c89e55-5989-4756-8bbc-53f22dfe6b40/YRvx0ke1g13h02gssqaQpygvw3w.jpg",
+                        "id": null
+                    },
+                    "id": null
+                },
+                {
+                    "region": "NorthEast",
+                    "price": 68929,
+                    "listDate": "2022-10-08T11:36:46.478Z",
+                    "saleDate": null,
+                    "seller": {
+                        "firstName": "Oceane",
+                        "lastName": "Hickle",
+                        "email": "adalberto.rosenbaum@hotmail.com",
+                        "id": null
+                    },
+                    "car": {
+                        "make": "Smart",
+                        "model": "Cruze",
+                        "year": 2000,
+                        "exteriorCondition": "Fair",
+                        "mechanicalCondition": "Bad",
+                        "mileage": 3067,
+                        "color": "turquoise",
+                        "img": "https://platform.cstatic-images.com/xlarge/in/v2/d3cefbfc-011c-43d3-b233-8c30b41a2dc7/535ac4f5-07a6-40da-9575-0abd7149713e/hb6aEkKcv2fddxo-LFk9kfF0AzE.jpg",
+                        "id": null
+                    },
+                    "id": null
+                }
+            ],
+            "__v": 0,
+            "createdAt": "2023-05-19T00:41:59.543Z",
+            "updatedAt": "2023-05-19T00:41:59.543Z",
+            "criteria": {
+                "search": "0aa3b6c2-219a-4ae4-9469-31cb3ebb03f4",
+                "region": [
+                    "NorthEast"
+                ],
+                "exteriorCondition": [],
+                "mechanicalCondition": [],
+                "id": null
+            },
+            "id": "0aa3b6c2-219a-4ae4-9469-31cb3ebb03f4"
         },
         {
             "_id": "159638c7-9609-48ee-8d33-4e0a8d04f227",
@@ -504,8 +762,8 @@
                 }
             ],
             "__v": 0,
-            "createdAt": "2023-05-18T05:51:36.872Z",
-            "updatedAt": "2023-05-18T05:51:36.872Z",
+            "createdAt": "2023-05-19T00:41:59.541Z",
+            "updatedAt": "2023-05-19T00:41:59.541Z",
             "criteria": {
                 "search": "159638c7-9609-48ee-8d33-4e0a8d04f227",
                 "region": [
@@ -518,7 +776,7 @@
             "id": "159638c7-9609-48ee-8d33-4e0a8d04f227"
         },
         {
-            "_id": "46090376-ef2f-471a-9a31-6d91830b290f",
+            "_id": "80a34a4b-2b0b-45b0-a740-fb48eb6e9aad",
             "results": [
                 {
                     "region": "West",
@@ -786,10 +1044,10 @@
                 }
             ],
             "__v": 0,
-            "createdAt": "2023-05-18T05:51:36.872Z",
-            "updatedAt": "2023-05-18T05:51:36.872Z",
+            "createdAt": "2023-05-19T00:41:59.543Z",
+            "updatedAt": "2023-05-19T00:41:59.543Z",
             "criteria": {
-                "search": "46090376-ef2f-471a-9a31-6d91830b290f",
+                "search": "80a34a4b-2b0b-45b0-a740-fb48eb6e9aad",
                 "region": [
                     "West"
                 ],
@@ -797,1204 +1055,10 @@
                 "mechanicalCondition": [],
                 "id": null
             },
-            "id": "46090376-ef2f-471a-9a31-6d91830b290f"
+            "id": "80a34a4b-2b0b-45b0-a740-fb48eb6e9aad"
         },
         {
-            "_id": "6f3a01b7-2748-4b58-97d7-662e4704a66b",
-            "results": [
-                {
-                    "region": "SouthEast",
-                    "price": 59153,
-                    "listDate": "2022-01-02T11:41:41.618Z",
-                    "saleDate": null,
-                    "seller": {
-                        "firstName": "Amara",
-                        "lastName": "Shanahan",
-                        "email": "dylan.lindgren@hotmail.com",
-                        "id": null
-                    },
-                    "car": {
-                        "make": "Mini",
-                        "model": "Ranchero",
-                        "year": 2015,
-                        "exteriorCondition": "Excellent",
-                        "mechanicalCondition": "Fair",
-                        "mileage": 182741,
-                        "color": "lime",
-                        "img": "https://platform.cstatic-images.com/xlarge/in/v2/db1143c7-624e-4473-b240-7cc221d896bf/6517ac40-3ba9-4ee0-8054-4db1c19f401d/HrJP67kiZfTj1wz-2k7BBT-tWVs.jpg",
-                        "id": null
-                    },
-                    "id": null
-                },
-                {
-                    "region": "SouthEast",
-                    "price": 52488,
-                    "listDate": "2020-10-13T08:53:56.510Z",
-                    "saleDate": null,
-                    "seller": {
-                        "firstName": "Amara",
-                        "lastName": "Shanahan",
-                        "email": "dylan.lindgren@hotmail.com",
-                        "id": null
-                    },
-                    "car": {
-                        "make": "Audi",
-                        "model": "Ranchero",
-                        "year": 2016,
-                        "exteriorCondition": "Bad",
-                        "mechanicalCondition": "Good",
-                        "mileage": 113597,
-                        "color": "azure",
-                        "img": "https://platform.cstatic-images.com/xlarge/in/v2/d3cefbfc-011c-43d3-b233-8c30b41a2dc7/dd52bee8-f3c8-4c8f-8639-634030cdad09/RYaKUnQo2cHTw66gLSbCW3SvNLk.jpg",
-                        "id": null
-                    },
-                    "id": null
-                },
-                {
-                    "region": "SouthEast",
-                    "price": 96681,
-                    "listDate": "2022-11-19T05:18:49.119Z",
-                    "saleDate": null,
-                    "seller": {
-                        "firstName": "Amara",
-                        "lastName": "Shanahan",
-                        "email": "dylan.lindgren@hotmail.com",
-                        "id": null
-                    },
-                    "car": {
-                        "make": "Polestar",
-                        "model": "Golf",
-                        "year": 1983,
-                        "exteriorCondition": "Fair",
-                        "mechanicalCondition": "Fair",
-                        "mileage": 127626,
-                        "color": "cyan",
-                        "img": "https://platform.cstatic-images.com/xlarge/in/v2/d3cefbfc-011c-43d3-b233-8c30b41a2dc7/0cc7c271-3ea2-44c3-b934-8be98c21635c/BNW85mAfbpF-OzLBXPQ6YQfM-oo.jpg",
-                        "id": null
-                    },
-                    "id": null
-                },
-                {
-                    "region": "SouthEast",
-                    "price": 62536,
-                    "listDate": "2022-10-11T15:10:21.944Z",
-                    "saleDate": null,
-                    "seller": {
-                        "firstName": "Amara",
-                        "lastName": "Shanahan",
-                        "email": "dylan.lindgren@hotmail.com",
-                        "id": null
-                    },
-                    "car": {
-                        "make": "Rolls Royce",
-                        "model": "Corvette",
-                        "year": 1990,
-                        "exteriorCondition": "Good",
-                        "mechanicalCondition": "Good",
-                        "mileage": 175929,
-                        "color": "orchid",
-                        "img": "https://platform.cstatic-images.com/xlarge/in/v2/d3cefbfc-011c-43d3-b233-8c30b41a2dc7/9221f892-bc45-4b6d-b3d6-1fe5b5a8dfa4/65uyUGKpI6aY58Zk1Mo1rdLTbVE.jpg",
-                        "id": null
-                    },
-                    "id": null
-                },
-                {
-                    "region": "SouthEast",
-                    "price": 21299,
-                    "listDate": "2022-11-09T04:42:06.702Z",
-                    "saleDate": null,
-                    "seller": {
-                        "firstName": "Oceane",
-                        "lastName": "Hickle",
-                        "email": "adalberto.rosenbaum@hotmail.com",
-                        "id": null
-                    },
-                    "car": {
-                        "make": "Audi",
-                        "model": "Prius",
-                        "year": 1994,
-                        "exteriorCondition": "Fair",
-                        "mechanicalCondition": "Bad",
-                        "mileage": 41618,
-                        "color": "silver",
-                        "img": "https://platform.cstatic-images.com/xlarge/in/v2/005cbc87-0078-5ed8-a8cf-c9933aa02db2/84239006-7308-4214-ae91-f6f186677ad8/-G0ISug7dnwQ7C6S87-VOPXd2sc.jpg",
-                        "id": null
-                    },
-                    "id": null
-                },
-                {
-                    "region": "SouthEast",
-                    "price": 98979,
-                    "listDate": "2020-09-30T22:34:45.137Z",
-                    "saleDate": null,
-                    "seller": {
-                        "firstName": "Oceane",
-                        "lastName": "Hickle",
-                        "email": "adalberto.rosenbaum@hotmail.com",
-                        "id": null
-                    },
-                    "car": {
-                        "make": "Volkswagen",
-                        "model": "XTS",
-                        "year": 1990,
-                        "exteriorCondition": "Excellent",
-                        "mechanicalCondition": "Fair",
-                        "mileage": 80800,
-                        "color": "white",
-                        "img": "https://platform.cstatic-images.com/xlarge/in/v2/9f241bc4-358f-5ca0-941d-cd3ae171ea43/be1e2ece-abc3-4f07-bd07-810fa34d7ca4/Vupbdhbw8egkX1xAViWIJK1ZHUE.jpg",
-                        "id": null
-                    },
-                    "id": null
-                },
-                {
-                    "region": "SouthEast",
-                    "price": 63883,
-                    "listDate": "2020-09-29T01:48:36.097Z",
-                    "saleDate": null,
-                    "seller": {
-                        "firstName": "Genesis",
-                        "lastName": "Glover",
-                        "email": "piper.ebert21@gmail.com",
-                        "id": null
-                    },
-                    "car": {
-                        "make": "Audi",
-                        "model": "Model Y",
-                        "year": 2020,
-                        "exteriorCondition": "Fair",
-                        "mechanicalCondition": "Fair",
-                        "mileage": 107873,
-                        "color": "grey",
-                        "img": "https://platform.cstatic-images.com/xlarge/in/v2/d3cefbfc-011c-43d3-b233-8c30b41a2dc7/87c948ae-9163-4d78-a233-6ac9224209ca/r-8KcedO_vg8mKsHXrT-dAZkbSA.jpg",
-                        "id": null
-                    },
-                    "id": null
-                },
-                {
-                    "region": "SouthEast",
-                    "price": 22834,
-                    "listDate": "2023-04-03T20:23:50.239Z",
-                    "saleDate": null,
-                    "seller": {
-                        "firstName": "Genesis",
-                        "lastName": "Glover",
-                        "email": "piper.ebert21@gmail.com",
-                        "id": null
-                    },
-                    "car": {
-                        "make": "Chevrolet",
-                        "model": "Camry",
-                        "year": 2012,
-                        "exteriorCondition": "Bad",
-                        "mechanicalCondition": "Fair",
-                        "mileage": 118231,
-                        "color": "cyan",
-                        "img": "https://platform.cstatic-images.com/xlarge/in/v2/56a8452e-c1e5-5c6b-8671-024e77bdc075/39a30d72-7cf5-4c0e-8e8b-f21893e17980/T1A-O8jnqHgxMSxJZEQtBUaA2Ws.jpg",
-                        "id": null
-                    },
-                    "id": null
-                }
-            ],
-            "__v": 0,
-            "createdAt": "2023-05-18T05:51:36.872Z",
-            "updatedAt": "2023-05-18T05:51:36.872Z",
-            "criteria": {
-                "search": "6f3a01b7-2748-4b58-97d7-662e4704a66b",
-                "region": [
-                    "SouthEast"
-                ],
-                "exteriorCondition": [],
-                "mechanicalCondition": [],
-                "id": null
-            },
-            "id": "6f3a01b7-2748-4b58-97d7-662e4704a66b"
-        },
-        {
-            "_id": "80d2c1d2-b2e2-4214-9354-602526fb2e81",
-            "results": [
-                {
-                    "region": "SouthEast",
-                    "price": 59153,
-                    "listDate": "2022-01-02T11:41:41.618Z",
-                    "saleDate": null,
-                    "seller": {
-                        "firstName": "Amara",
-                        "lastName": "Shanahan",
-                        "email": "dylan.lindgren@hotmail.com",
-                        "id": null
-                    },
-                    "car": {
-                        "make": "Mini",
-                        "model": "Ranchero",
-                        "year": 2015,
-                        "exteriorCondition": "Excellent",
-                        "mechanicalCondition": "Fair",
-                        "mileage": 182741,
-                        "color": "lime",
-                        "img": "https://platform.cstatic-images.com/xlarge/in/v2/db1143c7-624e-4473-b240-7cc221d896bf/6517ac40-3ba9-4ee0-8054-4db1c19f401d/HrJP67kiZfTj1wz-2k7BBT-tWVs.jpg",
-                        "id": null
-                    },
-                    "id": null
-                },
-                {
-                    "region": "SouthEast",
-                    "price": 52488,
-                    "listDate": "2020-10-13T08:53:56.510Z",
-                    "saleDate": null,
-                    "seller": {
-                        "firstName": "Amara",
-                        "lastName": "Shanahan",
-                        "email": "dylan.lindgren@hotmail.com",
-                        "id": null
-                    },
-                    "car": {
-                        "make": "Audi",
-                        "model": "Ranchero",
-                        "year": 2016,
-                        "exteriorCondition": "Bad",
-                        "mechanicalCondition": "Good",
-                        "mileage": 113597,
-                        "color": "azure",
-                        "img": "https://platform.cstatic-images.com/xlarge/in/v2/d3cefbfc-011c-43d3-b233-8c30b41a2dc7/dd52bee8-f3c8-4c8f-8639-634030cdad09/RYaKUnQo2cHTw66gLSbCW3SvNLk.jpg",
-                        "id": null
-                    },
-                    "id": null
-                },
-                {
-                    "region": "SouthEast",
-                    "price": 96681,
-                    "listDate": "2022-11-19T05:18:49.119Z",
-                    "saleDate": null,
-                    "seller": {
-                        "firstName": "Amara",
-                        "lastName": "Shanahan",
-                        "email": "dylan.lindgren@hotmail.com",
-                        "id": null
-                    },
-                    "car": {
-                        "make": "Polestar",
-                        "model": "Golf",
-                        "year": 1983,
-                        "exteriorCondition": "Fair",
-                        "mechanicalCondition": "Fair",
-                        "mileage": 127626,
-                        "color": "cyan",
-                        "img": "https://platform.cstatic-images.com/xlarge/in/v2/d3cefbfc-011c-43d3-b233-8c30b41a2dc7/0cc7c271-3ea2-44c3-b934-8be98c21635c/BNW85mAfbpF-OzLBXPQ6YQfM-oo.jpg",
-                        "id": null
-                    },
-                    "id": null
-                },
-                {
-                    "region": "SouthEast",
-                    "price": 62536,
-                    "listDate": "2022-10-11T15:10:21.944Z",
-                    "saleDate": null,
-                    "seller": {
-                        "firstName": "Amara",
-                        "lastName": "Shanahan",
-                        "email": "dylan.lindgren@hotmail.com",
-                        "id": null
-                    },
-                    "car": {
-                        "make": "Rolls Royce",
-                        "model": "Corvette",
-                        "year": 1990,
-                        "exteriorCondition": "Good",
-                        "mechanicalCondition": "Good",
-                        "mileage": 175929,
-                        "color": "orchid",
-                        "img": "https://platform.cstatic-images.com/xlarge/in/v2/d3cefbfc-011c-43d3-b233-8c30b41a2dc7/9221f892-bc45-4b6d-b3d6-1fe5b5a8dfa4/65uyUGKpI6aY58Zk1Mo1rdLTbVE.jpg",
-                        "id": null
-                    },
-                    "id": null
-                },
-                {
-                    "region": "SouthEast",
-                    "price": 21299,
-                    "listDate": "2022-11-09T04:42:06.702Z",
-                    "saleDate": null,
-                    "seller": {
-                        "firstName": "Oceane",
-                        "lastName": "Hickle",
-                        "email": "adalberto.rosenbaum@hotmail.com",
-                        "id": null
-                    },
-                    "car": {
-                        "make": "Audi",
-                        "model": "Prius",
-                        "year": 1994,
-                        "exteriorCondition": "Fair",
-                        "mechanicalCondition": "Bad",
-                        "mileage": 41618,
-                        "color": "silver",
-                        "img": "https://platform.cstatic-images.com/xlarge/in/v2/005cbc87-0078-5ed8-a8cf-c9933aa02db2/84239006-7308-4214-ae91-f6f186677ad8/-G0ISug7dnwQ7C6S87-VOPXd2sc.jpg",
-                        "id": null
-                    },
-                    "id": null
-                },
-                {
-                    "region": "SouthEast",
-                    "price": 98979,
-                    "listDate": "2020-09-30T22:34:45.137Z",
-                    "saleDate": null,
-                    "seller": {
-                        "firstName": "Oceane",
-                        "lastName": "Hickle",
-                        "email": "adalberto.rosenbaum@hotmail.com",
-                        "id": null
-                    },
-                    "car": {
-                        "make": "Volkswagen",
-                        "model": "XTS",
-                        "year": 1990,
-                        "exteriorCondition": "Excellent",
-                        "mechanicalCondition": "Fair",
-                        "mileage": 80800,
-                        "color": "white",
-                        "img": "https://platform.cstatic-images.com/xlarge/in/v2/9f241bc4-358f-5ca0-941d-cd3ae171ea43/be1e2ece-abc3-4f07-bd07-810fa34d7ca4/Vupbdhbw8egkX1xAViWIJK1ZHUE.jpg",
-                        "id": null
-                    },
-                    "id": null
-                },
-                {
-                    "region": "SouthEast",
-                    "price": 63883,
-                    "listDate": "2020-09-29T01:48:36.097Z",
-                    "saleDate": null,
-                    "seller": {
-                        "firstName": "Genesis",
-                        "lastName": "Glover",
-                        "email": "piper.ebert21@gmail.com",
-                        "id": null
-                    },
-                    "car": {
-                        "make": "Audi",
-                        "model": "Model Y",
-                        "year": 2020,
-                        "exteriorCondition": "Fair",
-                        "mechanicalCondition": "Fair",
-                        "mileage": 107873,
-                        "color": "grey",
-                        "img": "https://platform.cstatic-images.com/xlarge/in/v2/d3cefbfc-011c-43d3-b233-8c30b41a2dc7/87c948ae-9163-4d78-a233-6ac9224209ca/r-8KcedO_vg8mKsHXrT-dAZkbSA.jpg",
-                        "id": null
-                    },
-                    "id": null
-                },
-                {
-                    "region": "SouthEast",
-                    "price": 22834,
-                    "listDate": "2023-04-03T20:23:50.239Z",
-                    "saleDate": null,
-                    "seller": {
-                        "firstName": "Genesis",
-                        "lastName": "Glover",
-                        "email": "piper.ebert21@gmail.com",
-                        "id": null
-                    },
-                    "car": {
-                        "make": "Chevrolet",
-                        "model": "Camry",
-                        "year": 2012,
-                        "exteriorCondition": "Bad",
-                        "mechanicalCondition": "Fair",
-                        "mileage": 118231,
-                        "color": "cyan",
-                        "img": "https://platform.cstatic-images.com/xlarge/in/v2/56a8452e-c1e5-5c6b-8671-024e77bdc075/39a30d72-7cf5-4c0e-8e8b-f21893e17980/T1A-O8jnqHgxMSxJZEQtBUaA2Ws.jpg",
-                        "id": null
-                    },
-                    "id": null
-                }
-            ],
-            "__v": 0,
-            "createdAt": "2023-05-18T05:51:36.875Z",
-            "updatedAt": "2023-05-18T05:51:36.875Z",
-            "criteria": {
-                "search": "80d2c1d2-b2e2-4214-9354-602526fb2e81",
-                "region": [
-                    "SouthEast"
-                ],
-                "exteriorCondition": [],
-                "mechanicalCondition": [],
-                "id": null
-            },
-            "id": "80d2c1d2-b2e2-4214-9354-602526fb2e81"
-        },
-        {
-            "_id": "8dce7fb3-9642-4a3d-b53b-f90e5a1fc1fc",
-            "results": [
-                {
-                    "region": "West",
-                    "price": 90099,
-                    "listDate": "2023-02-15T10:01:14.042Z",
-                    "saleDate": null,
-                    "seller": {
-                        "firstName": "Amara",
-                        "lastName": "Shanahan",
-                        "email": "dylan.lindgren@hotmail.com",
-                        "id": null
-                    },
-                    "car": {
-                        "make": "Jeep",
-                        "model": "Golf",
-                        "year": 1988,
-                        "exteriorCondition": "Excellent",
-                        "mechanicalCondition": "Good",
-                        "mileage": 57921,
-                        "color": "sky blue",
-                        "img": "https://platform.cstatic-images.com/xlarge/in/v2/bf07ef6b-2b1d-584a-bc98-e8ad1a584b37/33526ba4-8131-4188-a654-6632ab5863cf/CcIk-f13fwoB6PfVDSwoWFIGCaM.jpg",
-                        "id": null
-                    },
-                    "id": null
-                },
-                {
-                    "region": "West",
-                    "price": 75275,
-                    "listDate": "2021-02-04T20:24:40.194Z",
-                    "saleDate": null,
-                    "seller": {
-                        "firstName": "Genesis",
-                        "lastName": "Glover",
-                        "email": "piper.ebert21@gmail.com",
-                        "id": null
-                    },
-                    "car": {
-                        "make": "Mercedes Benz",
-                        "model": "Camry",
-                        "year": 2011,
-                        "exteriorCondition": "Good",
-                        "mechanicalCondition": "Fair",
-                        "mileage": 196008,
-                        "color": "sky blue",
-                        "img": "https://platform.cstatic-images.com/xlarge/in/v2/c20ed699-a19f-5358-b33d-85aef618e987/855a2e37-660e-4770-a39a-6e61c2c9bc0c/qnXzma21X01TNnOvYWtcWZxbeCg.jpg",
-                        "id": null
-                    },
-                    "id": null
-                },
-                {
-                    "region": "West",
-                    "price": 65316,
-                    "listDate": "2020-09-15T14:27:07.559Z",
-                    "saleDate": null,
-                    "seller": {
-                        "firstName": "Oceane",
-                        "lastName": "Hickle",
-                        "email": "adalberto.rosenbaum@hotmail.com",
-                        "id": null
-                    },
-                    "car": {
-                        "make": "Chevrolet",
-                        "model": "Fortwo",
-                        "year": 1989,
-                        "exteriorCondition": "Good",
-                        "mechanicalCondition": "Good",
-                        "mileage": 122882,
-                        "color": "ivory",
-                        "img": "https://platform.cstatic-images.com/xlarge/in/v2/b945599e-76d8-4194-9f7e-f90c64b56fff/637cb1f7-a2f8-49be-aca5-4d0a007c05a5/BNqhXxLwOoJIFKP0sEpJ2DYsGUo.jpg",
-                        "id": null
-                    },
-                    "id": null
-                },
-                {
-                    "region": "West",
-                    "price": 1281,
-                    "listDate": "2022-09-11T01:30:33.082Z",
-                    "saleDate": null,
-                    "seller": {
-                        "firstName": "Oceane",
-                        "lastName": "Hickle",
-                        "email": "adalberto.rosenbaum@hotmail.com",
-                        "id": null
-                    },
-                    "car": {
-                        "make": "Hyundai",
-                        "model": "XC90",
-                        "year": 2015,
-                        "exteriorCondition": "Bad",
-                        "mechanicalCondition": "Good",
-                        "mileage": 140779,
-                        "color": "mint green",
-                        "img": "https://platform.cstatic-images.com/xlarge/in/v2/d3cefbfc-011c-43d3-b233-8c30b41a2dc7/9e3738df-543b-44c0-9576-55e400fcee6e/zsveskSoQ7RfNTJtfJLQZJKAoNc.jpg",
-                        "id": null
-                    },
-                    "id": null
-                },
-                {
-                    "region": "West",
-                    "price": 68747,
-                    "listDate": "2023-02-11T05:55:27.042Z",
-                    "saleDate": null,
-                    "seller": {
-                        "firstName": "Genesis",
-                        "lastName": "Glover",
-                        "email": "piper.ebert21@gmail.com",
-                        "id": null
-                    },
-                    "car": {
-                        "make": "Maserati",
-                        "model": "Mercielago",
-                        "year": 1992,
-                        "exteriorCondition": "Excellent",
-                        "mechanicalCondition": "Good",
-                        "mileage": 95872,
-                        "color": "lime",
-                        "img": "https://platform.cstatic-images.com/xlarge/in/v2/4694b836-a897-576b-b9c5-7a960b9ace73/40a6b363-bfe8-4842-85de-4e5baf88e97e/fTI2LbsplluYC4WBI2K0tj3BFk0.jpg",
-                        "id": null
-                    },
-                    "id": null
-                },
-                {
-                    "region": "West",
-                    "price": 50008,
-                    "listDate": "2021-08-09T07:53:20.425Z",
-                    "saleDate": null,
-                    "seller": {
-                        "firstName": "Amara",
-                        "lastName": "Shanahan",
-                        "email": "dylan.lindgren@hotmail.com",
-                        "id": null
-                    },
-                    "car": {
-                        "make": "Volvo",
-                        "model": "LeBaron",
-                        "year": 2006,
-                        "exteriorCondition": "Excellent",
-                        "mechanicalCondition": "Bad",
-                        "mileage": 48886,
-                        "color": "magenta",
-                        "img": "https://platform.cstatic-images.com/xlarge/in/v2/9f241bc4-358f-5ca0-941d-cd3ae171ea43/be1e2ece-abc3-4f07-bd07-810fa34d7ca4/Vupbdhbw8egkX1xAViWIJK1ZHUE.jpg",
-                        "id": null
-                    },
-                    "id": null
-                },
-                {
-                    "region": "West",
-                    "price": 74927,
-                    "listDate": "2021-08-30T23:30:08.934Z",
-                    "saleDate": null,
-                    "seller": {
-                        "firstName": "Amara",
-                        "lastName": "Shanahan",
-                        "email": "dylan.lindgren@hotmail.com",
-                        "id": null
-                    },
-                    "car": {
-                        "make": "Rolls Royce",
-                        "model": "Model Y",
-                        "year": 1990,
-                        "exteriorCondition": "Bad",
-                        "mechanicalCondition": "Good",
-                        "mileage": 125768,
-                        "color": "plum",
-                        "img": "https://platform.cstatic-images.com/xlarge/in/v2/6839ec12-c632-5fa6-bb03-5cc989d0cacd/394a117e-fd0e-4458-9e00-f69b79785948/OLfpnfor03Qe-ptJL5AN72N4kIo.jpg",
-                        "id": null
-                    },
-                    "id": null
-                },
-                {
-                    "region": "West",
-                    "price": 22408,
-                    "listDate": "2023-01-31T14:54:44.393Z",
-                    "saleDate": null,
-                    "seller": {
-                        "firstName": "Genesis",
-                        "lastName": "Glover",
-                        "email": "piper.ebert21@gmail.com",
-                        "id": null
-                    },
-                    "car": {
-                        "make": "Aston Martin",
-                        "model": "Altima",
-                        "year": 2004,
-                        "exteriorCondition": "Good",
-                        "mechanicalCondition": "Fair",
-                        "mileage": 38210,
-                        "color": "indigo",
-                        "img": "https://platform.cstatic-images.com/xlarge/in/v2/d3cefbfc-011c-43d3-b233-8c30b41a2dc7/f9f467b5-5ae3-41bb-ab8e-1e6e607dabb1/4bz4P6a6b5HhrmwFBf0Ll3Og06A.jpg",
-                        "id": null
-                    },
-                    "id": null
-                },
-                {
-                    "region": "West",
-                    "price": 39952,
-                    "listDate": "2023-01-24T20:57:59.070Z",
-                    "saleDate": null,
-                    "seller": {
-                        "firstName": "Genesis",
-                        "lastName": "Glover",
-                        "email": "piper.ebert21@gmail.com",
-                        "id": null
-                    },
-                    "car": {
-                        "make": "Bentley",
-                        "model": "Grand Cherokee",
-                        "year": 2005,
-                        "exteriorCondition": "Excellent",
-                        "mechanicalCondition": "Fair",
-                        "mileage": 174523,
-                        "color": "orange",
-                        "img": "https://platform.cstatic-images.com/xlarge/in/v2/d3cefbfc-011c-43d3-b233-8c30b41a2dc7/497321e0-6705-4c28-9f03-c25733ca3615/dMOeuMWtRGBhNyLBP2eCsYsEFfo.jpg",
-                        "id": null
-                    },
-                    "id": null
-                },
-                {
-                    "region": "West",
-                    "price": 59485,
-                    "listDate": "2021-09-13T09:48:12.335Z",
-                    "saleDate": null,
-                    "seller": {
-                        "firstName": "Amara",
-                        "lastName": "Shanahan",
-                        "email": "dylan.lindgren@hotmail.com",
-                        "id": null
-                    },
-                    "car": {
-                        "make": "Aston Martin",
-                        "model": "Cruze",
-                        "year": 1984,
-                        "exteriorCondition": "Fair",
-                        "mechanicalCondition": "Fair",
-                        "mileage": 37109,
-                        "color": "red",
-                        "img": "https://platform.cstatic-images.com/xlarge/in/v2/bb3869ff-40f5-54cc-9ff9-83db405bce56/c90d3e3d-099f-4658-af02-79822beaf95e/QNL2R6nNu35hjENsLxz-LJ9Tcoc.jpg",
-                        "id": null
-                    },
-                    "id": null
-                },
-                {
-                    "region": "West",
-                    "price": 14178,
-                    "listDate": "2020-10-07T15:31:46.067Z",
-                    "saleDate": null,
-                    "seller": {
-                        "firstName": "Genesis",
-                        "lastName": "Glover",
-                        "email": "piper.ebert21@gmail.com",
-                        "id": null
-                    },
-                    "car": {
-                        "make": "Ferrari",
-                        "model": "Element",
-                        "year": 2004,
-                        "exteriorCondition": "Good",
-                        "mechanicalCondition": "Fair",
-                        "mileage": 150038,
-                        "color": "gold",
-                        "img": "https://platform.cstatic-images.com/xlarge/in/v2/d3cefbfc-011c-43d3-b233-8c30b41a2dc7/089253d9-2cfd-41ae-b1c4-4003edaa8eed/mtDn4WdWTOw0_l_cVSLB3xZRJRM.jpg",
-                        "id": null
-                    },
-                    "id": null
-                }
-            ],
-            "__v": 0,
-            "createdAt": "2023-05-18T05:51:36.875Z",
-            "updatedAt": "2023-05-18T05:51:36.875Z",
-            "criteria": {
-                "search": "8dce7fb3-9642-4a3d-b53b-f90e5a1fc1fc",
-                "region": [
-                    "West"
-                ],
-                "exteriorCondition": [],
-                "mechanicalCondition": [],
-                "id": null
-            },
-            "id": "8dce7fb3-9642-4a3d-b53b-f90e5a1fc1fc"
-        },
-        {
-            "_id": "c32d3f73-cfda-47f8-910b-fd5b74fcd789",
-            "results": [
-                {
-                    "region": "West",
-                    "price": 90099,
-                    "listDate": "2023-02-15T10:01:14.042Z",
-                    "saleDate": null,
-                    "seller": {
-                        "firstName": "Amara",
-                        "lastName": "Shanahan",
-                        "email": "dylan.lindgren@hotmail.com",
-                        "id": null
-                    },
-                    "car": {
-                        "make": "Jeep",
-                        "model": "Golf",
-                        "year": 1988,
-                        "exteriorCondition": "Excellent",
-                        "mechanicalCondition": "Good",
-                        "mileage": 57921,
-                        "color": "sky blue",
-                        "img": "https://platform.cstatic-images.com/xlarge/in/v2/bf07ef6b-2b1d-584a-bc98-e8ad1a584b37/33526ba4-8131-4188-a654-6632ab5863cf/CcIk-f13fwoB6PfVDSwoWFIGCaM.jpg",
-                        "id": null
-                    },
-                    "id": null
-                },
-                {
-                    "region": "West",
-                    "price": 75275,
-                    "listDate": "2021-02-04T20:24:40.194Z",
-                    "saleDate": null,
-                    "seller": {
-                        "firstName": "Genesis",
-                        "lastName": "Glover",
-                        "email": "piper.ebert21@gmail.com",
-                        "id": null
-                    },
-                    "car": {
-                        "make": "Mercedes Benz",
-                        "model": "Camry",
-                        "year": 2011,
-                        "exteriorCondition": "Good",
-                        "mechanicalCondition": "Fair",
-                        "mileage": 196008,
-                        "color": "sky blue",
-                        "img": "https://platform.cstatic-images.com/xlarge/in/v2/c20ed699-a19f-5358-b33d-85aef618e987/855a2e37-660e-4770-a39a-6e61c2c9bc0c/qnXzma21X01TNnOvYWtcWZxbeCg.jpg",
-                        "id": null
-                    },
-                    "id": null
-                },
-                {
-                    "region": "West",
-                    "price": 65316,
-                    "listDate": "2020-09-15T14:27:07.559Z",
-                    "saleDate": null,
-                    "seller": {
-                        "firstName": "Oceane",
-                        "lastName": "Hickle",
-                        "email": "adalberto.rosenbaum@hotmail.com",
-                        "id": null
-                    },
-                    "car": {
-                        "make": "Chevrolet",
-                        "model": "Fortwo",
-                        "year": 1989,
-                        "exteriorCondition": "Good",
-                        "mechanicalCondition": "Good",
-                        "mileage": 122882,
-                        "color": "ivory",
-                        "img": "https://platform.cstatic-images.com/xlarge/in/v2/b945599e-76d8-4194-9f7e-f90c64b56fff/637cb1f7-a2f8-49be-aca5-4d0a007c05a5/BNqhXxLwOoJIFKP0sEpJ2DYsGUo.jpg",
-                        "id": null
-                    },
-                    "id": null
-                },
-                {
-                    "region": "West",
-                    "price": 1281,
-                    "listDate": "2022-09-11T01:30:33.082Z",
-                    "saleDate": null,
-                    "seller": {
-                        "firstName": "Oceane",
-                        "lastName": "Hickle",
-                        "email": "adalberto.rosenbaum@hotmail.com",
-                        "id": null
-                    },
-                    "car": {
-                        "make": "Hyundai",
-                        "model": "XC90",
-                        "year": 2015,
-                        "exteriorCondition": "Bad",
-                        "mechanicalCondition": "Good",
-                        "mileage": 140779,
-                        "color": "mint green",
-                        "img": "https://platform.cstatic-images.com/xlarge/in/v2/d3cefbfc-011c-43d3-b233-8c30b41a2dc7/9e3738df-543b-44c0-9576-55e400fcee6e/zsveskSoQ7RfNTJtfJLQZJKAoNc.jpg",
-                        "id": null
-                    },
-                    "id": null
-                },
-                {
-                    "region": "West",
-                    "price": 68747,
-                    "listDate": "2023-02-11T05:55:27.042Z",
-                    "saleDate": null,
-                    "seller": {
-                        "firstName": "Genesis",
-                        "lastName": "Glover",
-                        "email": "piper.ebert21@gmail.com",
-                        "id": null
-                    },
-                    "car": {
-                        "make": "Maserati",
-                        "model": "Mercielago",
-                        "year": 1992,
-                        "exteriorCondition": "Excellent",
-                        "mechanicalCondition": "Good",
-                        "mileage": 95872,
-                        "color": "lime",
-                        "img": "https://platform.cstatic-images.com/xlarge/in/v2/4694b836-a897-576b-b9c5-7a960b9ace73/40a6b363-bfe8-4842-85de-4e5baf88e97e/fTI2LbsplluYC4WBI2K0tj3BFk0.jpg",
-                        "id": null
-                    },
-                    "id": null
-                },
-                {
-                    "region": "West",
-                    "price": 50008,
-                    "listDate": "2021-08-09T07:53:20.425Z",
-                    "saleDate": null,
-                    "seller": {
-                        "firstName": "Amara",
-                        "lastName": "Shanahan",
-                        "email": "dylan.lindgren@hotmail.com",
-                        "id": null
-                    },
-                    "car": {
-                        "make": "Volvo",
-                        "model": "LeBaron",
-                        "year": 2006,
-                        "exteriorCondition": "Excellent",
-                        "mechanicalCondition": "Bad",
-                        "mileage": 48886,
-                        "color": "magenta",
-                        "img": "https://platform.cstatic-images.com/xlarge/in/v2/9f241bc4-358f-5ca0-941d-cd3ae171ea43/be1e2ece-abc3-4f07-bd07-810fa34d7ca4/Vupbdhbw8egkX1xAViWIJK1ZHUE.jpg",
-                        "id": null
-                    },
-                    "id": null
-                },
-                {
-                    "region": "West",
-                    "price": 74927,
-                    "listDate": "2021-08-30T23:30:08.934Z",
-                    "saleDate": null,
-                    "seller": {
-                        "firstName": "Amara",
-                        "lastName": "Shanahan",
-                        "email": "dylan.lindgren@hotmail.com",
-                        "id": null
-                    },
-                    "car": {
-                        "make": "Rolls Royce",
-                        "model": "Model Y",
-                        "year": 1990,
-                        "exteriorCondition": "Bad",
-                        "mechanicalCondition": "Good",
-                        "mileage": 125768,
-                        "color": "plum",
-                        "img": "https://platform.cstatic-images.com/xlarge/in/v2/6839ec12-c632-5fa6-bb03-5cc989d0cacd/394a117e-fd0e-4458-9e00-f69b79785948/OLfpnfor03Qe-ptJL5AN72N4kIo.jpg",
-                        "id": null
-                    },
-                    "id": null
-                },
-                {
-                    "region": "West",
-                    "price": 22408,
-                    "listDate": "2023-01-31T14:54:44.393Z",
-                    "saleDate": null,
-                    "seller": {
-                        "firstName": "Genesis",
-                        "lastName": "Glover",
-                        "email": "piper.ebert21@gmail.com",
-                        "id": null
-                    },
-                    "car": {
-                        "make": "Aston Martin",
-                        "model": "Altima",
-                        "year": 2004,
-                        "exteriorCondition": "Good",
-                        "mechanicalCondition": "Fair",
-                        "mileage": 38210,
-                        "color": "indigo",
-                        "img": "https://platform.cstatic-images.com/xlarge/in/v2/d3cefbfc-011c-43d3-b233-8c30b41a2dc7/f9f467b5-5ae3-41bb-ab8e-1e6e607dabb1/4bz4P6a6b5HhrmwFBf0Ll3Og06A.jpg",
-                        "id": null
-                    },
-                    "id": null
-                },
-                {
-                    "region": "West",
-                    "price": 39952,
-                    "listDate": "2023-01-24T20:57:59.070Z",
-                    "saleDate": null,
-                    "seller": {
-                        "firstName": "Genesis",
-                        "lastName": "Glover",
-                        "email": "piper.ebert21@gmail.com",
-                        "id": null
-                    },
-                    "car": {
-                        "make": "Bentley",
-                        "model": "Grand Cherokee",
-                        "year": 2005,
-                        "exteriorCondition": "Excellent",
-                        "mechanicalCondition": "Fair",
-                        "mileage": 174523,
-                        "color": "orange",
-                        "img": "https://platform.cstatic-images.com/xlarge/in/v2/d3cefbfc-011c-43d3-b233-8c30b41a2dc7/497321e0-6705-4c28-9f03-c25733ca3615/dMOeuMWtRGBhNyLBP2eCsYsEFfo.jpg",
-                        "id": null
-                    },
-                    "id": null
-                },
-                {
-                    "region": "West",
-                    "price": 59485,
-                    "listDate": "2021-09-13T09:48:12.335Z",
-                    "saleDate": null,
-                    "seller": {
-                        "firstName": "Amara",
-                        "lastName": "Shanahan",
-                        "email": "dylan.lindgren@hotmail.com",
-                        "id": null
-                    },
-                    "car": {
-                        "make": "Aston Martin",
-                        "model": "Cruze",
-                        "year": 1984,
-                        "exteriorCondition": "Fair",
-                        "mechanicalCondition": "Fair",
-                        "mileage": 37109,
-                        "color": "red",
-                        "img": "https://platform.cstatic-images.com/xlarge/in/v2/bb3869ff-40f5-54cc-9ff9-83db405bce56/c90d3e3d-099f-4658-af02-79822beaf95e/QNL2R6nNu35hjENsLxz-LJ9Tcoc.jpg",
-                        "id": null
-                    },
-                    "id": null
-                },
-                {
-                    "region": "West",
-                    "price": 14178,
-                    "listDate": "2020-10-07T15:31:46.067Z",
-                    "saleDate": null,
-                    "seller": {
-                        "firstName": "Genesis",
-                        "lastName": "Glover",
-                        "email": "piper.ebert21@gmail.com",
-                        "id": null
-                    },
-                    "car": {
-                        "make": "Ferrari",
-                        "model": "Element",
-                        "year": 2004,
-                        "exteriorCondition": "Good",
-                        "mechanicalCondition": "Fair",
-                        "mileage": 150038,
-                        "color": "gold",
-                        "img": "https://platform.cstatic-images.com/xlarge/in/v2/d3cefbfc-011c-43d3-b233-8c30b41a2dc7/089253d9-2cfd-41ae-b1c4-4003edaa8eed/mtDn4WdWTOw0_l_cVSLB3xZRJRM.jpg",
-                        "id": null
-                    },
-                    "id": null
-                }
-            ],
-            "__v": 0,
-            "createdAt": "2023-05-18T05:51:36.873Z",
-            "updatedAt": "2023-05-18T05:51:36.873Z",
-            "criteria": {
-                "search": "c32d3f73-cfda-47f8-910b-fd5b74fcd789",
-                "region": [
-                    "West"
-                ],
-                "exteriorCondition": [],
-                "mechanicalCondition": [],
-                "id": null
-            },
-            "id": "c32d3f73-cfda-47f8-910b-fd5b74fcd789"
-        },
-        {
-            "_id": "cfcf3206-05fa-4bad-97cd-f8483113bb8c",
-            "results": [
-                {
-                    "region": "SouthEast",
-                    "price": 59153,
-                    "listDate": "2022-01-02T11:41:41.618Z",
-                    "saleDate": null,
-                    "seller": {
-                        "firstName": "Amara",
-                        "lastName": "Shanahan",
-                        "email": "dylan.lindgren@hotmail.com",
-                        "id": null
-                    },
-                    "car": {
-                        "make": "Mini",
-                        "model": "Ranchero",
-                        "year": 2015,
-                        "exteriorCondition": "Excellent",
-                        "mechanicalCondition": "Fair",
-                        "mileage": 182741,
-                        "color": "lime",
-                        "img": "https://platform.cstatic-images.com/xlarge/in/v2/db1143c7-624e-4473-b240-7cc221d896bf/6517ac40-3ba9-4ee0-8054-4db1c19f401d/HrJP67kiZfTj1wz-2k7BBT-tWVs.jpg",
-                        "id": null
-                    },
-                    "id": null
-                },
-                {
-                    "region": "SouthEast",
-                    "price": 52488,
-                    "listDate": "2020-10-13T08:53:56.510Z",
-                    "saleDate": null,
-                    "seller": {
-                        "firstName": "Amara",
-                        "lastName": "Shanahan",
-                        "email": "dylan.lindgren@hotmail.com",
-                        "id": null
-                    },
-                    "car": {
-                        "make": "Audi",
-                        "model": "Ranchero",
-                        "year": 2016,
-                        "exteriorCondition": "Bad",
-                        "mechanicalCondition": "Good",
-                        "mileage": 113597,
-                        "color": "azure",
-                        "img": "https://platform.cstatic-images.com/xlarge/in/v2/d3cefbfc-011c-43d3-b233-8c30b41a2dc7/dd52bee8-f3c8-4c8f-8639-634030cdad09/RYaKUnQo2cHTw66gLSbCW3SvNLk.jpg",
-                        "id": null
-                    },
-                    "id": null
-                },
-                {
-                    "region": "SouthEast",
-                    "price": 96681,
-                    "listDate": "2022-11-19T05:18:49.119Z",
-                    "saleDate": null,
-                    "seller": {
-                        "firstName": "Amara",
-                        "lastName": "Shanahan",
-                        "email": "dylan.lindgren@hotmail.com",
-                        "id": null
-                    },
-                    "car": {
-                        "make": "Polestar",
-                        "model": "Golf",
-                        "year": 1983,
-                        "exteriorCondition": "Fair",
-                        "mechanicalCondition": "Fair",
-                        "mileage": 127626,
-                        "color": "cyan",
-                        "img": "https://platform.cstatic-images.com/xlarge/in/v2/d3cefbfc-011c-43d3-b233-8c30b41a2dc7/0cc7c271-3ea2-44c3-b934-8be98c21635c/BNW85mAfbpF-OzLBXPQ6YQfM-oo.jpg",
-                        "id": null
-                    },
-                    "id": null
-                },
-                {
-                    "region": "SouthEast",
-                    "price": 62536,
-                    "listDate": "2022-10-11T15:10:21.944Z",
-                    "saleDate": null,
-                    "seller": {
-                        "firstName": "Amara",
-                        "lastName": "Shanahan",
-                        "email": "dylan.lindgren@hotmail.com",
-                        "id": null
-                    },
-                    "car": {
-                        "make": "Rolls Royce",
-                        "model": "Corvette",
-                        "year": 1990,
-                        "exteriorCondition": "Good",
-                        "mechanicalCondition": "Good",
-                        "mileage": 175929,
-                        "color": "orchid",
-                        "img": "https://platform.cstatic-images.com/xlarge/in/v2/d3cefbfc-011c-43d3-b233-8c30b41a2dc7/9221f892-bc45-4b6d-b3d6-1fe5b5a8dfa4/65uyUGKpI6aY58Zk1Mo1rdLTbVE.jpg",
-                        "id": null
-                    },
-                    "id": null
-                },
-                {
-                    "region": "SouthEast",
-                    "price": 21299,
-                    "listDate": "2022-11-09T04:42:06.702Z",
-                    "saleDate": null,
-                    "seller": {
-                        "firstName": "Oceane",
-                        "lastName": "Hickle",
-                        "email": "adalberto.rosenbaum@hotmail.com",
-                        "id": null
-                    },
-                    "car": {
-                        "make": "Audi",
-                        "model": "Prius",
-                        "year": 1994,
-                        "exteriorCondition": "Fair",
-                        "mechanicalCondition": "Bad",
-                        "mileage": 41618,
-                        "color": "silver",
-                        "img": "https://platform.cstatic-images.com/xlarge/in/v2/005cbc87-0078-5ed8-a8cf-c9933aa02db2/84239006-7308-4214-ae91-f6f186677ad8/-G0ISug7dnwQ7C6S87-VOPXd2sc.jpg",
-                        "id": null
-                    },
-                    "id": null
-                },
-                {
-                    "region": "SouthEast",
-                    "price": 98979,
-                    "listDate": "2020-09-30T22:34:45.137Z",
-                    "saleDate": null,
-                    "seller": {
-                        "firstName": "Oceane",
-                        "lastName": "Hickle",
-                        "email": "adalberto.rosenbaum@hotmail.com",
-                        "id": null
-                    },
-                    "car": {
-                        "make": "Volkswagen",
-                        "model": "XTS",
-                        "year": 1990,
-                        "exteriorCondition": "Excellent",
-                        "mechanicalCondition": "Fair",
-                        "mileage": 80800,
-                        "color": "white",
-                        "img": "https://platform.cstatic-images.com/xlarge/in/v2/9f241bc4-358f-5ca0-941d-cd3ae171ea43/be1e2ece-abc3-4f07-bd07-810fa34d7ca4/Vupbdhbw8egkX1xAViWIJK1ZHUE.jpg",
-                        "id": null
-                    },
-                    "id": null
-                },
-                {
-                    "region": "SouthEast",
-                    "price": 63883,
-                    "listDate": "2020-09-29T01:48:36.097Z",
-                    "saleDate": null,
-                    "seller": {
-                        "firstName": "Genesis",
-                        "lastName": "Glover",
-                        "email": "piper.ebert21@gmail.com",
-                        "id": null
-                    },
-                    "car": {
-                        "make": "Audi",
-                        "model": "Model Y",
-                        "year": 2020,
-                        "exteriorCondition": "Fair",
-                        "mechanicalCondition": "Fair",
-                        "mileage": 107873,
-                        "color": "grey",
-                        "img": "https://platform.cstatic-images.com/xlarge/in/v2/d3cefbfc-011c-43d3-b233-8c30b41a2dc7/87c948ae-9163-4d78-a233-6ac9224209ca/r-8KcedO_vg8mKsHXrT-dAZkbSA.jpg",
-                        "id": null
-                    },
-                    "id": null
-                },
-                {
-                    "region": "SouthEast",
-                    "price": 22834,
-                    "listDate": "2023-04-03T20:23:50.239Z",
-                    "saleDate": null,
-                    "seller": {
-                        "firstName": "Genesis",
-                        "lastName": "Glover",
-                        "email": "piper.ebert21@gmail.com",
-                        "id": null
-                    },
-                    "car": {
-                        "make": "Chevrolet",
-                        "model": "Camry",
-                        "year": 2012,
-                        "exteriorCondition": "Bad",
-                        "mechanicalCondition": "Fair",
-                        "mileage": 118231,
-                        "color": "cyan",
-                        "img": "https://platform.cstatic-images.com/xlarge/in/v2/56a8452e-c1e5-5c6b-8671-024e77bdc075/39a30d72-7cf5-4c0e-8e8b-f21893e17980/T1A-O8jnqHgxMSxJZEQtBUaA2Ws.jpg",
-                        "id": null
-                    },
-                    "id": null
-                }
-            ],
-            "__v": 0,
-            "createdAt": "2023-05-18T05:51:36.875Z",
-            "updatedAt": "2023-05-18T05:51:36.875Z",
-            "criteria": {
-                "search": "cfcf3206-05fa-4bad-97cd-f8483113bb8c",
-                "region": [
-                    "SouthEast"
-                ],
-                "exteriorCondition": [],
-                "mechanicalCondition": [],
-                "id": null
-            },
-            "id": "cfcf3206-05fa-4bad-97cd-f8483113bb8c"
-        },
-        {
-            "_id": "fc2b2dce-55da-4ff7-8d0f-5c2f147bf78a",
+            "_id": "9e8e9812-ae4e-4947-9968-71dfbbec010d",
             "results": [
                 {
                     "region": "SouthWest",
@@ -2238,10 +1302,10 @@
                 }
             ],
             "__v": 0,
-            "createdAt": "2023-05-18T05:51:36.875Z",
-            "updatedAt": "2023-05-18T05:51:36.875Z",
+            "createdAt": "2023-05-19T00:41:59.543Z",
+            "updatedAt": "2023-05-19T00:41:59.543Z",
             "criteria": {
-                "search": "fc2b2dce-55da-4ff7-8d0f-5c2f147bf78a",
+                "search": "9e8e9812-ae4e-4947-9968-71dfbbec010d",
                 "region": [
                     "SouthWest"
                 ],
@@ -2249,10 +1313,1018 @@
                 "mechanicalCondition": [],
                 "id": null
             },
-            "id": "fc2b2dce-55da-4ff7-8d0f-5c2f147bf78a"
+            "id": "9e8e9812-ae4e-4947-9968-71dfbbec010d"
+        },
+        {
+            "_id": "c05ac473-bb2a-4b3d-9951-565715c85d43",
+            "results": [
+                {
+                    "region": "NorthEast",
+                    "price": 34882,
+                    "listDate": "2021-04-17T11:23:44.934Z",
+                    "saleDate": null,
+                    "seller": {
+                        "firstName": "Genesis",
+                        "lastName": "Glover",
+                        "email": "piper.ebert21@gmail.com",
+                        "id": null
+                    },
+                    "car": {
+                        "make": "Mercedes Benz",
+                        "model": "XTS",
+                        "year": 1990,
+                        "exteriorCondition": "Bad",
+                        "mechanicalCondition": "Bad",
+                        "mileage": 68850,
+                        "color": "gold",
+                        "img": "https://platform.cstatic-images.com/xlarge/in/v2/6b28ebb5-97c5-54ef-956a-d021aea28de5/21a90906-8238-446b-8cd3-c20e5eaaf497/09YwPxUslFF1EgKUlMo1yDyCoR4.jpg",
+                        "id": null
+                    },
+                    "id": null
+                },
+                {
+                    "region": "NorthEast",
+                    "price": 4615,
+                    "listDate": "2021-12-16T07:16:03.052Z",
+                    "saleDate": null,
+                    "seller": {
+                        "firstName": "Genesis",
+                        "lastName": "Glover",
+                        "email": "piper.ebert21@gmail.com",
+                        "id": null
+                    },
+                    "car": {
+                        "make": "Hyundai",
+                        "model": "XTS",
+                        "year": 2020,
+                        "exteriorCondition": "Excellent",
+                        "mechanicalCondition": "Fair",
+                        "mileage": 151998,
+                        "color": "gold",
+                        "img": "https://platform.cstatic-images.com/xlarge/in/v2/b72675a4-93a7-5da5-b85f-43cb2be1e34b/090891c1-1191-4e5a-bc5e-ea350ad1d3d8/MCIL1g4m-mF_I7OCNVFo0xiEies.jpg",
+                        "id": null
+                    },
+                    "id": null
+                },
+                {
+                    "region": "NorthEast",
+                    "price": 17685,
+                    "listDate": "2022-02-26T02:05:36.422Z",
+                    "saleDate": null,
+                    "seller": {
+                        "firstName": "Amara",
+                        "lastName": "Shanahan",
+                        "email": "dylan.lindgren@hotmail.com",
+                        "id": null
+                    },
+                    "car": {
+                        "make": "Volkswagen",
+                        "model": "ATS",
+                        "year": 2016,
+                        "exteriorCondition": "Excellent",
+                        "mechanicalCondition": "Bad",
+                        "mileage": 151842,
+                        "color": "cyan",
+                        "img": "https://platform.cstatic-images.com/xlarge/in/v2/60df18f0-64c3-5ce6-85d4-e5fa080fc244/63ac9737-3119-4d8e-9dcb-ea7b4a439cda/BuUvRRNL44YkOjyzY8_DY3PAUSE.jpg",
+                        "id": null
+                    },
+                    "id": null
+                },
+                {
+                    "region": "NorthEast",
+                    "price": 49037,
+                    "listDate": "2022-05-04T16:54:27.299Z",
+                    "saleDate": null,
+                    "seller": {
+                        "firstName": "Amara",
+                        "lastName": "Shanahan",
+                        "email": "dylan.lindgren@hotmail.com",
+                        "id": null
+                    },
+                    "car": {
+                        "make": "Rolls Royce",
+                        "model": "LeBaron",
+                        "year": 1983,
+                        "exteriorCondition": "Fair",
+                        "mechanicalCondition": "Bad",
+                        "mileage": 32731,
+                        "color": "gold",
+                        "img": "https://platform.cstatic-images.com/xlarge/in/v2/db1143c7-624e-4473-b240-7cc221d896bf/d2f05445-c6be-4ac8-a5d8-d96d620f933d/zSLEnaUHMuOC-AQnYZQHQ9Xpcn8.jpg",
+                        "id": null
+                    },
+                    "id": null
+                },
+                {
+                    "region": "NorthEast",
+                    "price": 59313,
+                    "listDate": "2021-03-20T18:52:38.123Z",
+                    "saleDate": null,
+                    "seller": {
+                        "firstName": "Genesis",
+                        "lastName": "Glover",
+                        "email": "piper.ebert21@gmail.com",
+                        "id": null
+                    },
+                    "car": {
+                        "make": "BMW",
+                        "model": "Model Y",
+                        "year": 2008,
+                        "exteriorCondition": "Good",
+                        "mechanicalCondition": "Bad",
+                        "mileage": 85979,
+                        "color": "orange",
+                        "img": "https://platform.cstatic-images.com/xlarge/in/v2/5507a7b2-444d-56a2-84ce-d0c581c921ee/d103405a-0d71-46a4-a1f1-bf36d2b7a3a6/01mqnvqI_M_jvdQ0CNfD6SwPlcg.jpg",
+                        "id": null
+                    },
+                    "id": null
+                },
+                {
+                    "region": "NorthEast",
+                    "price": 10841,
+                    "listDate": "2021-04-02T09:32:34.700Z",
+                    "saleDate": null,
+                    "seller": {
+                        "firstName": "Amara",
+                        "lastName": "Shanahan",
+                        "email": "dylan.lindgren@hotmail.com",
+                        "id": null
+                    },
+                    "car": {
+                        "make": "Mazda",
+                        "model": "Impala",
+                        "year": 2014,
+                        "exteriorCondition": "Bad",
+                        "mechanicalCondition": "Fair",
+                        "mileage": 176256,
+                        "color": "turquoise",
+                        "img": "https://platform.cstatic-images.com/xlarge/in/v2/d3cefbfc-011c-43d3-b233-8c30b41a2dc7/43d3241c-edc7-41c5-a977-f79ddead41f3/-Eqijrth0mKvx4YrOryYRdYjKHY.jpg",
+                        "id": null
+                    },
+                    "id": null
+                },
+                {
+                    "region": "NorthEast",
+                    "price": 71599,
+                    "listDate": "2023-04-24T19:31:01.282Z",
+                    "saleDate": null,
+                    "seller": {
+                        "firstName": "Oceane",
+                        "lastName": "Hickle",
+                        "email": "adalberto.rosenbaum@hotmail.com",
+                        "id": null
+                    },
+                    "car": {
+                        "make": "Dodge",
+                        "model": "Altima",
+                        "year": 1985,
+                        "exteriorCondition": "Bad",
+                        "mechanicalCondition": "Good",
+                        "mileage": 83715,
+                        "color": "plum",
+                        "img": "https://platform.cstatic-images.com/xlarge/in/v2/a9ca834f-7c56-5bde-8bf5-62dcf8b558c8/197e1d0d-c67e-45f7-80a6-1f5709eb2f7b/o3e4XqdPSStWkkmvCSP947QrBPg.jpg",
+                        "id": null
+                    },
+                    "id": null
+                },
+                {
+                    "region": "NorthEast",
+                    "price": 56903,
+                    "listDate": "2020-06-22T20:05:22.884Z",
+                    "saleDate": null,
+                    "seller": {
+                        "firstName": "Oceane",
+                        "lastName": "Hickle",
+                        "email": "adalberto.rosenbaum@hotmail.com",
+                        "id": null
+                    },
+                    "car": {
+                        "make": "Polestar",
+                        "model": "Countach",
+                        "year": 2000,
+                        "exteriorCondition": "Excellent",
+                        "mechanicalCondition": "Bad",
+                        "mileage": 122716,
+                        "color": "gold",
+                        "img": "https://platform.cstatic-images.com/xlarge/in/v2/b0734600-6047-555e-8373-f71bc89ff827/8fea73c5-6f18-4e58-b849-fbda2ab0fe0b/x7l8ga9vq86xiS348Nr3Ub1mzoc.jpg",
+                        "id": null
+                    },
+                    "id": null
+                },
+                {
+                    "region": "NorthEast",
+                    "price": 28526,
+                    "listDate": "2022-07-19T14:50:57.414Z",
+                    "saleDate": null,
+                    "seller": {
+                        "firstName": "Amara",
+                        "lastName": "Shanahan",
+                        "email": "dylan.lindgren@hotmail.com",
+                        "id": null
+                    },
+                    "car": {
+                        "make": "Chrysler",
+                        "model": "El Camino",
+                        "year": 2005,
+                        "exteriorCondition": "Good",
+                        "mechanicalCondition": "Excellent",
+                        "mileage": 87398,
+                        "color": "tan",
+                        "img": "https://platform.cstatic-images.com/xlarge/in/v2/b945599e-76d8-4194-9f7e-f90c64b56fff/b3c89e55-5989-4756-8bbc-53f22dfe6b40/YRvx0ke1g13h02gssqaQpygvw3w.jpg",
+                        "id": null
+                    },
+                    "id": null
+                },
+                {
+                    "region": "NorthEast",
+                    "price": 68929,
+                    "listDate": "2022-10-08T11:36:46.478Z",
+                    "saleDate": null,
+                    "seller": {
+                        "firstName": "Oceane",
+                        "lastName": "Hickle",
+                        "email": "adalberto.rosenbaum@hotmail.com",
+                        "id": null
+                    },
+                    "car": {
+                        "make": "Smart",
+                        "model": "Cruze",
+                        "year": 2000,
+                        "exteriorCondition": "Fair",
+                        "mechanicalCondition": "Bad",
+                        "mileage": 3067,
+                        "color": "turquoise",
+                        "img": "https://platform.cstatic-images.com/xlarge/in/v2/d3cefbfc-011c-43d3-b233-8c30b41a2dc7/535ac4f5-07a6-40da-9575-0abd7149713e/hb6aEkKcv2fddxo-LFk9kfF0AzE.jpg",
+                        "id": null
+                    },
+                    "id": null
+                }
+            ],
+            "__v": 0,
+            "createdAt": "2023-05-19T00:41:59.542Z",
+            "updatedAt": "2023-05-19T00:41:59.542Z",
+            "criteria": {
+                "search": "c05ac473-bb2a-4b3d-9951-565715c85d43",
+                "region": [
+                    "NorthEast"
+                ],
+                "exteriorCondition": [],
+                "mechanicalCondition": [],
+                "id": null
+            },
+            "id": "c05ac473-bb2a-4b3d-9951-565715c85d43"
+        },
+        {
+            "_id": "c1dd530e-e314-40c6-9333-f9d1347b6318",
+            "results": [
+                {
+                    "region": "West",
+                    "price": 90099,
+                    "listDate": "2023-02-15T10:01:14.042Z",
+                    "saleDate": null,
+                    "seller": {
+                        "firstName": "Amara",
+                        "lastName": "Shanahan",
+                        "email": "dylan.lindgren@hotmail.com",
+                        "id": null
+                    },
+                    "car": {
+                        "make": "Jeep",
+                        "model": "Golf",
+                        "year": 1988,
+                        "exteriorCondition": "Excellent",
+                        "mechanicalCondition": "Good",
+                        "mileage": 57921,
+                        "color": "sky blue",
+                        "img": "https://platform.cstatic-images.com/xlarge/in/v2/bf07ef6b-2b1d-584a-bc98-e8ad1a584b37/33526ba4-8131-4188-a654-6632ab5863cf/CcIk-f13fwoB6PfVDSwoWFIGCaM.jpg",
+                        "id": null
+                    },
+                    "id": null
+                },
+                {
+                    "region": "West",
+                    "price": 75275,
+                    "listDate": "2021-02-04T20:24:40.194Z",
+                    "saleDate": null,
+                    "seller": {
+                        "firstName": "Genesis",
+                        "lastName": "Glover",
+                        "email": "piper.ebert21@gmail.com",
+                        "id": null
+                    },
+                    "car": {
+                        "make": "Mercedes Benz",
+                        "model": "Camry",
+                        "year": 2011,
+                        "exteriorCondition": "Good",
+                        "mechanicalCondition": "Fair",
+                        "mileage": 196008,
+                        "color": "sky blue",
+                        "img": "https://platform.cstatic-images.com/xlarge/in/v2/c20ed699-a19f-5358-b33d-85aef618e987/855a2e37-660e-4770-a39a-6e61c2c9bc0c/qnXzma21X01TNnOvYWtcWZxbeCg.jpg",
+                        "id": null
+                    },
+                    "id": null
+                },
+                {
+                    "region": "West",
+                    "price": 65316,
+                    "listDate": "2020-09-15T14:27:07.559Z",
+                    "saleDate": null,
+                    "seller": {
+                        "firstName": "Oceane",
+                        "lastName": "Hickle",
+                        "email": "adalberto.rosenbaum@hotmail.com",
+                        "id": null
+                    },
+                    "car": {
+                        "make": "Chevrolet",
+                        "model": "Fortwo",
+                        "year": 1989,
+                        "exteriorCondition": "Good",
+                        "mechanicalCondition": "Good",
+                        "mileage": 122882,
+                        "color": "ivory",
+                        "img": "https://platform.cstatic-images.com/xlarge/in/v2/b945599e-76d8-4194-9f7e-f90c64b56fff/637cb1f7-a2f8-49be-aca5-4d0a007c05a5/BNqhXxLwOoJIFKP0sEpJ2DYsGUo.jpg",
+                        "id": null
+                    },
+                    "id": null
+                },
+                {
+                    "region": "West",
+                    "price": 1281,
+                    "listDate": "2022-09-11T01:30:33.082Z",
+                    "saleDate": null,
+                    "seller": {
+                        "firstName": "Oceane",
+                        "lastName": "Hickle",
+                        "email": "adalberto.rosenbaum@hotmail.com",
+                        "id": null
+                    },
+                    "car": {
+                        "make": "Hyundai",
+                        "model": "XC90",
+                        "year": 2015,
+                        "exteriorCondition": "Bad",
+                        "mechanicalCondition": "Good",
+                        "mileage": 140779,
+                        "color": "mint green",
+                        "img": "https://platform.cstatic-images.com/xlarge/in/v2/d3cefbfc-011c-43d3-b233-8c30b41a2dc7/9e3738df-543b-44c0-9576-55e400fcee6e/zsveskSoQ7RfNTJtfJLQZJKAoNc.jpg",
+                        "id": null
+                    },
+                    "id": null
+                },
+                {
+                    "region": "West",
+                    "price": 68747,
+                    "listDate": "2023-02-11T05:55:27.042Z",
+                    "saleDate": null,
+                    "seller": {
+                        "firstName": "Genesis",
+                        "lastName": "Glover",
+                        "email": "piper.ebert21@gmail.com",
+                        "id": null
+                    },
+                    "car": {
+                        "make": "Maserati",
+                        "model": "Mercielago",
+                        "year": 1992,
+                        "exteriorCondition": "Excellent",
+                        "mechanicalCondition": "Good",
+                        "mileage": 95872,
+                        "color": "lime",
+                        "img": "https://platform.cstatic-images.com/xlarge/in/v2/4694b836-a897-576b-b9c5-7a960b9ace73/40a6b363-bfe8-4842-85de-4e5baf88e97e/fTI2LbsplluYC4WBI2K0tj3BFk0.jpg",
+                        "id": null
+                    },
+                    "id": null
+                },
+                {
+                    "region": "West",
+                    "price": 50008,
+                    "listDate": "2021-08-09T07:53:20.425Z",
+                    "saleDate": null,
+                    "seller": {
+                        "firstName": "Amara",
+                        "lastName": "Shanahan",
+                        "email": "dylan.lindgren@hotmail.com",
+                        "id": null
+                    },
+                    "car": {
+                        "make": "Volvo",
+                        "model": "LeBaron",
+                        "year": 2006,
+                        "exteriorCondition": "Excellent",
+                        "mechanicalCondition": "Bad",
+                        "mileage": 48886,
+                        "color": "magenta",
+                        "img": "https://platform.cstatic-images.com/xlarge/in/v2/9f241bc4-358f-5ca0-941d-cd3ae171ea43/be1e2ece-abc3-4f07-bd07-810fa34d7ca4/Vupbdhbw8egkX1xAViWIJK1ZHUE.jpg",
+                        "id": null
+                    },
+                    "id": null
+                },
+                {
+                    "region": "West",
+                    "price": 74927,
+                    "listDate": "2021-08-30T23:30:08.934Z",
+                    "saleDate": null,
+                    "seller": {
+                        "firstName": "Amara",
+                        "lastName": "Shanahan",
+                        "email": "dylan.lindgren@hotmail.com",
+                        "id": null
+                    },
+                    "car": {
+                        "make": "Rolls Royce",
+                        "model": "Model Y",
+                        "year": 1990,
+                        "exteriorCondition": "Bad",
+                        "mechanicalCondition": "Good",
+                        "mileage": 125768,
+                        "color": "plum",
+                        "img": "https://platform.cstatic-images.com/xlarge/in/v2/6839ec12-c632-5fa6-bb03-5cc989d0cacd/394a117e-fd0e-4458-9e00-f69b79785948/OLfpnfor03Qe-ptJL5AN72N4kIo.jpg",
+                        "id": null
+                    },
+                    "id": null
+                },
+                {
+                    "region": "West",
+                    "price": 22408,
+                    "listDate": "2023-01-31T14:54:44.393Z",
+                    "saleDate": null,
+                    "seller": {
+                        "firstName": "Genesis",
+                        "lastName": "Glover",
+                        "email": "piper.ebert21@gmail.com",
+                        "id": null
+                    },
+                    "car": {
+                        "make": "Aston Martin",
+                        "model": "Altima",
+                        "year": 2004,
+                        "exteriorCondition": "Good",
+                        "mechanicalCondition": "Fair",
+                        "mileage": 38210,
+                        "color": "indigo",
+                        "img": "https://platform.cstatic-images.com/xlarge/in/v2/d3cefbfc-011c-43d3-b233-8c30b41a2dc7/f9f467b5-5ae3-41bb-ab8e-1e6e607dabb1/4bz4P6a6b5HhrmwFBf0Ll3Og06A.jpg",
+                        "id": null
+                    },
+                    "id": null
+                },
+                {
+                    "region": "West",
+                    "price": 39952,
+                    "listDate": "2023-01-24T20:57:59.070Z",
+                    "saleDate": null,
+                    "seller": {
+                        "firstName": "Genesis",
+                        "lastName": "Glover",
+                        "email": "piper.ebert21@gmail.com",
+                        "id": null
+                    },
+                    "car": {
+                        "make": "Bentley",
+                        "model": "Grand Cherokee",
+                        "year": 2005,
+                        "exteriorCondition": "Excellent",
+                        "mechanicalCondition": "Fair",
+                        "mileage": 174523,
+                        "color": "orange",
+                        "img": "https://platform.cstatic-images.com/xlarge/in/v2/d3cefbfc-011c-43d3-b233-8c30b41a2dc7/497321e0-6705-4c28-9f03-c25733ca3615/dMOeuMWtRGBhNyLBP2eCsYsEFfo.jpg",
+                        "id": null
+                    },
+                    "id": null
+                },
+                {
+                    "region": "West",
+                    "price": 59485,
+                    "listDate": "2021-09-13T09:48:12.335Z",
+                    "saleDate": null,
+                    "seller": {
+                        "firstName": "Amara",
+                        "lastName": "Shanahan",
+                        "email": "dylan.lindgren@hotmail.com",
+                        "id": null
+                    },
+                    "car": {
+                        "make": "Aston Martin",
+                        "model": "Cruze",
+                        "year": 1984,
+                        "exteriorCondition": "Fair",
+                        "mechanicalCondition": "Fair",
+                        "mileage": 37109,
+                        "color": "red",
+                        "img": "https://platform.cstatic-images.com/xlarge/in/v2/bb3869ff-40f5-54cc-9ff9-83db405bce56/c90d3e3d-099f-4658-af02-79822beaf95e/QNL2R6nNu35hjENsLxz-LJ9Tcoc.jpg",
+                        "id": null
+                    },
+                    "id": null
+                },
+                {
+                    "region": "West",
+                    "price": 14178,
+                    "listDate": "2020-10-07T15:31:46.067Z",
+                    "saleDate": null,
+                    "seller": {
+                        "firstName": "Genesis",
+                        "lastName": "Glover",
+                        "email": "piper.ebert21@gmail.com",
+                        "id": null
+                    },
+                    "car": {
+                        "make": "Ferrari",
+                        "model": "Element",
+                        "year": 2004,
+                        "exteriorCondition": "Good",
+                        "mechanicalCondition": "Fair",
+                        "mileage": 150038,
+                        "color": "gold",
+                        "img": "https://platform.cstatic-images.com/xlarge/in/v2/d3cefbfc-011c-43d3-b233-8c30b41a2dc7/089253d9-2cfd-41ae-b1c4-4003edaa8eed/mtDn4WdWTOw0_l_cVSLB3xZRJRM.jpg",
+                        "id": null
+                    },
+                    "id": null
+                }
+            ],
+            "__v": 0,
+            "createdAt": "2023-05-19T00:41:59.543Z",
+            "updatedAt": "2023-05-19T00:41:59.543Z",
+            "criteria": {
+                "search": "c1dd530e-e314-40c6-9333-f9d1347b6318",
+                "region": [
+                    "West"
+                ],
+                "exteriorCondition": [],
+                "mechanicalCondition": [],
+                "id": null
+            },
+            "id": "c1dd530e-e314-40c6-9333-f9d1347b6318"
+        },
+        {
+            "_id": "db0615c7-d782-4d4f-b94d-00f9540b29a3",
+            "results": [
+                {
+                    "region": "SouthEast",
+                    "price": 59153,
+                    "listDate": "2022-01-02T11:41:41.618Z",
+                    "saleDate": null,
+                    "seller": {
+                        "firstName": "Amara",
+                        "lastName": "Shanahan",
+                        "email": "dylan.lindgren@hotmail.com",
+                        "id": null
+                    },
+                    "car": {
+                        "make": "Mini",
+                        "model": "Ranchero",
+                        "year": 2015,
+                        "exteriorCondition": "Excellent",
+                        "mechanicalCondition": "Fair",
+                        "mileage": 182741,
+                        "color": "lime",
+                        "img": "https://platform.cstatic-images.com/xlarge/in/v2/db1143c7-624e-4473-b240-7cc221d896bf/6517ac40-3ba9-4ee0-8054-4db1c19f401d/HrJP67kiZfTj1wz-2k7BBT-tWVs.jpg",
+                        "id": null
+                    },
+                    "id": null
+                },
+                {
+                    "region": "SouthEast",
+                    "price": 52488,
+                    "listDate": "2020-10-13T08:53:56.510Z",
+                    "saleDate": null,
+                    "seller": {
+                        "firstName": "Amara",
+                        "lastName": "Shanahan",
+                        "email": "dylan.lindgren@hotmail.com",
+                        "id": null
+                    },
+                    "car": {
+                        "make": "Audi",
+                        "model": "Ranchero",
+                        "year": 2016,
+                        "exteriorCondition": "Bad",
+                        "mechanicalCondition": "Good",
+                        "mileage": 113597,
+                        "color": "azure",
+                        "img": "https://platform.cstatic-images.com/xlarge/in/v2/d3cefbfc-011c-43d3-b233-8c30b41a2dc7/dd52bee8-f3c8-4c8f-8639-634030cdad09/RYaKUnQo2cHTw66gLSbCW3SvNLk.jpg",
+                        "id": null
+                    },
+                    "id": null
+                },
+                {
+                    "region": "SouthEast",
+                    "price": 96681,
+                    "listDate": "2022-11-19T05:18:49.119Z",
+                    "saleDate": null,
+                    "seller": {
+                        "firstName": "Amara",
+                        "lastName": "Shanahan",
+                        "email": "dylan.lindgren@hotmail.com",
+                        "id": null
+                    },
+                    "car": {
+                        "make": "Polestar",
+                        "model": "Golf",
+                        "year": 1983,
+                        "exteriorCondition": "Fair",
+                        "mechanicalCondition": "Fair",
+                        "mileage": 127626,
+                        "color": "cyan",
+                        "img": "https://platform.cstatic-images.com/xlarge/in/v2/d3cefbfc-011c-43d3-b233-8c30b41a2dc7/0cc7c271-3ea2-44c3-b934-8be98c21635c/BNW85mAfbpF-OzLBXPQ6YQfM-oo.jpg",
+                        "id": null
+                    },
+                    "id": null
+                },
+                {
+                    "region": "SouthEast",
+                    "price": 62536,
+                    "listDate": "2022-10-11T15:10:21.944Z",
+                    "saleDate": null,
+                    "seller": {
+                        "firstName": "Amara",
+                        "lastName": "Shanahan",
+                        "email": "dylan.lindgren@hotmail.com",
+                        "id": null
+                    },
+                    "car": {
+                        "make": "Rolls Royce",
+                        "model": "Corvette",
+                        "year": 1990,
+                        "exteriorCondition": "Good",
+                        "mechanicalCondition": "Good",
+                        "mileage": 175929,
+                        "color": "orchid",
+                        "img": "https://platform.cstatic-images.com/xlarge/in/v2/d3cefbfc-011c-43d3-b233-8c30b41a2dc7/9221f892-bc45-4b6d-b3d6-1fe5b5a8dfa4/65uyUGKpI6aY58Zk1Mo1rdLTbVE.jpg",
+                        "id": null
+                    },
+                    "id": null
+                },
+                {
+                    "region": "SouthEast",
+                    "price": 21299,
+                    "listDate": "2022-11-09T04:42:06.702Z",
+                    "saleDate": null,
+                    "seller": {
+                        "firstName": "Oceane",
+                        "lastName": "Hickle",
+                        "email": "adalberto.rosenbaum@hotmail.com",
+                        "id": null
+                    },
+                    "car": {
+                        "make": "Audi",
+                        "model": "Prius",
+                        "year": 1994,
+                        "exteriorCondition": "Fair",
+                        "mechanicalCondition": "Bad",
+                        "mileage": 41618,
+                        "color": "silver",
+                        "img": "https://platform.cstatic-images.com/xlarge/in/v2/005cbc87-0078-5ed8-a8cf-c9933aa02db2/84239006-7308-4214-ae91-f6f186677ad8/-G0ISug7dnwQ7C6S87-VOPXd2sc.jpg",
+                        "id": null
+                    },
+                    "id": null
+                },
+                {
+                    "region": "SouthEast",
+                    "price": 98979,
+                    "listDate": "2020-09-30T22:34:45.137Z",
+                    "saleDate": null,
+                    "seller": {
+                        "firstName": "Oceane",
+                        "lastName": "Hickle",
+                        "email": "adalberto.rosenbaum@hotmail.com",
+                        "id": null
+                    },
+                    "car": {
+                        "make": "Volkswagen",
+                        "model": "XTS",
+                        "year": 1990,
+                        "exteriorCondition": "Excellent",
+                        "mechanicalCondition": "Fair",
+                        "mileage": 80800,
+                        "color": "white",
+                        "img": "https://platform.cstatic-images.com/xlarge/in/v2/9f241bc4-358f-5ca0-941d-cd3ae171ea43/be1e2ece-abc3-4f07-bd07-810fa34d7ca4/Vupbdhbw8egkX1xAViWIJK1ZHUE.jpg",
+                        "id": null
+                    },
+                    "id": null
+                },
+                {
+                    "region": "SouthEast",
+                    "price": 63883,
+                    "listDate": "2020-09-29T01:48:36.097Z",
+                    "saleDate": null,
+                    "seller": {
+                        "firstName": "Genesis",
+                        "lastName": "Glover",
+                        "email": "piper.ebert21@gmail.com",
+                        "id": null
+                    },
+                    "car": {
+                        "make": "Audi",
+                        "model": "Model Y",
+                        "year": 2020,
+                        "exteriorCondition": "Fair",
+                        "mechanicalCondition": "Fair",
+                        "mileage": 107873,
+                        "color": "grey",
+                        "img": "https://platform.cstatic-images.com/xlarge/in/v2/d3cefbfc-011c-43d3-b233-8c30b41a2dc7/87c948ae-9163-4d78-a233-6ac9224209ca/r-8KcedO_vg8mKsHXrT-dAZkbSA.jpg",
+                        "id": null
+                    },
+                    "id": null
+                },
+                {
+                    "region": "SouthEast",
+                    "price": 22834,
+                    "listDate": "2023-04-03T20:23:50.239Z",
+                    "saleDate": null,
+                    "seller": {
+                        "firstName": "Genesis",
+                        "lastName": "Glover",
+                        "email": "piper.ebert21@gmail.com",
+                        "id": null
+                    },
+                    "car": {
+                        "make": "Chevrolet",
+                        "model": "Camry",
+                        "year": 2012,
+                        "exteriorCondition": "Bad",
+                        "mechanicalCondition": "Fair",
+                        "mileage": 118231,
+                        "color": "cyan",
+                        "img": "https://platform.cstatic-images.com/xlarge/in/v2/56a8452e-c1e5-5c6b-8671-024e77bdc075/39a30d72-7cf5-4c0e-8e8b-f21893e17980/T1A-O8jnqHgxMSxJZEQtBUaA2Ws.jpg",
+                        "id": null
+                    },
+                    "id": null
+                }
+            ],
+            "__v": 0,
+            "createdAt": "2023-05-19T00:41:59.542Z",
+            "updatedAt": "2023-05-19T00:41:59.542Z",
+            "criteria": {
+                "search": "db0615c7-d782-4d4f-b94d-00f9540b29a3",
+                "region": [
+                    "SouthEast"
+                ],
+                "exteriorCondition": [],
+                "mechanicalCondition": [],
+                "id": null
+            },
+            "id": "db0615c7-d782-4d4f-b94d-00f9540b29a3"
+        },
+        {
+            "_id": "f02c97b5-72e8-4b46-bde2-ca01c5277fff",
+            "results": [
+                {
+                    "region": "SouthWest",
+                    "price": 93699,
+                    "listDate": "2021-05-26T15:29:55.857Z",
+                    "saleDate": null,
+                    "seller": {
+                        "firstName": "Amara",
+                        "lastName": "Shanahan",
+                        "email": "dylan.lindgren@hotmail.com",
+                        "id": null
+                    },
+                    "car": {
+                        "make": "Jeep",
+                        "model": "Challenger",
+                        "year": 1987,
+                        "exteriorCondition": "Good",
+                        "mechanicalCondition": "Excellent",
+                        "mileage": 170951,
+                        "color": "magenta",
+                        "img": "https://platform.cstatic-images.com/xlarge/in/v2/b945599e-76d8-4194-9f7e-f90c64b56fff/09e0ffda-f3fc-4b9c-bd2f-6fb32567f812/u5DRAMFQbJpsjSI56RBKpfRiY0c.jpg",
+                        "id": null
+                    },
+                    "id": null
+                },
+                {
+                    "region": "SouthWest",
+                    "price": 54139,
+                    "listDate": "2022-11-21T21:27:22.226Z",
+                    "saleDate": null,
+                    "seller": {
+                        "firstName": "Amara",
+                        "lastName": "Shanahan",
+                        "email": "dylan.lindgren@hotmail.com",
+                        "id": null
+                    },
+                    "car": {
+                        "make": "Volkswagen",
+                        "model": "Sentra",
+                        "year": 2009,
+                        "exteriorCondition": "Excellent",
+                        "mechanicalCondition": "Good",
+                        "mileage": 45501,
+                        "color": "yellow",
+                        "img": "https://platform.cstatic-images.com/xlarge/in/v2/b130b31b-0b57-470b-aa39-4bd80f4baec1/0d4869b5-0719-4a8e-83a6-dfe2c22b3bfc/D6sPm-5wgIdF3-pzBMyDie-A6Cw.jpg",
+                        "id": null
+                    },
+                    "id": null
+                },
+                {
+                    "region": "SouthWest",
+                    "price": 16504,
+                    "listDate": "2021-05-04T11:28:57.796Z",
+                    "saleDate": null,
+                    "seller": {
+                        "firstName": "Amara",
+                        "lastName": "Shanahan",
+                        "email": "dylan.lindgren@hotmail.com",
+                        "id": null
+                    },
+                    "car": {
+                        "make": "Ferrari",
+                        "model": "Expedition",
+                        "year": 1993,
+                        "exteriorCondition": "Excellent",
+                        "mechanicalCondition": "Fair",
+                        "mileage": 12558,
+                        "color": "plum",
+                        "img": "https://platform.cstatic-images.com/xlarge/in/v2/4694b836-a897-576b-b9c5-7a960b9ace73/40a6b363-bfe8-4842-85de-4e5baf88e97e/fTI2LbsplluYC4WBI2K0tj3BFk0.jpg",
+                        "id": null
+                    },
+                    "id": null
+                },
+                {
+                    "region": "SouthWest",
+                    "price": 77713,
+                    "listDate": "2022-03-06T02:18:25.203Z",
+                    "saleDate": null,
+                    "seller": {
+                        "firstName": "Oceane",
+                        "lastName": "Hickle",
+                        "email": "adalberto.rosenbaum@hotmail.com",
+                        "id": null
+                    },
+                    "car": {
+                        "make": "Nissan",
+                        "model": "Model T",
+                        "year": 2018,
+                        "exteriorCondition": "Fair",
+                        "mechanicalCondition": "Bad",
+                        "mileage": 20738,
+                        "color": "fuchsia",
+                        "img": "https://platform.cstatic-images.com/xlarge/in/v2/56a8452e-c1e5-5c6b-8671-024e77bdc075/39a30d72-7cf5-4c0e-8e8b-f21893e17980/T1A-O8jnqHgxMSxJZEQtBUaA2Ws.jpg",
+                        "id": null
+                    },
+                    "id": null
+                },
+                {
+                    "region": "SouthWest",
+                    "price": 30649,
+                    "listDate": "2020-08-12T19:46:29.501Z",
+                    "saleDate": null,
+                    "seller": {
+                        "firstName": "Amara",
+                        "lastName": "Shanahan",
+                        "email": "dylan.lindgren@hotmail.com",
+                        "id": null
+                    },
+                    "car": {
+                        "make": "Aston Martin",
+                        "model": "Model S",
+                        "year": 1982,
+                        "exteriorCondition": "Good",
+                        "mechanicalCondition": "Good",
+                        "mileage": 181426,
+                        "color": "green",
+                        "img": "https://platform.cstatic-images.com/xlarge/in/v2/b130b31b-0b57-470b-aa39-4bd80f4baec1/0d4869b5-0719-4a8e-83a6-dfe2c22b3bfc/D6sPm-5wgIdF3-pzBMyDie-A6Cw.jpg",
+                        "id": null
+                    },
+                    "id": null
+                },
+                {
+                    "region": "SouthWest",
+                    "price": 20186,
+                    "listDate": "2021-12-27T05:56:47.925Z",
+                    "saleDate": null,
+                    "seller": {
+                        "firstName": "Amara",
+                        "lastName": "Shanahan",
+                        "email": "dylan.lindgren@hotmail.com",
+                        "id": null
+                    },
+                    "car": {
+                        "make": "Volkswagen",
+                        "model": "Model S",
+                        "year": 1982,
+                        "exteriorCondition": "Good",
+                        "mechanicalCondition": "Excellent",
+                        "mileage": 170847,
+                        "color": "cyan",
+                        "img": "https://platform.cstatic-images.com/xlarge/in/v2/d3cefbfc-011c-43d3-b233-8c30b41a2dc7/b4c45090-8690-4a24-8f94-bb6140cdcbc4/KynBoGbnaEkz12KjHb_2w3oPUf8.jpg",
+                        "id": null
+                    },
+                    "id": null
+                },
+                {
+                    "region": "SouthWest",
+                    "price": 34184,
+                    "listDate": "2023-05-03T17:14:37.771Z",
+                    "saleDate": null,
+                    "seller": {
+                        "firstName": "Amara",
+                        "lastName": "Shanahan",
+                        "email": "dylan.lindgren@hotmail.com",
+                        "id": null
+                    },
+                    "car": {
+                        "make": "Fiat",
+                        "model": "Explorer",
+                        "year": 1989,
+                        "exteriorCondition": "Good",
+                        "mechanicalCondition": "Excellent",
+                        "mileage": 17485,
+                        "color": "magenta",
+                        "img": "https://platform.cstatic-images.com/xlarge/in/v2/b130b31b-0b57-470b-aa39-4bd80f4baec1/0d4869b5-0719-4a8e-83a6-dfe2c22b3bfc/D6sPm-5wgIdF3-pzBMyDie-A6Cw.jpg",
+                        "id": null
+                    },
+                    "id": null
+                },
+                {
+                    "region": "SouthWest",
+                    "price": 36123,
+                    "listDate": "2022-02-06T17:52:23.105Z",
+                    "saleDate": null,
+                    "seller": {
+                        "firstName": "Genesis",
+                        "lastName": "Glover",
+                        "email": "piper.ebert21@gmail.com",
+                        "id": null
+                    },
+                    "car": {
+                        "make": "Smart",
+                        "model": "911",
+                        "year": 1980,
+                        "exteriorCondition": "Excellent",
+                        "mechanicalCondition": "Bad",
+                        "mileage": 15182,
+                        "color": "fuchsia",
+                        "img": "https://platform.cstatic-images.com/xlarge/in/v2/6b28ebb5-97c5-54ef-956a-d021aea28de5/3eaaef7f-c6ea-4a32-a4d1-e90254853eac/3AONcVp27pedMCkl-qw-rhWLJ1E.jpg",
+                        "id": null
+                    },
+                    "id": null
+                },
+                {
+                    "region": "SouthWest",
+                    "price": 67790,
+                    "listDate": "2021-03-05T23:14:45.445Z",
+                    "saleDate": null,
+                    "seller": {
+                        "firstName": "Oceane",
+                        "lastName": "Hickle",
+                        "email": "adalberto.rosenbaum@hotmail.com",
+                        "id": null
+                    },
+                    "car": {
+                        "make": "Volkswagen",
+                        "model": "Golf",
+                        "year": 1982,
+                        "exteriorCondition": "Excellent",
+                        "mechanicalCondition": "Fair",
+                        "mileage": 85720,
+                        "color": "magenta",
+                        "img": "https://platform.cstatic-images.com/xlarge/in/v2/d3cefbfc-011c-43d3-b233-8c30b41a2dc7/322f8747-b232-4425-a732-44dc943b4d6b/N4trAfW1am1r4L05_QmY1_eIZ2Q.jpg",
+                        "id": null
+                    },
+                    "id": null
+                },
+                {
+                    "region": "SouthWest",
+                    "price": 30478,
+                    "listDate": "2022-04-20T21:10:14.694Z",
+                    "saleDate": null,
+                    "seller": {
+                        "firstName": "Oceane",
+                        "lastName": "Hickle",
+                        "email": "adalberto.rosenbaum@hotmail.com",
+                        "id": null
+                    },
+                    "car": {
+                        "make": "Audi",
+                        "model": "Model T",
+                        "year": 1989,
+                        "exteriorCondition": "Good",
+                        "mechanicalCondition": "Excellent",
+                        "mileage": 155592,
+                        "color": "silver",
+                        "img": "https://platform.cstatic-images.com/xlarge/in/v2/d3cefbfc-011c-43d3-b233-8c30b41a2dc7/08a49be0-bfb5-417f-9bce-4cddde7e17d1/7e2lS4aWwll9f2ofY5bXA24Qp_Q.jpg",
+                        "id": null
+                    },
+                    "id": null
+                }
+            ],
+            "__v": 0,
+            "createdAt": "2023-05-19T00:41:59.541Z",
+            "updatedAt": "2023-05-19T00:41:59.541Z",
+            "criteria": {
+                "search": "f02c97b5-72e8-4b46-bde2-ca01c5277fff",
+                "region": [
+                    "SouthWest"
+                ],
+                "exteriorCondition": [],
+                "mechanicalCondition": [],
+                "id": null
+            },
+            "id": "f02c97b5-72e8-4b46-bde2-ca01c5277fff"
         }
     ],
-    "createdAt": "2023-05-18T05:51:37.275Z",
-    "updatedAt": "2023-05-18T05:51:37.275Z",
-    "id": "de307d1a-b74a-4171-bfea-593099c8cca2"
+    "createdAt": "2023-05-19T00:41:59.749Z",
+    "updatedAt": "2023-05-19T00:41:59.749Z",
+    "id": "06f926d9-bd7c-4ee5-b82e-b0ead34c5d95"
 }

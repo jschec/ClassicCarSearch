@@ -100,16 +100,16 @@ describe('Test get single subscription', function() {
   it('The object should have the expected body', function() {
     const expectedBody = {
       "name": "Basic",
-        "features": [
-            "Unlimited searches",
-            "Ability to save and manage searches",
-            "No advertisements"
-        ],
+      "features": [
+          "Unlimited searches",
+          "Ability to save and manage searches",
+          "No advertisements"
+      ],
       "cost": 10,
-      "createdAt": "2023-05-18T05:51:34.750Z",
-      "updatedAt": "2023-05-18T05:51:34.750Z",
+      "createdAt": "2023-05-19T00:41:57.781Z",
+      "updatedAt": "2023-05-19T00:41:57.781Z",
       "id": "d59e3b6e-7b66-4727-8cd0-27bfb9de8187"
-    };
+    }
 
     expect(response.body).to.deep.include(expectedBody);
   });

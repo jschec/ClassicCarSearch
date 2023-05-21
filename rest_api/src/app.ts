@@ -1,12 +1,15 @@
 import express, { Express } from 'express';
+import session from 'express-session';
 import helmet from 'helmet';
 import cors from 'cors';
 import httpStatus from 'http-status';
 import passport from 'passport';
 
+import config from './config';
 import routes from './routes';
 import ApiError from './utils/ApiError';
 import { errorConverter, errorHandler } from './utils/errors';
+import './utils/GoogleOAuth';
 
 const app: Express = express();
 
@@ -16,6 +19,9 @@ app.use(helmet());
 // Enable cors
 app.use(cors());
 app.options('*', cors());
+
+// Enable user sessions
+app.use(session({...config.session}));
 
 // Parse json request body
 app.use(express.json());

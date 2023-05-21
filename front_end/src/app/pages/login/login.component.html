@@ -1,0 +1,20 @@
+<div class="login-page-container">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Login</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div>
+        <button
+          mat-flat-button
+          *ngFor="let provider of providerOptions"
+          (click)="loginViaProvider(provider.name)"
+        >
+          <mat-icon [svgIcon]="provider.svgIconName"></mat-icon>
+
+          Login with {{provider.name}}
+        </button>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>

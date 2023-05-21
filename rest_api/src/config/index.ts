@@ -11,6 +11,7 @@ const envVarsSchema = Joi.object()
     OAUTH_CLIENT_SECRET: Joi.string().required().description('OAuth client secret'),
     OAUTH_CALLBACK_URL: Joi.string().default('/auth/google/callback'),
     OAUTH_SCOPE: Joi.array<string>().default(['profile']),
+    SESSION_SECRET: Joi.string().required().description('Session secret key'),
   })
   .unknown();
 
@@ -31,11 +32,18 @@ interface OAuthConfig {
   scope: string[];
 }
 
+interface SessionConfig {
+  secret: string;
+  resave: boolean;
+  saveUninitialized: boolean;
+}
+
 interface AppConfig {
   env: string;
   port: number;
   mongo: MongoConfig;
   oauth: OAuthConfig;
+  session: SessionConfig;
 }
 
 const config: AppConfig = {
@@ -49,6 +57,11 @@ const config: AppConfig = {
     clientSecret: envVars.OAUTH_CLIENT_SECRET,
     callbackUrl: envVars.OAUTH_CALLBACK_URL,
     scope: envVars.OAUTH_SCOPE,
+  },
+  session: {
+    secret: envVars.SESSION_SECRET,
+    resave: true,
+    saveUninitialized: true,
   }
 };
 

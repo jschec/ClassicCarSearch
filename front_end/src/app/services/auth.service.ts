@@ -34,10 +34,6 @@ export class AuthService {
     localStorage.setItem('userInfo', JSON.stringify(user));
   }
 
-  public login(provider: string): Observable<IUser> {
-    return this.http.get<IUser>(`/api/auth/${provider.toLowerCase()}`);
-  }
-
   public getProviders(): IProvider[] {
     return [
       {

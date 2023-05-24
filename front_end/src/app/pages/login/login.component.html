@@ -5,15 +5,15 @@
     </mat-card-header>
     <mat-card-content>
       <div>
-        <button
-          mat-flat-button
+        <a 
+          mat-flat-button 
           *ngFor="let provider of providerOptions"
-          (click)="loginViaProvider(provider.name)"
+          href="{{ '/api/auth/' + provider.name | lowercase }}"
         >
           <mat-icon [svgIcon]="provider.svgIconName"></mat-icon>
 
           Login with {{provider.name}}
-        </button>
+        </a>
       </div>
     </mat-card-content>
   </mat-card>

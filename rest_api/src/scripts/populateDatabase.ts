@@ -176,24 +176,24 @@ const populateUsers = async () => {
 
 /**
  * Populates the Cars, CarSellers, and CarListings collections with dummy data
- * Set carCount to decide how many listings to generate
+ * Set CAR_COUNT to decide how many listings to generate
  */
 const populateCarListings = async () => {
   console.log("Populating cars...");
 
   let carIds: string[] = [];
   let carSellerIds: string[] = [];
-  const carCount = 100;
+  const CAR_COUNT = 100;
 
   // Create a progress bar to track the progress
-  const carPbar = createPBar(50);
+  const carPbar = createPBar(CAR_COUNT);
 
   // get all car images
   const carImages = JSON.parse(fs.readFileSync('data/carimgs.json', 'utf-8'));
 
-  // Generate 'carCount' random cars
+  // Generate 'CAR_COUNT' random cars
   
-  for (let i = 0; i < carCount; i++) {
+  for (let i = 0; i < CAR_COUNT; i++) {
     const car: NewCarBody = {
       make: faker.vehicle.manufacturer(),
       model: faker.vehicle.model(),

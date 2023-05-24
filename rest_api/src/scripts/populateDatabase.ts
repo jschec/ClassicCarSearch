@@ -239,14 +239,30 @@ const populateCarListings = async () => {
   for (let i = 0; i < carIds.length; i++) {
     const carSellerId = randomArrayElement<string>(carSellerIds);
 
-    const carListing: NewCarListingBody = {
-      region: randomRegion(),
-      price: faker.datatype.number({min: 1000, max: 100000}),
-      listDate: faker.date.past(3),
-      saleDate: null,
-      car: carIds[i],
-      seller: carSellerId
-    };
+    // 1 in 5 listings should be sold
+    if (i % 5 == 0){
+      const carListing: NewCarListingBody = {
+        region: randomRegion(),
+        price: faker.datatype.number({ min: 1000, max: 100000 }),
+        listDate: faker.date.past(3),
+        saleDate:  faker.date.recent(),
+        car: carIds[i],
+        seller: carSellerId
+      };
+    }
+    
+    //4 in 5 listings are active
+    else {
+      const carListing: NewCarListingBody = {
+        region: randomRegion(),
+        price: faker.datatype.number({ min: 1000, max: 100000 }),
+        listDate: faker.date.past(3),
+        saleDate: null,
+        car: carIds[i],
+        seller: carSellerId
+      };
+    }
+    
 
     await CarListing.create(carListing);
     carListingPbar.update(i + 1);

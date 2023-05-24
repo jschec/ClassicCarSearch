@@ -42,6 +42,14 @@ const searchForecastSchema = new Schema<
       type: Number,
       required: true,
     },
+    priceHistory: {
+      type: [Number],
+      required: false,
+    },
+    dateHistory: {
+      type: [Date],
+      required: false,
+    }
   },
   {
     timestamps: true,

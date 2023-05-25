@@ -9,7 +9,14 @@ import {Chart} from 'chart.js';
   styleUrls: ['./car-detail.component.scss']
 })
 
-
+let ISearchForecast dummyForecast = {
+  search: "dummy",
+  avgTimeOnMarket: 0,
+  avgPrice: 0,
+  averageMileage: 0,
+  ttl: 0,
+  priceHistory: [1 , 3 , 5 , 7 , 6, 9, 8, 6]
+}
 export class CarDetailComponent {
   // from backend
   carListing: ICarListing | null = null;

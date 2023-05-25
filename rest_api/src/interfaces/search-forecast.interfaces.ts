@@ -8,8 +8,8 @@ export interface ISearchForecast {
   avgPrice: number;
   averageMileage: number;
   ttl: number;
-  priceHistory: number[];
-  dateHistory: Date[];
+  //priceHistory: number[];
+  //dateHistory: Date[];
 }
 
 export type NewSearchForecastBody = ISearchForecast;

@@ -28,12 +28,24 @@ export interface ICarListing {
   car: ICar;
 }
 
+//TODO: What should search be?
+export interface ISearchForecast {
+  search: string;
+  avgTimeOnMarket: number;
+  avgPrice: number;
+  averageMileage: number;
+  ttl: number;
+  priceHistory: number[];
+}
+
 export enum Condition {
   Excellent = 'Excellent',
   Good = 'Good',
   Fair = 'Fair',
   Bad = 'Bad',
 }
+
+
 
 @Injectable({
   providedIn: 'root'

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ICarListing,CarDetailsService} from 'src/app/services/car-details.service';
+import { ICarListing,CarDetailsService, ISearchForecast} from 'src/app/services/car-details.service';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -14,6 +14,7 @@ export class CarDetailComponent {
   carListing: ICarListing | null = null;
   loading: boolean = true;
   id: string;
+  forecast: ISearchForecast | null = null;
 
   constructor(private route: ActivatedRoute,
     private carDetailsService: CarDetailsService){
@@ -24,5 +25,10 @@ export class CarDetailComponent {
     this.carDetailsService.getBylistingId(this.id).subscribe((response) => {
       this.carListing = response;
     });
+
+    //Plot price history, if exists
+    if (this.forecast  != null){
+      
+    }
   }
 }

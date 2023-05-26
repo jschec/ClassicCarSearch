@@ -13,6 +13,11 @@ const userSchema = new Schema<IUserDoc, IUserModel>(
       type: Schema.Types.UUID,
       default: () => randomUUID(),
     },
+    ssoID: {
+      type: String,
+      required: true,
+      unique: true
+    },
     firstName: {
       type: String,
       required: true,

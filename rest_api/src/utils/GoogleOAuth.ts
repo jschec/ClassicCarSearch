@@ -20,20 +20,22 @@ passport.use(new GoogleStrategy({
     passReqToCallback: true
   },
   function(request, accessToken, refreshToken, profile, done) {
-    let user: IUser | null = null;
 
-    User.findOne({ ssoID: profile.id }).then((user) => user);
-
-    if (!user) {
-      User.create({
-        ssoID: profile.id,
-        firstName: profile.name?.givenName,
-        lastName: profile.name?.familyName,
-        email: profile.emails?.[0].value,
-        pictureUri: profile.photos?.[0].value,
-        age: -1
-      }).then((user) => user);
-    }
+    User.findOne({ ssoID: profile.id }).then((user) => {
+      
+      // If user is not found, create a new user
+      if (!user) {
+        User.create({
+          ssoID: profile.id,
+          firstName: profile.name?.givenName,
+          lastName: profile.name?.familyName,
+          email: profile.emails?.[0].value,
+          pictureUri: profile.photos?.[0].value,
+          age: -1
+        });
+      }
+    
+    });
 
     done(null, profile);
   }

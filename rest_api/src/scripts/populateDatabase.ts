@@ -301,6 +301,7 @@ const populateSearches = async () => {
         avgPrice: faker.datatype.number({min: 1000, max: 100000}),
         averageMileage: faker.datatype.number({min: 0, max: 200000}),
         ttl: 300,
+        priceHistory: [],
       };
 
       await searchForecastService.create(searchForecast);

@@ -40,6 +40,13 @@
         </mat-grid-tile>
         <mat-grid-tile [colspan]="2"[rowspan]="2">
           <img class="car-image" mat-card-image src="{{carListing?.car?.img}}">
+          
+        </mat-grid-tile>
+        <mat-grid-tile [colspan]="2"[rowspan]="2">
+          <!--TODO<app-bar-chart></app-bar-chart>-->
+          <div class="chart-container">
+            <canvas id="MyChart">{{ chart }}</canvas>
+          </div>
         </mat-grid-tile>
       </mat-grid-list>
     </div>

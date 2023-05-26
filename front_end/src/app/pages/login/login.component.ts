@@ -13,10 +13,4 @@ export class LoginComponent {
   constructor(private authService: AuthService) {
     this.providerOptions = this.authService.getProviders();
   }
-
-  public loginViaProvider(provider: string) {
-    this.authService.login(provider).subscribe((user) => {
-      this.authService.setUserInfo(user);
-    });
-  }
 }

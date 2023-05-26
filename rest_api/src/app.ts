@@ -1,5 +1,6 @@
 import express, { Express } from 'express';
 import session from 'express-session';
+import mongoStore from "connect-mongo";
 import helmet from 'helmet';
 import cors from 'cors';
 import httpStatus from 'http-status';
@@ -21,7 +22,12 @@ app.use(cors());
 app.options('*', cors());
 
 // Enable user sessions
-app.use(session({...config.session}));
+app.use(
+  session({
+    ...config.session, 
+    store: mongoStore.create({ ...config.sessionStore })
+  })
+);
 
 // Parse json request body
 app.use(express.json());

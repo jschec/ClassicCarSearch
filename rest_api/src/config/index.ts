@@ -2,7 +2,7 @@ import Joi from 'joi';
 
 const envVarsSchema = Joi.object()
   .keys({
-    APP_ENV: Joi.string().valid('production', 'development', 'test').required(),
+    APP_ENV: Joi.string().valid('production', 'development', 'test', 'feature').required(),
     APP_PORT: Joi.number().default(3000),
     MONGODB_USER: Joi.string().required().description('Mongo DB username'),
     MONGODB_PASSWORD: Joi.string().required().description('Mongo DB password'),
@@ -10,8 +10,9 @@ const envVarsSchema = Joi.object()
     OAUTH_CLIENT_ID: Joi.string().required().description('OAuth client ID'),
     OAUTH_CLIENT_SECRET: Joi.string().required().description('OAuth client secret'),
     OAUTH_CALLBACK_URL: Joi.string().default('/auth/google/callback'),
-    OAUTH_SCOPE: Joi.array<string>().default(['profile']),
+    OAUTH_SCOPE: Joi.array<string>().default(['profile', 'email']),
     SESSION_SECRET: Joi.string().required().description('Session secret key'),
+    TTL: Joi.number().default(60 * 60 * 1000),
   })
   .unknown();
 
@@ -32,10 +33,20 @@ interface OAuthConfig {
   scope: string[];
 }
 
+interface CookieConfig {
+  maxAge: number;
+}
+
 interface SessionConfig {
   secret: string;
   resave: boolean;
   saveUninitialized: boolean;
+  cookie: CookieConfig;
+}
+
+interface SessionStoreConfig {
+  mongoUrl: string;
+  ttl: number;
 }
 
 interface AppConfig {
@@ -44,6 +55,7 @@ interface AppConfig {
   mongo: MongoConfig;
   oauth: OAuthConfig;
   session: SessionConfig;
+  sessionStore: SessionStoreConfig;
 }
 
 const config: AppConfig = {
@@ -62,6 +74,13 @@ const config: AppConfig = {
     secret: envVars.SESSION_SECRET,
     resave: true,
     saveUninitialized: true,
+    cookie: {
+      maxAge: envVars.TTL,
+    },
+  },
+  sessionStore: {
+    mongoUrl: `mongodb+srv://${envVars.MONGODB_USER}:${envVars.MONGODB_PASSWORD}@${envVars.MONGODB_HOST}/${envVars.APP_ENV}-sessions`,
+    ttl: envVars.TTL,
   }
 };
 

@@ -3,6 +3,7 @@ import { ISubscriptionDoc } from './subscription.interfaces';
 import { IWatchListDoc } from './watch-list.interfaces';
 
 export interface IUser {
+  ssoID: string;
   firstName: string;
   lastName: string;
   pictureUri: string;

@@ -7,11 +7,16 @@
     </button>
   </a>
 
-  <span class="spacer"></span>
-  <div>
-    <a mat-button [routerLink]="'/search'">Search</a>
-    <a mat-button [routerLink]="'/subscription'">Subscription</a>
-    <a mat-button [routerLink]="'/watch-list'">Watch List</a>
+  <div class="navigation-buttons">
+    <div class="section-main">
+      <a mat-button [routerLink]="'/search'">Search</a>
+      <a mat-button [routerLink]="'/subscription'">Subscription</a>
+      <a mat-button [routerLink]="'/watch-list'">Watch List</a>
+    </div>
+
+    <div class="section-auth">
+      <a mat-button [routerLink]="'/auth/login'">Login</a>
+    </div>
   </div>
 
 </mat-toolbar>

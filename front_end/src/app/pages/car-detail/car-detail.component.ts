@@ -9,15 +9,17 @@ import {Chart} from 'chart.js';
   styleUrls: ['./car-detail.component.scss']
 })
 
-let ISearchForecast dummyForecast = {
+
+export class CarDetailComponent {
+  //TEMP
+  dummyForecast = {
   search: "dummy",
   avgTimeOnMarket: 0,
   avgPrice: 0,
   averageMileage: 0,
   ttl: 0,
-  priceHistory: [1 , 3 , 5 , 7 , 6, 9, 8, 6]
+  priceHistory: [1, 3, 5, 7, 6, 9, 8, 6]
 }
-export class CarDetailComponent {
   // from backend
   carListing: ICarListing | null = null;
   loading: boolean = true;
@@ -33,6 +35,8 @@ export class CarDetailComponent {
   ngOnInit() {
     this.carDetailsService.getBylistingId(this.id).subscribe((response) => {
       this.carListing = response;
+      //TEMP
+      this.forecast = this.dummyForecast;
     });
 
     //Plot price history, if exists

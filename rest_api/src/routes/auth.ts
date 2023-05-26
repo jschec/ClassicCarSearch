@@ -10,11 +10,10 @@ router.get(
   '/google/callback', 
   passport.authenticate('google', { failureRedirect: '/' }),
   (req, res) => {
-    console.log("successfully authenticated user and returned to callback page.");
-    console.log("redirecting to /#/list");
-    res.redirect('/#/list');
+    res.redirect('http://localhost:4200/home');
   }
 );
+
 /*
 router.get("/logout", (req, res) => {
   req.session = null;

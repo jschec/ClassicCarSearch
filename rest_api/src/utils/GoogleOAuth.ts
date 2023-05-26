@@ -3,7 +3,7 @@ import { OAuth2Strategy as GoogleStrategy } from 'passport-google-oauth';
 
 import config from '../config';
 import User from '../models/user.model';
-import { IUser } from '../interfaces/user.interfaces';
+import { NewUserBody } from '../interfaces/user.interfaces';
 
 passport.serializeUser(function(user, done) {
     done(null, user);
@@ -21,22 +21,17 @@ passport.use(new GoogleStrategy({
   },
   function(request, accessToken, refreshToken, profile, done) {
 
-    User.findOne({ ssoID: profile.id }).then((user) => {
-      
-      // If user is not found, create a new user
-      if (!user) {
-        User.create({
-          ssoID: profile.id,
-          firstName: profile.name?.givenName,
-          lastName: profile.name?.familyName,
-          email: profile.emails?.[0].value,
-          pictureUri: profile.photos?.[0].value,
-          age: -1
-        });
-      }
-    
-    });
+    let refUser: NewUserBody = {
+      ssoID: profile.id,
+      firstName: profile.name!.givenName,
+      lastName: profile.name!.familyName,
+      email: profile.emails?.[0].value!,
+      pictureUri: profile.photos?.[0].value!,
+      age: -1,
+    };
 
-    done(null, profile);
+    User.findOrCreate(refUser).then((user) => {
+      return done(null, user);
+    });
   }
 ));

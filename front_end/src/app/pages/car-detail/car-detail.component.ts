@@ -37,15 +37,20 @@ export class CarDetailComponent {
       this.carListing = response;
       //TEMP
       console.log('Setting forecast to dummy. Its length is' + this.dummyForecast.priceHistory.length);
-      console.log('Now our forecasts data length is' + this.forecast?.priceHistory.length);
       this.forecast = this.dummyForecast;
+      console.log('Now our forecasts data length is' + this.forecast?.priceHistory.length);
     });
 
     //Plot price history, if exists
-    //if (this.forecast  != null){
+    if (this.forecast  != null){
       console.log('Calling create chart');
-      this.createChart();      
-    //}
+      this.createChart();
+      this.populateChart(this.forecast.priceHistory); 
+      console.log('Calling populate chart');           
+    }
+    else {
+      console.log("Forecast is null!");
+    }
   }
 
   createChart(){
@@ -67,9 +72,8 @@ export class CarDetailComponent {
       options: {
         aspectRatio: 2.5
       }
-      
-
     });
+    
  
     /*TODO
     if (this.forecast != null) {
@@ -80,12 +84,28 @@ export class CarDetailComponent {
         this.chart.datasets.data.push(this.forecast.priceHistory[j]);
       }  
     }*/
+    /*TODO
       let monthCount = this.dummyForecast.priceHistory.length;
       for (let j = 0; j < monthCount; j++) {
         console.log('Pushing data into chart...' + j);
         this.chart.labels.push(j.toString());
         this.chart.datasets.data.push(this.dummyForecast.priceHistory[j]);
       }
-    
+    */
+  }
+
+  populateChart(input: Number[]){
+    let dateRange: string[] =  [];
+    let date: Date = new Date();
+    let month = date.getMonth;
+    let year = date.getFullYear;
+    for (let j = 0; j < input.length; j++){
+      let nextDate = date.setMonth(date.getMonth() - j)      
+      dateRange.unshift(nextDate.toString());
+      console.log(nextDate.toString);
+      if (this.forecast != null){
+        console.log("$ " + this.forecast.priceHistory[j]);
+      }      
+    }
   }
 }

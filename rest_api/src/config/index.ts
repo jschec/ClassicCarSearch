@@ -13,6 +13,8 @@ const envVarsSchema = Joi.object()
     OAUTH_SCOPE: Joi.array<string>().default(['profile', 'email']),
     SESSION_SECRET: Joi.string().required().description('Session secret key'),
     TTL: Joi.number().default(60 * 60 * 1000),
+    LOGIN_URL: Joi.string().required().description('Login URL'),
+    LANDING_URL: Joi.string().required().description('Landing URL'),
   })
   .unknown();
 
@@ -44,6 +46,11 @@ interface SessionConfig {
   cookie: CookieConfig;
 }
 
+interface RoutesConfig {
+  loginUrl: string;
+  landingUrl: string;
+}
+
 interface SessionStoreConfig {
   mongoUrl: string;
   ttl: number;
@@ -56,6 +63,7 @@ interface AppConfig {
   oauth: OAuthConfig;
   session: SessionConfig;
   sessionStore: SessionStoreConfig;
+  routes: RoutesConfig;
 }
 
 const config: AppConfig = {
@@ -81,6 +89,10 @@ const config: AppConfig = {
   sessionStore: {
     mongoUrl: `mongodb+srv://${envVars.MONGODB_USER}:${envVars.MONGODB_PASSWORD}@${envVars.MONGODB_HOST}/${envVars.APP_ENV}-sessions`,
     ttl: envVars.TTL,
+  },
+  routes: {
+    loginUrl: envVars.LOGIN_URL,
+    landingUrl: envVars.LANDING_URL,
   }
 };
 

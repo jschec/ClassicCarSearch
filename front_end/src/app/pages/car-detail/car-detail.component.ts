@@ -18,7 +18,8 @@ export class CarDetailComponent {
   avgPrice: 0,
   averageMileage: 0,
   ttl: 0,
-  priceHistory: [1, 3, 5, 7, 6, 9, 8, 6]
+  priceHistory: [1, 3, 5, 7, 6, 9, 8, 6],
+  forecastRegion: "Building M",
 }
   // from backend
   carListing: ICarListing | null = null;
@@ -105,7 +106,7 @@ export class CarDetailComponent {
     let month = date.getMonth;
     let year = date.getFullYear;
     for (let j = 0; j < input.length; j++){
-      let nextDate = date.setMonth(date.getMonth() - j)      
+      let nextDate = date.setMonth(date.getMonth() - j);      
       //dateRange.unshift(nextDate.toString());
       console.log(nextDate.toString);
       //this.chart.labels.unshift(nextDate.toString());

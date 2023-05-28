@@ -46,6 +46,10 @@ const searchForecastSchema = new Schema<
       type: [Number],
       required: false,
     },
+    forecastRegion: {
+      type: String,
+      required: false
+    },
     /*dateHistory: {
       type: [Date],
       required: false,

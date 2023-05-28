@@ -9,6 +9,7 @@ export interface ISearchForecast {
   averageMileage: number;
   ttl: number;
   priceHistory: number[] | null;
+  forecastRegion: string | null;
   //dateHistory: Date[];
 }
 

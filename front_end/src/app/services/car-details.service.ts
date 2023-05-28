@@ -36,6 +36,7 @@ export interface ISearchForecast {
   averageMileage: number;
   ttl: number;
   priceHistory: number[];
+  forecastRegion: string;
 }
 
 export enum Condition {

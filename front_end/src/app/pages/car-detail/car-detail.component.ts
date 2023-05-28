@@ -37,37 +37,33 @@ export class CarDetailComponent {
     this.carDetailsService.getBylistingId(this.id).subscribe((response) => {
       this.carListing = response;
       //TEMP
-      console.log('Setting forecast to dummy. Its length is' + this.dummyForecast.priceHistory.length);
-      this.forecast = this.dummyForecast;
-      console.log('Now our forecasts data length is' + this.forecast?.priceHistory.length);
+      console.log('Setting forecast to dummy. Its length is ' + this.dummyForecast.priceHistory.length);
+      this.bindData(this.dummyForecast.priceHistory);
+      console.log('Now our forecasts data length is ' + this.forecast?.priceHistory.length);
+      if (this.forecast){
+        console.log('GOOD - I am using my own forecast');
+        this.populateChart(this.forecast.priceHistory);
+      }
+      else {
+        console.log('Making a chart from the dummy....')
+          this.populateChart(this.dummyForecast.priceHistory);
+      }
+      
     });
-
-    //Plot price history, if exists
-    if (this.forecast  != null){
-      console.log('Calling create chart');
-      this.createChart();
-      //this.populateChart(this.forecast.priceHistory); 
-      console.log('Calling populate chart');           
-    }
-    else {
-      console.log("Forecast is null!");
-      this.createChart();
-      this.populateChart(this.dummyForecast.priceHistory);
-    }
   }
 
-  createChart(){
+  createChart(prices: Number[], dates: String[]){
     this.chart = new Chart("MyChart", {
       type: 'bar', //this denotes tha type of chart
 
       data: {// values on X-Axis
-        //labels: [],
-        labels: ['1', '2', '3'],
+        labels: dates,
+        //labels: ['1', '2', '3'],
         datasets: [
           {
             label: "Average Sale Price",
-            //data: [],
-            data: [8, 7 ,10],
+            data: prices,
+            //data: [8, 7 ,10],
             backgroundColor: 'blue'
           },
         ]
@@ -77,48 +73,39 @@ export class CarDetailComponent {
       }
       
     });
-    
- 
-    /*TODO
-    if (this.forecast != null) {
-      let monthCount = this.forecast.priceHistory.length;
-      for (let j = 0; j < monthCount; j++){
-        console.log('Pushing data into chart...');
-        this.chart.labels.push(j);
-        this.chart.datasets.data.push(this.forecast.priceHistory[j]);
-      }  
-    }*/
-    /*TODO
-      let monthCount = this.dummyForecast.priceHistory.length;
-      for (let j = 0; j < monthCount; j++) {
-        console.log('Pushing data into chart...' + j);
-        this.chart.labels.push(j.toString());
-        this.chart.datasets.data.push(this.dummyForecast.priceHistory[j]);
-      }
-    */
-    //this.populateChart(this.dummyForecast.priceHistory);
   }
-
+  //TODO - Is this necessary after integration?
+  bindData(input: Number[]){
+    this.forecast = this.dummyForecast;
+  }
   populateChart(input: Number[]){
     console.log("Populating chart...");
     let dateRange: string[] =  [];
+    let prices: Number[] = [];
     let date: Date = new Date();
     let month = date.getMonth;
     let year = date.getFullYear;
+    console.log("Start date: " + date.toString());
     for (let j = 0; j < input.length; j++){
-      let nextDate = date.setMonth(date.getMonth() - j);      
-      //dateRange.unshift(nextDate.toString());
-      console.log(nextDate.toString);
+      let nextDate = date.getMonth() - j;
+      if (nextDate < 1) {
+        nextDate = 12;
+      }      
+      dateRange.unshift(nextDate.toString());
+      console.log(nextDate.toString());
       //this.chart.labels.unshift(nextDate.toString());
       //TODO - Finalize
       if (this.forecast != null){
         console.log("$ " + this.forecast.priceHistory[j]);
-        //TODOthis.chart.datasets.data.push(this.forecast.priceHistory[j]);
+        //this.chart.datasets.data.push(this.forecast.priceHistory[j]);
+        prices.push(this.forecast.priceHistory[j]);
       }
       else {
         console.log("Dummy: $ " + this.dummyForecast.priceHistory[j]);
-        //TODOthis.chart.datasets.data.push(this.dummyForecast.priceHistory[j]);
+        //this.chart.datasets.data.push(this.dummyForecast.priceHistory[j]);
+        prices.push(this.dummyForecast.priceHistory[j]);
       }      
     }
+    this.createChart(prices, dateRange);
   }
 }

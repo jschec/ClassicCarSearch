@@ -50,10 +50,6 @@ const searchForecastSchema = new Schema<
       type: String,
       required: false
     },
-    /*dateHistory: {
-      type: [Date],
-      required: false,
-    }*/
   },
   {
     timestamps: true,

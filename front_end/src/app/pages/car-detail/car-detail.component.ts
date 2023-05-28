@@ -45,11 +45,13 @@ export class CarDetailComponent {
     if (this.forecast  != null){
       console.log('Calling create chart');
       this.createChart();
-      this.populateChart(this.forecast.priceHistory); 
+      //this.populateChart(this.forecast.priceHistory); 
       console.log('Calling populate chart');           
     }
     else {
       console.log("Forecast is null!");
+      this.createChart();
+      this.populateChart(this.dummyForecast.priceHistory);
     }
   }
 
@@ -59,12 +61,12 @@ export class CarDetailComponent {
 
       data: {// values on X-Axis
         //labels: [],
-        labels: ['1', '2', '3', '4', '5', '6', '7', '8'],
+        labels: ['1', '2', '3'],
         datasets: [
           {
             label: "Average Sale Price",
             //data: [],
-            data: [1, 3, 5, 7, 6, 9, 8, 6],
+            data: [8, 7 ,10],
             backgroundColor: 'blue'
           },
         ]
@@ -72,6 +74,7 @@ export class CarDetailComponent {
       options: {
         aspectRatio: 2.5
       }
+      
     });
     
  
@@ -92,19 +95,28 @@ export class CarDetailComponent {
         this.chart.datasets.data.push(this.dummyForecast.priceHistory[j]);
       }
     */
+    //this.populateChart(this.dummyForecast.priceHistory);
   }
 
   populateChart(input: Number[]){
+    console.log("Populating chart...");
     let dateRange: string[] =  [];
     let date: Date = new Date();
     let month = date.getMonth;
     let year = date.getFullYear;
     for (let j = 0; j < input.length; j++){
       let nextDate = date.setMonth(date.getMonth() - j)      
-      dateRange.unshift(nextDate.toString());
+      //dateRange.unshift(nextDate.toString());
       console.log(nextDate.toString);
+      //this.chart.labels.unshift(nextDate.toString());
+      //TODO - Finalize
       if (this.forecast != null){
         console.log("$ " + this.forecast.priceHistory[j]);
+        //TODOthis.chart.datasets.data.push(this.forecast.priceHistory[j]);
+      }
+      else {
+        console.log("Dummy: $ " + this.dummyForecast.priceHistory[j]);
+        //TODOthis.chart.datasets.data.push(this.dummyForecast.priceHistory[j]);
       }      
     }
   }

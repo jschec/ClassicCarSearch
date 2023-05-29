@@ -42,9 +42,13 @@
           <img class="car-image" mat-card-image src="{{carListing?.car?.img}}">
           
         </mat-grid-tile>
-        <mat-grid-tile [colspan]="2"[rowspan]="2">
-          <!--TODO<app-bar-chart></app-bar-chart>-->
-          <div class="chart-container">
+       <mat-grid-tile [colspan]="2"[rowspan]="1">
+        <div class="chart-title">
+          <h1>Forecast: {{forecast?.forecastRegion}}</h1>
+        </div>          
+        </mat-grid-tile>
+        <mat-grid-tile [colspan]="2"[rowspan]="2">         
+          <div class="chart-container">            
             <canvas id="MyChart">{{ chart }}</canvas>
           </div>
         </mat-grid-tile>

@@ -90,7 +90,7 @@ export class CarDetailComponent {
     for (let j = 0; j < input.length; j++){
       let nextDate = date.getMonth() - j;
       if (nextDate < 1) {
-        nextDate = 12;
+        nextDate += 12;
       }      
       dateRange.unshift(nextDate.toString());
       console.log(nextDate.toString());

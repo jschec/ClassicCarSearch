@@ -38,6 +38,7 @@ export class CarDetailComponent {
       this.carListing = response;
       //TEMP
       console.log('Setting forecast to dummy. Its length is ' + this.dummyForecast.priceHistory.length);
+      //TODO - Swap out dummy data
       this.bindData(this.dummyForecast.priceHistory);
       console.log('Now our forecasts data length is ' + this.forecast?.priceHistory.length);
       if (this.forecast){

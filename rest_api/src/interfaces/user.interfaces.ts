@@ -13,6 +13,17 @@ export interface IUser {
   watchList: string | IWatchListDoc;
 }
 
+export interface ISafeUser {
+  ssoID?: string;
+  firstName: string;
+  lastName: string;
+  pictureUri: string;
+  email: string;
+  age: number;
+  subscription: string | ISubscriptionDoc;
+  watchList: string | IWatchListDoc;
+}
+
 export type NewUserBody = Omit<IUser, 'subscription' | 'watchList'>;
 
 export type UpdateUserBody = Partial<IUser>;

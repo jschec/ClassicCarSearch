@@ -14,9 +14,22 @@
       <a mat-button [routerLink]="'/watch-list'">Watch List</a>
     </div>
 
-    <div class="section-auth">
+    <div class="section-auth" *ngIf="!cachedUser; else elseBlock">
       <a mat-button [routerLink]="'/auth/login'">Login</a>
     </div>
+
+    <ng-template #elseBlock>
+      <button mat-button [matMenuTriggerFor]="userMenu">
+        <img [src]="cachedUser?.pictureUri" class="user-avatar">
+        {{cachedUser?.firstName}} {{cachedUser?.lastName}}
+      </button>
+
+      <mat-menu #userMenu="matMenu">
+        <button mat-menu-item (click)="logout()">
+          <span>Logout</span>
+        </button>
+      </mat-menu>
+    </ng-template>
   </div>
 
 </mat-toolbar>

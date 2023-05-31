@@ -2,11 +2,11 @@ import { Component, HostListener, ElementRef, ViewChild } from '@angular/core';
 import { PageEvent } from '@angular/material/paginator';
 import { NavigationExtras, Router } from '@angular/router';
 import { IWatchListMinified, IWatchListPopulated, WatchListService } from 'src/app/services/watchList.service';
-import { ISearch, SearchService } from 'src/app/services/search.service';
+import { ISearch } from 'src/app/services/search.service';
 import { MatCheckboxChange } from '@angular/material/checkbox';
-import { getMatAutocompleteMissingPanelError } from '@angular/material/autocomplete';
-import { UserService, IUser } from 'src/app/services/user.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { AuthService } from 'src/app/services/auth.service';
+import { IUser } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-watch-list',
@@ -34,8 +34,7 @@ export class WatchListComponent {
   constructor(
     private router: Router,
     private watchListService: WatchListService,
-    private searchService: SearchService,
-    private userService: UserService,
+    private authService: AuthService,
     private snackBar: MatSnackBar) {
   }
 
@@ -43,10 +42,15 @@ export class WatchListComponent {
     console.log('---ngOnInit---');
 
     // retrieve current user from user service
-    this.userService.getCurrentUser().subscribe(
-      (user: IUser) => {
-        this.updateUIState(user, null);
-        this.getWatchList(user);
+    this.authService.getCurrentUser().subscribe((response) => {
+      // If user is not authenticated, redirect to login page
+      if (!response.isAuthenticated) {
+        this.router.navigate(['/auth/login']);
+        return;
+      }
+
+      this.updateUIState(response.user!, null);
+      this.getWatchList(response.user!);
     });
   }
 

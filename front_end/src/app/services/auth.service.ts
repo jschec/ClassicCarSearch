@@ -1,17 +1,16 @@
-import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-
-export interface IUser {
-  id: string;
-  name: string;
-  email: string;
-  picture: string;
-}
+import { IUser } from './user.service';
 
 export interface IProvider {
   name: string;
   svgIconName: string;
+}
+
+export interface IAuthResponse {
+  user?: IUser;
+  isAuthenticated: boolean;
 }
 
 @Injectable({
@@ -19,19 +18,16 @@ export interface IProvider {
 })
 export class AuthService {
 
-  constructor(private http : HttpClient) { }
+  constructor(private http: HttpClient) { }
 
-  public isAuthenticated() : Boolean {
-    let userData = localStorage.getItem('userInfo')
-    if(userData && JSON.parse(userData)){
-      return true;
-    }
-    
-    return false;
+  public getCurrentUser(): Observable<IAuthResponse> {
+    const url = '/api/auth/session';
+    return this.http.get<IAuthResponse>(url);
   }
 
-  public setUserInfo(user: IUser): void {
-    localStorage.setItem('userInfo', JSON.stringify(user));
+  public logout(): Observable<void> {
+    const url = '/api/auth/session';
+    return this.http.delete<void>(url);
   }
 
   public getProviders(): IProvider[] {

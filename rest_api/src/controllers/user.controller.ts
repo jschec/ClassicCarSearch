@@ -1,7 +1,7 @@
 import httpStatus from 'http-status';
 import { Request, Response } from 'express';
 
-import { IUserDoc } from '../interfaces/user.interfaces';
+import { IUser, IUserDoc } from '../interfaces/user.interfaces';
 import * as userService from '../services/user.service';
 import * as watchListService from '../services/watch-list.service';
 import * as searchService from '../services/search.service';
@@ -88,6 +88,11 @@ export const getUserWatchList = catchAsync(async (req: Request, res: Response) =
 export const updateUser = catchAsync(async (req: Request, res: Response) => {
   if (req.params['userId']) {
     const user = await userService.updateById(req.params['userId'], req.body);
+
+    // Update the session with the new subscription
+    if (user && user.subscription) {
+      (req.user! as IUser).subscription = user.subscription;
+    }
     
     res.send(user);
   }

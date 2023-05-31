@@ -1,5 +1,7 @@
 import axios, { AxiosRequestConfig, AxiosResponse } from 'axios';
 import { SHA256 } from 'crypto-js';
+import { ISearchCrtieria, SearchCriteriaBody } from '../interfaces/criteria';
+import { ITaskHandler, Job } from '../queue/queue';
 
 enum Localization {
     Any = 'any',
@@ -19,21 +21,31 @@ enum Site {
     FBM = "fbm",
 }
 
-export interface ISearchCriteria {
-    make: string;
-    domesticonly: number;
-    localization: Localization;
-    minyear: number;
-    maxyear: number;
-    radius: number;
-    showUnpaid: number;
-    showPrivate: number;
-    zip: number;
-    sort: Sort;
-    sites: string,
-    deduplicationSites: string;
-    rpp: number;
-    page: number;
+export class AutoTempestCriteria {
+    zip!: number;
+    sort!: Sort;
+    page!: number;
+    make?: string;
+    // domesticonly: number;
+    // localization: Localization;
+    minyear?: number;
+    maxyear?: number;
+    radius?: number;
+    // showUnpaid: number;
+    // showPrivate: number;
+    // sites: string,
+    // deduplicationSites: string;
+    rpp?: number;
+
+    constructor(zip: number, page?: number) {
+        this.zip = zip;
+        this.sort = Sort.BestMatch;
+        if (page == null) {
+            this.page = 1;
+        } else {
+            this.page = page as number;
+        }
+    }
 };
 
 export interface ISearchResult {
@@ -57,24 +69,29 @@ export interface ISearchResult {
 //     "page": 1,
 // }
 
-function makeRefererURL(criteria: ISearchCriteria): string {
-    return `https://www.autotempest.com/results?make=${criteria.make}&zip=${criteria.zip}&localization=${criteria.localization}&domesticonly=${criteria.domesticonly}`;
-}
-
-async function sendRequest(criteria: ISearchCriteria): Promise<any> {
-    const url = 'https://www.autotempest.com/queue-results?';
-
+function buildQueryString(criteria: AutoTempestCriteria): string {
     var queryString = "";
     for (const key in criteria) {
         if (Object.prototype.hasOwnProperty.call(criteria, key)) {
-            const value = criteria[key as keyof ISearchCriteria];
+            const value = criteria[key as keyof AutoTempestCriteria];
             if (queryString !== "") {
                 queryString += "&";
             }
             queryString += `${key}=${value}`;
         }
     }
+    return queryString;
+}
 
+function makeRefererURL(criteria: AutoTempestCriteria): string {
+    const queryString = buildQueryString(criteria);
+    return `https://www.autotempest.com/results?${queryString}`;
+}
+
+async function sendRequest(criteria: AutoTempestCriteria): Promise<any> {
+    const url = 'https://www.autotempest.com/queue-results?';
+
+    var queryString = buildQueryString(criteria);
     const token = "d8007486d73c168684860aae427ea1f9d74e502b06d94609691f5f4f2704a07f";
     const hashToken = SHA256(queryString + token).toString();
 
@@ -99,7 +116,58 @@ async function sendRequest(criteria: ISearchCriteria): Promise<any> {
     return null;
 }
 
-export const queryAutotempest = async (criteria: ISearchCriteria): Promise<any> => {
-    const result = await sendRequest(criteria);
+
+function convertSearchCriteriaToAutoTempestCriteria(criteria: SearchCriteriaBody): AutoTempestCriteria {
+    var result: AutoTempestCriteria = new AutoTempestCriteria(98122);
+    if (criteria.make) {
+        result.make = criteria.make;
+    }
+    if (criteria.startYear) {
+        result.minyear = criteria.startYear;
+    }
+    if (criteria.endYear) {
+        result.maxyear = criteria.endYear;
+    }
     return result;
+}
+
+function decodeResponse(resp: Record<string, any>): Record<string, any> {
+    return {};
+}
+
+export const queryAutotempest = async (criteria: SearchCriteriaBody): Promise<any> => {
+    // step 1: convert parameters
+    const autotempestCriteria = convertSearchCriteriaToAutoTempestCriteria(criteria);
+
+    // step 2: request data
+    const maxPage: number = 10;
+    for (var i=1; i<=maxPage; i++) {
+        autotempestCriteria.page = i;
+        const eachResult = await sendRequest(autotempestCriteria);
+        // step 3: convert data
+        decodeResponse(eachResult);
+    }
+
+    // step 4: write db
+
+    return {};
 };
+
+export const AUTOTEMPEST_JOB_HANDLER_NAME = "AUTOTEMPEST";
+
+class AutotempestJobHandler implements ITaskHandler {
+
+    constructor() {
+        //
+    }
+
+    getName(): string {
+        return AUTOTEMPEST_JOB_HANDLER_NAME;
+    }
+
+    processJob(job: Job): void {
+        // throw new Error('Method not implemented.');
+    }
+};
+
+export const autotempestJobHandler = new AutotempestJobHandler();

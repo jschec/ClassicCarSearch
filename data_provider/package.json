@@ -18,10 +18,12 @@
     "crypto-js": "^4.1.1",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
+    "fastq": "^1.15.0",
     "helmet": "^6.1.5",
     "http-status": "^1.6.2",
     "joi": "^17.9.2",
-    "mongoose": "^7.0.4"
+    "mongoose": "^7.0.4",
+    "uuid": "^9.0.0"
   },
   "devDependencies": {
     "@types/cors": "^2.8.13",
@@ -31,6 +33,7 @@
     "@types/helmet": "^4.0.0",
     "@types/mongoose": "^5.11.97",
     "@types/node": "^18.15.13",
+    "@types/uuid": "^9.0.1",
     "typescript": "^5.0.4"
   }
 }

@@ -92,6 +92,14 @@ userSchema.static('findOrCreate', async function (refUser: NewUserBody): Promise
 
   if (!user) {
     const newUser = await this.create(refUser);
+
+    // Create a new WatchList document for the new user
+    const userWatchList = await WatchList.create({ user: newUser._id });
+
+    // Update the new user with the new WatchList document
+    newUser.watchList = userWatchList._id;
+    await newUser.save();
+
     return newUser;
   }
 

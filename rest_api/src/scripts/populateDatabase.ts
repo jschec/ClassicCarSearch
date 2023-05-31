@@ -293,8 +293,13 @@ const populateSearches = async () => {
       ...searchCriteria, search: record._id
     });
 
+    // Parameters for generating forecasts
+    const FORECAST_COUNT = 10;
+    const HISTORY_LENGTH = 12;
+    const PRICE_MIN = 1000;
+    const PRICE_MAX = 100000;
     // Create 10 SearchForecast records for each Search record
-    for (let j = 0; j < 1; j++) {
+    for (let j = 0; j < FORECAST_COUNT; j++) {
       const searchForecast: NewSearchForecastBody = {
         search: record._id,
         avgTimeOnMarket: faker.datatype.number({min: 1, max: 1000}),
@@ -302,7 +307,12 @@ const populateSearches = async () => {
         averageMileage: faker.datatype.number({min: 0, max: 200000}),
         ttl: 300,
         priceHistory: [],
+        forecastRegion: randomRegion(),
       };
+      //Fill price history array
+      for (let j = 0; j < HISTORY_LENGTH; j++) {
+        searchForecast.priceHistory?.push(faker.datatype.number({ min: PRICE_MIN, max: PRICE_MAX }));
+      }
 
       await searchForecastService.create(searchForecast);
     }

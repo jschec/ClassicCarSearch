@@ -56,6 +56,9 @@ import {OverlayModule} from '@angular/cdk/overlay';
 import {CdkMenuModule} from '@angular/cdk/menu';
 import {DialogModule} from '@angular/cdk/dialog';
 
+// Interceptors
+import { httpInterceptorProviders } from './interceptors/http.interceptor';
+
 // Routes
 import { AppRoutingModule } from './app-routing.module';
 
@@ -152,6 +155,7 @@ import { UserService } from './services/user.service';
     SearchService,
     UserService,
     MediaMatcher,
+    httpInterceptorProviders
   ],
   bootstrap: [AppComponent]
 })

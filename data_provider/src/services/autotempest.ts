@@ -1,6 +1,6 @@
 import axios, { AxiosRequestConfig, AxiosResponse } from 'axios';
 import { SHA256 } from 'crypto-js';
-import { ISearchCrtieria, SearchCriteriaBody } from '../interfaces/criteria';
+import { ISearchCrtieria, SearchCriteriaBody } from '../interface/criteria.interface';
 import { ITaskHandler, Job } from '../queue/queue';
 
 enum Localization {

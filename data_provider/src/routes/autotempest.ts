@@ -1,7 +1,7 @@
 import { Router, Request, Response } from 'express';
 import catchAsync from '../utils/catchAsync';
 
-import { IAddJobResult, SearchCriteriaBody } from '../interfaces/criteria';
+import { IAddJobResult, SearchCriteriaBody } from '../interface/criteria.interface';
 import { autotempestJobHandler, AUTOTEMPEST_JOB_HANDLER_NAME } from '../services/autotempest';
 import { Job, jobQueue } from '../queue/queue';
 

@@ -1,7 +1,7 @@
 import { v4 as uuidv4 } from 'uuid';
 import Fastq from 'fastq';
 import { promisify } from 'util';
-import { SearchCriteriaBody } from '../interfaces/criteria';
+import { SearchCriteriaBody } from '../interface/criteria.interface';
 
 export interface Job {
     id: string;

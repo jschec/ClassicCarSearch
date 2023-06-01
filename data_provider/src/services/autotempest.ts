@@ -132,16 +132,19 @@ function convertSearchCriteriaToAutoTempestCriteria(criteria: SearchCriteriaBody
 }
 
 function decodeResponse(resp: Record<string, any>): Record<string, any> {
+    console.log(resp);
     return {};
 }
 
 export const queryAutotempest = async (criteria: SearchCriteriaBody): Promise<any> => {
+    console.log('start query...');
     // step 1: convert parameters
     const autotempestCriteria = convertSearchCriteriaToAutoTempestCriteria(criteria);
 
     // step 2: request data
-    const maxPage: number = 10;
+    const maxPage: number = 1;
     for (var i=1; i<=maxPage; i++) {
+        console.log(`Query page ${i}`);
         autotempestCriteria.page = i;
         const eachResult = await sendRequest(autotempestCriteria);
         // step 3: convert data
@@ -165,8 +168,9 @@ class AutotempestJobHandler implements ITaskHandler {
         return AUTOTEMPEST_JOB_HANDLER_NAME;
     }
 
-    processJob(job: Job): void {
-        // throw new Error('Method not implemented.');
+    async processJob(job: Job): Promise<void> {
+        const criteria = convertSearchCriteriaToAutoTempestCriteria(job.data);
+        await queryAutotempest(criteria);
     }
 };
 

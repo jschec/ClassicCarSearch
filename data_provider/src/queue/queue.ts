@@ -11,7 +11,7 @@ export interface Job {
 
 export interface ITaskHandler {
     getName(): string;
-    processJob(job: Job): void;
+    processJob(job: Job): Promise<void>;
 }
 
 enum JobStatus {
@@ -25,34 +25,36 @@ class JobItem {
     status?: JobStatus;
 }
 
-class ProcessCenter {
+class JobQueue {
     private handlers: Record<string, ITaskHandler>;
     private jobItems: Record<string, JobItem>;
+    private queue: Fastq.queue<Job, any>;
 
     constructor() {
         this.handlers = {};
         this.jobItems = {};
+        this.queue = Fastq(async (job: Job, callback: (error: Error | null, result?: any) => void) => {
+            try {
+                console.log(`Processing task: ${job.id}`);
+                await this.processJob(job);
+                console.log(`Task completed: ${job.id}`);
+                callback(null, job);
+            } catch (error) {
+                console.log(`Task completed: ${job.id}, error: ${error}`);
+                callback(error as Error, job);
+            }
+        }, 1);
     }
 
     registerHandler(handler: ITaskHandler): void {
         this.handlers[handler.getName()] = handler;
     }
 
-    processJob(job: Job): void {
-        this.updateJobStatus(job, JobStatus.EXECUTING);
-
-        if (job.type in this.handlers) {
-            this.handlers[job.type].processJob(job);
-        } else {
-            console.error(`type not exist, id: ${job.id} type: ${job.type}`);
-        }
-    }
-
     pushJob(type: string, data: any): Job {
         const job = this.initialJob(type, data);
 
         // push task
-        queue.push(job, (error: Error | null, result?: any) => {
+        this.queue.push(job, (error: Error | null, result?: any) => {
             this.completeJob(error, result! as Job);
         });
 
@@ -63,6 +65,23 @@ class ProcessCenter {
         return Object.values(this.jobItems)
             .filter(item => item.job !== null)
             .map(item => item.job!);
+    }
+
+    getJobById(jobId: string): JobItem | null {
+        if (jobId in this.jobItems) {
+            this.jobItems[jobId]
+        }
+        return null;
+    }
+
+    private async processJob(job: Job): Promise<void> {
+        this.updateJobStatus(job, JobStatus.EXECUTING);
+
+        if (job.type in this.handlers) {
+            await this.handlers[job.type].processJob(job);
+        } else {
+            console.error(`type not exist, id: ${job.id} type: ${job.type}`);
+        }
     }
 
     private updateJobStatus(job: Job, status: JobStatus): void {
@@ -101,23 +120,4 @@ class ProcessCenter {
     }
 }
 
-export const defaultCenter = new ProcessCenter();
-
-const processTask = async (job: Job) => {
-    defaultCenter.processJob(job);
-};
-
-const queue = Fastq(async (job: Job, callback: (error: Error | null, result?: any) => void) => {
-    try {
-        console.log(`Processing task: ${job.id}`);
-        await processTask(job);
-        console.log(`Task completed: ${job.id}`);
-        callback(null, job);
-    } catch (error) {
-        console.log(`Task completed: ${job.id}, error: ${error}`);
-        callback(error as Error, job);
-    }
-}, 1);
-
-
-// export default queue;
+export const jobQueue = new JobQueue();

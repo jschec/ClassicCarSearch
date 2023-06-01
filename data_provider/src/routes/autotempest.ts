@@ -3,22 +3,32 @@ import catchAsync from '../utils/catchAsync';
 
 import { IAddJobResult, SearchCriteriaBody } from '../interfaces/criteria';
 import { autotempestJobHandler, AUTOTEMPEST_JOB_HANDLER_NAME } from '../services/autotempest';
-import { Job, defaultCenter } from '../queue/queue';
+import { Job, jobQueue } from '../queue/queue';
 
-defaultCenter.registerHandler(autotempestJobHandler);
+jobQueue.registerHandler(autotempestJobHandler);
 
 const getQueryTaskList = catchAsync(async (req: Request, res: Response) => {
-    const list = defaultCenter.getJobList();
+    const list = jobQueue.getJobList();
     res.send(list);
 });
 
 const getQueryTaskInfo = catchAsync(async (req: Request, res: Response) => {
-    res.send({});
+    if (req.params['jobid']) {
+        const jobId = req.params['jobid'];
+        const jobItem = jobQueue.getJobById(jobId);
+        if (jobItem)  {
+            res.send(jobItem);
+        } else {
+            res.send({});
+        }
+    } else {
+        res.send({});
+    }
 });
 
 const createQueryTask = catchAsync(async (req: Request<SearchCriteriaBody>, res: Response) => {
 
-    const job: Job = defaultCenter.pushJob(AUTOTEMPEST_JOB_HANDLER_NAME, req.body);
+    const job: Job = jobQueue.pushJob(AUTOTEMPEST_JOB_HANDLER_NAME, req.body);
 
     const result: IAddJobResult = {
         jobId: job.id,
@@ -29,7 +39,7 @@ const createQueryTask = catchAsync(async (req: Request<SearchCriteriaBody>, res:
 
 const router = Router();
 router.get("/query/list", getQueryTaskList);
-router.get("/query/:id", getQueryTaskInfo);
+router.get("/query/:jobid", getQueryTaskInfo);
 router.post("/query", createQueryTask);
 
 export default router;

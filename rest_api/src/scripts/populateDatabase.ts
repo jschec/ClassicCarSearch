@@ -174,11 +174,6 @@ const populateUsers = async () => {
   pbar.stop();
 };
 
-/**
- * Creates forecasts
- */
-
-}
 
 /**
  * Populates the Cars, CarSellers, and CarListings collections with dummy data

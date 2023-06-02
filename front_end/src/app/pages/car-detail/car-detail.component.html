@@ -2,25 +2,31 @@
 <div class="carDeatails-page-container"fxLayout="column">
     <div class="details-section">
       <mat-grid-list cols="2" rowHeight="250px">
+        <!-- PICTURE -->
+        <mat-grid-tile [colspan]="2"[rowspan]="2">
+          <img class="car-image" mat-card-image src="{{carListing?.car?.img}}">
+        </mat-grid-tile>
+        <!-- TITLE -->
         <mat-grid-tile [colspan]="1" [rowspan]="1">
-          <mat-card class= card-container>
+          <mat-card class=card-container>
             <mat-card-header>
               <mat-card-title> Car Details</mat-card-title>
             </mat-card-header>
-              <mat-card-content>
-                <mat-card-subtitle>Make: {{carListing?.car?.make}}</mat-card-subtitle>
-                <mat-card-subtitle>Model: {{carListing?.car?.model}}</mat-card-subtitle>
-                <mat-card-subtitle>Year: {{carListing?.car?.year}}</mat-card-subtitle>
-                <mat-card-subtitle>Exterior Conditon: {{carListing?.car?.exteriorCondition}}</mat-card-subtitle>
-                <mat-card-subtitle>Mechanical Conditon: {{carListing?.car?.mechanicalCondition}}</mat-card-subtitle>
-                <mat-card-subtitle>Milage: {{carListing?.car?.mileage}}</mat-card-subtitle>
-                <mat-card-subtitle>Color: {{carListing?.car?.color}}</mat-card-subtitle>
-              </mat-card-content>
+            <!-- CAR STATS -->
+            <mat-card-content>
+              <mat-card-subtitle>Make: {{carListing?.car?.make}}</mat-card-subtitle>
+              <mat-card-subtitle>Model: {{carListing?.car?.model}}</mat-card-subtitle>
+              <mat-card-subtitle>Year: {{carListing?.car?.year}}</mat-card-subtitle>
+              <mat-card-subtitle>Exterior Conditon: {{carListing?.car?.exteriorCondition}}</mat-card-subtitle>
+              <mat-card-subtitle>Mechanical Conditon: {{carListing?.car?.mechanicalCondition}}</mat-card-subtitle>
+              <mat-card-subtitle>Milage: {{carListing?.car?.mileage}}</mat-card-subtitle>
+              <mat-card-subtitle>Color: {{carListing?.car?.color}}</mat-card-subtitle>
+            </mat-card-content>
           </mat-card>
         </mat-grid-tile>
-
+        <!-- LISTING STATS -->
         <mat-grid-tile [colspan]="1" [rowspan]="1">
-          <mat-card class= card-container rowHeight="250px">
+          <mat-card class=card-container rowHeight="250px">
             <mat-card-header>
               <mat-card-title> Seller's Details</mat-card-title>
             </mat-card-header>
@@ -38,20 +44,18 @@
             </mat-card-content>
           </mat-card>
         </mat-grid-tile>
-        <mat-grid-tile [colspan]="2"[rowspan]="2">
-          <img class="car-image" mat-card-image src="{{carListing?.car?.img}}">
-          
-        </mat-grid-tile>
-       <mat-grid-tile [colspan]="2"[rowspan]="1">
-        <div class="chart-title">
-          <h1>Forecast: {{forecast?.forecastRegion}}</h1>
-        </div>          
-        </mat-grid-tile>
-        <mat-grid-tile [colspan]="2"[rowspan]="2">         
-          <div class="chart-container">            
-            <canvas id="MyChart">{{ chart }}</canvas>
-          </div>
-        </mat-grid-tile>
-      </mat-grid-list>
+</mat-grid-list>
+<mat-grid-list cols="1" rowHeight="100px" class="chart-container">
+  <!-- FORECAST -->
+  <mat-grid-tile [colspan]="1" [rowspan]="1" class="chart-title">
+      <h1>Forecast: {{forecast?.forecastRegion}}</h1>
+  </mat-grid-tile>
+
+  <mat-grid-tile [colspan]="1" [rowspan]="5" class="chart-container">
+      <canvas id="MyChart">{{ chart }}</canvas>
+  </mat-grid-tile>
+</mat-grid-list>
+        
+      
     </div>
 </div>

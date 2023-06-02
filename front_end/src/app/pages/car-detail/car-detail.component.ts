@@ -18,7 +18,7 @@ export class CarDetailComponent {
   avgPrice: 0,
   averageMileage: 0,
   ttl: 0,
-  priceHistory: [1, 3, 5, 7, 6, 9, 8, 6],
+  priceHistory: [1, 2, 3, 4, 5, 6, 7, 8],
   forecastRegion: "Building M",
 }
   // from backend
@@ -40,9 +40,13 @@ export class CarDetailComponent {
       console.log('Setting forecast to dummy. Its length is ' + this.dummyForecast.priceHistory.length);
       //TODO - Swap out dummy data
       this.bindData(this.dummyForecast.priceHistory);
+      //this.bindData(this.forecast.priceHistory);
+      
       console.log('Now our forecasts data length is ' + this.forecast?.priceHistory.length);
       if (this.forecast){
+        
         console.log('GOOD - I am using my own forecast');
+        
         this.populateChart(this.forecast.priceHistory);
       }
       else {

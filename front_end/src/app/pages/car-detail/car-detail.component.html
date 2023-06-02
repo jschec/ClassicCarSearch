@@ -48,11 +48,11 @@
 <mat-grid-list cols="1" rowHeight="100px" class="chart-container">
   <!-- FORECAST -->
   <mat-grid-tile [colspan]="1" [rowspan]="1" class="chart-title">
-      <h1>Forecast: {{carListing?.forecast?.forecastRegion}}</h1>
+      <h1>Forecast: {{carListing?.car?.forecast?.forecastRegion}}</h1>
   </mat-grid-tile>
 
   <mat-grid-tile [colspan]="1" [rowspan]="5" class="chart-container">
-      <canvas id="MyChart">{{ carListing?.forecast?.chart }}</canvas>
+      <canvas id="MyChart">{{ chart }}</canvas>
   </mat-grid-tile>
 </mat-grid-list>
         

@@ -36,17 +36,8 @@ export class CarDetailComponent {
   ngOnInit() {
     this.carDetailsService.getBylistingId(this.id).subscribe((response) => {
       this.carListing = response;
-      //TEMP
-      console.log('Setting forecast to dummy. Its length is ' + this.dummyForecast.priceHistory.length);
-      //TODO - Swap out dummy data
-      this.bindData(this.dummyForecast.priceHistory);
-      //this.bindData(this.forecast.priceHistory);
-      
-      console.log('Now our forecasts data length is ' + this.forecast?.priceHistory.length);
       if (this.forecast){
-        
         console.log('GOOD - I am using my own forecast');
-        
         this.populateChart(this.forecast.priceHistory);
       }
       else {

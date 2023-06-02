@@ -11,6 +11,16 @@ export interface ICar {
   mileage: number;
   color: string;
   img: string;
+  forecast: ISearchForecast | null;
+}
+
+export interface ISearchForecast {
+  avgTimeOnMarket: number;
+  avgPrice: number;
+  averageMileage: number;
+  ttl: number;
+  priceHistory: number[];
+  forecastRegion: string;
 }
 
 export type NewCarBody = ICar;

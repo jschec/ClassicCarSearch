@@ -29,9 +29,8 @@ export interface ICarListing {
   car: ICar;
 }
 
-//TODO: What should search be?
+
 export interface ISearchForecast {
-  search: string;
   avgTimeOnMarket: number;
   avgPrice: number;
   averageMileage: number;

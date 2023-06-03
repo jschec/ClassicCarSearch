@@ -15,11 +15,6 @@ const searchForecastSchema = new Schema<
       type: Schema.Types.UUID,
       default: () => randomUUID(),
     },
-    search: {
-      type: Schema.Types.UUID,
-      required: true,
-      ref: 'Search',
-    },
     avgTimeOnMarket: {
       type: Number,
       required: true,

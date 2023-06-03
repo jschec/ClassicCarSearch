@@ -5,6 +5,7 @@ import {
   ISearchForecastDoc, ISearchForecastModel
 } from '../interfaces/search-forecast.interfaces';
 import Search from './search.model';
+import Car from './car.model';
 import toJSON from '../utils/toJson';
 
 const searchForecastSchema = new Schema<
@@ -61,10 +62,10 @@ searchForecastSchema.plugin(toJSON);
  * document before saving it to the database.
  */
 searchForecastSchema.pre('validate', async function(next) {
-  const searchExists = await Search.exists({ _id: this.search });
+  const carExists = await Car.exists({ _id: this.search });
 
-  if (!searchExists) {
-    next(new Error('Search does not exist'));
+  if (!carExists) {
+    next(new Error('Car for forecast does not exist'));
   }
 
   next();

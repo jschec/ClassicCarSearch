@@ -207,14 +207,13 @@ const populateCarListings = async () => {
       forecast: null,
     };
 
-    const carRecord = await Car.create(car);
+    
     // Parameters for generating forecasts
     const HISTORY_LENGTH = 12;
     const PRICE_MIN = 1000;
     const PRICE_MAX = 100000;
     //Create forecast
     const myForecast: NewSearchForecastBody = {
-      search: carRecord._id,
       avgTimeOnMarket: faker.datatype.number({ min: 1, max: 1000 }),
       avgPrice: faker.datatype.number({ min: 1000, max: 100000 }),
       averageMileage: faker.datatype.number({ min: 0, max: 200000 }),
@@ -228,7 +227,10 @@ const populateCarListings = async () => {
     }
     //Create and assign forecast to car    
       await searchForecastService.create(myForecast);
-      carRecord.forecast = myForecast;
+      car.forecast = myForecast;
+
+      //Create car
+      const carRecord = await Car.create(car);
       //Add new car id and update progress
       carIds.push(carRecord._id);
       carPbar.update(i + 1);

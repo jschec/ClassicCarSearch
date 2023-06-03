@@ -1,6 +1,5 @@
 import { Document, Model } from 'mongoose';
 
-import { ISearchDoc } from './search.interfaces';
 
 export interface ISearchForecast {
   avgTimeOnMarket: number;

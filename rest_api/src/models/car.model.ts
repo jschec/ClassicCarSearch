@@ -50,6 +50,11 @@ const carSchema = new Schema<ICarDoc, ICarModel>(
       type: String,
       required: false,
     },
+    forecast: {
+      type: Schema.Types.UUID,
+      required: false,
+      ref: 'Forecast',
+    }
   },
   {
     timestamps: true,

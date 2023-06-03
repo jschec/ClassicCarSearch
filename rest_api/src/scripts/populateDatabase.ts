@@ -29,6 +29,7 @@ import Search from '../models/search.model';
 import Subscription from '../models/subscription.model';
 import User from '../models/user.model';
 import WatchList from '../models/watch-list.model';
+import searchForecast from '../models/search-forecast.model';
 
 import * as carListingService from '../services/car-listing.service';
 import * as searchCriteriaService from '../services/search-criteria.service';
@@ -184,6 +185,7 @@ const populateCarListings = async () => {
 
   let carIds: string[] = [];
   let carSellerIds: string[] = [];
+  let forecastIds: string[] = [];
   const CAR_COUNT = 100;
 
   // Create a progress bar to track the progress
@@ -204,7 +206,7 @@ const populateCarListings = async () => {
       mileage: faker.datatype.number({min: 0, max: 200000}),
       color: faker.vehicle.color(),
       img: carImages[Math.floor(Math.random() * carImages.length)],
-      forecast: null,
+      forecast: "",
     };
 
     
@@ -213,7 +215,7 @@ const populateCarListings = async () => {
     const PRICE_MIN = 1000;
     const PRICE_MAX = 100000;
     //Create forecast
-    const myForecast: NewSearchForecastBody = {
+    const forecast: NewSearchForecastBody = {
       avgTimeOnMarket: faker.datatype.number({ min: 1, max: 1000 }),
       avgPrice: faker.datatype.number({ min: 1000, max: 100000 }),
       averageMileage: faker.datatype.number({ min: 0, max: 200000 }),
@@ -223,10 +225,11 @@ const populateCarListings = async () => {
     };
     //Fill price history array
     for (let j = 0; j < HISTORY_LENGTH; j++) {
-      myForecast.priceHistory?.push(faker.datatype.number({ min: PRICE_MIN, max: PRICE_MAX }));  
+      forecast.priceHistory?.push(faker.datatype.number({ min: PRICE_MIN, max: PRICE_MAX }));  
     }
     //Create and assign forecast to car    
-      await searchForecastService.create(myForecast);
+      const myForecast = await searchForecast.create(forecast);
+      forecastIds.push(myForecast._id);
       car.forecast = myForecast;
 
       //Create car

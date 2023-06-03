@@ -197,19 +197,6 @@ const populateCarListings = async () => {
   // Generate 'CAR_COUNT' random cars
   
   for (let i = 0; i < CAR_COUNT; i++) {
-    const car: NewCarBody = {
-      make: faker.vehicle.manufacturer(),
-      model: faker.vehicle.model(),
-      year: faker.datatype.number({min: 1980, max: 2020}),
-      exteriorCondition: randomCondition(),
-      mechanicalCondition: randomCondition(),
-      mileage: faker.datatype.number({min: 0, max: 200000}),
-      color: faker.vehicle.color(),
-      img: carImages[Math.floor(Math.random() * carImages.length)],
-      forecast: "",
-    };
-
-    
     // Parameters for generating forecasts
     const HISTORY_LENGTH = 12;
     const PRICE_MIN = 1000;
@@ -225,13 +212,24 @@ const populateCarListings = async () => {
     };
     //Fill price history array
     for (let j = 0; j < HISTORY_LENGTH; j++) {
-      forecast.priceHistory?.push(faker.datatype.number({ min: PRICE_MIN, max: PRICE_MAX }));  
+      forecast.priceHistory?.push(faker.datatype.number({ min: PRICE_MIN, max: PRICE_MAX }));
     }
     //Create and assign forecast to car    
-      const myForecast = await searchForecast.create(forecast);
-      forecastIds.push(myForecast._id);
-      car.forecast = myForecast;
+    const myForecast = await searchForecast.create(forecast);
+    forecastIds.push(myForecast._id);
+    //car.forecast = myForecast;
 
+    const car: NewCarBody = {
+      make: faker.vehicle.manufacturer(),
+      model: faker.vehicle.model(),
+      year: faker.datatype.number({min: 1980, max: 2020}),
+      exteriorCondition: randomCondition(),
+      mechanicalCondition: randomCondition(),
+      mileage: faker.datatype.number({min: 0, max: 200000}),
+      color: faker.vehicle.color(),
+      img: carImages[Math.floor(Math.random() * carImages.length)],
+      forecast: myForecast, 
+    };
       //Create car
       const carRecord = await Car.create(car);
       //Add new car id and update progress

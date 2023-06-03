@@ -57,11 +57,13 @@ const searchForecastSchema = new Schema<
 // Add plugin to converts mongoose documents to json
 searchForecastSchema.plugin(toJSON);
 
+//TODO 6/2 - Should this be removed?
+
 /**
  * A pre-save hook to apply additional validation logic to the SearchForecast
  * document before saving it to the database.
  */
-searchForecastSchema.pre('validate', async function(next) {
+/* searchForecastSchema.pre('validate', async function(next) {
   const carExists = await Car.exists({ _id: this.search });
 
   if (!carExists) {
@@ -69,7 +71,7 @@ searchForecastSchema.pre('validate', async function(next) {
   }
 
   next();
-});
+}); */
 
 
 const SearchForecast = model<ISearchForecastDoc, ISearchForecastModel>(

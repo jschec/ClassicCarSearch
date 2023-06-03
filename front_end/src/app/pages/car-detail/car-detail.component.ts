@@ -120,12 +120,12 @@ export class CarDetailComponent {
       //TODO - Finalize
       if (this.forecast != null){
         console.log("$ " + this.forecast?.priceHistory[j]);
-        this.chart.datasets.data.push(this.forecast?.priceHistory[j]);
+        //this.chart.datasets.data.push(this.forecast?.priceHistory[j]);
         prices.push(this.forecast.priceHistory[j]);
       }
       else {
         console.log("Dummy: $ " + this.dummyForecast?.priceHistory[j]);
-        this.chart.datasets.data.push(this.dummyForecast.priceHistory[j]);
+        //this.chart.datasets.data.push(this.dummyForecast.priceHistory[j]);
         prices.push(this.dummyForecast.priceHistory[j]);
       }      
     }

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { ICarListing,CarDetailsService, ISearchForecast} from 'src/app/services/car-details.service';
+import { ICarListing,CarDetailsService, ISearchForecast, } from 'src/app/services/car-details.service';
+import { ICar } from 'src/app/services/cars.service';
 import { ActivatedRoute } from '@angular/router';
 import {Chart} from 'chart.js/auto';
 
@@ -21,13 +22,14 @@ export class CarDetailComponent {
   priceHistory: [1, 2, 3, 4, 5, 6, 7, 8],
   forecastRegion: "Building M",
 }
+  
   // from backend
   carListing: ICarListing | null = null;
   loading: boolean = true;
   id: string;
+  car: ICar | null = null;
   forecast: ISearchForecast | null = null;
   chart: any;
-
   constructor(private route: ActivatedRoute,
     private carDetailsService: CarDetailsService){
     this.id = this.route.snapshot.params['id'];
@@ -35,15 +37,26 @@ export class CarDetailComponent {
 
   ngOnInit() {
     this.carDetailsService.getBylistingId(this.id).subscribe((response) => {
+      //Grab car listing from response
       this.carListing = response;
-      if (this.carListing.car.forecast != null){
-        console.log('I found a forecast in the response')
-        this.forecast = this.carListing.car.forecast;
+      console.log('******** CAR LISTING ********');
+      console.log('Here is the response: ' + this.carListing);
+      console.log('It was listed on ' + this.carListing.listDate);
+      console.log("It is for a " + this.carListing.car.make + " " + this.carListing.car.model);
+      
+      
+      console.log('Forecast id preview: ' + this.carListing.car.forecast);
+      console.log('******** FORECAST ********');
+      //Grab forecast from car listing
+      this.forecast = this.carListing.car.forecast;
+      if (this.forecast != null){        
+        console.log('I found a forecast in the response\n' + this.forecast);
+        console.log('Its region is ' + this.forecast.forecastRegion + " at " + this.forecast.avgPrice);
       }
       
       if (this.forecast){
-        console.log('GOOD - I am using my own forecast of ' + this.forecast.priceHistory.length + ' values');
-        this.populateChart(this.forecast.priceHistory);
+        console.log('GOOD - I am using my own forecast of ' + this.forecast?.priceHistory?.length + ' values');
+        this.populateChart(this.forecast?.priceHistory);
       }
       else {
         console.log('Making a chart from the dummy....')
@@ -52,6 +65,14 @@ export class CarDetailComponent {
       
     });
   }
+/*
+  private getForecast(forecast: ISearchForecast): void {
+    this.carDetailsService.getByUserId(user.id).subscribe((watchList: IWatchListPopulated) => {
+      console.log(watchList.searches);
+      this.updateUIState(user, watchList);
+      this.saveState();
+    });
+  }*/
 
   createChart(prices: Number[], dates: String[]){
     this.chart = new Chart("MyChart", {
@@ -81,14 +102,14 @@ export class CarDetailComponent {
   }
   //Populate Chart with Price Data
   populateChart(input: Number[]){
-    console.log("Populating chart with " + input.length + " values");
+    console.log("Populating chart with " + input?.length + " values");
     let dateRange: string[] =  [];
     let prices: Number[] = [];
     let date: Date = new Date();
     let month = date.getMonth;
     let year = date.getFullYear;
     console.log("Start date: " + date.toString());
-    for (let j = 0; j < input.length; j++){
+    for (let j = 0; j < input?.length; j++){
       let nextDate = date.getMonth() - j;
       if (nextDate < 1) {
         nextDate += 12;
@@ -98,13 +119,13 @@ export class CarDetailComponent {
       //this.chart.labels.unshift(nextDate.toString());
       //TODO - Finalize
       if (this.forecast != null){
-        console.log("$ " + this.forecast.priceHistory[j]);
-        //this.chart.datasets.data.push(this.forecast.priceHistory[j]);
+        console.log("$ " + this.forecast?.priceHistory[j]);
+        this.chart.datasets.data.push(this.forecast?.priceHistory[j]);
         prices.push(this.forecast.priceHistory[j]);
       }
       else {
-        console.log("Dummy: $ " + this.dummyForecast.priceHistory[j]);
-        //this.chart.datasets.data.push(this.dummyForecast.priceHistory[j]);
+        console.log("Dummy: $ " + this.dummyForecast?.priceHistory[j]);
+        this.chart.datasets.data.push(this.dummyForecast.priceHistory[j]);
         prices.push(this.dummyForecast.priceHistory[j]);
       }      
     }

@@ -159,11 +159,16 @@ export const getById = async (carListingId: string, isPopulated: boolean = false
       {
         path: 'car',
         select: '-createdAt -updatedAt -__v -_id',
+        populate:{
+        path: 'forecast',
+        select: '-createdAt -updatedAt -__v -_id',
+        }
       },
       {
         path: 'seller',
         select: '-createdAt -updatedAt -__v -_id',
-      }
+      },
+      
     ])
   }
 

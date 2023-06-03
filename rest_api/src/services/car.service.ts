@@ -36,12 +36,28 @@ export const getById = async (carId: string): Promise<ICarDoc | null> => {
 };
 
 /**
+ * Gets a Car record, with the forecast populated
+ * 
+ * @param {string} carId The identifier of the Car to update
+ * @param {UpdateCarBody} reqBody The request body supplied by the client
+ * @returns {Promise<ICarDoc | null>} A promise containing the updated Car record
+ */
+
+export const getFullDocById = async (carId: string): Promise<ICarDoc | null> => {
+  let carDoc = await Car.findById(carId);
+  if (carDoc) {
+    carDoc = await carDoc.populate({path: 'forecastId', select: '-createdAt -updatedAt -__v -_id'});
+  }
+  return carDoc;
+}
+/**
  * Updates the Car record with the sought identifier.
  * 
  * @param {string} carId The identifier of the Car to update
  * @param {UpdateCarBody} reqBody The request body supplied by the client
  * @returns {Promise<ICarDoc | null>} A promise containing the updated Car record
  */
+
 export const updateById = async (
   carId: string, reqBody: UpdateCarBody
 ): Promise<ICarDoc | null> => {

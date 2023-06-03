@@ -46,6 +46,15 @@ export enum Condition {
   Bad = 'Bad',
 }
 
+//TODO - Should these be made (forecast id as string in mini, forecast object in complete)
+export interface carDetailMinified{
+
+}
+
+export interface carDetailComplete{
+  
+}
+
 
 
 @Injectable({

@@ -279,7 +279,7 @@ const writeItemToDatabase = async (item: IAutoTempestResultItem): Promise<void> 
     // Car
     const externalId = item.id + ":" + item.externalId + ":" + item.vin;
     let model = (item.model) ? item.model : item.backendModel;
-    if (model === "") {
+    if (model == null || model === "") {
         // TODO: Missing fields
         model = "Unknow";
     }
@@ -295,6 +295,7 @@ const writeItemToDatabase = async (item: IAutoTempestResultItem): Promise<void> 
         exteriorCondition: randomCondition(),
         mechanicalCondition: randomCondition(),
     };
+
     let car = await Car.findOne({ 'externalId': externalId });
     if (car == null) {
         car = await Car.create(newCar);
@@ -353,13 +354,13 @@ const writeItemToDatabase = async (item: IAutoTempestResultItem): Promise<void> 
 }
 
 const writeDatabase = async (result: IAutoTempestResult): Promise<void> => {
-    result.results.forEach(async (item: IAutoTempestResultItem) => {
+    for (const item of result.results) {
         try {
             await writeItemToDatabase(item);
         } catch (error) {
             console.error(error);
         }
-    });
+    }
 }
 
 const wait = async (duration: number): Promise<void> => {
@@ -374,7 +375,7 @@ export const queryAutotempest = async (criteria: SearchCriteriaBody): Promise<an
     const autotempestCriteria = convertSearchCriteriaToAutoTempestCriteria(criteria);
 
     // step 2: request data
-    const maxPage: number = 1;
+    const maxPage: number = 10;
     for (var i=1; i<=maxPage; i++) {
         console.log(`Query page ${i}`);
         autotempestCriteria.page = i;

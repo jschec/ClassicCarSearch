@@ -36,8 +36,13 @@ export class CarDetailComponent {
   ngOnInit() {
     this.carDetailsService.getBylistingId(this.id).subscribe((response) => {
       this.carListing = response;
+      if (this.carListing.car.forecast != null){
+        console.log('I found a forecast in the response')
+        this.forecast = this.carListing.car.forecast;
+      }
+      
       if (this.forecast){
-        console.log('GOOD - I am using my own forecast');
+        console.log('GOOD - I am using my own forecast of ' + this.forecast.priceHistory.length + ' values');
         this.populateChart(this.forecast.priceHistory);
       }
       else {
@@ -74,8 +79,9 @@ export class CarDetailComponent {
   bindData(input: Number[]){
     this.forecast = this.dummyForecast;
   }
+  //Populate Chart with Price Data
   populateChart(input: Number[]){
-    console.log("Populating chart...");
+    console.log("Populating chart with " + input.length + " values");
     let dateRange: string[] =  [];
     let prices: Number[] = [];
     let date: Date = new Date();

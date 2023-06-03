@@ -46,7 +46,11 @@ const carListingSchema = new Schema<
       type: Schema.Types.UUID,
       required: true,
       ref: 'Car',
-    }
+    },
+    externalId: {
+      type: String,
+      required: false,
+    },
   },
   {
     timestamps: true,

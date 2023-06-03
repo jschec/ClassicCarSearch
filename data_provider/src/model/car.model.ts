@@ -50,6 +50,10 @@ const carSchema = new Schema<ICarDoc, ICarModel>(
       type: String,
       required: false,
     },
+    externalId: {
+      type: String,
+      required: false,
+    },
   },
   {
     timestamps: true,

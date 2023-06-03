@@ -1,7 +1,16 @@
 import axios, { AxiosRequestConfig, AxiosResponse } from 'axios';
 import { SHA256 } from 'crypto-js';
-import { ISearchCrtieria, SearchCriteriaBody } from '../interface/criteria.interface';
+import { SearchCriteriaBody } from '../interface/criteria.interface';
+import { ICar, ICarDoc, NewCarBody, UpdateCarBody } from '../interface/car.interface';
 import { ITaskHandler, Job } from '../queue/queue';
+import Car from '../model/car.model';
+import CarSeller from '../model/car-seller.model';
+import CarListing from '../model/car-listing.model';
+import { Condition } from '../interface/condition.interfaces';
+import { ICarSeller, ICarSellerDoc, NewCarSellerBody, UpdateCarSellerBody } from '../interface/car-seller.interface';
+import { ICarListing, ICarListingDoc, NewCarListingBody, UpdateCarListingBody } from '../interface/car-listing.interface';
+import { Region } from '../interface/region.interfaces';
+import { faker } from '@faker-js/faker';
 
 enum Localization {
     Any = 'any',
@@ -190,6 +199,7 @@ const sendRequest = async (criteria: AutoTempestCriteria): Promise<any> => {
             url: url + queryString + '&token=' + hashToken,
             method: 'GET',
             headers: headers,
+            timeout: 10000, // 10s
         };
 
         const response: AxiosResponse = await axios(options);
@@ -228,13 +238,13 @@ const decodeResponse = (resp: Record<string, any>): IAutoTempestResult => {
     keys.forEach((key) => {
         if (key in resp) {
             if (key === "results") {
-                const originalResults = resp[key];
+                const originalResults = resp[key] as Record<string, any>[];
                 let convertedResults: any[] = [];
-                (resp[key] as []).forEach((eachResult) => {
+                originalResults.forEach((eachResult) => {
                     let convertedResultItem: Record<string, any> = {};
                     itemKeys.forEach((itemKey) => {
-                        if (itemKey in originalResults) {
-                            convertedResultItem[itemKey] = originalResults[itemKey];
+                        if (itemKey in eachResult) {
+                            convertedResultItem[itemKey] = eachResult[itemKey];
                         }
                     });
                     convertedResults.push(convertedResultItem);
@@ -245,14 +255,117 @@ const decodeResponse = (resp: Record<string, any>): IAutoTempestResult => {
             }
         }
     });
-    console.log(convertedResult);
+    // console.log(convertedResult);
     return convertedResult as IAutoTempestResult;
 }
 
+const randomCondition = () => {
+    const conditions: string[] = Object.values(Condition);
+    const randCondition = conditions[faker.datatype.number({ min: 0, max: conditions.length - 1 })] as Condition;
+
+    return randCondition;
+};
+
+const randomRegion = () => {
+    const regions: string[] = Object.values(Region);
+    const randRegion = regions[faker.datatype.number({ min: 0, max: regions.length - 1 })] as Region;
+
+    return randRegion;
+};
+
+const writeItemToDatabase = async (item: IAutoTempestResultItem): Promise<void> => {
+    console.log(`write item start: ${item.id}`);
+
+    // Car
+    const externalId = item.id + ":" + item.externalId + ":" + item.vin;
+    let model = (item.model) ? item.model : item.backendModel;
+    if (model === "") {
+        // TODO: Missing fields
+        model = "Unknow";
+    }
+    const newCar: NewCarBody | UpdateCarBody = {
+        make: (item.make) ? item.make : "Unknow",
+        model: model,
+        year: Number.parseInt(item.year),
+        mileage: (item.mileage) ? Number.parseInt(item.mileage.replace(",", "")) : 0,
+        img: item.imgFallback,
+        externalId: externalId,
+        // TODO: Missing field.
+        color: 'Unknow',
+        exteriorCondition: randomCondition(),
+        mechanicalCondition: randomCondition(),
+    };
+    let car = await Car.findOne({ 'externalId': externalId });
+    if (car == null) {
+        car = await Car.create(newCar);
+        console.log(`Write Car finish. ExternalID: ${externalId}`);
+    } else {
+        await Object.assign(car, newCar);
+        await car.save();
+        console.log(`Update Car finish. ExternalID: ${externalId}`);
+    }
+
+    // TODO: Missing field, Car Seller
+    const newCarSeller: NewCarSellerBody = {
+        firstName: faker.name.firstName(),
+        lastName: faker.name.lastName(),
+        email: faker.internet.email()
+    };
+
+    // Car Listing
+    let newCarListing: NewCarListingBody = {
+        externalId: externalId,
+        price: (item.price) ? Number.parseInt(item.price.replace(",", "").replace("$", "")) : 0,
+        car: car._id,
+        listDate: (item.ctime) ? new Date(item.ctime * 1000) : new Date(),
+        saleDate: null, // (item.ctime) ? new Date(item.ctime * 1000) : undefined,
+        // TODO: missing fields
+        region: randomRegion(),
+        seller: '',
+    }
+
+    // Find carlisting from externalid
+    let carListing = await CarListing.findOne({ 'externalId': externalId });
+    if (carListing) {
+        // Get the existen carSeller info
+        const carSeller = await CarSeller.findOne({ _id: carListing.seller });
+        newCarListing.seller = carSeller?._id;
+    }
+
+    if (newCarListing.seller === '') {
+        const carSeller = await CarSeller.create(newCarSeller);
+        newCarListing.seller = carSeller._id;
+        console.log(`Write CarSeller finish. ExternalID: ${externalId}`);
+    } else {
+        console.log(`CarSeller Exists. ExternalID: ${externalId}`);
+    }
+
+    // Write CarListing
+    if (carListing == null) {
+        carListing = await CarListing.create(newCarListing);
+        console.log(`Write CarListing finish. ExternalID: ${externalId}`);
+    } else {
+        await Object.assign(carListing, newCarListing as UpdateCarListingBody);
+        await carListing.save();
+        console.log(`Update CarListing finish. ExternalID: ${externalId}`);
+    }
+
+}
+
 const writeDatabase = async (result: IAutoTempestResult): Promise<void> => {
-    // result.results.forEach(async (item: IAutoTempestResultItem) => {
-    //     console.log(item);
-    // });
+    result.results.forEach(async (item: IAutoTempestResultItem) => {
+        try {
+            await writeItemToDatabase(item);
+        } catch (error) {
+            console.error(error);
+        }
+    });
+}
+
+const wait = async (duration: number): Promise<void> => {
+    return new Promise((resolve) => {
+        setTimeout(resolve, duration);
+    });
 }
 
 export const queryAutotempest = async (criteria: SearchCriteriaBody): Promise<any> => {
@@ -267,11 +380,23 @@ export const queryAutotempest = async (criteria: SearchCriteriaBody): Promise<an
         autotempestCriteria.page = i;
         const eachResult = await sendRequest(autotempestCriteria);
         // step 3: convert data
-        const eachItem = decodeResponse(eachResult);
+        try {
+            const eachItem = decodeResponse(eachResult);
+            // step 4: write db
+            await writeDatabase(eachItem);
 
-        // step 4: write db
-        await writeDatabase(eachItem);
+            if (eachItem.lastPage) {
+                break;
+            }
+        } catch (error) {
+            console.log(`Error: ${error}`);
+            break;
+        }
+        // step 5: wait 5s
+        await wait(5000);
     }
+
+    console.log('Finish query.');
 
     return {};
 };

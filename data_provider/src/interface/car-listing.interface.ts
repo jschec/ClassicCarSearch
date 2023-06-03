@@ -10,6 +10,7 @@ export interface ICarListing {
   saleDate: Date | null;
   seller: string | ICarSellerDoc;
   car: string | ICarDoc;
+  externalId: string;
 }
 
 export type NewCarListingBody = ICarListing;

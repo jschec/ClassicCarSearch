@@ -11,6 +11,7 @@ export interface ICar {
   mileage: number;
   color: string;
   img: string;
+  externalId: string;
 }
 
 export type NewCarBody = ICar;

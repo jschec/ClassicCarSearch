@@ -325,6 +325,11 @@ const writeItemToDatabase = async (item: IAutoTempestResultItem): Promise<void> 
         seller: '',
     }
 
+    if (newCarListing.price == 0) {
+        console.log('No price data in item, ignore. ExternalID', externalId);
+        return;
+    }
+
     // Find carlisting from externalid
     let carListing = await CarListing.findOne({ 'externalId': externalId });
     if (carListing) {

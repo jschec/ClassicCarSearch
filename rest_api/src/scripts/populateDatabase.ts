@@ -228,7 +228,7 @@ const populateCarListings = async () => {
       mileage: faker.datatype.number({min: 0, max: 200000}),
       color: faker.vehicle.color(),
       img: carImages[Math.floor(Math.random() * carImages.length)],
-      forecast: myForecast, 
+      forecast: forecastIds[i], 
     };
       //Create car
       const carRecord = await Car.create(car);

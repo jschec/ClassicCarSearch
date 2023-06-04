@@ -34,7 +34,6 @@ export class LandingComponent {
     });
   }
 
-
   /**
    * Handles the submission of the specified search criteria.
    */

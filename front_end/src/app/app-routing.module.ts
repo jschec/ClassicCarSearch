@@ -6,8 +6,13 @@ import { LandingComponent } from './pages/landing/landing.component';
 import { SearchComponent } from './pages/search/search.component';
 import { SubscriptionComponent } from './pages/subscription/subscription.component';
 import { WatchListComponent } from './pages/watch-list/watch-list.component';
+import { LoginComponent } from './pages/login/login.component';
 
 const routes: Routes = [
+  {
+    path: 'auth/login',
+    component: LoginComponent,
+  },
   {
     path: 'home',
     component: LandingComponent,
@@ -36,7 +41,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, { useHash: true })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

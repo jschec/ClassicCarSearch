@@ -2,7 +2,7 @@ import { randomUUID } from 'crypto';
 import { model, Schema } from 'mongoose';
 import validator from 'validator';
 
-import { IUserDoc, IUserModel } from '../interfaces/user.interfaces';
+import { NewUserBody, IUserDoc, IUserModel } from '../interfaces/user.interfaces';
 import WatchList from './watch-list.model';
 import Subscription from './subscription.model';
 import toJSON from '../utils/toJson';
@@ -12,6 +12,11 @@ const userSchema = new Schema<IUserDoc, IUserModel>(
     _id: {
       type: Schema.Types.UUID,
       default: () => randomUUID(),
+    },
+    ssoID: {
+      type: String,
+      required: true,
+      unique: true
     },
     firstName: {
       type: String,
@@ -74,6 +79,31 @@ userSchema.plugin(toJSON);
 userSchema.static('isEmailTaken', async function (email: string, excludeUserId: string): Promise<boolean> {
   const user = await this.findOne({ email, _id: { $ne: excludeUserId } });
   return !!user;
+});
+
+/**
+ * Check if the user already exists in the database. If not, create a new user.
+ * 
+ * @param {NewUserBody} refUser  The user to be checked
+ * @returns {Promise<IUserDoc>} Promise containing the user document
+ */
+userSchema.static('findOrCreate', async function (refUser: NewUserBody): Promise<IUserDoc> {
+  const user = await this.findOne({ ssoID: refUser.ssoID });
+
+  if (!user) {
+    const newUser = await this.create(refUser);
+
+    // Create a new WatchList document for the new user
+    const userWatchList = await WatchList.create({ user: newUser._id });
+
+    // Update the new user with the new WatchList document
+    newUser.watchList = userWatchList._id;
+    await newUser.save();
+
+    return newUser;
+  }
+
+  return user;
 });
 
 /**

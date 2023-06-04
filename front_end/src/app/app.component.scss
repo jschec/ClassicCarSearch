@@ -1,5 +1,18 @@
+.navigation-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+}
+
 .router-container {
     display: flex;
     flex-direction: column;
     height: calc(100% - 64px);
+}
+
+.user-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
 }

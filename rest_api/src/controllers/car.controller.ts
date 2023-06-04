@@ -29,7 +29,7 @@ export const createCar = catchAsync(async (req: Request, res: Response) => {
  */
 export const getCar = catchAsync(async (req: Request, res: Response) => {
   if (req.params['carId']) {
-    const record = await carService.getById(req.params['carId']);
+    const record = await carService.getFullDocById(req.params['carId']);
     
     if (!record) {
       throw new ApiError(httpStatus.NOT_FOUND, 'Car not found');

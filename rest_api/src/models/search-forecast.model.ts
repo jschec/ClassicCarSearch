@@ -5,6 +5,7 @@ import {
   ISearchForecastDoc, ISearchForecastModel
 } from '../interfaces/search-forecast.interfaces';
 import Search from './search.model';
+import Car from './car.model';
 import toJSON from '../utils/toJson';
 
 const searchForecastSchema = new Schema<
@@ -14,11 +15,6 @@ const searchForecastSchema = new Schema<
     _id: {
       type: Schema.Types.UUID,
       default: () => randomUUID(),
-    },
-    search: {
-      type: Schema.Types.UUID,
-      required: true,
-      ref: 'Search',
     },
     avgTimeOnMarket: {
       type: Number,
@@ -42,6 +38,14 @@ const searchForecastSchema = new Schema<
       type: Number,
       required: true,
     },
+    priceHistory: {
+      type: [Number],
+      required: false,
+    },
+    forecastRegion: {
+      type: String,
+      required: false
+    },
   },
   {
     timestamps: true,
@@ -53,19 +57,21 @@ const searchForecastSchema = new Schema<
 // Add plugin to converts mongoose documents to json
 searchForecastSchema.plugin(toJSON);
 
+//TODO 6/2 - Should this be removed?
+
 /**
  * A pre-save hook to apply additional validation logic to the SearchForecast
  * document before saving it to the database.
  */
-searchForecastSchema.pre('validate', async function(next) {
-  const searchExists = await Search.exists({ _id: this.search });
+/* searchForecastSchema.pre('validate', async function(next) {
+  const carExists = await Car.exists({ _id: this.search });
 
-  if (!searchExists) {
-    next(new Error('Search does not exist'));
+  if (!carExists) {
+    next(new Error('Car for forecast does not exist'));
   }
 
   next();
-});
+}); */
 
 
 const SearchForecast = model<ISearchForecastDoc, ISearchForecastModel>(

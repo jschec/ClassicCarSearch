@@ -56,6 +56,9 @@ import {OverlayModule} from '@angular/cdk/overlay';
 import {CdkMenuModule} from '@angular/cdk/menu';
 import {DialogModule} from '@angular/cdk/dialog';
 
+// Interceptors
+import { httpInterceptorProviders } from './interceptors/http.interceptor';
+
 // Routes
 import { AppRoutingModule } from './app-routing.module';
 
@@ -68,10 +71,12 @@ import { SubscriptionComponent } from './pages/subscription/subscription.compone
 import { WatchListComponent } from './pages/watch-list/watch-list.component';
 
 // Services
+import { AuthService } from './services/auth.service';
 import { CarsService } from './services/cars.service';
+import { CarDetailsService } from './services/car-details.service';
+import { LoginComponent } from './pages/login/login.component';
 import { SearchService } from './services/search.service';
 import { SubscriptionService } from './services/subscription.service';
-import { CarDetailsService } from './services/car-details.service';
 import { UserService } from './services/user.service';
 
 @NgModule({
@@ -82,6 +87,7 @@ import { UserService } from './services/user.service';
     SearchComponent,
     SubscriptionComponent,
     WatchListComponent,
+    LoginComponent,
   ],
   imports: [
     CommonModule,
@@ -142,12 +148,14 @@ import { UserService } from './services/user.service';
     DialogModule,
   ],
   providers: [
+    AuthService,
     CarsService,
     CarDetailsService,
     SubscriptionService,
     SearchService,
     UserService,
     MediaMatcher,
+    httpInterceptorProviders
   ],
   bootstrap: [AppComponent]
 })

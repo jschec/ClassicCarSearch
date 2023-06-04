@@ -29,6 +29,7 @@ import Search from '../models/search.model';
 import Subscription from '../models/subscription.model';
 import User from '../models/user.model';
 import WatchList from '../models/watch-list.model';
+import searchForecast from '../models/search-forecast.model';
 
 import * as carListingService from '../services/car-listing.service';
 import * as searchCriteriaService from '../services/search-criteria.service';
@@ -175,23 +176,50 @@ const populateUsers = async () => {
   pbar.stop();
 };
 
+
 /**
  * Populates the Cars, CarSellers, and CarListings collections with dummy data
+ * Set CAR_COUNT to decide how many listings to generate
  */
 const populateCarListings = async () => {
   console.log("Populating cars...");
 
   let carIds: string[] = [];
   let carSellerIds: string[] = [];
+  let forecastIds: string[] = [];
+  const CAR_COUNT = 100;
 
   // Create a progress bar to track the progress
-  const carPbar = createPBar(50);
+  const carPbar = createPBar(CAR_COUNT);
 
   // get all car images
   const carImages = JSON.parse(fs.readFileSync('data/carimgs.json', 'utf-8'));
 
-  // Generate 10,000 random cars
-  for (let i = 0; i < 50; i++) {
+  // Generate 'CAR_COUNT' random cars
+  
+  for (let i = 0; i < CAR_COUNT; i++) {
+    // Parameters for generating forecasts
+    const HISTORY_LENGTH = 12;
+    const PRICE_MIN = 1000;
+    const PRICE_MAX = 100000;
+    //Create forecast
+    const forecast: NewSearchForecastBody = {
+      avgTimeOnMarket: faker.datatype.number({ min: 1, max: 1000 }),
+      avgPrice: faker.datatype.number({ min: 1000, max: 100000 }),
+      averageMileage: faker.datatype.number({ min: 0, max: 200000 }),
+      ttl: 300,
+      priceHistory: [],
+      forecastRegion: randomRegion(),
+    };
+    //Fill price history array
+    for (let j = 0; j < HISTORY_LENGTH; j++) {
+      forecast.priceHistory?.push(faker.datatype.number({ min: PRICE_MIN, max: PRICE_MAX }));
+    }
+    //Create and assign forecast to car    
+    const myForecast = await searchForecast.create(forecast);
+    forecastIds.push(myForecast._id);
+    //car.forecast = myForecast;
+
     const car: NewCarBody = {
       make: faker.vehicle.manufacturer(),
       model: faker.vehicle.model(),
@@ -201,11 +229,13 @@ const populateCarListings = async () => {
       mileage: faker.datatype.number({min: 0, max: 200000}),
       color: faker.vehicle.color(),
       img: carImages[Math.floor(Math.random() * carImages.length)],
+      forecast: forecastIds[i], 
     };
-
-    const carRecord = await Car.create(car);
-    carIds.push(carRecord._id);
-    carPbar.update(i + 1);
+      //Create car
+      const carRecord = await Car.create(car);
+      //Add new car id and update progress
+      carIds.push(carRecord._id);
+      carPbar.update(i + 1);
   };
 
   carPbar.stop();
@@ -238,16 +268,21 @@ const populateCarListings = async () => {
 
   // Assign each car to a listing
   for (let i = 0; i < carIds.length; i++) {
-    const carSellerId = randomArrayElement<string>(carSellerIds);
+    const carSellerId = randomArrayElement<string>(carSellerIds);  
 
-    const carListing: NewCarListingBody = {
-      region: randomRegion(),
-      price: faker.datatype.number({min: 1000, max: 100000}),
-      listDate: faker.date.past(3),
-      saleDate: null,
-      car: carIds[i],
-      seller: carSellerId
-    };
+      const carListing: NewCarListingBody = {
+        region: randomRegion(),
+        price: faker.datatype.number({ min: 1000, max: 100000 }),
+        listDate: faker.date.past(3),
+        saleDate: null,
+        car: carIds[i],
+        seller: carSellerId
+      };
+    
+  //Make 1 in 5 listings closed    
+  if (i % 5 ==0){
+    carListing.saleDate = faker.date.recent();
+  }
 
     await CarListing.create(carListing);
     carListingPbar.update(i + 1);
@@ -286,19 +321,7 @@ const populateSearches = async () => {
       ...searchCriteria, search: record._id
     });
 
-    // Create 10 SearchForecast records for each Search record
-    for (let j = 0; j < 1; j++) {
-      const searchForecast: NewSearchForecastBody = {
-        search: record._id,
-        avgTimeOnMarket: faker.datatype.number({min: 1, max: 1000}),
-        avgPrice: faker.datatype.number({min: 1000, max: 100000}),
-        averageMileage: faker.datatype.number({min: 0, max: 200000}),
-        ttl: 300,
-      };
-
-      await searchForecastService.create(searchForecast);
-    }
-
+    
     pbar.update(i + 1);
   };
 

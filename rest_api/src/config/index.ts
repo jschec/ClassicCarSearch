@@ -2,7 +2,7 @@ import Joi from 'joi';
 
 const envVarsSchema = Joi.object()
   .keys({
-    APP_ENV: Joi.string().valid('production', 'development', 'test', 'feature').required(),
+    APP_ENV: Joi.string().valid('production', 'development', 'test', 'marketResearch', 'marketResearch2').required(),
     APP_PORT: Joi.number().default(3000),
     MONGODB_USER: Joi.string().required().description('Mongo DB username'),
     MONGODB_PASSWORD: Joi.string().required().description('Mongo DB password'),

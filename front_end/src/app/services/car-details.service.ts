@@ -11,6 +11,7 @@ export interface ICar {
   mileage: number;
   color: string;
   img: string;
+  forecast: ISearchForecast;
 }
 
 export interface ICarSeller {
@@ -28,12 +29,33 @@ export interface ICarListing {
   car: ICar;
 }
 
+
+export interface ISearchForecast {
+  avgTimeOnMarket: number;
+  avgPrice: number;
+  averageMileage: number;
+  ttl: number;
+  priceHistory: number[];
+  forecastRegion: string;
+}
+
 export enum Condition {
   Excellent = 'Excellent',
   Good = 'Good',
   Fair = 'Fair',
   Bad = 'Bad',
 }
+
+//TODO - Should these be made (forecast id as string in mini, forecast object in complete)
+export interface carDetailMinified{
+
+}
+
+export interface carDetailComplete{
+  
+}
+
+
 
 @Injectable({
   providedIn: 'root'

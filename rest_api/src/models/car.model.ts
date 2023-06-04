@@ -3,6 +3,7 @@ import { Schema, model } from 'mongoose';
 
 import { Condition } from '../interfaces/condition.interfaces';
 import { ICarDoc, ICarModel } from '../interfaces/car.interfaces';
+
 import CarListing from './car-listing.model';
 import toJSON from '../utils/toJson';
 
@@ -50,6 +51,11 @@ const carSchema = new Schema<ICarDoc, ICarModel>(
       type: String,
       required: false,
     },
+    forecast: {
+      type: Schema.Types.UUID,
+      required: false,
+      ref: 'SearchForecast',
+    }
   },
   {
     timestamps: true,

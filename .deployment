@@ -1,2 +1,2 @@
 [config]
-project = rest_api/build
+command = xcopy %DEPLOYMENT_SOURCE% %DEPLOYMENT_TARGET% /Y

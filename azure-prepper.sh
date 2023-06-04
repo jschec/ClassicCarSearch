@@ -1,12 +1,7 @@
 #!/bin/bash
 
 SRC_DIR=$( cd "$(dirname "${BASH_SOURCE[0]}")" ; pwd -P )
-
-echo "In the following directory:"
-pwd
-
-echo "SCRIPTS_DIR: $SCRIPTS_DIR"
-echo "SRC_DIR: $SRC_DIR"
+DEST_DIR=/home/site/wwwroot
 
 # Remove unnecessary files
 rm -rf $SRC_DIR/data_provider
@@ -14,7 +9,12 @@ rm -rf $SRC_DIR/front_end
 rm -rf $SRC_DIR/hifi_prototype
 rm -rf $SRC_DIR/scripts
 
-# Copy build files to root
-cp -r $SRC_DIR/rest_api/build/* $SRC_DIR/
+rm -v $DEST_DIR/*
+
+cd $SRC_DIR/rest_api
+npm install
+cp -r ./build/* $DEST_DIR/
+mkdir $DEST_DIR/node_modules
+cp -r ./node_modules/* $DEST_DIR/node_modules/
 
 rm -rf $SRC_DIR/rest_api

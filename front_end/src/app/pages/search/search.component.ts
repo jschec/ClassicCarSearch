@@ -2,10 +2,10 @@ import { Component, HostListener } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { PageEvent } from '@angular/material/paginator';
-import { SearchService, ICarListing } from 'src/app/services/search.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { IWatchListMinified, WatchListService } from 'src/app/services/watchList.service';
-import { UserService } from 'src/app/services/user.service';
+import { AuthService } from 'src/app/services/auth.service';
+import { SearchService, ICarListing } from 'src/app/services/search.service';
 
 @Component({
   selector: 'app-search',
@@ -28,7 +28,6 @@ export class SearchComponent {
     "Good",
     "Excellent"
   ]
-  userId: string | undefined = undefined;
   filterForm: FormGroup;
   searchResults: ICarListing[] = [];
   page: number = 0;
@@ -40,7 +39,7 @@ export class SearchComponent {
     private route: ActivatedRoute, 
     private searchService: SearchService,
     private watchListService: WatchListService,
-    private userService: UserService,
+    private authService: AuthService,
     private snackBar: MatSnackBar) {
     const minYear = 1885;
     const maxYear = new Date().getFullYear() + 1;
@@ -57,10 +56,6 @@ export class SearchComponent {
       ),
       exteriorCondition: new FormControl([]),
       mechanicalCondition: new FormControl([])
-    });
-
-    this.userService.getCurrentUser().subscribe((user) => {
-      this.userId = user.id;
     });
   }
 
@@ -94,21 +89,25 @@ export class SearchComponent {
   }
 
   onPinSearch() {
-    if (!this.userId) {
-      return;
-    }
+    this.authService.getCurrentUser().subscribe((userInfo) => {
 
-    this.watchListService.getByUserId(this.userId).subscribe((watchList) => {
-      this.searchService.save(this.filterForm.value).subscribe((response) => {
-        let updatedWatchList: IWatchListMinified = {
-          searches: watchList.searches.map(listing => listing.id)
-        };
+      if (!userInfo.isAuthenticated) {
+        this.snackBar.open("Please sign in to save searches!", "close");
+        return;
+      }
 
-        updatedWatchList.searches.push(response.id);
-
-        this.watchListService.updateWatchList(watchList.id, updatedWatchList).subscribe(() => {
-          this.snackBar.open("Search saved!", "close");
-        })
+      this.watchListService.getByUserId(userInfo.user!.id).subscribe((watchList) => {
+        this.searchService.save(this.filterForm.value).subscribe((response) => {
+          let updatedWatchList: IWatchListMinified = {
+            searches: watchList.searches.map(listing => listing.id)
+          };
+  
+          updatedWatchList.searches.push(response.id);
+  
+          this.watchListService.updateWatchList(watchList.id, updatedWatchList).subscribe(() => {
+            this.snackBar.open("Search saved!", "close");
+          })
+        });
       });
     });
   }

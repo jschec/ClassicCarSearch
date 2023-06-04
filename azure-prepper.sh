@@ -12,7 +12,7 @@ rm -rf $SRC_DIR/scripts
 rm -v -r $DEST_DIR/*
 
 cd $SRC_DIR/rest_api
-npm ci
+npm install
 cp -r ./build/* $DEST_DIR/
 mkdir $DEST_DIR/node_modules
 cp -r ./node_modules/* $DEST_DIR/node_modules/

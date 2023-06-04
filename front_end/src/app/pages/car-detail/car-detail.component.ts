@@ -12,17 +12,6 @@ import {Chart} from 'chart.js/auto';
 
 
 export class CarDetailComponent {
-  //TEMP
-  dummyForecast = {
-  search: "dummy",
-  avgTimeOnMarket: 0,
-  avgPrice: 0,
-  averageMileage: 0,
-  ttl: 0,
-  priceHistory: [1, 2, 3, 4, 5, 6, 7, 8],
-  forecastRegion: "Building M",
-}
-  
   // from backend
   carListing: ICarListing | null = null;
   loading: boolean = true;
@@ -39,53 +28,25 @@ export class CarDetailComponent {
     this.carDetailsService.getBylistingId(this.id).subscribe((response) => {
       //Grab car listing from response
       this.carListing = response;
-      console.log('******** CAR LISTING ********');
-      console.log('Here is the response: ' + this.carListing);
-      console.log('It was listed on ' + this.carListing.listDate);
-      console.log("It is for a " + this.carListing.car.make + " " + this.carListing.car.model);
-      
-      
-      console.log('Forecast id preview: ' + this.carListing.car.forecast);
-      console.log('******** FORECAST ********');
       //Grab forecast from car listing
-      this.forecast = this.carListing.car.forecast;
-      if (this.forecast != null){        
-        console.log('I found a forecast in the response\n' + this.forecast);
-        console.log('Its region is ' + this.forecast.forecastRegion + " at " + this.forecast.avgPrice);
-      }
-      
-      if (this.forecast){
-        console.log('GOOD - I am using my own forecast of ' + this.forecast?.priceHistory?.length + ' values');
+      this.forecast = this.carListing.car.forecast;      
+      //Populate chart
+      if (this.forecast){        
         this.populateChart(this.forecast?.priceHistory);
-      }
-      else {
-        console.log('Making a chart from the dummy....')
-          this.populateChart(this.dummyForecast.priceHistory);
-      }
-      
+      }      
     });
   }
-/*
-  private getForecast(forecast: ISearchForecast): void {
-    this.carDetailsService.getByUserId(user.id).subscribe((watchList: IWatchListPopulated) => {
-      console.log(watchList.searches);
-      this.updateUIState(user, watchList);
-      this.saveState();
-    });
-  }*/
 
   createChart(prices: Number[], dates: String[]){
     this.chart = new Chart("MyChart", {
-      type: 'bar', //this denotes tha type of chart
+      type: 'bar', 
 
       data: {// values on X-Axis
-        labels: dates,
-        //labels: ['1', '2', '3'],
+        labels: dates,        
         datasets: [
           {
             label: "Average Sale Price",
             data: prices,
-            //data: [8, 7 ,10],
             backgroundColor: 'blue'
           },
         ]
@@ -95,10 +56,6 @@ export class CarDetailComponent {
       }
       
     });
-  }
-  //TODO - Is this necessary after integration?
-  bindData(input: Number[]){
-    this.forecast = this.dummyForecast;
   }
   //Populate Chart with Price Data
   populateChart(input: Number[]){
@@ -115,18 +72,12 @@ export class CarDetailComponent {
         nextDate += 12;
       }      
       dateRange.unshift(nextDate.toString());
-      console.log(nextDate.toString());
-      //this.chart.labels.unshift(nextDate.toString());
-      //TODO - Finalize
       if (this.forecast != null){
         console.log("$ " + this.forecast?.priceHistory[j]);
-        //this.chart.datasets.data.push(this.forecast?.priceHistory[j]);
-        prices.push(this.forecast.priceHistory[j]);
+        prices.push(this.forecast?.priceHistory[j]);
       }
       else {
-        console.log("Dummy: $ " + this.dummyForecast?.priceHistory[j]);
-        //this.chart.datasets.data.push(this.dummyForecast.priceHistory[j]);
-        prices.push(this.dummyForecast.priceHistory[j]);
+        console.log('No valid forecast found');        
       }      
     }
     this.createChart(prices, dateRange);

@@ -1,902 +1,902 @@
 [
     {
-        "_id": "b78a280d-9161-43ad-ae90-e691bf7ebfc3",
+        "_id": "fd9a22f5-e6bf-4511-8fd4-e374d9b12757",
+        "region": "SouthWest",
+        "price": 40187,
+        "listDate": "2023-05-27T14:10:56.073Z",
+        "saleDate": "2023-06-03T14:24:59.970Z",
+        "seller": "d35d7e8b-2ff9-4e12-91b4-e9c284650996",
+        "car": "64431f40-8ec3-415b-8f5b-50c14be72589"
+    },
+    {
+        "_id": "cb232ccd-a935-4c17-b770-0116ee8cec2a",
+        "region": "West",
+        "price": 93200,
+        "listDate": "2021-11-20T07:36:04.256Z",
+        "saleDate": null,
+        "seller": "d35d7e8b-2ff9-4e12-91b4-e9c284650996",
+        "car": "ff69e83d-4d94-4b23-b190-cb8f1929c03c"
+    },
+    {
+        "_id": "13dd2b11-d86f-45ad-929c-9365165f02bd",
         "region": "NorthEast",
-        "price": 80677,
-        "listDate": "2022-05-17T20:29:44.721Z",
-        "saleDate": "2023-06-03T00:17:49.684Z",
-        "seller": "3a713ce5-b4b8-48d7-845c-90d87d20d2ff",
-        "car": "a23e647c-c848-4aef-a4ff-7ef97a2a93c6"
-    },
-    {
-        "_id": "09888ad6-fe7b-4f65-8eec-d685a1913818",
-        "region": "West",
-        "price": 36708,
-        "listDate": "2022-02-28T19:44:50.801Z",
+        "price": 91757,
+        "listDate": "2022-08-29T05:03:43.596Z",
         "saleDate": null,
-        "seller": "3a713ce5-b4b8-48d7-845c-90d87d20d2ff",
-        "car": "6df07fd8-24f0-4f0c-b3e9-c36bafee6866"
+        "seller": "2433ab4d-6b33-408d-b439-76e4b7c659de",
+        "car": "64a73ddf-4b91-4353-85d1-28f082b0281c"
     },
     {
-        "_id": "8aee96de-4a99-4dbe-88b1-29e5e5a5d759",
+        "_id": "f4246372-93b9-44e7-9750-dac7d4dc9454",
+        "region": "West",
+        "price": 8051,
+        "listDate": "2021-12-05T02:42:23.700Z",
+        "saleDate": null,
+        "seller": "45d6ac23-4a61-41dc-bbce-5d5335166ae0",
+        "car": "606a9bc7-d938-4db3-b913-58db5a951b08"
+    },
+    {
+        "_id": "78cfb54a-9c23-4814-bf7b-7cf59d9dc163",
+        "region": "MidWest",
+        "price": 61896,
+        "listDate": "2022-03-13T18:44:18.870Z",
+        "saleDate": null,
+        "seller": "2433ab4d-6b33-408d-b439-76e4b7c659de",
+        "car": "52590f3c-fe4e-4388-b6c3-de77c3e64f0d"
+    },
+    {
+        "_id": "5c945ba4-0ed0-4032-a1dd-f1c156ec2a9c",
+        "region": "West",
+        "price": 45103,
+        "listDate": "2022-10-20T21:34:35.825Z",
+        "saleDate": "2023-06-03T07:39:55.959Z",
+        "seller": "d35d7e8b-2ff9-4e12-91b4-e9c284650996",
+        "car": "d33aecae-748d-4b26-b887-38595dba8bf3"
+    },
+    {
+        "_id": "c831c2a2-6bd5-4159-8c9a-64acb7fe6714",
+        "region": "SouthEast",
+        "price": 70766,
+        "listDate": "2022-07-05T03:26:15.041Z",
+        "saleDate": null,
+        "seller": "2433ab4d-6b33-408d-b439-76e4b7c659de",
+        "car": "6503817a-391c-4272-a90e-4f55e597c4ce"
+    },
+    {
+        "_id": "64f35366-c571-488d-97e6-a0bf124b9c4b",
+        "region": "West",
+        "price": 85238,
+        "listDate": "2022-12-29T00:22:24.971Z",
+        "saleDate": null,
+        "seller": "d35d7e8b-2ff9-4e12-91b4-e9c284650996",
+        "car": "e7edee27-4c37-4752-975e-2b11803fb419"
+    },
+    {
+        "_id": "3ee127a2-11a7-4c41-a715-dcdcb994ba68",
+        "region": "SouthWest",
+        "price": 2964,
+        "listDate": "2022-03-21T13:24:41.872Z",
+        "saleDate": null,
+        "seller": "d35d7e8b-2ff9-4e12-91b4-e9c284650996",
+        "car": "1c10f43d-0fd0-4c91-8316-8f9e7e190753"
+    },
+    {
+        "_id": "fd4bdc7c-d883-4ee7-a85c-6e0e855fcdc2",
+        "region": "SouthEast",
+        "price": 27233,
+        "listDate": "2022-09-26T10:06:09.367Z",
+        "saleDate": null,
+        "seller": "2433ab4d-6b33-408d-b439-76e4b7c659de",
+        "car": "52889f73-6d31-4c0a-a3d3-e63e73c90e71"
+    },
+    {
+        "_id": "77c1afa7-4078-43b0-be8e-ed6bab910951",
+        "region": "SouthWest",
+        "price": 74928,
+        "listDate": "2020-07-17T00:41:27.714Z",
+        "saleDate": "2023-06-03T23:02:18.660Z",
+        "seller": "45d6ac23-4a61-41dc-bbce-5d5335166ae0",
+        "car": "a0848118-f9a4-48bb-a72b-85e72cb564f6"
+    },
+    {
+        "_id": "2dd6c381-2853-4c87-a7ed-a520c66f57bd",
+        "region": "SouthWest",
+        "price": 7425,
+        "listDate": "2022-11-11T18:44:28.313Z",
+        "saleDate": null,
+        "seller": "d35d7e8b-2ff9-4e12-91b4-e9c284650996",
+        "car": "2b611b7f-df34-41ae-969c-28c5b4c510e8"
+    },
+    {
+        "_id": "b905bade-5c17-4a06-ad84-6c6072358299",
+        "region": "SouthEast",
+        "price": 24695,
+        "listDate": "2022-10-09T08:13:46.929Z",
+        "saleDate": null,
+        "seller": "2433ab4d-6b33-408d-b439-76e4b7c659de",
+        "car": "00756e44-c7c0-42bc-9163-3a763f26e8d9"
+    },
+    {
+        "_id": "1ddf41e3-4eca-4c43-b430-ef526c21cd31",
+        "region": "MidWest",
+        "price": 60725,
+        "listDate": "2020-07-20T14:32:47.198Z",
+        "saleDate": null,
+        "seller": "d35d7e8b-2ff9-4e12-91b4-e9c284650996",
+        "car": "d1a35f47-2f67-45eb-a5e3-6911381b9bf9"
+    },
+    {
+        "_id": "bf860aaa-4386-42c9-83a4-66c8f17ebb7c",
+        "region": "SouthEast",
+        "price": 24904,
+        "listDate": "2022-04-18T09:37:54.870Z",
+        "saleDate": null,
+        "seller": "d35d7e8b-2ff9-4e12-91b4-e9c284650996",
+        "car": "dca4a4d7-d135-4276-b341-e9dedad45d8d"
+    },
+    {
+        "_id": "119c0c2d-1103-4e91-ad24-93ff4cd65ed4",
         "region": "NorthEast",
-        "price": 17114,
-        "listDate": "2023-01-10T13:32:06.147Z",
-        "saleDate": null,
-        "seller": "3a713ce5-b4b8-48d7-845c-90d87d20d2ff",
-        "car": "d5dc9cd5-67e8-42a3-bf35-eacc6870ea14"
+        "price": 30040,
+        "listDate": "2021-12-18T18:34:52.280Z",
+        "saleDate": "2023-06-04T00:37:19.023Z",
+        "seller": "d35d7e8b-2ff9-4e12-91b4-e9c284650996",
+        "car": "059864da-e69e-4245-af4c-e096b92e8abb"
     },
     {
-        "_id": "e858492a-d1df-4fd7-8846-cedaae14f58a",
-        "region": "West",
-        "price": 98552,
-        "listDate": "2022-08-29T11:35:13.235Z",
-        "saleDate": null,
-        "seller": "3a713ce5-b4b8-48d7-845c-90d87d20d2ff",
-        "car": "f500ffb5-250b-4cbe-9e7f-3c209032ec38"
-    },
-    {
-        "_id": "115da47e-09ce-4fa3-b3ea-cf0295139741",
-        "region": "MidWest",
-        "price": 91079,
-        "listDate": "2023-01-17T23:21:55.721Z",
-        "saleDate": null,
-        "seller": "3a713ce5-b4b8-48d7-845c-90d87d20d2ff",
-        "car": "aa7dc872-bfe9-4437-8473-2b10cb66d402"
-    },
-    {
-        "_id": "8b6bdb37-cf1c-41a4-81ae-22f0a9c393b8",
+        "_id": "1c7d4184-194e-43c8-9731-4f7a50376ffd",
         "region": "SouthWest",
-        "price": 72738,
-        "listDate": "2021-11-04T09:55:42.426Z",
-        "saleDate": "2023-06-03T12:44:49.719Z",
-        "seller": "ba903681-428c-4b34-bf77-e063f03633f9",
-        "car": "5976038b-6804-4e7d-b303-6d623ad6f3b8"
+        "price": 8760,
+        "listDate": "2021-11-08T00:44:09.829Z",
+        "saleDate": null,
+        "seller": "d35d7e8b-2ff9-4e12-91b4-e9c284650996",
+        "car": "19203c81-fc11-4d4f-959f-faf03add96aa"
     },
     {
-        "_id": "2c81c42b-de80-4599-94d1-52209397b809",
+        "_id": "a64b72a2-6806-403b-a189-d3e42337aa10",
         "region": "SouthEast",
-        "price": 71744,
-        "listDate": "2022-04-20T18:49:12.990Z",
+        "price": 24977,
+        "listDate": "2023-02-04T12:57:58.039Z",
         "saleDate": null,
-        "seller": "c5fb4a22-68f0-4761-8e5a-67299fb5fda4",
-        "car": "0618845a-97a7-4b99-829d-763c71a305fa"
+        "seller": "45d6ac23-4a61-41dc-bbce-5d5335166ae0",
+        "car": "384ed50c-daec-4e1f-acb3-502e2ceda3a5"
     },
     {
-        "_id": "967f0cdd-30d2-4586-9d69-9cf49528e7ba",
+        "_id": "fb2afd7c-75b2-4362-b6f4-697acfbefdc8",
+        "region": "West",
+        "price": 33586,
+        "listDate": "2021-10-21T14:12:49.272Z",
+        "saleDate": null,
+        "seller": "45d6ac23-4a61-41dc-bbce-5d5335166ae0",
+        "car": "c8112ccc-4574-4e02-b867-c8215939a344"
+    },
+    {
+        "_id": "6e890a36-7e68-4533-b266-18396343f3a2",
+        "region": "SouthEast",
+        "price": 55808,
+        "listDate": "2020-06-21T22:44:12.143Z",
+        "saleDate": null,
+        "seller": "d35d7e8b-2ff9-4e12-91b4-e9c284650996",
+        "car": "36cf4679-f199-47d0-86b6-78ac3bbb3c9e"
+    },
+    {
+        "_id": "9f2b2a10-52e6-47ad-b95a-940bf54ae34d",
+        "region": "MidWest",
+        "price": 26267,
+        "listDate": "2020-07-05T15:27:10.226Z",
+        "saleDate": "2023-06-03T20:07:43.094Z",
+        "seller": "d35d7e8b-2ff9-4e12-91b4-e9c284650996",
+        "car": "11493ac4-6c27-4e6d-ba72-e54f126dfbc6"
+    },
+    {
+        "_id": "87319d5d-cca3-4ff7-8ff7-6b74e992ac98",
         "region": "SouthWest",
-        "price": 58815,
-        "listDate": "2020-11-13T10:05:52.033Z",
+        "price": 72299,
+        "listDate": "2021-05-20T02:51:31.606Z",
         "saleDate": null,
-        "seller": "c5fb4a22-68f0-4761-8e5a-67299fb5fda4",
-        "car": "234dbdad-310d-4693-b903-f76117f40bb3"
+        "seller": "d35d7e8b-2ff9-4e12-91b4-e9c284650996",
+        "car": "38a040a2-8d53-4c4e-aaf7-a0a172b93a04"
     },
     {
-        "_id": "45977cdb-95af-43df-9941-e4d45c6e1a6c",
+        "_id": "9adb4f38-fe5c-4aa5-ad8d-68ba9a2c7d17",
         "region": "SouthWest",
-        "price": 98868,
-        "listDate": "2021-11-02T04:58:51.933Z",
+        "price": 1686,
+        "listDate": "2021-01-30T17:43:50.379Z",
         "saleDate": null,
-        "seller": "c5fb4a22-68f0-4761-8e5a-67299fb5fda4",
-        "car": "bf39648a-2b0c-4eb3-aa33-1aa45a45e081"
+        "seller": "45d6ac23-4a61-41dc-bbce-5d5335166ae0",
+        "car": "72fe6a3e-b4a6-4e4e-a0a0-997a9210fd31"
     },
     {
-        "_id": "5b54d046-f2bf-41c8-8ed1-9520819d9227",
-        "region": "SouthWest",
-        "price": 28362,
-        "listDate": "2020-08-23T21:51:37.423Z",
+        "_id": "78ed8a3e-5bba-4f77-895c-1ea61a644c32",
+        "region": "MidWest",
+        "price": 41933,
+        "listDate": "2023-02-22T17:37:23.338Z",
         "saleDate": null,
-        "seller": "c5fb4a22-68f0-4761-8e5a-67299fb5fda4",
-        "car": "0a9ee71e-e117-4091-b213-a2d639665ea1"
+        "seller": "2433ab4d-6b33-408d-b439-76e4b7c659de",
+        "car": "fd218e37-d3eb-4750-8218-4330beffa5c0"
     },
     {
-        "_id": "d50eb875-410d-47c3-bdae-c0a56ef3fae3",
+        "_id": "1da518a2-fae5-406c-8c11-826bb0110cfb",
+        "region": "MidWest",
+        "price": 29179,
+        "listDate": "2021-07-01T05:36:10.094Z",
+        "saleDate": null,
+        "seller": "2433ab4d-6b33-408d-b439-76e4b7c659de",
+        "car": "ac4ea4c8-7271-430d-b7aa-51a934df6bd8"
+    },
+    {
+        "_id": "6f9b14db-6f42-4cec-8cf8-30e8e2eb4de8",
+        "region": "MidWest",
+        "price": 6244,
+        "listDate": "2023-03-31T04:27:11.220Z",
+        "saleDate": "2023-06-03T19:26:22.503Z",
+        "seller": "d35d7e8b-2ff9-4e12-91b4-e9c284650996",
+        "car": "a841d264-5e21-43e7-8894-0a79d4305a0c"
+    },
+    {
+        "_id": "7b21cee7-ade5-465b-bdf3-ce2ebc67602a",
         "region": "NorthEast",
-        "price": 23330,
-        "listDate": "2020-07-25T03:41:05.345Z",
-        "saleDate": "2023-06-03T02:25:08.147Z",
-        "seller": "3a713ce5-b4b8-48d7-845c-90d87d20d2ff",
-        "car": "14663c43-b8a5-45ce-a20a-3f214d16c7f3"
+        "price": 79673,
+        "listDate": "2022-09-01T10:33:20.833Z",
+        "saleDate": null,
+        "seller": "2433ab4d-6b33-408d-b439-76e4b7c659de",
+        "car": "9d3488ef-6caa-47c3-8fb6-6d3a4e5f38f9"
     },
     {
-        "_id": "b7bdd0fa-bad2-4a0b-a0ee-cc837579d1b8",
+        "_id": "c7407cd9-fca4-4338-9268-bf58d0d08f01",
+        "region": "MidWest",
+        "price": 92087,
+        "listDate": "2021-05-12T13:47:39.039Z",
+        "saleDate": null,
+        "seller": "2433ab4d-6b33-408d-b439-76e4b7c659de",
+        "car": "5fcd46b6-7378-4c11-bc01-18892103553f"
+    },
+    {
+        "_id": "3ed7c1e2-e9b7-41d1-8a18-81e1362ec73c",
         "region": "SouthWest",
-        "price": 27492,
-        "listDate": "2021-11-11T03:23:04.758Z",
+        "price": 25130,
+        "listDate": "2021-02-16T04:57:52.309Z",
         "saleDate": null,
-        "seller": "3a713ce5-b4b8-48d7-845c-90d87d20d2ff",
-        "car": "41bdfdec-cf45-48fb-9a10-5e270d630cce"
+        "seller": "d35d7e8b-2ff9-4e12-91b4-e9c284650996",
+        "car": "69450b70-e718-4a0c-9db1-662cd57bd344"
     },
     {
-        "_id": "5b353a7f-536e-4873-9aca-ee2848035388",
-        "region": "SouthEast",
-        "price": 64221,
-        "listDate": "2022-06-19T19:13:03.277Z",
+        "_id": "bc6b2dee-f71e-43d4-bd8f-aca09469d12d",
+        "region": "NorthEast",
+        "price": 18392,
+        "listDate": "2020-12-04T15:20:26.862Z",
         "saleDate": null,
-        "seller": "ba903681-428c-4b34-bf77-e063f03633f9",
-        "car": "85602fb6-0ef0-4d78-8c6e-4cd91eee1f8e"
+        "seller": "45d6ac23-4a61-41dc-bbce-5d5335166ae0",
+        "car": "4183eca9-0659-44ed-b6dd-9091cc1422ce"
     },
     {
-        "_id": "793f2020-634d-418e-84a6-4268106ae2cc",
+        "_id": "5c938687-305f-4a3a-a453-49f0e1db093e",
         "region": "MidWest",
-        "price": 16758,
-        "listDate": "2023-04-21T19:28:39.047Z",
-        "saleDate": null,
-        "seller": "3a713ce5-b4b8-48d7-845c-90d87d20d2ff",
-        "car": "5015ea9e-3b77-4da4-8f51-f289777aa700"
+        "price": 14337,
+        "listDate": "2021-09-12T00:51:31.698Z",
+        "saleDate": "2023-06-03T08:12:13.324Z",
+        "seller": "2433ab4d-6b33-408d-b439-76e4b7c659de",
+        "car": "b633eab4-c75c-4622-848e-0494f68a3776"
     },
     {
-        "_id": "cf8b2a0c-196b-4783-9040-72526bfef8e5",
-        "region": "MidWest",
-        "price": 54224,
-        "listDate": "2021-12-28T05:17:25.931Z",
-        "saleDate": null,
-        "seller": "ba903681-428c-4b34-bf77-e063f03633f9",
-        "car": "4aaf0069-78d4-4afb-a12c-8773a74b7d22"
-    },
-    {
-        "_id": "6d8cdf7d-9f03-47ba-8888-24205449977c",
-        "region": "SouthEast",
-        "price": 80563,
-        "listDate": "2020-06-10T17:47:00.025Z",
-        "saleDate": "2023-06-03T16:00:10.719Z",
-        "seller": "3a713ce5-b4b8-48d7-845c-90d87d20d2ff",
-        "car": "015de484-265a-44c7-9534-dbbe1eb6379b"
-    },
-    {
-        "_id": "270ef7d9-dffd-4670-8def-1c1cd7978edb",
-        "region": "NorthEast",
-        "price": 96927,
-        "listDate": "2022-02-10T04:41:00.099Z",
-        "saleDate": null,
-        "seller": "ba903681-428c-4b34-bf77-e063f03633f9",
-        "car": "c93fbb11-00a9-4f7b-b80d-efeca1b87785"
-    },
-    {
-        "_id": "0933d441-31d7-42ab-827f-61e95cd8c235",
-        "region": "SouthEast",
-        "price": 51147,
-        "listDate": "2022-08-12T11:13:29.536Z",
-        "saleDate": null,
-        "seller": "3a713ce5-b4b8-48d7-845c-90d87d20d2ff",
-        "car": "b57f396d-cad1-4336-9835-731d6b772767"
-    },
-    {
-        "_id": "d5c98f15-ee8f-4305-b7d2-13ed0ee5315c",
-        "region": "MidWest",
-        "price": 90634,
-        "listDate": "2020-11-02T12:44:20.936Z",
-        "saleDate": null,
-        "seller": "ba903681-428c-4b34-bf77-e063f03633f9",
-        "car": "1bec6f6f-370e-4260-a43a-6abf094b11cb"
-    },
-    {
-        "_id": "4ee78144-4df8-4b19-99cd-7347a412596d",
-        "region": "NorthEast",
-        "price": 52053,
-        "listDate": "2023-04-11T02:51:58.809Z",
-        "saleDate": null,
-        "seller": "3a713ce5-b4b8-48d7-845c-90d87d20d2ff",
-        "car": "589edb58-3acb-48ee-859d-5123c7c7e350"
-    },
-    {
-        "_id": "e964c617-8268-4064-8d86-eba80b5042ce",
-        "region": "SouthEast",
-        "price": 38245,
-        "listDate": "2022-10-10T14:37:35.378Z",
-        "saleDate": "2023-06-03T17:52:52.668Z",
-        "seller": "3a713ce5-b4b8-48d7-845c-90d87d20d2ff",
-        "car": "bdafdb05-ba87-4b26-b015-e845fcab5f3e"
-    },
-    {
-        "_id": "e46ccf87-a929-4e1c-ad14-19b75dd29d4d",
-        "region": "NorthEast",
-        "price": 56824,
-        "listDate": "2020-06-12T00:26:49.185Z",
-        "saleDate": null,
-        "seller": "ba903681-428c-4b34-bf77-e063f03633f9",
-        "car": "c5b7bfda-de42-41dd-8417-09f605ca552f"
-    },
-    {
-        "_id": "04a0022d-5a52-430f-89f7-780dadb28fe1",
-        "region": "NorthEast",
-        "price": 31974,
-        "listDate": "2022-04-21T11:21:28.429Z",
-        "saleDate": null,
-        "seller": "ba903681-428c-4b34-bf77-e063f03633f9",
-        "car": "08f0b32f-1d6c-4a21-a686-fc8ad80d4e7e"
-    },
-    {
-        "_id": "152e34c3-22c6-4bb5-af2e-30a5ec1019eb",
+        "_id": "a230e8b1-3b27-4a69-8db7-0af9490736cb",
         "region": "West",
-        "price": 68344,
-        "listDate": "2023-01-01T18:21:37.952Z",
+        "price": 86402,
+        "listDate": "2023-05-07T05:05:39.224Z",
         "saleDate": null,
-        "seller": "3a713ce5-b4b8-48d7-845c-90d87d20d2ff",
-        "car": "2bdb09a6-78a6-40ee-b094-a60d3251762c"
+        "seller": "45d6ac23-4a61-41dc-bbce-5d5335166ae0",
+        "car": "11b50856-f8a8-4278-980f-2e170bad34ea"
     },
     {
-        "_id": "f1c1bca1-7cda-4129-a3f2-2d8dd85f9b90",
+        "_id": "5482b830-f5e2-439b-81c2-60181790424a",
+        "region": "SouthEast",
+        "price": 75848,
+        "listDate": "2021-12-04T12:28:15.903Z",
+        "saleDate": null,
+        "seller": "45d6ac23-4a61-41dc-bbce-5d5335166ae0",
+        "car": "06b47710-058a-4131-8e23-04a350ebd75e"
+    },
+    {
+        "_id": "e5b958b3-a1fa-4f6e-a7c4-928b8faaf867",
+        "region": "MidWest",
+        "price": 66711,
+        "listDate": "2022-02-23T23:28:04.146Z",
+        "saleDate": null,
+        "seller": "2433ab4d-6b33-408d-b439-76e4b7c659de",
+        "car": "bc8c4772-81ec-489f-8df0-14175c48901a"
+    },
+    {
+        "_id": "6aa303f0-50d2-409d-a73a-7243e763885f",
         "region": "SouthWest",
-        "price": 30409,
-        "listDate": "2021-06-30T23:02:29.067Z",
+        "price": 22341,
+        "listDate": "2021-01-08T11:08:37.684Z",
         "saleDate": null,
-        "seller": "c5fb4a22-68f0-4761-8e5a-67299fb5fda4",
-        "car": "02d4454a-f1ca-4004-a451-15bbb0eb715e"
+        "seller": "45d6ac23-4a61-41dc-bbce-5d5335166ae0",
+        "car": "5930cb0d-251f-4017-83bf-4b5c4f074611"
     },
     {
-        "_id": "0c57d037-e130-408d-9a14-73de8d7c8e7d",
-        "region": "SouthEast",
-        "price": 50864,
-        "listDate": "2023-01-27T10:30:29.220Z",
-        "saleDate": "2023-06-03T14:48:22.098Z",
-        "seller": "ba903681-428c-4b34-bf77-e063f03633f9",
-        "car": "01357983-bf88-4965-b122-a8278b49fad0"
-    },
-    {
-        "_id": "969d67b4-df59-4237-a1df-3457b24e0f2c",
-        "region": "West",
-        "price": 44550,
-        "listDate": "2022-11-26T13:17:29.544Z",
-        "saleDate": null,
-        "seller": "ba903681-428c-4b34-bf77-e063f03633f9",
-        "car": "13d56346-b276-490e-afb5-e407e9a91fd6"
-    },
-    {
-        "_id": "ea027f2c-2e4c-4614-9a1a-fac5b593c810",
-        "region": "West",
-        "price": 35812,
-        "listDate": "2022-08-02T19:55:39.189Z",
-        "saleDate": null,
-        "seller": "ba903681-428c-4b34-bf77-e063f03633f9",
-        "car": "3cdd450e-27d3-4682-9abb-7fa73e3c1656"
-    },
-    {
-        "_id": "2341b438-7f47-4d70-ad1c-a4b7b075aba6",
-        "region": "SouthWest",
-        "price": 5825,
-        "listDate": "2020-11-22T03:31:45.648Z",
-        "saleDate": null,
-        "seller": "c5fb4a22-68f0-4761-8e5a-67299fb5fda4",
-        "car": "326fca6f-b817-4fc2-ace5-2b2ad172c0cc"
-    },
-    {
-        "_id": "66a554ac-f8f6-4f1a-8380-4d6d4615bd82",
-        "region": "West",
-        "price": 38823,
-        "listDate": "2021-07-25T01:45:12.047Z",
-        "saleDate": null,
-        "seller": "3a713ce5-b4b8-48d7-845c-90d87d20d2ff",
-        "car": "c4ed09c3-1f33-4955-b834-aeb4003a99c9"
-    },
-    {
-        "_id": "5b6dfd2b-ca3f-4914-bb75-aaa655109c79",
-        "region": "West",
-        "price": 51455,
-        "listDate": "2020-07-19T03:36:18.078Z",
-        "saleDate": "2023-06-03T09:25:18.997Z",
-        "seller": "c5fb4a22-68f0-4761-8e5a-67299fb5fda4",
-        "car": "7638ca6e-3330-4af7-96f5-91c6bc368205"
-    },
-    {
-        "_id": "de04d4aa-59a1-44ae-90d7-c0c4041e8138",
-        "region": "SouthWest",
-        "price": 77937,
-        "listDate": "2020-11-06T02:00:09.672Z",
-        "saleDate": null,
-        "seller": "c5fb4a22-68f0-4761-8e5a-67299fb5fda4",
-        "car": "e0b5f38d-9280-4776-8a85-f7b40e41ea45"
-    },
-    {
-        "_id": "b12978a5-7c9e-4175-b451-a1ecaee40f95",
-        "region": "West",
-        "price": 82682,
-        "listDate": "2023-02-28T21:44:11.773Z",
-        "saleDate": null,
-        "seller": "c5fb4a22-68f0-4761-8e5a-67299fb5fda4",
-        "car": "461b32c3-3284-43fb-b615-6c6fd415d5eb"
-    },
-    {
-        "_id": "5b14a995-73c2-4809-a1af-8bf988ec5ae5",
-        "region": "SouthEast",
-        "price": 31753,
-        "listDate": "2021-10-10T21:47:28.340Z",
-        "saleDate": null,
-        "seller": "3a713ce5-b4b8-48d7-845c-90d87d20d2ff",
-        "car": "1994b12c-c464-4764-ad79-cc3f0161839a"
-    },
-    {
-        "_id": "884fa94c-e15f-492a-b2e9-6b600026cc69",
-        "region": "SouthEast",
-        "price": 79525,
-        "listDate": "2020-09-30T01:42:43.554Z",
-        "saleDate": null,
-        "seller": "3a713ce5-b4b8-48d7-845c-90d87d20d2ff",
-        "car": "1b282090-38c4-4867-96ee-44b78d0266f1"
-    },
-    {
-        "_id": "db7e5d82-117c-479c-bbda-e0a5e2c4dba7",
-        "region": "SouthWest",
-        "price": 71108,
-        "listDate": "2020-09-20T19:16:54.837Z",
-        "saleDate": "2023-06-03T07:58:55.585Z",
-        "seller": "c5fb4a22-68f0-4761-8e5a-67299fb5fda4",
-        "car": "ec6effa2-173a-49bd-832c-695b0bb64875"
-    },
-    {
-        "_id": "77a70cbd-deef-4df4-83c3-a002bbc9cc9f",
-        "region": "West",
-        "price": 23980,
-        "listDate": "2021-09-22T09:30:46.573Z",
-        "saleDate": null,
-        "seller": "3a713ce5-b4b8-48d7-845c-90d87d20d2ff",
-        "car": "5888c329-93ed-4779-807a-fc3ea4ed4f61"
-    },
-    {
-        "_id": "80ca4968-4f7d-4a24-9df2-889e5f96f570",
-        "region": "SouthEast",
-        "price": 22689,
-        "listDate": "2020-12-29T15:02:05.677Z",
-        "saleDate": null,
-        "seller": "3a713ce5-b4b8-48d7-845c-90d87d20d2ff",
-        "car": "c362a643-83ab-4811-a0c3-fd73fccc2836"
-    },
-    {
-        "_id": "3c012eb0-b132-42f9-be3a-57c1c96916d2",
+        "_id": "0c8b7a7e-8728-4864-8c99-faf6f68e18ea",
         "region": "NorthEast",
-        "price": 78599,
-        "listDate": "2021-09-03T06:05:39.718Z",
-        "saleDate": null,
-        "seller": "ba903681-428c-4b34-bf77-e063f03633f9",
-        "car": "2d9d76c3-412f-446c-94fd-4dbcc8b36f89"
+        "price": 47009,
+        "listDate": "2022-01-11T06:04:15.264Z",
+        "saleDate": "2023-06-03T23:52:40.989Z",
+        "seller": "45d6ac23-4a61-41dc-bbce-5d5335166ae0",
+        "car": "c829d28d-71df-4abe-841f-7c39fb84b25c"
     },
     {
-        "_id": "c216aa38-1d4d-418b-9b3c-a133dbd07c1c",
+        "_id": "83087dae-d08d-40a6-9628-f3d90254f10f",
+        "region": "West",
+        "price": 7206,
+        "listDate": "2022-12-14T22:44:21.930Z",
+        "saleDate": null,
+        "seller": "45d6ac23-4a61-41dc-bbce-5d5335166ae0",
+        "car": "13f91dc9-f4a3-4636-9ebc-69bf765a82d9"
+    },
+    {
+        "_id": "3e1c0e03-c78a-465b-8866-e033277b33ba",
+        "region": "West",
+        "price": 9221,
+        "listDate": "2020-08-08T13:59:21.409Z",
+        "saleDate": null,
+        "seller": "45d6ac23-4a61-41dc-bbce-5d5335166ae0",
+        "car": "1da09ed0-8ec8-4114-ab93-cc901741d500"
+    },
+    {
+        "_id": "32b2f61d-868d-4fd3-8076-934fa0d356dc",
         "region": "MidWest",
-        "price": 44487,
-        "listDate": "2020-08-26T17:06:56.982Z",
+        "price": 70517,
+        "listDate": "2021-09-09T15:28:25.794Z",
         "saleDate": null,
-        "seller": "c5fb4a22-68f0-4761-8e5a-67299fb5fda4",
-        "car": "fbdb1f4e-694e-4b14-9845-984707a47e89"
+        "seller": "d35d7e8b-2ff9-4e12-91b4-e9c284650996",
+        "car": "4e19c8f7-24df-4299-877c-4bee6a8183b3"
     },
     {
-        "_id": "3f597c0a-d3bd-4e76-a731-a1e5d8a22b3b",
+        "_id": "92ea6aa7-b063-4caa-be89-ff68b40bb03e",
         "region": "MidWest",
-        "price": 8951,
-        "listDate": "2023-02-13T11:45:47.257Z",
-        "saleDate": "2023-06-02T23:36:28.226Z",
-        "seller": "3a713ce5-b4b8-48d7-845c-90d87d20d2ff",
-        "car": "45040db8-9aa2-4a88-8ca6-38405cce74b0"
-    },
-    {
-        "_id": "1a596cbc-b39e-4589-8698-0f0274e0e9e7",
-        "region": "SouthWest",
-        "price": 32296,
-        "listDate": "2022-12-29T02:36:44.461Z",
+        "price": 87683,
+        "listDate": "2021-01-12T18:01:04.170Z",
         "saleDate": null,
-        "seller": "ba903681-428c-4b34-bf77-e063f03633f9",
-        "car": "a258ad72-1531-4175-8edb-71bec10a7859"
+        "seller": "45d6ac23-4a61-41dc-bbce-5d5335166ae0",
+        "car": "0a6cf1f8-96b5-445a-a803-c58637ede944"
     },
     {
-        "_id": "4029931e-ef22-4851-9789-46fea72d53f6",
+        "_id": "e6a073c9-a680-48a0-94af-e30f5bc7ad9c",
         "region": "SouthEast",
-        "price": 27381,
-        "listDate": "2022-12-16T22:22:25.503Z",
-        "saleDate": null,
-        "seller": "3a713ce5-b4b8-48d7-845c-90d87d20d2ff",
-        "car": "854a1620-c06f-43f5-99c2-2289271e2575"
+        "price": 1548,
+        "listDate": "2023-04-24T18:57:26.040Z",
+        "saleDate": "2023-06-03T12:31:09.323Z",
+        "seller": "d35d7e8b-2ff9-4e12-91b4-e9c284650996",
+        "car": "81ba74b8-6b94-4eee-a736-ffdaf18759af"
     },
     {
-        "_id": "9c2375d5-a5b5-4aa1-aa5a-f56ad27b503e",
-        "region": "West",
-        "price": 76455,
-        "listDate": "2021-12-25T19:20:59.223Z",
-        "saleDate": null,
-        "seller": "3a713ce5-b4b8-48d7-845c-90d87d20d2ff",
-        "car": "5750b94f-bed2-4c11-ab78-a21c6ec04cb5"
-    },
-    {
-        "_id": "66326440-e748-4fd2-8a7a-302634b89bc5",
-        "region": "SouthWest",
-        "price": 53945,
-        "listDate": "2021-11-25T09:05:13.416Z",
-        "saleDate": null,
-        "seller": "3a713ce5-b4b8-48d7-845c-90d87d20d2ff",
-        "car": "ec22b259-2333-4178-a556-6e9f7a5833e9"
-    },
-    {
-        "_id": "b4cb354b-02ae-407f-a7fb-74c70700fb54",
+        "_id": "a1e4cd88-f434-4b4a-a3d9-ddd5026c3f9d",
         "region": "MidWest",
-        "price": 90293,
-        "listDate": "2022-05-02T06:22:09.545Z",
-        "saleDate": "2023-06-03T15:38:01.800Z",
-        "seller": "ba903681-428c-4b34-bf77-e063f03633f9",
-        "car": "ef23aad9-c8cb-48b4-b8fb-b5a0af7ae914"
-    },
-    {
-        "_id": "0c86a27a-5dae-407f-aa15-240fdf7d4253",
-        "region": "SouthWest",
-        "price": 68332,
-        "listDate": "2021-01-08T18:45:34.194Z",
+        "price": 71273,
+        "listDate": "2020-11-06T11:48:28.742Z",
         "saleDate": null,
-        "seller": "c5fb4a22-68f0-4761-8e5a-67299fb5fda4",
-        "car": "e5b219c4-9343-48d9-9bcb-e7bea0196047"
+        "seller": "2433ab4d-6b33-408d-b439-76e4b7c659de",
+        "car": "e045feed-1a68-4292-94f9-639528429da1"
     },
     {
-        "_id": "9ef4213e-72b4-49ae-b982-2cd0879b203c",
+        "_id": "cb5c8657-5438-440e-93c1-ac3879f3f9c6",
         "region": "SouthEast",
-        "price": 13350,
-        "listDate": "2021-08-26T14:07:27.554Z",
+        "price": 11405,
+        "listDate": "2020-09-28T21:16:49.209Z",
         "saleDate": null,
-        "seller": "ba903681-428c-4b34-bf77-e063f03633f9",
-        "car": "804ff030-ef65-4b7b-a68c-cb47ff366d4c"
+        "seller": "2433ab4d-6b33-408d-b439-76e4b7c659de",
+        "car": "9e0ba016-d9d9-43a2-95a8-6a4e42e5d61c"
     },
     {
-        "_id": "c521fc5c-0d33-4723-8118-0949418d9041",
-        "region": "NorthEast",
-        "price": 89411,
-        "listDate": "2020-09-30T22:28:32.647Z",
-        "saleDate": null,
-        "seller": "3a713ce5-b4b8-48d7-845c-90d87d20d2ff",
-        "car": "8076b830-ed29-48a2-b39a-f3d6d18286f5"
-    },
-    {
-        "_id": "e68c8646-68ad-4c74-b8bb-de32e65b909a",
-        "region": "MidWest",
-        "price": 95058,
-        "listDate": "2021-02-18T12:03:22.848Z",
-        "saleDate": null,
-        "seller": "3a713ce5-b4b8-48d7-845c-90d87d20d2ff",
-        "car": "f8b43a8e-a7a0-4a80-abf2-e85facdb9dd4"
-    },
-    {
-        "_id": "05346ed1-1203-4945-95c2-dab41c2f8647",
-        "region": "NorthEast",
-        "price": 82471,
-        "listDate": "2023-04-26T17:49:01.292Z",
-        "saleDate": "2023-06-03T18:28:43.164Z",
-        "seller": "c5fb4a22-68f0-4761-8e5a-67299fb5fda4",
-        "car": "f58d7fe5-f3d2-4238-b8e4-157d872967d3"
-    },
-    {
-        "_id": "49a8e05f-1d15-41ae-83e2-ba2f6807f6d1",
-        "region": "NorthEast",
-        "price": 70931,
-        "listDate": "2020-06-11T20:44:30.221Z",
-        "saleDate": null,
-        "seller": "3a713ce5-b4b8-48d7-845c-90d87d20d2ff",
-        "car": "14b25bc7-621d-4f2b-ba80-35ec14028045"
-    },
-    {
-        "_id": "d1d81b21-31e6-4e4f-a8f4-56c060cf9548",
+        "_id": "bcf8b300-a4f5-4e45-bd80-559f20e89355",
         "region": "SouthEast",
-        "price": 90095,
-        "listDate": "2023-04-30T09:31:26.927Z",
+        "price": 56778,
+        "listDate": "2022-10-28T05:25:59.568Z",
         "saleDate": null,
-        "seller": "ba903681-428c-4b34-bf77-e063f03633f9",
-        "car": "cbd51da1-74e2-4146-9547-dd1bede61271"
+        "seller": "d35d7e8b-2ff9-4e12-91b4-e9c284650996",
+        "car": "137dc705-c4ac-4bb7-abc4-ba6a8ed7a3e8"
     },
     {
-        "_id": "e1769576-0d21-4ace-b044-5fbe32fef9ba",
-        "region": "SouthWest",
-        "price": 35874,
-        "listDate": "2023-04-09T07:13:08.893Z",
-        "saleDate": null,
-        "seller": "3a713ce5-b4b8-48d7-845c-90d87d20d2ff",
-        "car": "9d659de9-2357-4a16-a114-51905fa388d1"
-    },
-    {
-        "_id": "6aa56816-c94e-476e-8b73-48f63647d21a",
+        "_id": "ac5939f7-336c-45b8-91e2-e0f5613d1f9c",
         "region": "West",
-        "price": 70588,
-        "listDate": "2022-11-15T11:30:28.423Z",
+        "price": 9618,
+        "listDate": "2021-09-26T00:06:22.011Z",
         "saleDate": null,
-        "seller": "3a713ce5-b4b8-48d7-845c-90d87d20d2ff",
-        "car": "f12d9fa9-7495-4ced-beea-45c2fe884b26"
+        "seller": "45d6ac23-4a61-41dc-bbce-5d5335166ae0",
+        "car": "6420ace9-7b5e-4ec6-81f4-f57365312ab3"
     },
     {
-        "_id": "344b8412-7869-438b-9fbe-833e47ed65b8",
-        "region": "West",
-        "price": 39312,
-        "listDate": "2022-01-12T14:47:17.530Z",
-        "saleDate": "2023-06-03T07:03:39.231Z",
-        "seller": "ba903681-428c-4b34-bf77-e063f03633f9",
-        "car": "29a7f76d-6990-44f1-8d06-15c68f00e283"
-    },
-    {
-        "_id": "97cc6543-1b5d-4a32-a79c-d8ccf608d31b",
-        "region": "NorthEast",
-        "price": 69849,
-        "listDate": "2021-04-28T03:11:16.328Z",
-        "saleDate": null,
-        "seller": "ba903681-428c-4b34-bf77-e063f03633f9",
-        "car": "1b2d4f6a-7945-4e93-932b-d2062166cf70"
-    },
-    {
-        "_id": "33f40895-2c69-4fd1-b2d0-abf319c758b0",
+        "_id": "949a4703-3ad0-4c12-ad9b-d57351cdaad4",
         "region": "SouthEast",
-        "price": 47701,
-        "listDate": "2020-12-13T00:32:37.152Z",
-        "saleDate": null,
-        "seller": "3a713ce5-b4b8-48d7-845c-90d87d20d2ff",
-        "car": "6d108e5d-780b-4170-b05e-9852ed00e50d"
+        "price": 33611,
+        "listDate": "2022-10-24T23:04:03.362Z",
+        "saleDate": "2023-06-03T08:36:07.020Z",
+        "seller": "d35d7e8b-2ff9-4e12-91b4-e9c284650996",
+        "car": "65f9c9c7-64d8-4765-bb61-7dbacd2e5301"
     },
     {
-        "_id": "51be4844-1408-49b9-aa9a-2a595e7be82a",
+        "_id": "bfd94e47-a7db-4c3d-a03d-9ab4483cbc3d",
+        "region": "West",
+        "price": 17727,
+        "listDate": "2020-11-05T18:33:33.400Z",
+        "saleDate": null,
+        "seller": "2433ab4d-6b33-408d-b439-76e4b7c659de",
+        "car": "53b1ef2b-6399-4dcb-8e5d-c528e768ba2c"
+    },
+    {
+        "_id": "be61f6b6-673c-480d-9e0c-7ecae11ef45f",
+        "region": "West",
+        "price": 15903,
+        "listDate": "2023-01-12T18:30:45.409Z",
+        "saleDate": null,
+        "seller": "2433ab4d-6b33-408d-b439-76e4b7c659de",
+        "car": "25d111ec-5109-488f-82d9-72396237d814"
+    },
+    {
+        "_id": "01d5ae3a-f92d-4773-b1da-7b6bdc78c232",
+        "region": "West",
+        "price": 69184,
+        "listDate": "2020-10-31T22:53:05.442Z",
+        "saleDate": null,
+        "seller": "2433ab4d-6b33-408d-b439-76e4b7c659de",
+        "car": "b99769c2-d378-4ec3-95a7-d9e5362af31d"
+    },
+    {
+        "_id": "5704307a-f41e-49b5-9021-87a5588bfb8c",
         "region": "MidWest",
-        "price": 61636,
-        "listDate": "2022-10-26T17:04:04.500Z",
+        "price": 87338,
+        "listDate": "2021-11-12T18:02:56.564Z",
         "saleDate": null,
-        "seller": "ba903681-428c-4b34-bf77-e063f03633f9",
-        "car": "c5b80330-7b9c-4dab-902f-e8f918a163b9"
+        "seller": "2433ab4d-6b33-408d-b439-76e4b7c659de",
+        "car": "c629fabd-dd82-424a-9ead-e4c79977bd2c"
     },
     {
-        "_id": "a26ac3c6-75c5-4888-a7af-b67d1ab94f63",
+        "_id": "c860e8c9-4054-4507-8f9a-9dfb1b7be302",
+        "region": "SouthWest",
+        "price": 3273,
+        "listDate": "2021-02-14T15:25:16.836Z",
+        "saleDate": "2023-06-03T05:42:37.683Z",
+        "seller": "45d6ac23-4a61-41dc-bbce-5d5335166ae0",
+        "car": "7209598d-e165-49b4-973a-fbb7ed0731c2"
+    },
+    {
+        "_id": "90df3655-2a19-4b01-adb6-ebd77912597b",
         "region": "West",
-        "price": 66832,
-        "listDate": "2021-02-26T14:30:35.834Z",
+        "price": 44093,
+        "listDate": "2020-07-29T07:33:48.538Z",
         "saleDate": null,
-        "seller": "ba903681-428c-4b34-bf77-e063f03633f9",
-        "car": "a1b284a9-8def-4e5c-9a60-4b93c211d8cb"
+        "seller": "45d6ac23-4a61-41dc-bbce-5d5335166ae0",
+        "car": "f335fcf0-47be-47d3-8477-5614d1b8970c"
     },
     {
-        "_id": "44d61bfc-dcbf-4fe3-9c0d-c61df855eadf",
+        "_id": "2a2ea48f-4200-483c-9511-c425d2acda6a",
+        "region": "SouthWest",
+        "price": 1575,
+        "listDate": "2023-02-23T22:44:32.922Z",
+        "saleDate": null,
+        "seller": "2433ab4d-6b33-408d-b439-76e4b7c659de",
+        "car": "01f1096a-95eb-447a-b9b6-a7f42e566ed1"
+    },
+    {
+        "_id": "290befbf-d5cc-4a97-b9f0-1ecd4c5f0dce",
+        "region": "SouthWest",
+        "price": 52961,
+        "listDate": "2021-11-16T17:04:22.485Z",
+        "saleDate": null,
+        "seller": "45d6ac23-4a61-41dc-bbce-5d5335166ae0",
+        "car": "2e757bae-92f7-413e-8cd0-49d276041d2d"
+    },
+    {
+        "_id": "d36e0a91-8375-4e72-9edb-fb3167b0191f",
+        "region": "MidWest",
+        "price": 70774,
+        "listDate": "2021-04-08T17:21:24.894Z",
+        "saleDate": null,
+        "seller": "d35d7e8b-2ff9-4e12-91b4-e9c284650996",
+        "car": "0b673b71-c31d-43f3-a18e-7b212166a4a0"
+    },
+    {
+        "_id": "b7c0ede2-97af-47cf-bb57-12d797755aa1",
+        "region": "MidWest",
+        "price": 88242,
+        "listDate": "2022-10-25T03:15:57.152Z",
+        "saleDate": "2023-06-04T01:31:04.428Z",
+        "seller": "2433ab4d-6b33-408d-b439-76e4b7c659de",
+        "car": "d6941421-d0b2-43c9-95bd-9283c9b37cbe"
+    },
+    {
+        "_id": "8b0da730-b720-43c6-98f1-e1589bbf3931",
         "region": "West",
-        "price": 87051,
-        "listDate": "2022-12-13T20:28:59.324Z",
-        "saleDate": "2023-06-02T22:46:51.091Z",
-        "seller": "ba903681-428c-4b34-bf77-e063f03633f9",
-        "car": "97b82825-f12e-4f5c-9ee4-c9f473170899"
+        "price": 87497,
+        "listDate": "2022-03-19T05:19:51.948Z",
+        "saleDate": null,
+        "seller": "45d6ac23-4a61-41dc-bbce-5d5335166ae0",
+        "car": "7172e93e-b822-47f8-928a-09ac0f0eb4af"
     },
     {
-        "_id": "2beb3ce0-ab13-41d6-99c6-422de56e26b2",
+        "_id": "a8e21be6-041a-450e-8b5d-399a8bb69fc8",
+        "region": "NorthEast",
+        "price": 91618,
+        "listDate": "2021-09-16T12:23:44.377Z",
+        "saleDate": null,
+        "seller": "d35d7e8b-2ff9-4e12-91b4-e9c284650996",
+        "car": "9940d68e-ba97-4b5c-af12-167b29fa6bd1"
+    },
+    {
+        "_id": "22625d7f-70db-46af-8014-80e4cb893552",
+        "region": "SouthWest",
+        "price": 48585,
+        "listDate": "2022-03-15T11:19:52.800Z",
+        "saleDate": null,
+        "seller": "45d6ac23-4a61-41dc-bbce-5d5335166ae0",
+        "car": "cc4851bd-ab89-4c68-a6b5-410c650cd980"
+    },
+    {
+        "_id": "91b25d33-d993-49b8-81ab-f4e3b3c55f6f",
+        "region": "West",
+        "price": 62912,
+        "listDate": "2022-10-12T12:28:05.087Z",
+        "saleDate": null,
+        "seller": "45d6ac23-4a61-41dc-bbce-5d5335166ae0",
+        "car": "80a8dd51-9a56-4c09-8a18-056bfb8ebe09"
+    },
+    {
+        "_id": "4660979e-3461-4447-8c6e-ccdf8749b5b2",
+        "region": "NorthEast",
+        "price": 44156,
+        "listDate": "2022-06-19T08:36:14.797Z",
+        "saleDate": "2023-06-04T02:33:51.268Z",
+        "seller": "45d6ac23-4a61-41dc-bbce-5d5335166ae0",
+        "car": "c149ee18-f1cb-4404-8ad8-0e7062f84350"
+    },
+    {
+        "_id": "1f959ae6-9b94-448e-b9d2-e990754bc8c6",
         "region": "SouthEast",
-        "price": 12348,
-        "listDate": "2023-03-16T00:22:31.413Z",
+        "price": 81257,
+        "listDate": "2021-03-09T08:46:52.633Z",
         "saleDate": null,
-        "seller": "3a713ce5-b4b8-48d7-845c-90d87d20d2ff",
-        "car": "c7308d46-fb63-46fa-b966-7d870a1bd70f"
+        "seller": "2433ab4d-6b33-408d-b439-76e4b7c659de",
+        "car": "402cb362-ef06-4a0e-9a7b-159f3398e989"
     },
     {
-        "_id": "b5a36926-1266-40e2-9a74-6e71f238e743",
-        "region": "MidWest",
-        "price": 15195,
-        "listDate": "2021-08-02T19:51:22.423Z",
+        "_id": "44e8e9cf-8ad1-4bdf-8ef0-e0a937f822ba",
+        "region": "West",
+        "price": 34834,
+        "listDate": "2020-11-14T19:03:35.603Z",
         "saleDate": null,
-        "seller": "c5fb4a22-68f0-4761-8e5a-67299fb5fda4",
-        "car": "6d1ae117-b0c4-45f5-9546-de4bd2188765"
+        "seller": "d35d7e8b-2ff9-4e12-91b4-e9c284650996",
+        "car": "ba935eed-ba54-4499-b8f9-a46c2e0fb22a"
     },
     {
-        "_id": "be91b88c-2cfe-469e-a1c7-b34ac2e1a968",
-        "region": "SouthWest",
-        "price": 7012,
-        "listDate": "2023-04-24T03:27:11.840Z",
-        "saleDate": null,
-        "seller": "c5fb4a22-68f0-4761-8e5a-67299fb5fda4",
-        "car": "4e9a5725-106e-4fe6-a79b-56c79734948e"
-    },
-    {
-        "_id": "b782bd38-6b10-477e-aa9e-f53ae116598b",
-        "region": "MidWest",
-        "price": 60379,
-        "listDate": "2022-01-06T21:22:32.870Z",
-        "saleDate": null,
-        "seller": "ba903681-428c-4b34-bf77-e063f03633f9",
-        "car": "4c7dc221-024e-4551-82d4-4f60a97ef266"
-    },
-    {
-        "_id": "eba851fd-c5e9-4ed7-8699-c1ac1624485f",
-        "region": "SouthWest",
-        "price": 27196,
-        "listDate": "2021-10-01T00:14:18.618Z",
-        "saleDate": "2023-06-03T12:50:25.696Z",
-        "seller": "c5fb4a22-68f0-4761-8e5a-67299fb5fda4",
-        "car": "aeccc50a-0e9f-4cab-a781-1e4f2468b147"
-    },
-    {
-        "_id": "cb632f7a-fbdd-4693-9652-dc48c8da9f08",
-        "region": "NorthEast",
-        "price": 11469,
-        "listDate": "2021-11-01T06:56:20.537Z",
-        "saleDate": null,
-        "seller": "c5fb4a22-68f0-4761-8e5a-67299fb5fda4",
-        "car": "25f3d58a-1625-41e6-87b9-cf049931c9d3"
-    },
-    {
-        "_id": "a176586e-21c5-4605-bd46-9c5615f2c0bd",
+        "_id": "482459ef-3ad6-41cc-b18d-6fd84e8e4296",
         "region": "SouthEast",
-        "price": 35767,
-        "listDate": "2021-09-26T19:09:30.598Z",
+        "price": 69937,
+        "listDate": "2023-04-06T15:55:16.034Z",
         "saleDate": null,
-        "seller": "3a713ce5-b4b8-48d7-845c-90d87d20d2ff",
-        "car": "ae10ec3b-12cb-4483-975f-f46836cff470"
+        "seller": "2433ab4d-6b33-408d-b439-76e4b7c659de",
+        "car": "ee6b3a7b-1166-485f-adec-9bff00cc6f78"
     },
     {
-        "_id": "ffea0f04-c12a-4dd7-b40b-4c739a11fb42",
-        "region": "MidWest",
-        "price": 19476,
-        "listDate": "2021-08-27T21:37:58.180Z",
-        "saleDate": null,
-        "seller": "ba903681-428c-4b34-bf77-e063f03633f9",
-        "car": "dd00995a-49e1-4275-9332-ff5c9cff74b6"
-    },
-    {
-        "_id": "6058aa82-a29d-42b3-b288-bb14729d011e",
-        "region": "West",
-        "price": 97589,
-        "listDate": "2023-02-25T10:21:44.036Z",
-        "saleDate": null,
-        "seller": "c5fb4a22-68f0-4761-8e5a-67299fb5fda4",
-        "car": "54934d82-5538-4f0b-ab7d-1a2edd26cdfc"
-    },
-    {
-        "_id": "aec87054-5b6e-45e4-a539-b03aa7144732",
-        "region": "MidWest",
-        "price": 35626,
-        "listDate": "2022-11-26T22:13:12.194Z",
-        "saleDate": "2023-06-03T04:45:23.044Z",
-        "seller": "c5fb4a22-68f0-4761-8e5a-67299fb5fda4",
-        "car": "ca15e992-32da-4377-94cb-6692eb407cea"
-    },
-    {
-        "_id": "e81cbf82-ac60-42f7-af0f-2d04ab09b3f6",
-        "region": "West",
-        "price": 27404,
-        "listDate": "2022-04-22T11:52:04.307Z",
-        "saleDate": null,
-        "seller": "3a713ce5-b4b8-48d7-845c-90d87d20d2ff",
-        "car": "2f0f4c08-8c77-429c-9fd0-abf879fe75f3"
-    },
-    {
-        "_id": "b5b914ea-7546-4af5-8b89-2dd9155d43fa",
-        "region": "SouthWest",
-        "price": 19012,
-        "listDate": "2020-06-30T19:56:05.975Z",
-        "saleDate": null,
-        "seller": "ba903681-428c-4b34-bf77-e063f03633f9",
-        "car": "e3d1ab98-33f8-42fd-9fb3-e7fa0c06c7e8"
-    },
-    {
-        "_id": "5a41083a-2b32-413c-aae6-772e3edec3bc",
-        "region": "MidWest",
-        "price": 90142,
-        "listDate": "2023-05-08T12:24:34.352Z",
-        "saleDate": null,
-        "seller": "c5fb4a22-68f0-4761-8e5a-67299fb5fda4",
-        "car": "8bd8def6-85ba-41b5-9c79-7e2c8645bbd1"
-    },
-    {
-        "_id": "d2b9502a-a769-4da5-998f-c942f70cc7cf",
-        "region": "SouthWest",
-        "price": 3417,
-        "listDate": "2022-11-27T07:41:05.027Z",
-        "saleDate": null,
-        "seller": "c5fb4a22-68f0-4761-8e5a-67299fb5fda4",
-        "car": "f836d4bf-694b-438c-8d74-951e47364bd1"
-    },
-    {
-        "_id": "2a908a89-8eb6-44e4-b7d9-4c5df0bcebca",
-        "region": "SouthWest",
-        "price": 70081,
-        "listDate": "2020-06-05T02:54:21.459Z",
-        "saleDate": "2023-06-03T09:31:09.869Z",
-        "seller": "3a713ce5-b4b8-48d7-845c-90d87d20d2ff",
-        "car": "ab34723a-b4bb-47dc-a024-9a4a0ca82c47"
-    },
-    {
-        "_id": "9fcacaa5-3b99-471a-9fc2-220393fa62c7",
+        "_id": "2d71614e-f90e-45ec-9183-d2e3fd532488",
         "region": "NorthEast",
-        "price": 34792,
-        "listDate": "2023-02-16T01:00:10.945Z",
+        "price": 35892,
+        "listDate": "2020-07-16T06:10:53.550Z",
         "saleDate": null,
-        "seller": "c5fb4a22-68f0-4761-8e5a-67299fb5fda4",
-        "car": "3003406d-66f4-4897-b006-bfec4c50e783"
+        "seller": "45d6ac23-4a61-41dc-bbce-5d5335166ae0",
+        "car": "0b7cf4ce-877e-40a5-a539-2e8828c374a4"
     },
     {
-        "_id": "1ef17d7f-231c-43ac-bcb2-d01def07f5bf",
+        "_id": "f3a85648-14c7-4f49-9cfa-1430aa50cf7a",
         "region": "MidWest",
-        "price": 21136,
-        "listDate": "2022-06-27T17:01:32.933Z",
-        "saleDate": null,
-        "seller": "ba903681-428c-4b34-bf77-e063f03633f9",
-        "car": "a846725e-db5f-4b3f-a957-b9041a0a7db8"
+        "price": 12777,
+        "listDate": "2021-12-26T01:06:20.127Z",
+        "saleDate": "2023-06-04T01:46:09.750Z",
+        "seller": "d35d7e8b-2ff9-4e12-91b4-e9c284650996",
+        "car": "187bce26-6a7a-4e91-9a9e-c912abd4622d"
     },
     {
-        "_id": "e307e9ce-28d1-4667-a5cf-3962a7bafef9",
+        "_id": "8fdd6f69-53f6-4698-86b1-e2a8c7aabdcc",
+        "region": "SouthWest",
+        "price": 23758,
+        "listDate": "2021-02-25T13:39:24.504Z",
+        "saleDate": null,
+        "seller": "45d6ac23-4a61-41dc-bbce-5d5335166ae0",
+        "car": "14fa3402-8ee0-4c21-8986-85a9bade90ea"
+    },
+    {
+        "_id": "021b70c3-4366-4d38-9844-418c68fcf833",
         "region": "NorthEast",
-        "price": 73301,
-        "listDate": "2021-07-03T14:31:19.219Z",
+        "price": 38160,
+        "listDate": "2020-10-06T20:43:57.707Z",
         "saleDate": null,
-        "seller": "ba903681-428c-4b34-bf77-e063f03633f9",
-        "car": "d63b0dad-788c-4d54-b2b9-01c37c44c698"
+        "seller": "d35d7e8b-2ff9-4e12-91b4-e9c284650996",
+        "car": "3d0e3681-46cc-43d5-b6d5-697790856c82"
     },
     {
-        "_id": "40961437-9780-4239-ad67-211ff763d9a8",
-        "region": "MidWest",
-        "price": 80918,
-        "listDate": "2021-07-31T02:31:06.874Z",
-        "saleDate": null,
-        "seller": "c5fb4a22-68f0-4761-8e5a-67299fb5fda4",
-        "car": "8af9cade-e7ff-4c7e-b922-b192f4710b7c"
-    },
-    {
-        "_id": "3495230e-512d-4415-8d61-dc060ae33b7d",
-        "region": "West",
-        "price": 16468,
-        "listDate": "2021-10-02T19:11:14.298Z",
-        "saleDate": "2023-06-03T08:10:55.975Z",
-        "seller": "c5fb4a22-68f0-4761-8e5a-67299fb5fda4",
-        "car": "4b25f882-9ca2-4402-a0d4-75ba7e4813eb"
-    },
-    {
-        "_id": "71b8f97d-b6b9-441c-8420-1861aebb411b",
-        "region": "West",
-        "price": 62820,
-        "listDate": "2020-06-27T23:14:11.338Z",
-        "saleDate": null,
-        "seller": "ba903681-428c-4b34-bf77-e063f03633f9",
-        "car": "b889901f-249d-4f51-a7f4-ef14a337cdc6"
-    },
-    {
-        "_id": "8b6639e7-8a27-4e92-8053-0c2c645ae6f6",
-        "region": "MidWest",
-        "price": 72886,
-        "listDate": "2020-12-09T21:24:41.713Z",
-        "saleDate": null,
-        "seller": "3a713ce5-b4b8-48d7-845c-90d87d20d2ff",
-        "car": "a258b32e-d1ba-4c7b-97e9-ea202a69a52e"
-    },
-    {
-        "_id": "d0667357-b6d0-4981-81e5-493dae1b400d",
-        "region": "MidWest",
-        "price": 47757,
-        "listDate": "2022-08-03T11:42:56.726Z",
-        "saleDate": null,
-        "seller": "ba903681-428c-4b34-bf77-e063f03633f9",
-        "car": "552a6712-0529-418e-9042-34ec2cafaed5"
-    },
-    {
-        "_id": "8b2f6355-f5b1-48bf-9b5a-dc4ca6289b7d",
-        "region": "MidWest",
-        "price": 31059,
-        "listDate": "2023-04-25T02:46:16.595Z",
-        "saleDate": null,
-        "seller": "c5fb4a22-68f0-4761-8e5a-67299fb5fda4",
-        "car": "7252f2b9-f861-4276-9935-afab4fdb4be1"
-    },
-    {
-        "_id": "e22c78bb-fa78-4a3c-ae3a-441270176e63",
-        "region": "MidWest",
-        "price": 82052,
-        "listDate": "2022-04-21T03:16:31.651Z",
-        "saleDate": "2023-06-03T13:13:06.941Z",
-        "seller": "ba903681-428c-4b34-bf77-e063f03633f9",
-        "car": "7b2ed816-487a-470e-b939-9d1cd8576c3f"
-    },
-    {
-        "_id": "16fed36e-c67b-4756-b541-69813b68ff73",
-        "region": "West",
-        "price": 2709,
-        "listDate": "2022-11-04T23:23:53.079Z",
-        "saleDate": null,
-        "seller": "ba903681-428c-4b34-bf77-e063f03633f9",
-        "car": "9f1b1746-2b2a-45c6-8726-7bfe028be3c4"
-    },
-    {
-        "_id": "feb7cc59-f7ca-456d-bba4-fda0ac851c65",
+        "_id": "e3898dc8-ca25-493f-af80-b76b98bab1f8",
         "region": "NorthEast",
-        "price": 97471,
-        "listDate": "2022-09-16T19:42:14.854Z",
+        "price": 29497,
+        "listDate": "2022-10-22T23:44:59.358Z",
         "saleDate": null,
-        "seller": "ba903681-428c-4b34-bf77-e063f03633f9",
-        "car": "4200c13d-a915-4b39-b074-39c5bb2ac2aa"
+        "seller": "2433ab4d-6b33-408d-b439-76e4b7c659de",
+        "car": "99de8467-556c-4f7e-adc0-a3151e273685"
     },
     {
-        "_id": "e15470d0-7cd8-4a60-9634-12d0259b5c85",
-        "region": "West",
-        "price": 46394,
-        "listDate": "2021-05-02T03:55:13.972Z",
+        "_id": "02edca59-21f6-4f7e-9f85-5989462e52f4",
+        "region": "SouthWest",
+        "price": 76728,
+        "listDate": "2022-12-23T13:55:23.532Z",
         "saleDate": null,
-        "seller": "3a713ce5-b4b8-48d7-845c-90d87d20d2ff",
-        "car": "c8fb9db5-9fe9-4097-86a3-051ece3ce2a5"
+        "seller": "2433ab4d-6b33-408d-b439-76e4b7c659de",
+        "car": "bb6b4087-5012-4d14-9f6c-a09d68b88f08"
     },
     {
-        "_id": "823edeb3-207d-4d75-8fd7-bf111ab1fa0a",
+        "_id": "c7393f19-4217-485e-9cad-934dd5a21af3",
+        "region": "SouthWest",
+        "price": 83809,
+        "listDate": "2020-11-02T00:43:14.698Z",
+        "saleDate": "2023-06-04T00:52:05.474Z",
+        "seller": "d35d7e8b-2ff9-4e12-91b4-e9c284650996",
+        "car": "ee02016c-b1b4-43dc-81e9-a877977f4c51"
+    },
+    {
+        "_id": "713d94c3-335f-432c-8f78-09fdfa28739d",
+        "region": "SouthWest",
+        "price": 21926,
+        "listDate": "2020-12-19T03:21:15.796Z",
+        "saleDate": null,
+        "seller": "d35d7e8b-2ff9-4e12-91b4-e9c284650996",
+        "car": "c9f3e7c2-0596-4055-ac0b-7ee207388bd6"
+    },
+    {
+        "_id": "d4409bb5-2a46-4081-86ed-bd12b1fd58ef",
+        "region": "NorthEast",
+        "price": 48640,
+        "listDate": "2020-09-07T02:28:05.633Z",
+        "saleDate": null,
+        "seller": "45d6ac23-4a61-41dc-bbce-5d5335166ae0",
+        "car": "7cc9b46d-5ff6-48a2-b5f3-1b630b623875"
+    },
+    {
+        "_id": "dd470d81-aeda-4f34-bb2a-1f637840c6c5",
         "region": "MidWest",
-        "price": 70541,
-        "listDate": "2023-01-28T06:15:15.824Z",
+        "price": 6482,
+        "listDate": "2021-02-11T10:15:21.347Z",
         "saleDate": null,
-        "seller": "3a713ce5-b4b8-48d7-845c-90d87d20d2ff",
-        "car": "add4c854-9757-4d85-9b39-3420f1f21e15"
+        "seller": "45d6ac23-4a61-41dc-bbce-5d5335166ae0",
+        "car": "6018cd3f-4bca-4a5e-8c6e-1e2139de6548"
     },
     {
-        "_id": "3e1c09e0-74d4-4abe-8836-dd61381f1072",
+        "_id": "590ae703-fc8e-4cb3-88db-461a58a753dc",
+        "region": "SouthWest",
+        "price": 39621,
+        "listDate": "2021-12-03T01:05:59.776Z",
+        "saleDate": null,
+        "seller": "45d6ac23-4a61-41dc-bbce-5d5335166ae0",
+        "car": "21c4c9b9-c652-4f67-9d81-a3560eb32f13"
+    },
+    {
+        "_id": "d508102a-c2bc-4253-8534-47d6e6f03510",
         "region": "SouthEast",
-        "price": 52492,
-        "listDate": "2021-03-12T00:03:42.908Z",
-        "saleDate": "2023-06-03T05:17:58.095Z",
-        "seller": "ba903681-428c-4b34-bf77-e063f03633f9",
-        "car": "fc20f60e-4a0e-4aed-aab1-7335bad06e64"
+        "price": 15325,
+        "listDate": "2021-08-26T10:43:41.984Z",
+        "saleDate": "2023-06-03T06:25:12.767Z",
+        "seller": "2433ab4d-6b33-408d-b439-76e4b7c659de",
+        "car": "84bfd7c4-adf8-4a05-b166-a2132d3384c0"
     },
     {
-        "_id": "6e91fc0c-555f-4986-b1dc-536aac1ff633",
-        "region": "MidWest",
-        "price": 47794,
-        "listDate": "2021-12-22T07:39:58.053Z",
+        "_id": "1c97fb19-6927-4238-bc81-fb5a79516c35",
+        "region": "SouthEast",
+        "price": 73330,
+        "listDate": "2022-08-01T09:40:05.724Z",
         "saleDate": null,
-        "seller": "c5fb4a22-68f0-4761-8e5a-67299fb5fda4",
-        "car": "b88fe2bb-270f-431b-8f90-11fb69b3f154"
+        "seller": "45d6ac23-4a61-41dc-bbce-5d5335166ae0",
+        "car": "b5b70261-89ec-4833-adaa-b87263b9547a"
     },
     {
-        "_id": "1344b805-f7ed-4e76-ae2d-851ea5320007",
-        "region": "SouthWest",
-        "price": 33679,
-        "listDate": "2022-12-14T07:19:35.354Z",
-        "saleDate": null,
-        "seller": "3a713ce5-b4b8-48d7-845c-90d87d20d2ff",
-        "car": "7bddfe27-a52e-4fdd-a4d2-2b707c8e7195"
-    },
-    {
-        "_id": "717048dd-0e45-4b01-92d1-4a13b7b407ac",
+        "_id": "6ce19a26-55eb-41b7-9dec-83b5c6546630",
         "region": "NorthEast",
-        "price": 61047,
-        "listDate": "2023-01-10T00:57:48.668Z",
+        "price": 43639,
+        "listDate": "2023-01-10T14:38:01.136Z",
         "saleDate": null,
-        "seller": "c5fb4a22-68f0-4761-8e5a-67299fb5fda4",
-        "car": "b28dca93-55f1-487e-86fc-ec63c2137db2"
+        "seller": "d35d7e8b-2ff9-4e12-91b4-e9c284650996",
+        "car": "3eb812d9-edb4-4a27-93f1-3c8cd85e4bc5"
     },
     {
-        "_id": "9c3a3e51-fdc8-4ef4-9105-3affec77e9e7",
-        "region": "MidWest",
-        "price": 96054,
-        "listDate": "2022-09-06T00:15:53.208Z",
-        "saleDate": null,
-        "seller": "ba903681-428c-4b34-bf77-e063f03633f9",
-        "car": "34e7b68b-8d25-4c95-a1ba-8d3de439fc42"
-    },
-    {
-        "_id": "84d3c162-92f9-4c24-9ae8-e8a21e61d34d",
-        "region": "MidWest",
-        "price": 15864,
-        "listDate": "2023-05-03T19:01:12.421Z",
-        "saleDate": "2023-06-03T03:55:44.634Z",
-        "seller": "c5fb4a22-68f0-4761-8e5a-67299fb5fda4",
-        "car": "9a8b684d-b111-4f91-b00b-92032750f6fc"
-    },
-    {
-        "_id": "c5aa6d38-67a1-4a9c-a3f4-ee79f0dd5421",
+        "_id": "a503d368-8238-4845-9b21-5c7e0cace0ff",
         "region": "West",
-        "price": 16973,
-        "listDate": "2021-12-21T01:07:28.666Z",
+        "price": 67415,
+        "listDate": "2023-01-12T20:40:21.383Z",
         "saleDate": null,
-        "seller": "c5fb4a22-68f0-4761-8e5a-67299fb5fda4",
-        "car": "8ef99039-1593-47b3-8d53-a12b735be21e"
+        "seller": "2433ab4d-6b33-408d-b439-76e4b7c659de",
+        "car": "72a1334c-548e-44bb-bcc4-90dd9d8d572a"
     },
     {
-        "_id": "d6176b04-3824-4fa5-8736-6256d2f6cffc",
+        "_id": "1b78a991-de58-4280-a30f-4cd9264a6ad8",
+        "region": "West",
+        "price": 2300,
+        "listDate": "2022-02-01T00:37:34.085Z",
+        "saleDate": null,
+        "seller": "45d6ac23-4a61-41dc-bbce-5d5335166ae0",
+        "car": "3d01cd76-efa1-4789-8433-c299c2aeb2a7"
+    },
+    {
+        "_id": "70c32fd9-9e97-4b1b-80bd-5690029ee185",
+        "region": "West",
+        "price": 21423,
+        "listDate": "2021-01-31T23:25:58.512Z",
+        "saleDate": "2023-06-03T10:04:18.636Z",
+        "seller": "d35d7e8b-2ff9-4e12-91b4-e9c284650996",
+        "car": "4e71aa07-2c09-4bea-9cbf-fff37984ad57"
+    },
+    {
+        "_id": "a2ec4dc4-9bb4-469b-90da-284155eb1441",
         "region": "NorthEast",
-        "price": 58050,
-        "listDate": "2021-03-15T22:53:06.953Z",
+        "price": 93378,
+        "listDate": "2020-11-21T12:46:31.079Z",
         "saleDate": null,
-        "seller": "ba903681-428c-4b34-bf77-e063f03633f9",
-        "car": "e1049809-1fa6-4cc5-a483-5a463591b0fd"
+        "seller": "45d6ac23-4a61-41dc-bbce-5d5335166ae0",
+        "car": "b0295481-96a6-41d6-9d1f-4d93e68ea1b2"
     },
     {
-        "_id": "c68d674f-93d0-4f3f-9df8-3f4218714078",
-        "region": "SouthEast",
-        "price": 87509,
-        "listDate": "2022-07-18T10:13:31.703Z",
+        "_id": "24073848-c35f-44aa-adb4-9c9231ba9585",
+        "region": "West",
+        "price": 43609,
+        "listDate": "2023-05-02T13:02:56.488Z",
         "saleDate": null,
-        "seller": "ba903681-428c-4b34-bf77-e063f03633f9",
-        "car": "67334638-8b57-486d-a6c8-9c8d94afa1f3"
+        "seller": "d35d7e8b-2ff9-4e12-91b4-e9c284650996",
+        "car": "eb5f3983-55c7-4487-b0fe-503a2e0999cc"
     },
     {
-        "_id": "dc41ae87-fe2f-4c4a-998e-2855acb95314",
-        "region": "SouthEast",
-        "price": 13466,
-        "listDate": "2020-08-25T03:55:55.250Z",
+        "_id": "e0ee519a-215b-426f-90c2-6239a0987ed1",
+        "region": "West",
+        "price": 37874,
+        "listDate": "2020-08-05T21:42:50.445Z",
         "saleDate": null,
-        "seller": "c5fb4a22-68f0-4761-8e5a-67299fb5fda4",
-        "car": "a35e5d0f-fb11-4df7-b285-3dff4c4a2662"
+        "seller": "45d6ac23-4a61-41dc-bbce-5d5335166ae0",
+        "car": "7501e30f-7909-443e-96e8-7e4aa213536a"
+    },
+    {
+        "_id": "faab07a5-662f-472f-8c56-9364132361ae",
+        "region": "NorthEast",
+        "price": 76217,
+        "listDate": "2020-07-29T10:31:12.306Z",
+        "saleDate": null,
+        "seller": "45d6ac23-4a61-41dc-bbce-5d5335166ae0",
+        "car": "66af563f-62c4-466c-aad7-66c89f06cfd1"
+    },
+    {
+        "_id": "73c7be44-32ae-4aa1-ae42-6d6739f93501",
+        "region": "NorthEast",
+        "price": 30745,
+        "listDate": "2022-05-12T15:59:03.142Z",
+        "saleDate": "2023-06-03T20:59:12.223Z",
+        "seller": "d35d7e8b-2ff9-4e12-91b4-e9c284650996",
+        "car": "f1e8de0a-e224-4a87-b185-b1042034e7b4"
+    },
+    {
+        "_id": "2402e316-5481-449a-b266-951e81d84438",
+        "region": "NorthEast",
+        "price": 4635,
+        "listDate": "2021-09-17T06:44:04.254Z",
+        "saleDate": null,
+        "seller": "d35d7e8b-2ff9-4e12-91b4-e9c284650996",
+        "car": "bac38119-e4cd-42f0-8ed8-61c2e2afdca5"
+    },
+    {
+        "_id": "9fdf1d2b-6fa6-41f7-90e9-6f71063f0a9c",
+        "region": "MidWest",
+        "price": 2200,
+        "listDate": "2022-08-19T03:16:16.253Z",
+        "saleDate": null,
+        "seller": "d35d7e8b-2ff9-4e12-91b4-e9c284650996",
+        "car": "2feddd83-ba7f-4a16-a6c8-4de4ef3fa967"
+    },
+    {
+        "_id": "328868cf-6f7b-4aa2-9c07-f70420999e74",
+        "region": "NorthEast",
+        "price": 23761,
+        "listDate": "2020-06-19T18:58:17.676Z",
+        "saleDate": null,
+        "seller": "d35d7e8b-2ff9-4e12-91b4-e9c284650996",
+        "car": "daefe5e1-007e-4451-95f9-2e9a50344c3b"
+    },
+    {
+        "_id": "20f78ff1-b536-47fc-bd16-48bcd1079821",
+        "region": "SouthWest",
+        "price": 27176,
+        "listDate": "2021-03-20T05:44:39.715Z",
+        "saleDate": null,
+        "seller": "2433ab4d-6b33-408d-b439-76e4b7c659de",
+        "car": "feaa452f-6c7d-4dcb-8dce-143694ab8ef9"
+    },
+    {
+        "_id": "5461b456-9418-4fda-841c-3e26bb936d10",
+        "region": "West",
+        "price": 91163,
+        "listDate": "2020-09-12T20:50:23.587Z",
+        "saleDate": "2023-06-03T22:51:33.395Z",
+        "seller": "45d6ac23-4a61-41dc-bbce-5d5335166ae0",
+        "car": "678e1f80-3ecb-4698-ac90-e0c93b4e8b8e"
+    },
+    {
+        "_id": "62888f9a-ec19-4f23-9d10-959f2c72313e",
+        "region": "SouthEast",
+        "price": 97641,
+        "listDate": "2021-08-19T01:15:56.519Z",
+        "saleDate": null,
+        "seller": "2433ab4d-6b33-408d-b439-76e4b7c659de",
+        "car": "a76fb688-59d4-4b75-88ea-40cd3cf7bfb7"
+    },
+    {
+        "_id": "394ce010-89ce-42a6-8da0-2f9eeb302378",
+        "region": "SouthEast",
+        "price": 94245,
+        "listDate": "2022-02-24T22:46:56.523Z",
+        "saleDate": null,
+        "seller": "d35d7e8b-2ff9-4e12-91b4-e9c284650996",
+        "car": "d5148a8a-3aa6-4ddb-8017-4fedead6346d"
+    },
+    {
+        "_id": "3e56c67e-96b5-4191-90b6-29c2b252163f",
+        "region": "NorthEast",
+        "price": 47954,
+        "listDate": "2021-04-28T14:31:37.871Z",
+        "saleDate": null,
+        "seller": "45d6ac23-4a61-41dc-bbce-5d5335166ae0",
+        "car": "e83b3590-1c4f-4880-a2b3-71be6db334ca"
+    },
+    {
+        "_id": "051d683f-cc5f-441e-bc19-cf681c68e0d0",
+        "region": "SouthEast",
+        "price": 6818,
+        "listDate": "2023-05-21T01:29:19.591Z",
+        "saleDate": null,
+        "seller": "2433ab4d-6b33-408d-b439-76e4b7c659de",
+        "car": "c92e622d-e515-4de6-8db4-94855a1e2c95"
+    },
+    {
+        "_id": "b6a15725-42b5-49f7-904f-a89d9bdf71d6",
+        "region": "SouthEast",
+        "price": 65165,
+        "listDate": "2020-12-13T16:06:22.596Z",
+        "saleDate": "2023-06-03T11:47:24.527Z",
+        "seller": "45d6ac23-4a61-41dc-bbce-5d5335166ae0",
+        "car": "5d08e58f-71ff-4952-98bd-41134ff3e709"
+    },
+    {
+        "_id": "cc3d9019-369e-42e7-be2b-1855b8d497fa",
+        "region": "NorthEast",
+        "price": 51629,
+        "listDate": "2022-11-13T09:48:41.721Z",
+        "saleDate": null,
+        "seller": "d35d7e8b-2ff9-4e12-91b4-e9c284650996",
+        "car": "e0858c10-d4db-481a-baa8-ad1d9484c2fb"
+    },
+    {
+        "_id": "b4015be9-38cb-4d32-b740-b28e50b1df07",
+        "region": "West",
+        "price": 60139,
+        "listDate": "2023-04-30T11:04:10.746Z",
+        "saleDate": null,
+        "seller": "d35d7e8b-2ff9-4e12-91b4-e9c284650996",
+        "car": "d101f4bd-fc70-4159-8e04-b2383e770406"
+    },
+    {
+        "_id": "40e8652c-841b-4002-93c6-e15df3f33f4b",
+        "region": "SouthWest",
+        "price": 87850,
+        "listDate": "2022-11-26T02:21:57.448Z",
+        "saleDate": null,
+        "seller": "2433ab4d-6b33-408d-b439-76e4b7c659de",
+        "car": "d5ef302c-8a98-404d-a6e9-64b46fe73a6e"
+    },
+    {
+        "_id": "d25635e0-d742-4900-a32c-d8aec877db09",
+        "region": "SouthWest",
+        "price": 45887,
+        "listDate": "2022-03-17T13:43:38.894Z",
+        "saleDate": null,
+        "seller": "2433ab4d-6b33-408d-b439-76e4b7c659de",
+        "car": "06bc1419-8178-4977-978d-7864d493d436"
     }
 ]

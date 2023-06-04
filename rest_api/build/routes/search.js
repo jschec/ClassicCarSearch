@@ -1,0 +1,13 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+const search_controller_1 = require("../controllers/search.controller");
+const router = (0, express_1.Router)();
+router.get("/", (req, res, next) => (0, search_controller_1.applySearch)(req, res, next));
+router.post("/", (req, res, next) => (0, search_controller_1.createSearch)(req, res, next));
+router.post("/query", (req, res, next) => (0, search_controller_1.getSearchByParam)(req, res, next));
+router.get("/:searchId", (req, res, next) => (0, search_controller_1.getSearch)(req, res, next));
+router.put("/:searchId", (req, res, next) => (0, search_controller_1.updateSearch)(req, res, next));
+router.delete("/:searchId", (req, res, next) => (0, search_controller_1.deleteSearch)(req, res, next));
+router.get("/:searchId/forecasts", (req, res, next) => (0, search_controller_1.getSearchForecasts)(req, res, next));
+exports.default = router;

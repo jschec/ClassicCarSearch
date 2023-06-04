@@ -26,7 +26,6 @@
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "express-session": "^1.17.3",
-    "helmet": "^6.1.5",
     "http-status": "^1.6.2",
     "joi": "^17.9.2",
     "mongoose": "^7.0.4",

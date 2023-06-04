@@ -1,7 +1,6 @@
 import express, { Express } from 'express';
 import session from 'express-session';
 import mongoStore from "connect-mongo";
-import helmet from 'helmet';
 import cors from 'cors';
 import httpStatus from 'http-status';
 import passport from 'passport';

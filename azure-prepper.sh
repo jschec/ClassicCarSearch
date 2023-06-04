@@ -9,7 +9,7 @@ rm -rf $SRC_DIR/front_end
 rm -rf $SRC_DIR/hifi_prototype
 rm -rf $SRC_DIR/scripts
 
-rm -v $DEST_DIR/*
+rm -v -r $DEST_DIR/*
 
 cd $SRC_DIR/rest_api
 npm install

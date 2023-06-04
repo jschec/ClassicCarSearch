@@ -14,9 +14,6 @@ import './utils/GoogleOAuth';
 
 const app: Express = express();
 
-// Set security HTTP headers
-app.use(helmet());
-
 // Enable cors
 app.use(cors());
 app.options('*', cors());
@@ -40,7 +37,8 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 // Map application API routes
-app.use('/', routes);
+app.use('/api', routes);
+app.use('/', express.static(`${__dirname}/static`));
 
 // Send back a 404 error for any unknown API request
 app.use((_req, _res, next) => {

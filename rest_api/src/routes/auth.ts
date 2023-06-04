@@ -28,7 +28,10 @@ router.delete("/session", (req, res, next) => {
     if (err) { return next(err); }
   });
 
-  res.send({ success: true });
+  // Required, otherwise error will be thrown
+  if(res.headersSent !== true) {
+    res.send({ success: true });
+  }
 })
 
 export default router;

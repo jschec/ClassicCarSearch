@@ -154,6 +154,7 @@ const populateUsers = async () => {
 
   for (let i = 0; i < 5; i++) {
     const user: NewUserBody = {
+      ssoID: faker.datatype.uuid(), // temporary
       firstName: faker.name.firstName(),
       lastName: faker.name.lastName(),
       email: faker.internet.email(),

@@ -12,7 +12,7 @@ describe('Test post a new user', function() {
 	var response;
 
     before(function (done) {
-        chai.request(`http://${config.hostName}:${config.hostPort}`)
+        chai.request(`https://${config.hostName}:${config.hostPort}`)
           .post("/users")
           .send({
             "firstName": "Andres",

@@ -12,7 +12,7 @@ describe('Test get all subscriptions', function() {
 	var response;
 
   before(function (done) {
-    chai.request(`http://${config.hostName}:${config.hostPort}`)
+    chai.request(`https://${config.hostName}:${config.hostPort}`)
       .get("/subscriptions")
       .end(function (err, res) {
         requestResult = res.body;
@@ -66,7 +66,7 @@ describe('Test get single subscription', function() {
 	var response;
 
   before(function (done) {
-    chai.request(`http://${config.hostName}:${config.hostPort}`)
+    chai.request(`https://${config.hostName}:${config.hostPort}`)
       .get("/subscriptions/d59e3b6e-7b66-4727-8cd0-27bfb9de8187")
       .end(function (err, res) {
         requestResult = res.body;

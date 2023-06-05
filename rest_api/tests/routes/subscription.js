@@ -6,6 +6,7 @@ const config = require('../config');
 const expect = chai.expect;
 
 chai.use(chaiHttp);
+console.log(`https://${config.hostName}:${config.hostPort}`);
 
 describe('Test get all subscriptions', function() {
 	var requestResult;
@@ -13,7 +14,7 @@ describe('Test get all subscriptions', function() {
 
   before(function (done) {
     chai.request(`https://${config.hostName}:${config.hostPort}`)
-      .get("/subscriptions")
+      .get("/api/subscriptions")
       .end(function (err, res) {
         requestResult = res.body;
         response = res;
@@ -67,7 +68,7 @@ describe('Test get single subscription', function() {
 
   before(function (done) {
     chai.request(`https://${config.hostName}:${config.hostPort}`)
-      .get("/subscriptions/d59e3b6e-7b66-4727-8cd0-27bfb9de8187")
+      .get("/api/subscriptions/e6932a18-5f27-425b-8a35-17acb3a67c60")
       .end(function (err, res) {
         requestResult = res.body;
         response = res;
@@ -106,9 +107,7 @@ describe('Test get single subscription', function() {
           "No advertisements"
       ],
       "cost": 10,
-      "createdAt": "2023-05-19T00:41:57.781Z",
-      "updatedAt": "2023-05-19T00:41:57.781Z",
-      "id": "d59e3b6e-7b66-4727-8cd0-27bfb9de8187"
+      "id": "e6932a18-5f27-425b-8a35-17acb3a67c60"
     }
 
     expect(response.body).to.deep.include(expectedBody);

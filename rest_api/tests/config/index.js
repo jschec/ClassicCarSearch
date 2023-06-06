@@ -2,8 +2,8 @@ const Joi = require('joi');
 
 const envVarsSchema = Joi.object()
   .keys({
-    HOST_NAME: Joi.string().default("localhost"),
-    HOST_PORT: Joi.number().default(3000)
+    HOST_NAME: Joi.string().default("classic-car-search.azurewebsites.net"),
+    HOST_PORT: Joi.number().default(443)
   })
   .unknown();
 

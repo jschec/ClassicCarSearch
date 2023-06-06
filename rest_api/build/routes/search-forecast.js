@@ -1,0 +1,10 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+const search_forecast_controller_1 = require("../controllers/search-forecast.controller");
+const router = (0, express_1.Router)();
+router.post("/", (req, res, next) => (0, search_forecast_controller_1.createSearchForecast)(req, res, next));
+router.get("/:searchForecastId", (req, res, next) => (0, search_forecast_controller_1.getSearchForecast)(req, res, next));
+router.put("/:searchForecastId", (req, res, next) => (0, search_forecast_controller_1.updateSearchForecast)(req, res, next));
+router.delete("/:searchForecastId", (req, res, next) => (0, search_forecast_controller_1.deleteSearchForecast)(req, res, next));
+exports.default = router;

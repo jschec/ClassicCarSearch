@@ -1,0 +1,10 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+const watch_list_controller_1 = require("../controllers/watch-list.controller");
+const router = (0, express_1.Router)();
+router.post("/", (req, res, next) => (0, watch_list_controller_1.createWatchList)(req, res, next));
+router.get("/:watchListId", (req, res, next) => (0, watch_list_controller_1.getWatchList)(req, res, next));
+router.put("/:watchListId", (req, res, next) => (0, watch_list_controller_1.updateWatchList)(req, res, next));
+router.delete("/:watchListId", (req, res, next) => (0, watch_list_controller_1.deleteWatchList)(req, res, next));
+exports.default = router;

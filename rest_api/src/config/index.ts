@@ -9,7 +9,7 @@ const envVarsSchema = Joi.object()
     MONGODB_HOST: Joi.string().required().description('Mongo DB host'),
     OAUTH_CLIENT_ID: Joi.string().required().description('OAuth client ID'),
     OAUTH_CLIENT_SECRET: Joi.string().required().description('OAuth client secret'),
-    OAUTH_CALLBACK_URL: Joi.string().default('/auth/google/callback'),
+    OAUTH_CALLBACK_URL: Joi.string().default('Oath callback URL'),
     OAUTH_SCOPE: Joi.array<string>().default(['profile', 'email']),
     SESSION_SECRET: Joi.string().required().description('Session secret key'),
     TTL: Joi.number().default(60 * 60 * 1000),

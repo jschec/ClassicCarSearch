@@ -1,7 +1,6 @@
 import express, { Express } from 'express';
 import session from 'express-session';
 import mongoStore from "connect-mongo";
-import helmet from 'helmet';
 import cors from 'cors';
 import httpStatus from 'http-status';
 import passport from 'passport';
@@ -13,9 +12,6 @@ import { errorConverter, errorHandler } from './utils/errors';
 import './utils/GoogleOAuth';
 
 const app: Express = express();
-
-// Set security HTTP headers
-app.use(helmet());
 
 // Enable cors
 app.use(cors());
@@ -40,7 +36,8 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 // Map application API routes
-app.use('/', routes);
+app.use('/api', routes);
+app.use('/', express.static(`${__dirname}/static`));
 
 // Send back a 404 error for any unknown API request
 app.use((_req, _res, next) => {

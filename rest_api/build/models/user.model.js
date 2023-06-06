@@ -53,10 +53,6 @@ const userSchema = new mongoose_1.Schema({
         required: true,
         trim: true,
     },
-    age: {
-        type: Number,
-        required: true,
-    },
     subscription: {
         type: mongoose_1.Schema.Types.UUID,
         required: false,

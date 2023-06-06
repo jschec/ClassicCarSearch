@@ -26,7 +26,6 @@ passport_1.default.use(new passport_google_oauth_1.OAuth2Strategy({
         lastName: profile.name.familyName,
         email: (_a = profile.emails) === null || _a === void 0 ? void 0 : _a[0].value,
         pictureUri: (_b = profile.photos) === null || _b === void 0 ? void 0 : _b[0].value,
-        age: -1,
     };
     user_model_1.default.findOrCreate(refUser).then((user) => {
         return done(null, user);

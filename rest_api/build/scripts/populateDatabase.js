@@ -165,7 +165,6 @@ const populateUsers = () => __awaiter(void 0, void 0, void 0, function* () {
             lastName: faker_1.faker.name.lastName(),
             email: faker_1.faker.internet.email(),
             pictureUri: faker_1.faker.image.avatar(),
-            age: faker_1.faker.datatype.number({ min: 18, max: 100 }),
         };
         const userRecord = yield user_model_1.default.create(user);
         const updateData = {
@@ -186,20 +185,36 @@ const populateCarListings = () => __awaiter(void 0, void 0, void 0, function* ()
     var _a;
     console.log("Populating cars...");
     let carIds = [];
-    let carSellerIds = [];
-    let forecastIds = [];
-    const CAR_COUNT = 100;
+    let carListingIds = [];
+    // get all cars
+    const cars = JSON.parse(fs_1.default.readFileSync('../data_provider/data/extracted_color_cars.json', 'utf-8'));
+    const carListings = JSON.parse(fs_1.default.readFileSync('../data_provider/data/carlistings.json', 'utf-8'));
+    const carSellers = JSON.parse(fs_1.default.readFileSync('../data_provider/data/sellers.json', 'utf-8'));
     // Create a progress bar to track the progress
-    const carPbar = createPBar(CAR_COUNT);
-    // get all car images
-    const carImages = JSON.parse(fs_1.default.readFileSync('data/carimgs.json', 'utf-8'));
+    const carPbar = createPBar(carListings.length);
     // Generate 'CAR_COUNT' random cars
-    for (let i = 0; i < CAR_COUNT; i++) {
+    for (let i = 0; i < carListings.length; i++) {
+        let currListing = carListings[i];
+        let currCar = cars.find((car) => car._id === currListing.car);
+        if (!currCar) {
+            continue;
+        }
+        let car = {
+            make: currCar["make"],
+            model: currCar["model"],
+            year: currCar["year"],
+            exteriorCondition: currCar["exteriorCondition"],
+            mechanicalCondition: currCar["mechanicalCondition"],
+            mileage: currCar["mileage"],
+            color: currCar["color"],
+            img: currCar["img"],
+            forecast: '',
+        };
         // Parameters for generating forecasts
         const HISTORY_LENGTH = 12;
-        const PRICE_MIN = 1000;
-        const PRICE_MAX = 100000;
-        //Create forecast
+        const PRICE_MIN = currListing["price"];
+        const PRICE_MAX = currListing["price"] * 2.5;
+        // Create forecast
         const forecast = {
             avgTimeOnMarket: faker_1.faker.datatype.number({ min: 1, max: 1000 }),
             avgPrice: faker_1.faker.datatype.number({ min: 1000, max: 100000 }),
@@ -208,64 +223,44 @@ const populateCarListings = () => __awaiter(void 0, void 0, void 0, function* ()
             priceHistory: [],
             forecastRegion: randomRegion(),
         };
-        //Fill price history array
+        // Fill price history array
         for (let j = 0; j < HISTORY_LENGTH; j++) {
             (_a = forecast.priceHistory) === null || _a === void 0 ? void 0 : _a.push(faker_1.faker.datatype.number({ min: PRICE_MIN, max: PRICE_MAX }));
         }
         //Create and assign forecast to car    
         const myForecast = yield search_forecast_model_1.default.create(forecast);
-        forecastIds.push(myForecast._id);
-        //car.forecast = myForecast;
-        const car = {
-            make: faker_1.faker.vehicle.manufacturer(),
-            model: faker_1.faker.vehicle.model(),
-            year: faker_1.faker.datatype.number({ min: 1980, max: 2020 }),
-            exteriorCondition: randomCondition(),
-            mechanicalCondition: randomCondition(),
-            mileage: faker_1.faker.datatype.number({ min: 0, max: 200000 }),
-            color: faker_1.faker.vehicle.color(),
-            img: carImages[Math.floor(Math.random() * carImages.length)],
-            forecast: forecastIds[i],
-        };
-        //Create car
+        car.forecast = myForecast._id;
+        // Create car
         const carRecord = yield car_model_1.default.create(car);
-        //Add new car id and update progress
+        // Add new car id and update progress
         carIds.push(carRecord._id);
+        carListingIds.push(currListing._id);
         carPbar.update(i + 1);
     }
     ;
     carPbar.stop();
-    console.log("Populating car sellers...");
-    // Create a progress bar to track the progress
-    const carSellerPbar = createPBar(3);
-    // Generate 1,000 random car sellers
-    for (let i = 0; i < 3; i++) {
-        const carSeller = {
-            firstName: faker_1.faker.name.firstName(),
-            lastName: faker_1.faker.name.lastName(),
-            email: faker_1.faker.internet.email()
-        };
-        const carSellerRecord = yield car_seller_model_1.default.create(carSeller);
-        carSellerIds.push(carSellerRecord._id);
-        carSellerPbar.update(i + 1);
-    }
-    ;
-    carSellerPbar.stop();
     console.log("Populating car listings...");
     // Create a progress bar to track the progress
     const carListingPbar = createPBar(carIds.length);
     // Assign each car to a listing
     for (let i = 0; i < carIds.length; i++) {
-        const carSellerId = randomArrayElement(carSellerIds);
+        let currSeller = carSellers.find((seller) => seller._id === carListings[i].seller);
+        let currCarListing = carListings[i];
+        const carSeller = {
+            firstName: currSeller["firstName"],
+            lastName: currSeller["lastName"],
+            email: currSeller["email"]
+        };
+        const carSellerRecord = yield car_seller_model_1.default.create(carSeller);
         const carListing = {
-            region: randomRegion(),
-            price: faker_1.faker.datatype.number({ min: 1000, max: 100000 }),
-            listDate: faker_1.faker.date.past(3),
+            region: currCarListing["region"],
+            price: currCarListing["price"],
+            listDate: currCarListing["listDate"],
             saleDate: null,
             car: carIds[i],
-            seller: carSellerId
+            seller: carSellerRecord._id
         };
-        //Make 1 in 5 listings closed    
+        // Make 1 in 5 listings closed    
         if (i % 5 == 0) {
             carListing.saleDate = faker_1.faker.date.recent();
         }

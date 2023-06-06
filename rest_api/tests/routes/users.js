@@ -52,8 +52,8 @@ describe('Test post a new user', function () {
 
   });
 
-  after(function (done) {
-    //clean up
+  after('clean-up post test, delete created record',function (done) {
+    
     chai.request(`https://${config.hostName}:${config.hostPort}`)
       .delete("/api/users/" + response.body.id)
       .end(function (err, res) {

@@ -8,7 +8,6 @@ export interface IUser {
   lastName: string;
   pictureUri: string;
   email: string;
-  age: number;
   subscription: string | ISubscriptionDoc;
   watchList: string | IWatchListDoc;
 }
@@ -19,7 +18,6 @@ export interface ISafeUser {
   lastName: string;
   pictureUri: string;
   email: string;
-  age: number;
   subscription: string | ISubscriptionDoc;
   watchList: string | IWatchListDoc;
 }

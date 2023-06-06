@@ -43,10 +43,6 @@ const userSchema = new Schema<IUserDoc, IUserModel>(
       required: true,
       trim: true,
     },
-    age: {
-      type: Number,
-      required: true,
-    },
     subscription: {
       type: Schema.Types.UUID,
       required: false,

@@ -159,7 +159,6 @@ const populateUsers = async () => {
       lastName: faker.name.lastName(),
       email: faker.internet.email(),
       pictureUri: faker.image.avatar(),
-      age: faker.datatype.number({min: 18, max: 100}),
     };
     const userRecord = await User.create(user);
 
@@ -185,24 +184,43 @@ const populateCarListings = async () => {
   console.log("Populating cars...");
 
   let carIds: string[] = [];
-  let carSellerIds: string[] = [];
-  let forecastIds: string[] = [];
-  const CAR_COUNT = 100;
+  let carListingIds: string[] = [];
+
+  // get all cars
+  const cars = JSON.parse(fs.readFileSync('../data_provider/data/extracted_color_cars.json', 'utf-8'));
+  const carListings = JSON.parse(fs.readFileSync('../data_provider/data/carlistings.json', 'utf-8'));
+  const carSellers = JSON.parse(fs.readFileSync('../data_provider/data/sellers.json', 'utf-8'));
 
   // Create a progress bar to track the progress
-  const carPbar = createPBar(CAR_COUNT);
-
-  // get all car images
-  const carImages = JSON.parse(fs.readFileSync('data/carimgs.json', 'utf-8'));
+  const carPbar = createPBar(carListings.length);
 
   // Generate 'CAR_COUNT' random cars
-  
-  for (let i = 0; i < CAR_COUNT; i++) {
+  for (let i = 0; i < carListings.length; i++) {
+    let currListing = carListings[i];
+    let currCar = cars.find((car: any) => car._id === currListing.car);
+
+    if (!currCar) {
+      continue;
+    }
+
+    let car: NewCarBody = {
+      make: currCar["make"],
+      model: currCar["model"],
+      year: currCar["year"],
+      exteriorCondition: currCar["exteriorCondition"],
+      mechanicalCondition: currCar["mechanicalCondition"],
+      mileage: currCar["mileage"],
+      color: currCar["color"],
+      img: currCar["img"],
+      forecast: '', 
+    };
+
     // Parameters for generating forecasts
     const HISTORY_LENGTH = 12;
-    const PRICE_MIN = 1000;
-    const PRICE_MAX = 100000;
-    //Create forecast
+    const PRICE_MIN = currListing["price"];
+    const PRICE_MAX = currListing["price"] * 2.5;
+
+    // Create forecast
     const forecast: NewSearchForecastBody = {
       avgTimeOnMarket: faker.datatype.number({ min: 1, max: 1000 }),
       avgPrice: faker.datatype.number({ min: 1000, max: 100000 }),
@@ -211,55 +229,26 @@ const populateCarListings = async () => {
       priceHistory: [],
       forecastRegion: randomRegion(),
     };
-    //Fill price history array
+
+    // Fill price history array
     for (let j = 0; j < HISTORY_LENGTH; j++) {
       forecast.priceHistory?.push(faker.datatype.number({ min: PRICE_MIN, max: PRICE_MAX }));
     }
+    
     //Create and assign forecast to car    
     const myForecast = await searchForecast.create(forecast);
-    forecastIds.push(myForecast._id);
-    //car.forecast = myForecast;
+    car.forecast = myForecast._id;
 
-    const car: NewCarBody = {
-      make: faker.vehicle.manufacturer(),
-      model: faker.vehicle.model(),
-      year: faker.datatype.number({min: 1980, max: 2020}),
-      exteriorCondition: randomCondition(),
-      mechanicalCondition: randomCondition(),
-      mileage: faker.datatype.number({min: 0, max: 200000}),
-      color: faker.vehicle.color(),
-      img: carImages[Math.floor(Math.random() * carImages.length)],
-      forecast: forecastIds[i], 
-    };
-      //Create car
-      const carRecord = await Car.create(car);
-      //Add new car id and update progress
-      carIds.push(carRecord._id);
-      carPbar.update(i + 1);
+    // Create car
+    const carRecord = await Car.create(car);
+    // Add new car id and update progress
+    carIds.push(carRecord._id);
+    carListingIds.push(currListing._id);
+    carPbar.update(i + 1);
   };
 
   carPbar.stop();
 
-  console.log("Populating car sellers...");
-
-  // Create a progress bar to track the progress
-  const carSellerPbar = createPBar(3);
-
-  // Generate 1,000 random car sellers
-  for (let i = 0; i < 3; i++) {
-    const carSeller: NewCarSellerBody = {
-      firstName: faker.name.firstName(),
-      lastName: faker.name.lastName(),
-      email: faker.internet.email()
-    };
-
-    const carSellerRecord = await CarSeller.create(carSeller);
-    carSellerIds.push(carSellerRecord._id);
-
-    carSellerPbar.update(i + 1);
-  };
-
-  carSellerPbar.stop();
 
   console.log("Populating car listings...");
 
@@ -268,21 +257,30 @@ const populateCarListings = async () => {
 
   // Assign each car to a listing
   for (let i = 0; i < carIds.length; i++) {
-    const carSellerId = randomArrayElement<string>(carSellerIds);  
+    let currSeller = carSellers.find((seller: any) => seller._id === carListings[i].seller);
+    let currCarListing = carListings[i];
 
-      const carListing: NewCarListingBody = {
-        region: randomRegion(),
-        price: faker.datatype.number({ min: 1000, max: 100000 }),
-        listDate: faker.date.past(3),
-        saleDate: null,
-        car: carIds[i],
-        seller: carSellerId
-      };
+    const carSeller: NewCarSellerBody = {
+      firstName: currSeller["firstName"],
+      lastName: currSeller["lastName"],
+      email: currSeller["email"]
+    };
+
+    const carSellerRecord = await CarSeller.create(carSeller);
+
+    const carListing: NewCarListingBody = {
+      region: currCarListing["region"],
+      price: currCarListing["price"],
+      listDate: currCarListing["listDate"],
+      saleDate: null,
+      car: carIds[i],
+      seller: carSellerRecord._id
+    };
     
-  //Make 1 in 5 listings closed    
-  if (i % 5 ==0){
-    carListing.saleDate = faker.date.recent();
-  }
+    // Make 1 in 5 listings closed    
+    if (i % 5 ==0 ) {
+      carListing.saleDate = faker.date.recent();
+    }
 
     await CarListing.create(carListing);
     carListingPbar.update(i + 1);

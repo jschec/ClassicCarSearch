@@ -27,7 +27,6 @@ passport.use(new GoogleStrategy({
       lastName: profile.name!.familyName,
       email: profile.emails?.[0].value!,
       pictureUri: profile.photos?.[0].value!,
-      age: -1,
     };
 
     User.findOrCreate(refUser).then((user) => {

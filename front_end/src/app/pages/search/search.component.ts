@@ -124,4 +124,21 @@ export class SearchComponent {
       this.numCols = 3;
     }
   }
+
+  formatPriceText(num: number): string {
+    return num.toLocaleString('en-US', {
+      style: 'currency',
+      currency: 'USD',
+      maximumFractionDigits: 0
+    });
+  }
+
+  // FIXME: dateString type is wrong, not match the actual type.
+  // formatDateText(dateString: Date): string {
+  //   const date = new Date(dateString);
+  //   const year = date.getFullYear();
+  //   const month = String(date.getMonth() + 1).padStart(2, '0');
+  //   const day = String(date.getDate()).padStart(2, '0');
+  //   return `${year}-${month}-${day}`;
+  // }
 }

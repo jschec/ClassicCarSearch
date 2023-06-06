@@ -100,7 +100,7 @@
                 <span>{{record.car.mechanicalCondition}}</span>
               </mat-list-item>
               <mat-list-item>
-                <span matListItemTitle>Price: ${{record.price}}</span>
+                <span matListItemTitle>Price: {{formatPriceText(record.price)}}</span>
               </mat-list-item>
             </mat-list>
           </mat-card-content>

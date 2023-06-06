@@ -74,3 +74,7 @@ set -a # automatically export all variables
 source .env
 set +a
 ```
+
+### Generating A New Secret
+
+openssl rand -base64 12

@@ -14,6 +14,16 @@ export interface ICar {
   mileage: number;
   color: string;
   img: string;
+  forecast: ISearchForecast;
+}
+
+export interface ISearchForecast {
+  avgTimeOnMarket: number;
+  avgPrice: number;
+  averageMileage: number;
+  ttl: number;
+  priceHistory: number[];
+  forecastRegion: string;
 }
 
 @Injectable({

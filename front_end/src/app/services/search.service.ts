@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { ICar } from './cars.service';
+import { ICar, ISearchForecast } from './cars.service';
 
 export interface ICriteria {
   search: string;
@@ -57,6 +57,15 @@ export interface ISearchCrtieria {
   make: string;
   model: string;
 }
+/*TODO
+export interface ISearchForecast {
+  avgTimeOnMarket: number;
+  avgPrice: number;
+  averageMileage: number;
+  ttl: number;
+  priceHistory: number[];
+  forecastRegion: string;
+}*/
 
 export type SearchCriteriaRequest = Partial<ISearchCrtieria>;
 

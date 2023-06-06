@@ -1,6 +1,6 @@
 import { Model, Document } from 'mongoose';
-
 import { Condition } from './condition.interfaces';
+import { ISearchForecastDoc } from './search-forecast.interfaces';
 
 export interface ICar {
   make: string;
@@ -11,7 +11,18 @@ export interface ICar {
   mileage: number;
   color: string;
   img: string;
+  forecast: string | ISearchForecastDoc;
 }
+
+/*
+export interface ISearchForecast {
+  avgTimeOnMarket: number;
+  avgPrice: number;
+  averageMileage: number;
+  ttl: number;
+  priceHistory: number[];
+  forecastRegion: string;
+}*/
 
 export type NewCarBody = ICar;
 

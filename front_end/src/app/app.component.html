@@ -7,11 +7,29 @@
     </button>
   </a>
 
-  <span class="spacer"></span>
-  <div>
-    <a mat-button [routerLink]="'/search'">Search</a>
-    <a mat-button [routerLink]="'/subscription'">Subscription</a>
-    <a mat-button [routerLink]="'/watch-list'">Watch List</a>
+  <div class="navigation-buttons">
+    <div class="section-main">
+      <a mat-button [routerLink]="'/search'">Search</a>
+      <a mat-button [routerLink]="'/subscription'">Subscription</a>
+      <a mat-button [routerLink]="'/watch-list'">Watch List</a>
+    </div>
+
+    <div class="section-auth" *ngIf="!cachedUser; else elseBlock">
+      <a mat-button [routerLink]="'/auth/login'">Login</a>
+    </div>
+
+    <ng-template #elseBlock>
+      <button mat-button [matMenuTriggerFor]="userMenu">
+        <img [src]="cachedUser?.pictureUri" class="user-avatar">
+        {{cachedUser?.firstName}} {{cachedUser?.lastName}}
+      </button>
+
+      <mat-menu #userMenu="matMenu">
+        <button mat-menu-item (click)="logout()">
+          <span>Logout</span>
+        </button>
+      </mat-menu>
+    </ng-template>
   </div>
 
 </mat-toolbar>

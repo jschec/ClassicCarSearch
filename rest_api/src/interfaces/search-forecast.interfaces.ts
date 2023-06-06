@@ -1,13 +1,14 @@
 import { Document, Model } from 'mongoose';
 
-import { ISearchDoc } from './search.interfaces';
 
 export interface ISearchForecast {
-  search: string | ISearchDoc;
   avgTimeOnMarket: number;
   avgPrice: number;
   averageMileage: number;
   ttl: number;
+  priceHistory: number[];
+  forecastRegion: string;
+  //dateHistory: Date[];
 }
 
 export type NewSearchForecastBody = ISearchForecast;

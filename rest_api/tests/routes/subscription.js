@@ -6,13 +6,14 @@ const config = require('../config');
 const expect = chai.expect;
 
 chai.use(chaiHttp);
+console.log(`https://${config.hostName}:${config.hostPort}`);
 
 describe('Test get all subscriptions', function() {
 	var requestResult;
 	var response;
 
   before(function (done) {
-    chai.request(`http://${config.hostName}:${config.hostPort}`)
+    chai.request(`https://${config.hostName}:${config.hostPort}`)
       .get("/api/subscriptions")
       .end(function (err, res) {
         requestResult = res.body;
@@ -66,7 +67,7 @@ describe('Test get single subscription', function() {
 	var response;
 
   before(function (done) {
-    chai.request(`http://${config.hostName}:${config.hostPort}`)
+    chai.request(`https://${config.hostName}:${config.hostPort}`)
       .get("/api/subscriptions/0ff057d9-77bd-4aaf-933c-9a69da97840d")
       .end(function (err, res) {
         requestResult = res.body;
@@ -106,8 +107,6 @@ describe('Test get single subscription', function() {
           "No advertisements"
       ],
       "cost": 10,
-      "createdAt": "2023-06-06T03:40:54.188Z",
-      "updatedAt": "2023-06-06T03:40:54.188Z",
       "id": "0ff057d9-77bd-4aaf-933c-9a69da97840d"
     }
 

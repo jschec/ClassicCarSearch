@@ -274,10 +274,22 @@ const randomRegion = () => {
 };
 
 const writeItemToDatabase = async (item: IAutoTempestResultItem): Promise<void> => {
+    const externalId = item.id + ":" + item.externalId + ":" + item.vin;
+
+    // filter
+    const price = (item.price) ? Number.parseInt(item.price.replace(",", "").replace("$", "")) : 0;
+    if (price == 0) {
+        // console.log('No price data in item, ignore. ExternalID', externalId);
+        return;
+    }
+    if (Number.parseInt(item.year) > 2000) {
+        // console.log(`Car.year (${item.year}) is not match, ignore. ExternalID`, externalId);
+        return;
+    }
+
     console.log(`write item start: ${item.id}`);
 
     // Car
-    const externalId = item.id + ":" + item.externalId + ":" + item.vin;
     let model = (item.model) ? item.model : item.backendModel;
     if (model == null || model === "") {
         // TODO: Missing fields
@@ -323,11 +335,6 @@ const writeItemToDatabase = async (item: IAutoTempestResultItem): Promise<void> 
         // TODO: missing fields
         region: randomRegion(),
         seller: '',
-    }
-
-    if (newCarListing.price == 0) {
-        console.log('No price data in item, ignore. ExternalID', externalId);
-        return;
     }
 
     // Find carlisting from externalid

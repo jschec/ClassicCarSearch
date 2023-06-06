@@ -8,7 +8,8 @@
     "clean-windows": "rmdir /s /q build",
     "build": "npx tsc",
     "dev:start": "npm run clean && npm run build && node build/index.js",
-    "dev:start-windows": "npm run clean-windows && npm run build && node build\\index.js"
+    "dev:start-windows": "npm run clean-windows && npm run build && node build\\index.js",
+    "export-data": "npm run clean && npm run build && node build/scripts/export-data.js"
   },
   "author": "Zhihai Deng",
   "license": "ISC",

@@ -13,7 +13,7 @@ describe('Test get all subscriptions', function() {
 
   before(function (done) {
     chai.request(`http://${config.hostName}:${config.hostPort}`)
-      .get("/subscriptions")
+      .get("/api/subscriptions")
       .end(function (err, res) {
         requestResult = res.body;
         response = res;
@@ -67,7 +67,7 @@ describe('Test get single subscription', function() {
 
   before(function (done) {
     chai.request(`http://${config.hostName}:${config.hostPort}`)
-      .get("/subscriptions/d59e3b6e-7b66-4727-8cd0-27bfb9de8187")
+      .get("/api/subscriptions/0ff057d9-77bd-4aaf-933c-9a69da97840d")
       .end(function (err, res) {
         requestResult = res.body;
         response = res;
@@ -106,9 +106,9 @@ describe('Test get single subscription', function() {
           "No advertisements"
       ],
       "cost": 10,
-      "createdAt": "2023-05-19T00:41:57.781Z",
-      "updatedAt": "2023-05-19T00:41:57.781Z",
-      "id": "d59e3b6e-7b66-4727-8cd0-27bfb9de8187"
+      "createdAt": "2023-06-06T03:40:54.188Z",
+      "updatedAt": "2023-06-06T03:40:54.188Z",
+      "id": "0ff057d9-77bd-4aaf-933c-9a69da97840d"
     }
 
     expect(response.body).to.deep.include(expectedBody);

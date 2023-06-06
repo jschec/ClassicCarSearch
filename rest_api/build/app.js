@@ -5,6 +5,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const express_session_1 = __importDefault(require("express-session"));
+const morgan_1 = __importDefault(require("morgan"));
 const connect_mongo_1 = __importDefault(require("connect-mongo"));
 const cors_1 = __importDefault(require("cors"));
 const http_status_1 = __importDefault(require("http-status"));
@@ -18,6 +19,8 @@ const app = (0, express_1.default)();
 // Enable cors
 app.use((0, cors_1.default)());
 app.options('*', (0, cors_1.default)());
+// Add logging middleware
+app.use((0, morgan_1.default)(':method :url :status :res[content-length] - :response-time ms'));
 // Enable user sessions
 app.use((0, express_session_1.default)(Object.assign(Object.assign({}, config_1.default.session), { store: connect_mongo_1.default.create(Object.assign({}, config_1.default.sessionStore)) })));
 // Parse json request body

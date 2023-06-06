@@ -3,7 +3,7 @@ const Joi = require('joi');
 const envVarsSchema = Joi.object()
   .keys({
     HOST_NAME: Joi.string().default("localhost"),
-    HOST_PORT: Joi.number().default(8000)
+    HOST_PORT: Joi.number().default(3000)
   })
   .unknown();
 

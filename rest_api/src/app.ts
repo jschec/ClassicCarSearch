@@ -1,5 +1,6 @@
 import express, { Express } from 'express';
 import session from 'express-session';
+import  morgan from 'morgan';
 import mongoStore from "connect-mongo";
 import cors from 'cors';
 import httpStatus from 'http-status';
@@ -16,6 +17,11 @@ const app: Express = express();
 // Enable cors
 app.use(cors());
 app.options('*', cors());
+
+// Add logging middleware
+app.use(
+  morgan(':method :url :status :res[content-length] - :response-time ms')
+);
 
 // Enable user sessions
 app.use(

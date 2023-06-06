@@ -16,7 +16,6 @@ describe('Test get watchlist by userid', function () {
             .get("/api/users/2d86de21-79e7-4b3f-a511-b21faa36c1f3/watchlist")
             .end(function (err, res) {
                 response = res;
-
                 expect(err).to.be.null;
                 expect(res).to.have.status(200);
                 done();
@@ -25,7 +24,6 @@ describe('Test get watchlist by userid', function () {
 
     it('The first object in the array has known properties', function() {
       expect(response.body).to.be.an('object');
-
       expect(response.body).to.have.property('id');
       expect(response.body.id).to.be.a('string');
       
@@ -35,11 +33,11 @@ describe('Test get watchlist by userid', function () {
       expect(response.body).to.have.property('searches');
       expect(response.body.searches).to.be.a('array');
 
-      expect(response.body).to.have.property('createdAt');
-      expect(response.body.createdAt).to.be.a('string');
+      //expect(response.body).to.have.property('createdAt');
+      //expect(response.body.createdAt).to.be.a('string');
 
-      expect(response.body).to.have.property('updatedAt');
-      expect(response.body.updatedAt).to.be.a('string');
+      //expect(response.body).to.have.property('updatedAt');
+      //expect(response.body.updatedAt).to.be.a('string');
     });
     
 

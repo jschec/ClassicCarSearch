@@ -33,19 +33,20 @@ describe('Test get watchlist by userid', function () {
       expect(response.body).to.have.property('searches');
       expect(response.body.searches).to.be.a('array');
 
-      //expect(response.body).to.have.property('createdAt');
-      //expect(response.body.createdAt).to.be.a('string');
+      expect(response.body).to.have.property('createdAt');
+      expect(response.body.createdAt).to.be.a('string');
 
-      //expect(response.body).to.have.property('updatedAt');
-      //expect(response.body.updatedAt).to.be.a('string');
+      expect(response.body).to.have.property('updatedAt');
+      expect(response.body.updatedAt).to.be.a('string');
+
     });
     
 
-    //it('Should return a watch list object containing the `id`, `user`, and `searches` fields.', function() {
-    //    const expectedData = fs.readFileSync('tests/data/watchlist-expected.json');
-     //   const expectedBody = JSON.parse(expectedData);
+    it('Should return a watch list object containing the `id`, `user`, and `searches` fields.', function() {
+        const expectedData = fs.readFileSync('tests/data/watchlist-expected.json');
+        const expectedBody = JSON.parse(expectedData);
 
-     //   expect(response.body).to.deep.include(expectedBody);
-    //});
+        expect(response.body).to.deep.include(expectedBody);
+    });
 
 });

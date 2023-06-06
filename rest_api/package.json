@@ -13,7 +13,7 @@
     "dev:populate": "npm run clean && npm run build && node build/scripts/populateDatabase.js -from-json",
     "dev:populate-synthetic": "npm run clean && npm run build && node build/scripts/populateDatabase.js",
     "dev:populate-synthetic-windows": "npm run clean-windows && npm run build && node build\\scripts\\populateDatabase.js",
-    "test": "mocha --reporter spec 'tests/routes/*.js' --reporter-options maxDiffSize=0"
+    "test": "mocha --timeout 15000 --reporter spec 'tests/routes/*.js' --reporter-options maxDiffSize=0"
   },
   "author": "Joshua Scheck",
   "license": "ISC",

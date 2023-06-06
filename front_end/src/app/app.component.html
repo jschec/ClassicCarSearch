@@ -20,8 +20,13 @@
 
     <ng-template #elseBlock>
       <button mat-button [matMenuTriggerFor]="userMenu">
-        <img [src]="cachedUser?.pictureUri" class="user-avatar">
-        {{cachedUser?.firstName}} {{cachedUser?.lastName}}
+        <div fxLayout="row" fxLayoutAlign="space-around center" fxLayoutGap="10px">
+          <img [src]="cachedUser?.pictureUri" class="user-avatar">
+          <div fxLayout="column" fxLayoutAlign="space-around center">
+            <div class="mat-body-strong">{{cachedUser?.firstName}} {{cachedUser?.lastName}}</div>
+            <div class="mat-small">{{cachedUser?.email}}</div>
+          </div>
+        </div>
       </button>
 
       <mat-menu #userMenu="matMenu">

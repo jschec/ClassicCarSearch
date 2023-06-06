@@ -68,7 +68,7 @@ describe('Test get single subscription', function() {
 
   before(function (done) {
     chai.request(`https://${config.hostName}:${config.hostPort}`)
-      .get("/api/subscriptions/e6932a18-5f27-425b-8a35-17acb3a67c60")
+      .get("/api/subscriptions/0ff057d9-77bd-4aaf-933c-9a69da97840d")
       .end(function (err, res) {
         requestResult = res.body;
         response = res;
@@ -107,7 +107,7 @@ describe('Test get single subscription', function() {
           "No advertisements"
       ],
       "cost": 10,
-      "id": "e6932a18-5f27-425b-8a35-17acb3a67c60"
+      "id": "0ff057d9-77bd-4aaf-933c-9a69da97840d"
     }
 
     expect(response.body).to.deep.include(expectedBody);

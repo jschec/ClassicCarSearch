@@ -1,64 +1,84 @@
 <div class="watch-list-parent" #scrollContainer>
-<div class="watch-list-container">
-    <mat-card class="watch-list-header">
-        <mat-card-header>
-            <!-- <div mat-card-avatar class="example-header-image"></div> -->
-            <mat-card-title>{{userName}}'s Watch List</mat-card-title>
-            <mat-card-subtitle>
-                <span *ngIf="loading">loading</span>
-                <span *ngIf="!loading">{{totalCount}} records</span>
-            </mat-card-subtitle>
-        </mat-card-header>
-        <mat-card-actions>
-            <!-- <button mat-button>EDIT</button> -->
-            <!-- <button mat-button>SHARE</button> -->
-        </mat-card-actions>
-    </mat-card>
 
-    <mat-progress-bar *ngIf="loading" mode="query"></mat-progress-bar>
+    <div class="watch-list-container">
+        <mat-card class="watch-list-header">
+            <mat-card-header>
+                <!-- <div mat-card-avatar class="example-header-image"></div> -->
+                <mat-card-title>{{userName}}'s Watch List</mat-card-title>
+                <mat-card-subtitle>
+                    <span *ngIf="loading">loading</span>
+                    <span *ngIf="!loading">{{totalCount}} records</span>
+                </mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-actions>
+                <!-- <button mat-button>EDIT</button> -->
+                <!-- <button mat-button>SHARE</button> -->
+            </mat-card-actions>
+        </mat-card>
 
-    <mat-grid-list *ngIf="!loading" cols="1" rowHeight="225px">
-        <mat-grid-tile *ngFor="let search of pageSearches; let i = index" [colspan]="1" [rowspan]="1">
-            <div class="watch-list-item">
-            <mat-card>
-                <mat-card-content>
-                    <div class="flex-layout flex-row watch-list-item-content">
-                        <div class="">
-                            <div class="watch-list-item-car-img-box">
-                                <img mat-card-lg-image *ngFor="let searchResults of search.results | slice:0:4" src="{{searchResults.car.img}}">
+        <mat-progress-bar *ngIf="loading" mode="query"></mat-progress-bar>
+
+        <mat-grid-list *ngIf="!loading && pageSearches.length > 0" cols="1" rowHeight="225px">
+            <mat-grid-tile *ngFor="let search of pageSearches; let i = index" [colspan]="1" [rowspan]="1">
+                <div class="watch-list-item">
+                    <mat-card>
+                        <mat-card-content>
+                            <div class="flex-layout flex-row watch-list-item-content">
+                                <div class="">
+                                    <div class="watch-list-item-car-img-box">
+                                        <img mat-card-lg-image *ngFor="let searchResults of search.results | slice:0:4"
+                                            src="{{searchResults.car.img}}">
+                                    </div>
+                                </div>
+                                <div class="flex-grow-1 flex-layout flex-row flex-wrap ">
+                                    <div class="flex-layout flex-column flex-wrap">
+                                        <div class="watch-list-item-attr"> Search #{{pageIndex * pageSize + i + 1}}
+                                        </div>
+                                        <div class="watch-list-item-attr" *ngIf="hasCriteriaRegion(search)"> Region:
+                                            {{getCriteriaRegion(search)}} </div>
+                                        <div class="watch-list-item-attr" *ngIf="hasExteriorCondition(search)">
+                                            Exterior: {{getExteriorCondition(search)}} </div>
+                                        <div class="watch-list-item-attr" *ngIf="hasMechanicalCondition(search)">
+                                            Mechanical: {{getMechanicalCondition(search)}} </div>
+                                        <div class="watch-list-item-attr"> Matched Results: {{search.results.length}}
+                                        </div>
+                                    </div>
+                                    <div class="flex-layout flex-column flex-wrap">
+                                        <div class="watch-list-item-attr"> Recommendation: BUY </div>
+                                        <div class="watch-list-item-attr"> Mean Price: {{getMeanPriceText(search)}}
+                                        </div>
+                                        <div class="watch-list-item-attr"> Median Price: {{getMedianPriceText(search)}}
+                                        </div>
+                                        <div class="watch-list-item-attr"> Median Time On Market:
+                                            {{getMedianDateText(search)}} Days </div>
+                                    </div>
+
+                                </div>
+                                <div class="flex-layout flex-column">
+                                    <button class="" mat-flat-button color="primary"
+                                        (click)="onSearchNavigate(search)">View Search</button>
+                                    <button class="" mat-flat-button color="warn"
+                                        (click)="onRemoveSearch(search.id)">Remove</button>
+                                </div>
+
                             </div>
-                        </div>
-                        <div class="flex-grow-1 flex-layout flex-row flex-wrap ">
-                            <div class="flex-layout flex-column flex-wrap">
-                                <div class="watch-list-item-attr"> Search #{{pageIndex * pageSize + i + 1}}</div>
-                                <div class="watch-list-item-attr" *ngIf="hasCriteriaRegion(search)"> Region: {{getCriteriaRegion(search)}} </div>
-                                <div class="watch-list-item-attr" *ngIf="hasExteriorCondition(search)"> Exterior: {{getExteriorCondition(search)}} </div>
-                                <div class="watch-list-item-attr" *ngIf="hasMechanicalCondition(search)"> Mechanical: {{getMechanicalCondition(search)}} </div>
-                                <div class="watch-list-item-attr"> Matched Results: {{search.results.length}} </div>
-                            </div>
-                            <div class="flex-layout flex-column flex-wrap">
-                                <div class="watch-list-item-attr"> Recommendation: BUY </div>
-                                <div class="watch-list-item-attr"> Mean Price: {{getMeanPriceText(search)}} </div>
-                                <div class="watch-list-item-attr"> Median Price: {{getMedianPriceText(search)}} </div>
-                                <div class="watch-list-item-attr"> Median Time On Market: {{getMedianDateText(search)}} Days </div>
-                            </div>
+                        </mat-card-content>
+                    </mat-card>
+                </div>
+            </mat-grid-tile>
+        </mat-grid-list>
 
-                        </div>
-                        <div class="flex-layout flex-column">
-                            <button class="" mat-flat-button color="primary" (click)="onSearchNavigate(search)">View Search</button>
-                            <button class="" mat-flat-button color="warn" (click)="onRemoveSearch(search.id)">Remove</button>
-                        </div>
+        <div *ngIf="(pageSearches.length == 0)" class="watch-list-empty-container">
 
-                    </div>
-            </mat-card-content>
-            </mat-card>
-            </div>
-        </mat-grid-tile>
-    </mat-grid-list>
+            <div class="image-mask"></div>
+            <div class="text-label">No searches saved.</div>
+        </div>
 
-    <div *ngIf="!loading" class="watch-list-footer">
-        <mat-paginator [length]="totalCount" [pageIndex]="pageIndex" [pageSize]="pageSize" [pageSizeOptions]="pageSizeList" (page)="onPageChanged($event)" aria-label="Select page" >
-        </mat-paginator>
+        <div *ngIf="!loading && pageSearches.length > 0" class="watch-list-footer">
+            <mat-paginator [length]="totalCount" [pageIndex]="pageIndex" [pageSize]="pageSize"
+                [pageSizeOptions]="pageSizeList" (page)="onPageChanged($event)" aria-label="Select page">
+            </mat-paginator>
+        </div>
     </div>
-</div>
+
 </div>

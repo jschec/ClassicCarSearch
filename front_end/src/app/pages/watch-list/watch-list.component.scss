@@ -18,6 +18,33 @@
     padding-left: 20px;
     padding-right: 20px;
 }
+
+.watch-list-empty-container {
+    max-width: 1024px;
+    height: calc(100vh - 240px);
+    min-height: 240px;
+    margin: auto;
+    padding-left: 20px;
+    padding-right: 20px;
+    background-color: #ffffff;
+    @include border-style;
+}
+.watch-list-empty-container .text-label {
+    text-align: center;
+    font-size: 18px;
+    margin-top: 20px;
+    height: 32px;
+    line-height: 32px;
+    color: #7a7a7a;
+}
+.watch-list-empty-container .image-mask {
+    background-image: url("/assets/vintage-car.svg");
+    background-position: bottom;
+    background-repeat: no-repeat;
+    background-size: 45%;
+    height: 55%;
+}
+
 .watch-list-header {
     margin-bottom: 8px;
 }

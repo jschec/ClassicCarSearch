@@ -1,10 +1,11 @@
 import httpStatus from 'http-status';
-import { Request, Response } from 'express';
+import { NextFunction, Request, Response } from 'express';
 import mongoose from 'mongoose';
 
 import { ISubscriptionDoc } from '../interfaces/subscription.interfaces';
 import * as subscriptionService from '../services/subscription.service';
 import catchAsync from '../utils/catchAsync';
+import validateAuth from '../utils/validateAuth';
 import ApiError from '../utils/ApiError';
 
 /**
@@ -15,7 +16,9 @@ import ApiError from '../utils/ApiError';
  * 
  * @returns {Promise<ISubscriptionDoc>} A promise containing the new Subscription record
  */
-export const createSubscription = catchAsync(async (req: Request, res: Response) => {
+export const createSubscription = catchAsync(async (req: Request, res: Response, next: NextFunction) => {
+  validateAuth(req, res, next);
+
   const subscription = await subscriptionService.create(req.body);
   
   res.status(httpStatus.CREATED).send(subscription);
@@ -29,7 +32,9 @@ export const createSubscription = catchAsync(async (req: Request, res: Response)
  * 
  * @returns {Promise<ISubscriptionDoc>} A promise containing the specified Subscription record
  */
-export const getSubscription = catchAsync(async (req: Request, res: Response) => {
+export const getSubscription = catchAsync(async (req: Request, res: Response, next: NextFunction) => {
+  validateAuth(req, res, next);
+
   if (req.params['subscriptionId']) {
     const subscription = await subscriptionService.getById(req.params['subscriptionId']);
     
@@ -49,7 +54,9 @@ export const getSubscription = catchAsync(async (req: Request, res: Response) =>
  * 
  * @returns {Promise<ISubscriptionDoc>} A promise containing all Subscription records
  */
-export const getSubscriptions = catchAsync(async (req: Request, res: Response) => {
+export const getSubscriptions = catchAsync(async (req: Request, res: Response, next: NextFunction) => {
+  validateAuth(req, res, next);
+
   const records = await subscriptionService.getAll();
   
   res.send(records);
@@ -63,7 +70,9 @@ export const getSubscriptions = catchAsync(async (req: Request, res: Response) =
  * 
  * @returns {Promise<ISubscriptionDoc>} A promise containing the updated Subscription record
  */
-export const updateSubscription = catchAsync(async (req: Request, res: Response) => {
+export const updateSubscription = catchAsync(async (req: Request, res: Response, next: NextFunction) => {
+  validateAuth(req, res, next);
+
   if (req.params['subscriptionId']) {
     const subscription = await subscriptionService.updateById(req.params['subscriptionId'], req.body);
     
@@ -79,7 +88,9 @@ export const updateSubscription = catchAsync(async (req: Request, res: Response)
  * 
  * @returns {Promise<void>} A promise indicating the success of the operation
  */ 
-export const deleteSubscription = catchAsync(async (req: Request, res: Response) => {
+export const deleteSubscription = catchAsync(async (req: Request, res: Response, next: NextFunction) => {
+  validateAuth(req, res, next);
+
   if (req.params['subscriptionId']) {
     await subscriptionService.deleteById(req.params['subscriptionId']);
 

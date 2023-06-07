@@ -19,7 +19,11 @@
     </div>
 
     <ng-template #elseBlock>
-      <button mat-button [matMenuTriggerFor]="userMenu">
+      <button 
+        mat-button
+        [matTooltip]="cachedUser!.id"
+        [matMenuTriggerFor]="userMenu"
+      >
         <div fxLayout="row" fxLayoutAlign="space-around center" fxLayoutGap="10px">
           <img [src]="cachedUser?.pictureUri" class="user-avatar">
           <div fxLayout="column" fxLayoutAlign="space-around center">
